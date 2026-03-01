@@ -56,13 +56,19 @@ ul  { list-style: none; }
 .nav-brand {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.55rem;
-  letter-spacing: 2px;
-  color: var(--gold);
-  text-shadow: 0 0 22px rgba(255,183,0,0.45);
   flex-shrink: 0;
+}
+
+.nav-brand img {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(255,183,0,0.4));
+  transition: filter 0.2s;
+}
+
+.nav-brand img:hover {
+  filter: drop-shadow(0 0 14px rgba(255,183,0,0.7));
 }
 
 .nav-links {
