@@ -1,15 +1,132 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <title>Risultati - Santacruz Cup</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Risultati – Santa Cruz Cup</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-    <h1>Santacruz Cup</h1>
-    <nav>
+  <!-- ══ NAVBAR ══ -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-brand">
+      <img src="logo.png" alt="Santa Cruz Cup">
+      <span class="nav-brand-text">SANTA CRUZ CUP</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="calendario.html">Calendario</a></li>
+      <li><a href="risultati.html" class="active">Risultati</a></li>
+      <li><a href="classifica.html">Classifica</a></li>
+      <li><a href="marcatori.html">Marcatori</a></li>
+      <li><a href="squadre.html">Squadre</a></li>
+      <li><a href="regolamento.html">Regolamento</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">🏠 Home</a>
+    <a href="calendario.html">📅 Calendario</a>
+    <a href="risultati.html">📊 Risultati</a>
+    <a href="classifica.html">🏆 Classifica</a>
+    <a href="marcatori.html">⚽ Marcatori</a>
+    <a href="squadre.html">👥 Squadre</a>
+    <a href="regolamento.html">📋 Regolamento</a>
+  </div>
+
+  <!-- ══ PAGE HEADER ══ -->
+  <header class="page-header">
+    <div class="page-eyebrow">Santa Cruz Cup · 2026</div>
+    <h1 class="page-title">RISUL<span>TATI</span></h1>
+    <p class="page-subtitle">Tutti i risultati delle partite disputate.</p>
+  </header>
+
+  <!-- ══ CONTENUTO ══ -->
+  <section class="section">
+    <div class="match-list">
+
+      <div class="match-row played reveal">
+        <div class="match-teams">
+          <span class="team team-a">Team A</span>
+          <span class="score">2 - 1</span>
+          <span class="team team-b">Team B</span>
+        </div>
+      </div>
+
+      <div class="match-row played reveal">
+        <div class="match-teams">
+          <span class="team team-a">Team A</span>
+          <span class="score">2 - 1</span>
+          <span class="team team-b">Team B</span>
+        </div>
+      </div>
+
+      <div class="match-row played reveal">
+        <div class="match-teams">
+          <span class="team team-a">Team A</span>
+          <span class="score">2 - 1</span>
+          <span class="team team-b">Team B</span>
+        </div>
+      </div>
+
+      <div class="match-row played reveal">
+        <div class="match-teams">
+          <span class="team team-a">Team A</span>
+          <span class="score">2 - 1</span>
+          <span class="team team-b">Team B</span>
+        </div>
+      </div>
+
+      <div class="match-row played reveal">
+        <div class="match-teams">
+          <span class="team team-a">Team A</span>
+          <span class="score">2 - 1</span>
+          <span class="team team-b">Team B</span>
+        </div>
+      </div>
+
+      <div class="match-row played reveal">
+        <div class="match-teams">
+          <span class="team team-a">Team A</span>
+          <span class="score">2 - 1</span>
+          <span class="team team-b">Team B</span>
+        </div>
+      </div>
+
+      <div class="match-row played reveal">
+        <div class="match-teams">
+          <span class="team team-a">Team A</span>
+          <span class="score">2 - 1</span>
+          <span class="team team-b">Team B</span>
+        </div>
+      </div>
+
+      <div class="match-row played reveal">
+        <div class="match-teams">
+          <span class="team team-a">Team C</span>
+          <span class="score">0 - 3</span>
+          <span class="team team-b">Team D</span>
+        </div>
+      </div>
+
+      <!-- ➕ Aggiungi altri risultati qui copiando il blocco .match-row -->
+
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="footer-top">
+      <div>
+        <a href="index.html"><img src="logo.png" alt="Santa Cruz Cup" style="height:50px; margin-bottom:0.4rem; filter:drop-shadow(0 0 8px rgba(255,183,0,0.4));"></a>
+        <div class="footer-tagline">Torneo Giovanile di Calcio · Edizione 2026</div>
+      </div>
+      <nav class="footer-nav">
         <a href="index.html">Home</a>
         <a href="calendario.html">Calendario</a>
         <a href="risultati.html">Risultati</a>
@@ -17,50 +134,48 @@
         <a href="marcatori.html">Marcatori</a>
         <a href="squadre.html">Squadre</a>
         <a href="regolamento.html">Regolamento</a>
-    </nav>
-</header>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Santa Cruz Cup. Tutti i diritti riservati.</span>
+      <span class="footer-copy">Fatto con ❤️ per i giovani campioni</span>
+    </div>
+  </footer>
 
-<section>
-    <h2>📊 Risultati</h2>
-    <table>
-        <tr>
-            <th>Partita</th>
-            <th>Risultato</th>
-        </tr>
-        <tr>
-            <td>Team A vs Team B</td>
-            <td>2 - 1</td>
-        </tr>
-        <tr>
-            <td>Team A vs Team B</td>
-            <td>2 - 1</td>
-        </tr>
-        <tr>
-            <td>Team A vs Team B</td>
-            <td>2 - 1</td>
-        </tr>
-        <tr>
-            <td>Team A vs Team B</td>
-            <td>2 - 1</td>
-        </tr>
-        <tr>
-            <td>Team A vs Team B</td>
-            <td>2 - 1</td>
-        </tr>
-        <tr>
-            <td>Team A vs Team B</td>
-            <td>2 - 1</td>
-        </tr>
-        <tr>
-            <td>Team A vs Team B</td>
-            <td>2 - 1</td>
-        </tr>
-        <tr>
-            <td>Team C vs Team D</td>
-            <td>0 - 3</td>
-        </tr>
-    </table>
-</section>
+  <!-- ══ SCRIPT ══ -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var hamburger = document.getElementById('hamburger');
+    var mobileMenu = document.getElementById('mobileMenu');
+    if (hamburger && mobileMenu) {
+      hamburger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        mobileMenu.classList.toggle('open');
+      });
+      document.addEventListener('click', function(e) {
+        if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+          mobileMenu.classList.remove('open');
+        }
+      });
+      mobileMenu.querySelectorAll('a').forEach(function(a) {
+        a.addEventListener('click', function() { mobileMenu.classList.remove('open'); });
+      });
+    }
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry, idx) {
+          if (entry.isIntersecting) {
+            setTimeout(function() { entry.target.classList.add('in'); }, idx * 70);
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
+    } else {
+      document.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('in'); });
+    }
+  });
+  </script>
 
 </body>
 </html>
