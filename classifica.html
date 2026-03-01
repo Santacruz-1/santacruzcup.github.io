@@ -22,7 +22,8 @@
 
 <section>
     <h2>🏆 Classifica</h2>
-    <table>
+
+    <table id="tabellaClassifica">
         <tr>
             <th>Posizione</th>
             <th>Squadra</th>
@@ -31,24 +32,97 @@
             <th>Pareggi</th>
             <th>Sconfitte</th>
         </tr>
-        <tr>
-            <td>1</td>
-            <td>Team D</td>
-            <td>9</td>
-            <td>3</td>
-            <td>0</td>
-            <td>0</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Team A</td>
-            <td>6</td>
-            <td>2</td>
-            <td>0</td>
-            <td>1</td>
-        </tr>
     </table>
 </section>
+
+<script>
+const squadre = [
+    "Team A",
+    "Team B",
+    "Team C",
+    "Team D",
+    "Team E"
+];
+
+function calcolaClassifica() {
+
+    let risultati = JSON.parse(localStorage.getItem("risultati")) || [];
+
+    let classifica = {};
+
+    squadre.forEach(nome => {
+        classifica[nome] = {
+            punti: 0,
+            vittorie: 0,
+            pareggi: 0,
+            sconfitte: 0
+        };
+    });
+
+    risultati.forEach(partita => {
+
+        let s1 = partita.squadra1;
+        let s2 = partita.squadra2;
+        let g1 = partita.gol1;
+        let g2 = partita.gol2;
+
+        if (g1 > g2) {
+            classifica[s1].punti += 3;
+            classifica[s1].vittorie += 1;
+            classifica[s2].sconfitte += 1;
+        } 
+        else if (g2 > g1) {
+            classifica[s2].punti += 3;
+            classifica[s2].vittorie += 1;
+            classifica[s1].sconfitte += 1;
+        } 
+        else {
+            classifica[s1].punti += 1;
+            classifica[s2].punti += 1;
+            classifica[s1].pareggi += 1;
+            classifica[s2].pareggi += 1;
+        }
+
+    });
+
+    mostraClassifica(classifica);
+}
+
+function mostraClassifica(classifica) {
+
+    let array = Object.entries(classifica);
+
+    array.sort((a, b) => b[1].punti - a[1].punti);
+
+    const tabella = document.getElementById("tabellaClassifica");
+
+    tabella.innerHTML = `
+        <tr>
+            <th>Posizione</th>
+            <th>Squadra</th>
+            <th>Punti</th>
+            <th>Vittorie</th>
+            <th>Pareggi</th>
+            <th>Sconfitte</th>
+        </tr>
+    `;
+
+    array.forEach(([nome, dati], index) => {
+        tabella.innerHTML += `
+            <tr>
+                <td>${index + 1}</td>
+                <td>${nome}</td>
+                <td>${dati.punti}</td>
+                <td>${dati.vittorie}</td>
+                <td>${dati.pareggi}</td>
+                <td>${dati.sconfitte}</td>
+            </tr>
+        `;
+    });
+}
+
+calcolaClassifica();
+</script>
 
 </body>
 </html>
