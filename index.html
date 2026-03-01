@@ -352,47 +352,7 @@ a  { text-decoration: none; color: inherit; }
   transform: translateY(-3px);
 }
 
-/* ═══════════════════════════════════
-   STATS BAR
-═══════════════════════════════════ */
-.stats-bar {
-  position: relative;
-  z-index: 5;
-  background: linear-gradient(90deg, var(--gold-dark) 0%, var(--gold) 30%, var(--gold-light) 60%, var(--gold) 80%, var(--gold-dark) 100%);
-  padding: 1rem 7%;
-  display: flex;
-  align-items: center;
-  gap: 0;
-  overflow: hidden;
-}
-.stat-item {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  flex: 1;
-  justify-content: center;
-}
-.stat-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2.2rem;
-  color: var(--navy);
-  line-height: 1;
-}
-.stat-info { display: flex; flex-direction: column; gap: 0.05rem; }
-.stat-label {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 700;
-  font-size: 0.72rem;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: rgba(10,22,40,0.65);
-  line-height: 1.2;
-}
-.stat-divider {
-  width: 1px; height: 36px;
-  background: rgba(10,22,40,0.2);
-  flex-shrink: 0;
-}
+
 
 /* ═══════════════════════════════════
    SECTIONS – generic
@@ -586,50 +546,7 @@ a  { text-decoration: none; color: inherit; }
 .match-badge.u14 { background: #8B1A1A; }
 .match-badge.u16 { background: #5C3E1A; }
 
-/* ═══════════════════════════════════
-   CATEGORY CARDS
-═══════════════════════════════════ */
-.cat-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  gap: 1.2rem;
-  margin-top: 2.5rem;
-}
-.cat-card {
-  border-radius: 12px;
-  padding: 1.8rem 1.4rem;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.25s, box-shadow 0.25s;
-}
-.cat-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,0.4); }
-.cat-card.u10 { background: linear-gradient(135deg, #0D3350, #1A5C8B); border: 1px solid #1A5C8B; }
-.cat-card.u12 { background: linear-gradient(135deg, #0B3028, #1A6B4E); border: 1px solid #1A6B4E; }
-.cat-card.u14 { background: linear-gradient(135deg, #3A0A0A, #8B1A1A); border: 1px solid #8B1A1A; }
-.cat-card.u16 { background: linear-gradient(135deg, #2A1A08, #8B5E1A); border: 1px solid #8B5E1A; }
-.cat-age {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 3rem;
-  line-height: 1;
-  color: var(--white);
-  margin-bottom: 0.3rem;
-}
-.cat-label {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 700;
-  font-size: 0.75rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.55);
-  margin-bottom: 0.8rem;
-}
-.cat-count {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: rgba(255,255,255,0.7);
-}
+
 
 /* ═══════════════════════════════════
    FOOTER
@@ -806,40 +723,7 @@ footer {
   </div>
 </section>
 
-<!-- ══ STATS BAR ══ -->
-<div class="stats-bar">
-  <div class="stat-item">
-    <span class="stat-num">16</span>
-    <div class="stat-info">
-      <span class="stat-label">Squadre</span>
-      <span class="stat-label">Iscritte</span>
-    </div>
-  </div>
-  <div class="stat-divider"></div>
-  <div class="stat-item">
-    <span class="stat-num">48</span>
-    <div class="stat-info">
-      <span class="stat-label">Partite</span>
-      <span class="stat-label">in programma</span>
-    </div>
-  </div>
-  <div class="stat-divider"></div>
-  <div class="stat-item">
-    <span class="stat-num">4</span>
-    <div class="stat-info">
-      <span class="stat-label">Categorie</span>
-      <span class="stat-label">Giovanili</span>
-    </div>
-  </div>
-  <div class="stat-divider"></div>
-  <div class="stat-item">
-    <span class="stat-num">200+</span>
-    <div class="stat-info">
-      <span class="stat-label">Ragazzi</span>
-      <span class="stat-label">Partecipanti</span>
-    </div>
-  </div>
-</div>
+
 
 <!-- ══ BENVENUTO ══ -->
 <section class="section">
@@ -874,100 +758,7 @@ footer {
   </div>
 </section>
 
-<hr class="gold-divider">
 
-<!-- ══ CATEGORIE ══ -->
-<section class="section section-alt">
-  <div class="reveal">
-    <div class="section-eyebrow">Categorie</div>
-    <h2 class="section-title">LE NOSTRE CATEGORIE</h2>
-    <p class="section-lead">Ogni fascia d'età ha il suo campionato, le sue regole e il suo trofeo.</p>
-  </div>
-  <div class="cat-grid">
-    <div class="cat-card u10 reveal">
-      <div class="cat-age">U10</div>
-      <div class="cat-label">Under 10</div>
-      <div class="cat-count">4 Squadre · 12 Partite</div>
-    </div>
-    <div class="cat-card u12 reveal">
-      <div class="cat-age">U12</div>
-      <div class="cat-label">Under 12</div>
-      <div class="cat-count">4 Squadre · 12 Partite</div>
-    </div>
-    <div class="cat-card u14 reveal">
-      <div class="cat-age">U14</div>
-      <div class="cat-label">Under 14</div>
-      <div class="cat-count">4 Squadre · 12 Partite</div>
-    </div>
-    <div class="cat-card u16 reveal">
-      <div class="cat-age">U16</div>
-      <div class="cat-label">Under 16</div>
-      <div class="cat-count">4 Squadre · 12 Partite</div>
-    </div>
-  </div>
-</section>
-
-<hr class="gold-divider">
-
-<!-- ══ PROSSIME PARTITE ══ -->
-<section class="section">
-  <div class="reveal">
-    <div class="section-eyebrow">In Arrivo</div>
-    <h2 class="section-title">PROSSIME PARTITE</h2>
-    <p class="section-lead">Non perdere i prossimi scontri. Scegli la tua squadra del cuore e tifala!</p>
-  </div>
-  <div class="match-list">
-    <div class="match-row reveal">
-      <div class="match-teams">
-        <span class="team team-a">FC Aquile</span>
-        <span class="vs">VS</span>
-        <span class="team team-b">Los Tigres</span>
-      </div>
-      <div class="match-info">
-        <span class="match-date">Sab 8 Mar · 10:00</span>
-        <span class="match-badge u12">Under 12</span>
-      </div>
-    </div>
-    <div class="match-row reveal">
-      <div class="match-teams">
-        <span class="team team-a">Stella Rossa</span>
-        <span class="vs">VS</span>
-        <span class="team team-b">Real Fuoco</span>
-      </div>
-      <div class="match-info">
-        <span class="match-date">Sab 8 Mar · 12:00</span>
-        <span class="match-badge u14">Under 14</span>
-      </div>
-    </div>
-    <div class="match-row reveal">
-      <div class="match-teams">
-        <span class="team team-a">Juventus Boys</span>
-        <span class="vs">VS</span>
-        <span class="team team-b">Cruz United</span>
-      </div>
-      <div class="match-info">
-        <span class="match-date">Dom 9 Mar · 14:30</span>
-        <span class="match-badge u16">Under 16</span>
-      </div>
-    </div>
-    <div class="match-row reveal">
-      <div class="match-teams">
-        <span class="team team-a">Leoni FC</span>
-        <span class="vs">VS</span>
-        <span class="team team-b">Falcons</span>
-      </div>
-      <div class="match-info">
-        <span class="match-date">Dom 9 Mar · 16:00</span>
-        <span class="match-badge u10">Under 10</span>
-      </div>
-    </div>
-  </div>
-  <div style="text-align:center; margin-top:2rem;">
-    <a href="calendario.html" class="btn-outline reveal">Vedi tutto il calendario →</a>
-  </div>
-</section>
-
-<hr class="gold-divider">
 
 <!-- ══ QUICK LINKS ══ -->
 <section class="section section-alt">
