@@ -97,49 +97,52 @@ a  { text-decoration: none; color: inherit; }
   background: rgba(255,183,0,0.1);
 }
 
-/* Hamburger (mobile) */
+/* Hamburger (mobile) — nascosto su desktop) */
 .hamburger {
   display: none;
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
   padding: 4px;
+  background: none;
+  border: none;
 }
 .hamburger span {
-  width: 24px; height: 2px;
+  width: 26px; height: 2px;
   background: var(--gold);
   border-radius: 2px;
+  display: block;
   transition: all 0.3s;
 }
 
-/* Mobile menu */
+/* Mobile menu — nascosto di default */
 .mobile-menu {
   display: none;
   position: fixed;
   top: 66px; left: 0; right: 0;
   background: rgba(10,22,40,0.98);
   backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-bottom: 2px solid var(--gold);
   z-index: 199;
   padding: 1rem 2rem 1.5rem;
   flex-direction: column;
   gap: 0.2rem;
 }
-
 .mobile-menu.open { display: flex; }
 
 .mobile-menu a {
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.1rem;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: rgba(245,240,232,0.8);
-  padding: 0.7rem 0;
-  border-bottom: 1px solid rgba(255,183,0,0.1);
+  color: rgba(245,240,232,0.85);
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255,183,0,0.12);
   transition: color 0.18s;
 }
-
+.mobile-menu a:last-child { border-bottom: none; }
 .mobile-menu a:hover { color: var(--gold); }
 
 /* ═══════════════════════════════════
@@ -636,9 +639,9 @@ footer {
    RESPONSIVE
 ═══════════════════════════════════ */
 @media (max-width: 860px) {
-  .navbar { padding: 0 1.5rem; }
-  .nav-links { display: none; }
-  .hamburger { display: flex; }
+  .navbar       { padding: 0 1.5rem; }
+  .nav-links    { display: none !important; }
+  .hamburger    { display: flex !important; }
 
   .hero-photo { width: 100%; opacity: 0.18; }
   .hero-photo-mask {
@@ -646,10 +649,6 @@ footer {
   }
   .hero-content { padding: 2rem 1.5rem; max-width: 100%; }
   .hero-title { font-size: clamp(3.5rem, 16vw, 6rem); }
-
-  .stats-bar { flex-wrap: wrap; gap: 0.8rem; padding: 1rem 5%; }
-  .stat-item { flex: 0 0 45%; justify-content: flex-start; }
-  .stat-divider { display: none; }
 
   .section { padding: 3.5rem 5%; }
   .match-teams { min-width: 0; }
@@ -825,52 +824,78 @@ footer {
 
 <!-- ══ SCRIPTS ══ -->
 <script>
+document.addEventListener('DOMContentLoaded', function() {
+
   // ── Hamburger menu
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobileMenu');
-  hamburger.addEventListener('click', () => {
-    mobileMenu.classList.toggle('open');
-  });
-  document.addEventListener('click', (e) => {
-    if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
-      mobileMenu.classList.remove('open');
-    }
-  });
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobileMenu');
+
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      mobileMenu.classList.toggle('open');
+    });
+    document.addEventListener('click', function(e) {
+      if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+        mobileMenu.classList.remove('open');
+      }
+    });
+    // Chiudi menu quando si clicca un link
+    mobileMenu.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        mobileMenu.classList.remove('open');
+      });
+    });
+  }
 
   // ── Fire sparks
-  const sparksContainer = document.getElementById('sparks');
-  for (let i = 0; i < 35; i++) {
-    const s = document.createElement('div');
-    s.className = 'spark';
-    s.style.cssText = `
-      left: ${28 + Math.random() * 45}%;
-      top:  ${38 + Math.random() * 50}%;
-      width: ${2 + Math.random() * 4}px;
-      height: ${2 + Math.random() * 4}px;
-      background: ${Math.random() > 0.45 ? '#FFB700' : '#FF6B00'};
-      animation-duration: ${2 + Math.random() * 3.5}s;
-      animation-delay: ${Math.random() * 4}s;
-    `;
-    sparksContainer.appendChild(s);
+  var sparksContainer = document.getElementById('sparks');
+  if (sparksContainer) {
+    for (var i = 0; i < 35; i++) {
+      var s = document.createElement('div');
+      s.className = 'spark';
+      s.style.cssText =
+        'left:' + (28 + Math.random() * 45) + '%;' +
+        'top:' + (38 + Math.random() * 50) + '%;' +
+        'width:' + (2 + Math.random() * 4) + 'px;' +
+        'height:' + (2 + Math.random() * 4) + 'px;' +
+        'background:' + (Math.random() > 0.45 ? '#FFB700' : '#FF6B00') + ';' +
+        'animation-duration:' + (2 + Math.random() * 3.5) + 's;' +
+        'animation-delay:' + (Math.random() * 4) + 's;';
+      sparksContainer.appendChild(s);
+    }
   }
 
   // ── Scroll reveal
-  const revealEls = document.querySelectorAll('.reveal');
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, idx) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('in'), idx * 70);
-        revealObserver.unobserve(entry.target);
-      }
+  if ('IntersectionObserver' in window) {
+    var revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry, idx) {
+        if (entry.isIntersecting) {
+          setTimeout(function() {
+            entry.target.classList.add('in');
+          }, idx * 70);
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(function(el) {
+      revealObserver.observe(el);
     });
-  }, { threshold: 0.12 });
-  revealEls.forEach(el => revealObserver.observe(el));
+  } else {
+    // Fallback per browser vecchi
+    document.querySelectorAll('.reveal').forEach(function(el) {
+      el.classList.add('in');
+    });
+  }
 
   // ── Active nav link
-  const currentPage = location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-links a').forEach(a => {
+  var currentPage = location.pathname.split('/').pop() || 'index.html';
+  if (currentPage === '') currentPage = 'index.html';
+  document.querySelectorAll('.nav-links a').forEach(function(a) {
     a.classList.toggle('active', a.getAttribute('href') === currentPage);
   });
+
+});
 </script>
 </body>
 </html>
