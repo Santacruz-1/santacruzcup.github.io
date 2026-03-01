@@ -1,87 +1,52 @@
 <script>
-const squadre = [
-    "Team A",
-    "Team B",
-    "Team C",
-    "Team D",
-    "Team E"
+const squadre = ["Team A","Team B","Team C","Team D","Team E"];
+
+// RISULTATI scritti in JS invece di leggere la tabella di un'altra pagina
+const risultati = [
+  { squadra1: "Team A", gol1: 2, squadra2: "Team B", gol2: 1 },
+  { squadra1: "Team C", gol1: 0, squadra2: "Team D", gol2: 3 },
+  { squadra1: "Team A", gol1: 1, squadra2: "Team D", gol2: 1 }
 ];
 
 function calcolaClassifica() {
+  let classifica = {};
+  squadre.forEach(nome=>{
+    classifica[nome] = { punti:0, vittorie:0, pareggi:0, sconfitte:0 };
+  });
 
-    let risultati = JSON.parse(localStorage.getItem("risultati")) || [];
+  risultati.forEach(p=>{
+    if(p.gol1>p.gol2){
+      classifica[p.squadra1].punti +=3;
+      classifica[p.squadra1].vittorie +=1;
+      classifica[p.squadra2].sconfitte +=1;
+    } else if(p.gol2>p.gol1){
+      classifica[p.squadra2].punti +=3;
+      classifica[p.squadra2].vittorie +=1;
+      classifica[p.squadra1].sconfitte +=1;
+    } else {
+      classifica[p.squadra1].punti +=1;
+      classifica[p.squadra2].punti +=1;
+      classifica[p.squadra1].pareggi +=1;
+      classifica[p.squadra2].pareggi +=1;
+    }
+  });
 
-    let classifica = {};
+  const tab = document.getElementById("tabellaClassifica");
+  tab.innerHTML = `<tr>
+      <th>Posizione</th><th>Squadra</th><th>Punti</th><th>Vittorie</th><th>Pareggi</th><th>Sconfitte</th>
+  </tr>`;
 
-    squadre.forEach(nome => {
-        classifica[nome] = {
-            punti: 0,
-            vittorie: 0,
-            pareggi: 0,
-            sconfitte: 0
-        };
-    });
-
-    risultati.forEach(partita => {
-
-        let s1 = partita.squadra1;
-        let s2 = partita.squadra2;
-        let g1 = partita.gol1;
-        let g2 = partita.gol2;
-
-        if (!classifica[s1] || !classifica[s2]) return;
-
-        if (g1 > g2) {
-            classifica[s1].punti += 3;
-            classifica[s1].vittorie += 1;
-            classifica[s2].sconfitte += 1;
-        } 
-        else if (g2 > g1) {
-            classifica[s2].punti += 3;
-            classifica[s2].vittorie += 1;
-            classifica[s1].sconfitte += 1;
-        } 
-        else {
-            classifica[s1].punti += 1;
-            classifica[s2].punti += 1;
-            classifica[s1].pareggi += 1;
-            classifica[s2].pareggi += 1;
-        }
-    });
-
-    mostraClassifica(classifica);
-}
-
-function mostraClassifica(classifica) {
-
-    let array = Object.entries(classifica);
-
-    array.sort((a, b) => b[1].punti - a[1].punti);
-
-    const tabella = document.getElementById("tabellaClassifica");
-
-    tabella.innerHTML = `
-        <tr>
-            <th>Posizione</th>
-            <th>Squadra</th>
-            <th>Punti</th>
-            <th>Vittorie</th>
-            <th>Pareggi</th>
-            <th>Sconfitte</th>
-        </tr>
-    `;
-
-    array.forEach(([nome, dati], index) => {
-        tabella.innerHTML += `
-            <tr>
-                <td>${index + 1}</td>
-                <td>${nome}</td>
-                <td>${dati.punti}</td>
-                <td>${dati.vittorie}</td>
-                <td>${dati.pareggi}</td>
-                <td>${dati.sconfitte}</td>
-            </tr>
-        `;
+  Object.entries(classifica)
+    .sort((a,b)=>b[1].punti - a[1].punti)
+    .forEach(([nome,dati],i)=>{
+      tab.innerHTML += `<tr>
+          <td>${i+1}</td>
+          <td>${nome}</td>
+          <td>${dati.punti}</td>
+          <td>${dati.vittorie}</td>
+          <td>${dati.pareggi}</td>
+          <td>${dati.sconfitte}</td>
+      </tr>`;
     });
 }
 
