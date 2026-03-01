@@ -1,15 +1,100 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <title>Calendario - Santacruz Cup</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendario – Santa Cruz Cup</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-    <h1>Santacruz Cup</h1>
-    <nav>
+  <!-- ══ NAVBAR ══ -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-brand">✝ Santa Cruz Cup</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="calendario.html" class="active">Calendario</a></li>
+      <li><a href="risultati.html">Risultati</a></li>
+      <li><a href="classifica.html">Classifica</a></li>
+      <li><a href="marcatori.html">Marcatori</a></li>
+      <li><a href="squadre.html">Squadre</a></li>
+      <li><a href="regolamento.html">Regolamento</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">🏠 Home</a>
+    <a href="calendario.html">📅 Calendario</a>
+    <a href="risultati.html">📊 Risultati</a>
+    <a href="classifica.html">🏆 Classifica</a>
+    <a href="marcatori.html">⚽ Marcatori</a>
+    <a href="squadre.html">👥 Squadre</a>
+    <a href="regolamento.html">📋 Regolamento</a>
+  </div>
+
+  <!-- ══ PAGE HEADER ══ -->
+  <header class="page-header">
+    <div class="page-eyebrow">Santa Cruz Cup · 2026</div>
+    <h1 class="page-title">CALEN<span>DARIO</span></h1>
+    <p class="page-subtitle">Tutte le partite, date e orari del torneo.</p>
+  </header>
+
+  <!-- ══ CONTENUTO ══ -->
+  <section class="section">
+
+    <!-- Filtro categorie -->
+    <div class="tabs reveal">
+      <button class="tab active" onclick="filtra('tutti', this)">Tutte</button>
+      <button class="tab" onclick="filtra('u10', this)">Under 10</button>
+      <button class="tab" onclick="filtra('u12', this)">Under 12</button>
+      <button class="tab" onclick="filtra('u14', this)">Under 14</button>
+      <button class="tab" onclick="filtra('u16', this)">Under 16</button>
+    </div>
+
+    <!-- Lista partite -->
+    <div class="match-list" id="matchList">
+
+      <div class="match-row reveal" data-cat="u12">
+        <div class="match-teams">
+          <span class="team team-a">Team A</span>
+          <span class="vs">VS</span>
+          <span class="team team-b">Team B</span>
+        </div>
+        <div class="match-meta">
+          <span class="match-date">Mar 12 Mar · 15:00 · Campo 1</span>
+          <span class="badge badge-u12">Under 12</span>
+        </div>
+      </div>
+
+      <div class="match-row reveal" data-cat="u14">
+        <div class="match-teams">
+          <span class="team team-a">Team C</span>
+          <span class="vs">VS</span>
+          <span class="team team-b">Team D</span>
+        </div>
+        <div class="match-meta">
+          <span class="match-date">Mer 13 Mar · 17:00 · Campo 2</span>
+          <span class="badge badge-u14">Under 14</span>
+        </div>
+      </div>
+
+      <!-- ➕ Aggiungi altre partite qui copiando il blocco .match-row -->
+
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">✝ Santa Cruz Cup</div>
+        <div class="footer-tagline">Torneo Giovanile di Calcio · Edizione 2026</div>
+      </div>
+      <nav class="footer-nav">
         <a href="index.html">Home</a>
         <a href="calendario.html">Calendario</a>
         <a href="risultati.html">Risultati</a>
@@ -17,32 +102,69 @@
         <a href="marcatori.html">Marcatori</a>
         <a href="squadre.html">Squadre</a>
         <a href="regolamento.html">Regolamento</a>
-    </nav>
-</header>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Santa Cruz Cup. Tutti i diritti riservati.</span>
+      <span class="footer-copy">Fatto con ❤️ per i giovani campioni</span>
+    </div>
+  </footer>
 
-<section>
-    <h2>📅 Calendario Partite</h2>
-    <table>
-        <tr>
-            <th>Data</th>
-            <th>Orario</th>
-            <th>Squadre</th>
-            <th>Campo</th>
-        </tr>
-        <tr>
-            <td>12/03/2024</td>
-            <td>15:00</td>
-            <td>Team A vs Team B</td>
-            <td>Campo 1</td>
-        </tr>
-        <tr>
-            <td>13/03/2024</td>
-            <td>17:00</td>
-            <td>Team C vs Team D</td>
-            <td>Campo 2</td>
-        </tr>
-    </table>
-</section>
+  <!-- ══ SCRIPT ══ -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+
+    // Hamburger menu
+    var hamburger = document.getElementById('hamburger');
+    var mobileMenu = document.getElementById('mobileMenu');
+    if (hamburger && mobileMenu) {
+      hamburger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        mobileMenu.classList.toggle('open');
+      });
+      document.addEventListener('click', function(e) {
+        if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+          mobileMenu.classList.remove('open');
+        }
+      });
+      mobileMenu.querySelectorAll('a').forEach(function(a) {
+        a.addEventListener('click', function() { mobileMenu.classList.remove('open'); });
+      });
+    }
+
+    // Scroll reveal
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry, idx) {
+          if (entry.isIntersecting) {
+            setTimeout(function() { entry.target.classList.add('in'); }, idx * 70);
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
+    } else {
+      document.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('in'); });
+    }
+
+  });
+
+  // Filtro per categoria
+  function filtra(cat, btn) {
+    // Aggiorna tab attivo
+    document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
+    btn.classList.add('active');
+
+    // Mostra/nascondi righe
+    document.querySelectorAll('#matchList .match-row').forEach(function(row) {
+      if (cat === 'tutti' || row.dataset.cat === cat) {
+        row.style.display = 'flex';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+  </script>
 
 </body>
 </html>
