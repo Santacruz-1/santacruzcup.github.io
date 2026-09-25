@@ -4,5 +4,11 @@
     "nome": "ciao",
     "categoria": "U12",
     "girone": "A"
+  },
+  {
+    "id": "T002",
+    "nome": "e",
+    "categoria": "E",
+    "girone": "E"
   }
 ]
