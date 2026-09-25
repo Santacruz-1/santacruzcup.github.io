@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -6,14 +7,16 @@
   <title>Classifica – Santa Cruz Cup</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <!-- ══ NAVBAR ══ -->
+  <!-- NAVBAR -->
   <nav class="navbar">
     <a href="index.html" class="nav-brand">
       <img src="logo.png" alt="Santa Cruz Cup">
       <span class="nav-brand-text">SANTA CRUZ CUP</span>
     </a>
+
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="calendario.html">Calendario</a></li>
@@ -23,12 +26,16 @@
       <li><a href="squadre.html">Squadre</a></li>
       <li><a href="regolamento.html">Regolamento</a></li>
     </ul>
+
     <div class="hamburger" id="hamburger">
-      <span></span><span></span><span></span>
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
   </nav>
 
-  <!-- Mobile menu -->
+
+  <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="index.html">🏠 Home</a>
     <a href="calendario.html">📅 Calendario</a>
@@ -39,18 +46,34 @@
     <a href="regolamento.html">📋 Regolamento</a>
   </div>
 
-  <!-- ══ PAGE HEADER ══ -->
+
+  <!-- HEADER -->
   <header class="page-header">
-    <div class="page-eyebrow">Santa Cruz Cup · 2026</div>
-    <h1 class="page-title">CLASSI<span>FICA</span></h1>
-    <p class="page-subtitle">La situazione aggiornata del torneo.</p>
+
+    <div class="page-eyebrow">
+      Santa Cruz Cup · 2026
+    </div>
+
+    <h1 class="page-title">
+      CLASSI<span>FICA</span>
+    </h1>
+
+    <p class="page-subtitle">
+      La situazione aggiornata del torneo.
+    </p>
+
   </header>
 
-  <!-- ══ CONTENUTO ══ -->
+
+  <!-- CONTENUTO -->
   <section class="section">
+
     <div class="table-wrap reveal">
+
       <table>
+
         <thead>
+
           <tr>
             <th class="center">#</th>
             <th>Squadra</th>
@@ -59,40 +82,59 @@
             <th class="center">P</th>
             <th class="center">S</th>
           </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="center"><span class="rank gold">1</span></td>
-            <td>Team D</td>
-            <td class="center"><strong style="color:var(--gold)">9</strong></td>
-            <td class="center">3</td>
-            <td class="center">0</td>
-            <td class="center">0</td>
-          </tr>
-          <tr>
-            <td class="center"><span class="rank silver">2</span></td>
-            <td>Team A</td>
-            <td class="center"><strong style="color:var(--gold)">6</strong></td>
-            <td class="center">2</td>
-            <td class="center">0</td>
-            <td class="center">1</td>
-          </tr>
 
-          <!-- ➕ Aggiungi altre squadre qui copiando il blocco <tr> -->
+        </thead>
+
+        <tbody id="classificaBody">
+
+          <tr>
+            <td colspan="6" class="center" style="padding:40px;">
+              Caricamento classifica...
+            </td>
+          </tr>
 
         </tbody>
+
       </table>
+
     </div>
+
   </section>
 
-  <!-- ══ FOOTER ══ -->
+
+  <!-- FOOTER -->
   <footer>
+
     <div class="footer-top">
+
       <div>
-        <a href="index.html"><img src="logo.png" alt="Santa Cruz Cup" style="height:50px; margin-bottom:0.4rem; filter:drop-shadow(0 0 8px rgba(255,183,0,0.4));"></a>
-        <div class="footer-tagline">Torneo Giovanile di Calcio · Edizione 2026</div>
+
+        <a href="index.html">
+
+          <img
+            src="logo.png"
+            alt="Santa Cruz Cup"
+            style="
+              height:50px;
+              margin-bottom:0.4rem;
+              filter:drop-shadow(
+                0 0 8px
+                rgba(255,183,0,0.4)
+              );
+            "
+          >
+
+        </a>
+
+        <div class="footer-tagline">
+          Torneo Giovanile di Calcio · Edizione 2026
+        </div>
+
       </div>
+
+
       <nav class="footer-nav">
+
         <a href="index.html">Home</a>
         <a href="calendario.html">Calendario</a>
         <a href="risultati.html">Risultati</a>
@@ -100,48 +142,645 @@
         <a href="marcatori.html">Marcatori</a>
         <a href="squadre.html">Squadre</a>
         <a href="regolamento.html">Regolamento</a>
+
       </nav>
+
     </div>
+
+
     <div class="footer-bottom">
-      <span class="footer-copy">© 2026 Santa Cruz Cup. Tutti i diritti riservati.</span>
-      <span class="footer-copy">Fatto con ❤️ per i giovani campioni</span>
+
+      <span class="footer-copy">
+        © 2026 Santa Cruz Cup. Tutti i diritti riservati.
+      </span>
+
+      <span class="footer-copy">
+        Fatto con ❤️ per i giovani campioni
+      </span>
+
     </div>
+
   </footer>
 
-  <!-- ══ SCRIPT ══ -->
+
+  <!-- SCRIPT -->
   <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var hamburger = document.getElementById('hamburger');
-    var mobileMenu = document.getElementById('mobileMenu');
-    if (hamburger && mobileMenu) {
-      hamburger.addEventListener('click', function(e) {
-        e.stopPropagation();
-        mobileMenu.classList.toggle('open');
-      });
-      document.addEventListener('click', function(e) {
-        if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
-          mobileMenu.classList.remove('open');
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      function () {
+
+
+        /* =========================
+           HAMBURGER
+        ========================= */
+
+        var hamburger =
+          document.getElementById("hamburger");
+
+        var mobileMenu =
+          document.getElementById("mobileMenu");
+
+
+        if (hamburger && mobileMenu) {
+
+          hamburger.addEventListener(
+            "click",
+            function (e) {
+
+              e.stopPropagation();
+
+              mobileMenu.classList.toggle("open");
+
+            }
+          );
+
+
+          document.addEventListener(
+            "click",
+            function (e) {
+
+              if (
+                !hamburger.contains(e.target) &&
+                !mobileMenu.contains(e.target)
+              ) {
+
+                mobileMenu.classList.remove("open");
+
+              }
+
+            }
+          );
+
+
+          mobileMenu
+            .querySelectorAll("a")
+            .forEach(function (a) {
+
+              a.addEventListener(
+                "click",
+                function () {
+
+                  mobileMenu.classList.remove(
+                    "open"
+                  );
+
+                }
+              );
+
+            });
+
         }
-      });
-      mobileMenu.querySelectorAll('a').forEach(function(a) {
-        a.addEventListener('click', function() { mobileMenu.classList.remove('open'); });
-      });
-    }
-    if ('IntersectionObserver' in window) {
-      var obs = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry, idx) {
-          if (entry.isIntersecting) {
-            setTimeout(function() { entry.target.classList.add('in'); }, idx * 70);
-            obs.unobserve(entry.target);
-          }
+
+
+        /* =========================
+           CARICA DATI
+        ========================= */
+
+        Promise.all([
+
+          fetch(
+            "data/squadre.json?nocache="
+            + Date.now()
+          ).then(function (response) {
+
+            if (!response.ok) {
+
+              throw new Error(
+                "Errore caricamento squadre.json"
+              );
+
+            }
+
+            return response.json();
+
+          }),
+
+          fetch(
+            "data/partite.json?nocache="
+            + Date.now()
+          ).then(function (response) {
+
+            if (!response.ok) {
+
+              throw new Error(
+                "Errore caricamento partite.json"
+              );
+
+            }
+
+            return response.json();
+
+          })
+
+        ])
+
+        .then(function (dati) {
+
+          var squadre = dati[0];
+          var partite = dati[1];
+
+          costruisciClassifica(
+            squadre,
+            partite
+          );
+
+        })
+
+        .catch(function (error) {
+
+          console.error(error);
+
+          document.getElementById(
+            "classificaBody"
+          ).innerHTML = `
+
+            <tr>
+
+              <td
+                colspan="6"
+                class="center"
+                style="
+                  padding:40px;
+                  color:#c00;
+                "
+              >
+
+                ❌ Errore nel caricamento
+                della classifica.
+
+              </td>
+
+            </tr>
+
+          `;
+
         });
-      }, { threshold: 0.12 });
-      document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
-    } else {
-      document.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('in'); });
-    }
-  });
+
+
+        /* =========================
+           CREA CLASSIFICA
+        ========================= */
+
+        function costruisciClassifica(
+          squadre,
+          partite
+        ) {
+
+
+          if (
+            !Array.isArray(squadre) ||
+            squadre.length === 0
+          ) {
+
+            mostraMessaggio(
+              "Nessuna squadra iscritta."
+            );
+
+            return;
+
+          }
+
+
+          /*
+           * CREA LE STATISTICHE
+           */
+
+          var classifica = {};
+
+
+          squadre.forEach(function (squadra) {
+
+            classifica[squadra.nome] = {
+
+              nome: squadra.nome,
+
+              categoria:
+                squadra.categoria || "",
+
+              girone:
+                squadra.girone || "",
+
+              punti: 0,
+
+              vittorie: 0,
+
+              pareggi: 0,
+
+              sconfitte: 0,
+
+              golFatti: 0,
+
+              golSubiti: 0
+
+            };
+
+          });
+
+
+          /*
+           * ANALIZZA LE PARTITE GIOCATE
+           */
+
+          if (Array.isArray(partite)) {
+
+            partite.forEach(
+              function (partita) {
+
+
+                /*
+                 * Una partita conta solo
+                 * se ha entrambi i risultati.
+                 */
+
+                if (
+                  partita.golCasa === null ||
+                  partita.golCasa === undefined ||
+                  partita.golOspite === null ||
+                  partita.golOspite === undefined
+                ) {
+
+                  return;
+
+                }
+
+
+                var casa =
+                  classifica[
+                    partita.casa
+                  ];
+
+                var ospite =
+                  classifica[
+                    partita.ospite
+                  ];
+
+
+                /*
+                 * Se una squadra è stata
+                 * eliminata dal JSON,
+                 * ignoriamo la partita.
+                 */
+
+                if (!casa || !ospite) {
+
+                  return;
+
+                }
+
+
+                var golCasa =
+                  Number(partita.golCasa);
+
+                var golOspite =
+                  Number(partita.golOspite);
+
+
+                if (
+                  isNaN(golCasa) ||
+                  isNaN(golOspite)
+                ) {
+
+                  return;
+
+                }
+
+
+                /*
+                 * GOL
+                 */
+
+                casa.golFatti += golCasa;
+
+                casa.golSubiti += golOspite;
+
+                ospite.golFatti += golOspite;
+
+                ospite.golSubiti += golCasa;
+
+
+                /*
+                 * RISULTATO
+                 */
+
+                if (golCasa > golOspite) {
+
+                  casa.vittorie++;
+                  casa.punti += 3;
+
+                  ospite.sconfitte++;
+
+                }
+
+                else if (golCasa < golOspite) {
+
+                  ospite.vittorie++;
+                  ospite.punti += 3;
+
+                  casa.sconfitte++;
+
+                }
+
+                else {
+
+                  casa.pareggi++;
+                  ospite.pareggi++;
+
+                  casa.punti += 1;
+                  ospite.punti += 1;
+
+                }
+
+              }
+            );
+
+          }
+
+
+          /*
+           * TRASFORMA OGGETTO IN ARRAY
+           */
+
+          var classificaArray =
+            Object.values(classifica);
+
+
+          /*
+           * ORDINE:
+           *
+           * 1. Punti
+           * 2. Differenza reti
+           * 3. Gol fatti
+           * 4. Nome
+           */
+
+          classificaArray.sort(
+            function (a, b) {
+
+              if (
+                b.punti !== a.punti
+              ) {
+
+                return (
+                  b.punti -
+                  a.punti
+                );
+
+              }
+
+
+              var diffA =
+                a.golFatti -
+                a.golSubiti;
+
+              var diffB =
+                b.golFatti -
+                b.golSubiti;
+
+
+              if (diffB !== diffA) {
+
+                return diffB - diffA;
+
+              }
+
+
+              if (
+                b.golFatti !==
+                a.golFatti
+              ) {
+
+                return (
+                  b.golFatti -
+                  a.golFatti
+                );
+
+              }
+
+
+              return a.nome.localeCompare(
+                b.nome
+              );
+
+            }
+          );
+
+
+          /*
+           * MOSTRA CLASSIFICA
+           */
+
+          var tbody =
+            document.getElementById(
+              "classificaBody"
+            );
+
+
+          tbody.innerHTML = "";
+
+
+          classificaArray.forEach(
+            function (squadra, index) {
+
+
+              var posizione =
+                index + 1;
+
+
+              var tr =
+                document.createElement("tr");
+
+
+              /*
+               * STILE POSIZIONE
+               */
+
+              var classeRank = "";
+
+              if (posizione === 1) {
+
+                classeRank = "gold";
+
+              }
+
+              else if (posizione === 2) {
+
+                classeRank = "silver";
+
+              }
+
+              else if (posizione === 3) {
+
+                classeRank = "bronze";
+
+              }
+
+
+              var differenza =
+                squadra.golFatti -
+                squadra.golSubiti;
+
+
+              var differenzaTesto =
+                differenza > 0
+                  ? "+" + differenza
+                  : differenza;
+
+
+              tr.innerHTML = `
+
+                <td class="center">
+
+                  <span
+                    class="rank ${classeRank}"
+                  >
+                    ${posizione}
+                  </span>
+
+                </td>
+
+
+                <td>
+
+                  <strong>
+                    ${escapeHtml(
+                      squadra.nome
+                    )}
+                  </strong>
+
+                  <small
+                    style="
+                      display:block;
+                      opacity:0.6;
+                      margin-top:3px;
+                    "
+                  >
+
+                    ${escapeHtml(
+                      squadra.categoria
+                    )}
+                    · Girone
+                    ${escapeHtml(
+                      squadra.girone
+                    )}
+
+                  </small>
+
+                </td>
+
+
+                <td class="center">
+
+                  <strong
+                    style="
+                      color:var(--gold)
+                    "
+                  >
+
+                    ${squadra.punti}
+
+                  </strong>
+
+                </td>
+
+
+                <td class="center">
+                  ${squadra.vittorie}
+                </td>
+
+
+                <td class="center">
+                  ${squadra.pareggi}
+                </td>
+
+
+                <td class="center">
+                  ${squadra.sconfitte}
+                </td>
+
+              `;
+
+
+              tbody.appendChild(tr);
+
+            }
+          );
+
+        }
+
+
+        /* =========================
+           MESSAGGIO
+        ========================= */
+
+        function mostraMessaggio(
+          messaggio
+        ) {
+
+          document.getElementById(
+            "classificaBody"
+          ).innerHTML = `
+
+            <tr>
+
+              <td
+                colspan="6"
+                class="center"
+                style="padding:40px;"
+              >
+
+                ${escapeHtml(
+                  messaggio
+                )}
+
+              </td>
+
+            </tr>
+
+          `;
+
+        }
+
+
+        /* =========================
+           SICUREZZA HTML
+        ========================= */
+
+        function escapeHtml(value) {
+
+          return String(value)
+
+            .replace(
+              /&/g,
+              "&amp;"
+            )
+
+            .replace(
+              /</g,
+              "&lt;"
+            )
+
+            .replace(
+              />/g,
+              "&gt;"
+            )
+
+            .replace(
+              /"/g,
+              "&quot;"
+            )
+
+            .replace(
+              /'/g,
+              "&#039;"
+            );
+
+        }
+
+      });
+
   </script>
 
 </body>
 </html>
+```
