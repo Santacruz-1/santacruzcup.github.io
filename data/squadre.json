@@ -1,1 +1,8 @@
-[]
+[
+  {
+    "id": "T001",
+    "nome": "ciao",
+    "categoria": "U12",
+    "girone": "A"
+  }
+]
