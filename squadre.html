@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -6,14 +7,17 @@
   <title>Squadre – Santa Cruz Cup</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <!-- ══ NAVBAR ══ -->
+  <!-- NAVBAR -->
   <nav class="navbar">
+
     <a href="index.html" class="nav-brand">
       <img src="logo.png" alt="Santa Cruz Cup">
       <span class="nav-brand-text">SANTA CRUZ CUP</span>
     </a>
+
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="calendario.html">Calendario</a></li>
@@ -23,13 +27,19 @@
       <li><a href="squadre.html" class="active">Squadre</a></li>
       <li><a href="regolamento.html">Regolamento</a></li>
     </ul>
+
     <div class="hamburger" id="hamburger">
-      <span></span><span></span><span></span>
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
+
   </nav>
 
-  <!-- Mobile menu -->
+
+  <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
+
     <a href="index.html">🏠 Home</a>
     <a href="calendario.html">📅 Calendario</a>
     <a href="risultati.html">📊 Risultati</a>
@@ -37,52 +47,84 @@
     <a href="marcatori.html">⚽ Marcatori</a>
     <a href="squadre.html">👥 Squadre</a>
     <a href="regolamento.html">📋 Regolamento</a>
+
   </div>
 
-  <!-- ══ PAGE HEADER ══ -->
+
+  <!-- HEADER -->
   <header class="page-header">
-    <div class="page-eyebrow">Santa Cruz Cup · 2026</div>
-    <h1 class="page-title">LE <span>SQUADRE</span></h1>
-    <p class="page-subtitle">Le squadre partecipanti al torneo.</p>
+
+    <div class="page-eyebrow">
+      Santa Cruz Cup · 2026
+    </div>
+
+    <h1 class="page-title">
+      LE <span>SQUADRE</span>
+    </h1>
+
+    <p class="page-subtitle">
+      Le squadre partecipanti al torneo.
+    </p>
+
   </header>
 
-  <!-- ══ CONTENUTO ══ -->
+
+  <!-- CONTENUTO -->
   <section class="section">
-    <div class="teams-grid">
 
-      <div class="team-card reveal">
-        <div class="team-crest">🛡️</div>
-        <div class="team-name">Squadra A</div>
+    <div
+      class="teams-grid"
+      id="teamsGrid"
+    >
+
+      <div
+        style="
+          text-align:center;
+          padding:40px;
+          width:100%;
+        "
+      >
+        Caricamento squadre...
       </div>
-
-      <div class="team-card reveal">
-        <div class="team-crest">🛡️</div>
-        <div class="team-name">Squadra B</div>
-      </div>
-
-      <div class="team-card reveal">
-        <div class="team-crest">🛡️</div>
-        <div class="team-name">Squadra C</div>
-      </div>
-
-      <div class="team-card reveal">
-        <div class="team-crest">🛡️</div>
-        <div class="team-name">Squadra D</div>
-      </div>
-
-      <!-- ➕ Aggiungi altre squadre qui copiando il blocco .team-card -->
 
     </div>
+
   </section>
 
-  <!-- ══ FOOTER ══ -->
+
+  <!-- FOOTER -->
   <footer>
+
     <div class="footer-top">
+
       <div>
-        <a href="index.html"><img src="logo.png" alt="Santa Cruz Cup" style="height:50px; margin-bottom:0.4rem; filter:drop-shadow(0 0 8px rgba(255,183,0,0.4));"></a>
-        <div class="footer-tagline">Torneo Giovanile di Calcio · Edizione 2026</div>
+
+        <a href="index.html">
+
+          <img
+            src="logo.png"
+            alt="Santa Cruz Cup"
+            style="
+              height:50px;
+              margin-bottom:0.4rem;
+              filter:drop-shadow(
+                0 0 8px
+                rgba(255,183,0,0.4)
+              );
+            "
+          >
+
+        </a>
+
+        <div class="footer-tagline">
+          Torneo Giovanile di Calcio · Edizione 2026
+        </div>
+
       </div>
+
+
       <nav class="footer-nav">
+
         <a href="index.html">Home</a>
         <a href="calendario.html">Calendario</a>
         <a href="risultati.html">Risultati</a>
@@ -90,48 +132,375 @@
         <a href="marcatori.html">Marcatori</a>
         <a href="squadre.html">Squadre</a>
         <a href="regolamento.html">Regolamento</a>
+
       </nav>
+
     </div>
+
+
     <div class="footer-bottom">
-      <span class="footer-copy">© 2026 Santa Cruz Cup. Tutti i diritti riservati.</span>
-      <span class="footer-copy">Fatto con ❤️ per i giovani campioni</span>
+
+      <span class="footer-copy">
+        © 2026 Santa Cruz Cup. Tutti i diritti riservati.
+      </span>
+
+      <span class="footer-copy">
+        Fatto con ❤️ per i giovani campioni
+      </span>
+
     </div>
+
   </footer>
 
-  <!-- ══ SCRIPT ══ -->
+
+  <!-- SCRIPT -->
   <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var hamburger = document.getElementById('hamburger');
-    var mobileMenu = document.getElementById('mobileMenu');
-    if (hamburger && mobileMenu) {
-      hamburger.addEventListener('click', function(e) {
-        e.stopPropagation();
-        mobileMenu.classList.toggle('open');
-      });
-      document.addEventListener('click', function(e) {
-        if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
-          mobileMenu.classList.remove('open');
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      function () {
+
+
+        /* =========================
+           HAMBURGER
+        ========================= */
+
+        var hamburger =
+          document.getElementById("hamburger");
+
+        var mobileMenu =
+          document.getElementById("mobileMenu");
+
+
+        if (hamburger && mobileMenu) {
+
+          hamburger.addEventListener(
+            "click",
+            function (e) {
+
+              e.stopPropagation();
+
+              mobileMenu.classList.toggle(
+                "open"
+              );
+
+            }
+          );
+
+
+          document.addEventListener(
+            "click",
+            function (e) {
+
+              if (
+                !hamburger.contains(e.target) &&
+                !mobileMenu.contains(e.target)
+              ) {
+
+                mobileMenu.classList.remove(
+                  "open"
+                );
+
+              }
+
+            }
+          );
+
+
+          mobileMenu
+            .querySelectorAll("a")
+            .forEach(function (a) {
+
+              a.addEventListener(
+                "click",
+                function () {
+
+                  mobileMenu.classList.remove(
+                    "open"
+                  );
+
+                }
+              );
+
+            });
+
         }
-      });
-      mobileMenu.querySelectorAll('a').forEach(function(a) {
-        a.addEventListener('click', function() { mobileMenu.classList.remove('open'); });
-      });
-    }
-    if ('IntersectionObserver' in window) {
-      var obs = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry, idx) {
-          if (entry.isIntersecting) {
-            setTimeout(function() { entry.target.classList.add('in'); }, idx * 70);
-            obs.unobserve(entry.target);
+
+
+        /* =========================
+           CARICA SQUADRE
+        ========================= */
+
+        fetch(
+          "data/squadre.json?nocache="
+          + Date.now()
+        )
+
+        .then(function (response) {
+
+          if (!response.ok) {
+
+            throw new Error(
+              "Impossibile leggere squadre.json"
+            );
+
           }
+
+          return response.json();
+
+        })
+
+        .then(function (squadre) {
+
+          mostraSquadre(squadre);
+
+        })
+
+        .catch(function (error) {
+
+          console.error(error);
+
+          document.getElementById(
+            "teamsGrid"
+          ).innerHTML = `
+
+            <div
+              style="
+                text-align:center;
+                padding:40px;
+                width:100%;
+                color:#c00;
+              "
+            >
+
+              ❌ Errore nel caricamento
+              delle squadre.
+
+            </div>
+
+          `;
+
         });
-      }, { threshold: 0.12 });
-      document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
-    } else {
-      document.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('in'); });
-    }
-  });
+
+
+        /* =========================
+           MOSTRA SQUADRE
+        ========================= */
+
+        function mostraSquadre(
+          squadre
+        ) {
+
+          var grid =
+            document.getElementById(
+              "teamsGrid"
+            );
+
+
+          grid.innerHTML = "";
+
+
+          if (
+            !Array.isArray(squadre) ||
+            squadre.length === 0
+          ) {
+
+            grid.innerHTML = `
+
+              <div
+                style="
+                  text-align:center;
+                  padding:40px;
+                  width:100%;
+                "
+              >
+
+                Nessuna squadra iscritta
+                al momento.
+
+              </div>
+
+            `;
+
+            return;
+
+          }
+
+
+          /*
+           * ORDINA PER CATEGORIA,
+           * POI PER GIRONE,
+           * POI PER NOME
+           */
+
+          squadre.sort(
+            function (a, b) {
+
+              var categoriaA =
+                String(
+                  a.categoria || ""
+                );
+
+              var categoriaB =
+                String(
+                  b.categoria || ""
+                );
+
+
+              if (
+                categoriaA !== categoriaB
+              ) {
+
+                return categoriaA.localeCompare(
+                  categoriaB
+                );
+
+              }
+
+
+              var gironeA =
+                String(
+                  a.girone || ""
+                );
+
+              var gironeB =
+                String(
+                  b.girone || ""
+                );
+
+
+              if (
+                gironeA !== gironeB
+              ) {
+
+                return gironeA.localeCompare(
+                  gironeB
+                );
+
+              }
+
+
+              return String(
+                a.nome || ""
+              ).localeCompare(
+                String(
+                  b.nome || ""
+                )
+              );
+
+            }
+          );
+
+
+          /*
+           * CREA LE CARD
+           */
+
+          squadre.forEach(
+            function (squadra) {
+
+              var card =
+                document.createElement(
+                  "div"
+                );
+
+
+              card.className =
+                "team-card reveal in";
+
+
+              card.innerHTML = `
+
+                <div class="team-crest">
+                  🛡️
+                </div>
+
+
+                <div class="team-name">
+
+                  ${escapeHtml(
+                    squadra.nome
+                  )}
+
+                </div>
+
+
+                <div
+                  style="
+                    margin-top:8px;
+                    opacity:0.65;
+                    font-size:0.85rem;
+                  "
+                >
+
+                  ${escapeHtml(
+                    squadra.categoria || ""
+                  )}
+
+                  ·
+
+                  Girone
+
+                  ${escapeHtml(
+                    squadra.girone || ""
+                  )}
+
+                </div>
+
+              `;
+
+
+              grid.appendChild(
+                card
+              );
+
+            }
+          );
+
+        }
+
+
+        /* =========================
+           SICUREZZA HTML
+        ========================= */
+
+        function escapeHtml(
+          value
+        ) {
+
+          return String(value)
+
+            .replace(
+              /&/g,
+              "&amp;"
+            )
+
+            .replace(
+              /</g,
+              "&lt;"
+            )
+
+            .replace(
+              />/g,
+              "&gt;"
+            )
+
+            .replace(
+              /"/g,
+              "&quot;"
+            )
+
+            .replace(
+              /'/g,
+              "&#039;"
+            );
+
+        }
+
+      });
+
   </script>
 
 </body>
 </html>
+```
