@@ -20,5 +20,15 @@
     "golCasa": null,
     "golOspite": null,
     "stato": "programmata"
+  },
+  {
+    "id": "P003",
+    "casa": "muraglia",
+    "ospite": "new team",
+    "data": "2026-10-12",
+    "ora": "17:00",
+    "golCasa": null,
+    "golOspite": null,
+    "stato": "programmata"
   }
 ]
