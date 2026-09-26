@@ -1,0 +1,26 @@
+[
+  {
+    "id": "R001",
+    "squadra": "T001",
+    "nome": "Mario Rossi",
+    "ruolo": "Portiere"
+  },
+  {
+    "id": "R002",
+    "squadra": "T001",
+    "nome": "Luca Bianchi",
+    "ruolo": "Difensore"
+  },
+  {
+    "id": "R003",
+    "squadra": "T001",
+    "nome": "Andrea Verdi",
+    "ruolo": "Centrocampista"
+  },
+  {
+    "id": "R004",
+    "squadra": "T001",
+    "nome": "Marco Neri",
+    "ruolo": "Attaccante"
+  }
+]
