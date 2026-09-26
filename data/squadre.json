@@ -26,5 +26,10 @@
     "id": "T005",
     "nome": "muraglia",
     "girone": "1"
+  },
+  {
+    "id": "T006",
+    "nome": "cuiao",
+    "girone": "A"
   }
 ]
