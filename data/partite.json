@@ -22,16 +22,6 @@
     "stato": "programmata"
   },
   {
-    "id": "P003",
-    "casa": "muraglia",
-    "ospite": "new team",
-    "data": "2026-10-12",
-    "ora": "17:00",
-    "golCasa": 3,
-    "golOspite": 1,
-    "stato": "giocata"
-  },
-  {
     "id": "P004",
     "casa": "cuiao",
     "ospite": "ciao",
