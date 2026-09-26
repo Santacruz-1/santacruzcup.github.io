@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
 
   <meta charset="UTF-8">
@@ -19,7 +20,7 @@
   <style>
 
     /* ══════════════════════════════════════
-       ROSA SQUADRA
+       HEADER ROSA
     ══════════════════════════════════════ */
 
     .rosa-header {
@@ -30,52 +31,80 @@
 
 
     .rosa-team-name {
+
       margin: 0;
+
       font-family:
         'Barlow Condensed',
         sans-serif;
-      font-size: clamp(
-        2.5rem,
-        6vw,
-        4.8rem
-      );
+
+      font-size:
+        clamp(
+          2.5rem,
+          6vw,
+          4.8rem
+        );
+
       font-weight: 900;
+
       line-height: 0.95;
+
       letter-spacing: 1px;
+
       text-transform: uppercase;
-      color: var(--text, #111);
-    }
 
+      color: #ffffff;
 
-    .rosa-team-name span {
-      color: var(--gold, #ffb700);
     }
 
 
     .rosa-girone {
+
       margin-top: 14px;
+
       font-family:
         'Barlow Condensed',
         sans-serif;
+
       font-size: 1rem;
+
       font-weight: 700;
+
       letter-spacing: 2px;
+
       text-transform: uppercase;
-      color: var(--gold, #ffb700);
+
+      color:
+        var(--gold, #ffb700);
+
     }
 
 
+    /* ══════════════════════════════════════
+       TASTO TORNA
+    ══════════════════════════════════════ */
+
     .rosa-back {
+
       display: inline-flex;
+
       align-items: center;
+
       justify-content: center;
 
       margin-top: 24px;
 
-      padding: 10px 18px;
+      padding:
+        10px 18px;
 
-      border: 1px solid
-        rgba(255,183,0,0.45);
+      border:
+        1px solid
+        rgba(
+          255,
+          183,
+          0,
+          0.45
+        );
 
       text-decoration: none;
 
@@ -84,25 +113,34 @@
         sans-serif;
 
       font-size: 0.8rem;
+
       font-weight: 700;
 
       letter-spacing: 1.5px;
 
       text-transform: uppercase;
 
-      color: var(--gold, #ffb700);
+      color:
+        var(--gold, #ffb700);
 
       transition:
         background 0.2s ease,
         color 0.2s ease,
         transform 0.2s ease;
+
     }
 
 
     .rosa-back:hover {
-      background: var(--gold, #ffb700);
-      color: #111;
-      transform: translateY(-2px);
+
+      background:
+        var(--gold, #ffb700);
+
+      color: #111111;
+
+      transform:
+        translateY(-2px);
+
     }
 
 
@@ -111,33 +149,42 @@
     ══════════════════════════════════════ */
 
     .rosa-section {
+
       margin-bottom: 42px;
+
     }
 
 
     .rosa-section-title {
+
       display: flex;
+
       align-items: center;
+
       gap: 14px;
 
-      margin: 0 0 18px;
+      margin:
+        0 0 18px;
 
       font-family:
         'Barlow Condensed',
         sans-serif;
 
       font-size: 1.35rem;
+
       font-weight: 800;
 
       letter-spacing: 2px;
 
       text-transform: uppercase;
 
-      color: var(--text, #111);
+      color: #ffffff;
+
     }
 
 
     .rosa-section-title::after {
+
       content: "";
 
       flex: 1;
@@ -145,7 +192,13 @@
       height: 1px;
 
       background:
-        rgba(255,183,0,0.35);
+        rgba(
+          255,
+          183,
+          0,
+          0.35
+        );
+
     }
 
 
@@ -154,15 +207,20 @@
     ══════════════════════════════════════ */
 
     .players-grid {
+
       display: grid;
 
       grid-template-columns:
         repeat(
           auto-fit,
-          minmax(220px, 1fr)
+          minmax(
+            220px,
+            1fr
+          )
         );
 
       gap: 14px;
+
     }
 
 
@@ -171,79 +229,140 @@
     ══════════════════════════════════════ */
 
     .player-card {
+
       display: flex;
+
       align-items: center;
+
       gap: 14px;
 
       min-height: 76px;
 
-      padding: 14px 16px;
+      padding:
+        14px 16px;
 
       background:
-        rgba(255,255,255,0.025);
+        rgba(
+          255,
+          255,
+          255,
+          0.025
+        );
 
-      border: 1px solid
-        rgba(255,255,255,0.08);
+      border:
+        1px solid
+        rgba(
+          255,
+          255,
+          255,
+          0.08
+        );
 
       transition:
         transform 0.2s ease,
         border-color 0.2s ease,
         background 0.2s ease;
+
     }
 
 
     .player-card:hover {
-      transform: translateY(-3px);
+
+      transform:
+        translateY(-3px);
 
       border-color:
-        rgba(255,183,0,0.45);
+        rgba(
+          255,
+          183,
+          0,
+          0.45
+        );
 
       background:
-        rgba(255,183,0,0.045);
+        rgba(
+          255,
+          183,
+          0,
+          0.045
+        );
+
     }
 
 
+    /* ══════════════════════════════════════
+       NUMERO
+    ══════════════════════════════════════ */
+
     .player-number {
+
       display: flex;
+
       align-items: center;
+
       justify-content: center;
 
-      flex: 0 0 40px;
+      flex:
+        0 0 40px;
 
       width: 40px;
+
       height: 40px;
 
       border-radius: 50%;
 
       background:
-        rgba(255,183,0,0.12);
+        rgba(
+          255,
+          183,
+          0,
+          0.12
+        );
 
-      border: 1px solid
-        rgba(255,183,0,0.25);
+      border:
+        1px solid
+        rgba(
+          255,
+          183,
+          0,
+          0.25
+        );
 
       font-family:
         'Barlow Condensed',
         sans-serif;
 
       font-size: 0.75rem;
+
       font-weight: 800;
 
       color:
         var(--gold, #ffb700);
+
     }
 
+
+    /* ══════════════════════════════════════
+       INFO GIOCATORE
+    ══════════════════════════════════════ */
 
     .player-info {
+
       min-width: 0;
+
     }
 
 
+    /* NOME BIANCO */
+
     .player-name {
+
       font-family:
         'Barlow Condensed',
         sans-serif;
 
       font-size: 1.1rem;
+
       font-weight: 800;
 
       line-height: 1.1;
@@ -252,38 +371,45 @@
 
       word-break: break-word;
 
-      color:
-        var(--text, #111);
+      color: #ffffff;
+
     }
 
 
+    /* POSIZIONE / RUOLO ORO */
+
     .player-role {
-      margin-top: 4px;
+
+      margin-top: 5px;
 
       font-family:
         'Barlow Condensed',
         sans-serif;
 
-      font-size: 0.7rem;
+      font-size: 0.75rem;
+
       font-weight: 700;
 
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
 
       text-transform: uppercase;
 
       color:
-        rgba(255,255,255,0.5);
+        var(--gold, #ffb700);
+
     }
 
 
     /* ══════════════════════════════════════
-       STATI
+       MESSAGGI
     ══════════════════════════════════════ */
 
     .rosa-message {
+
       width: 100%;
 
-      padding: 45px 20px;
+      padding:
+        45px 20px;
 
       text-align: center;
 
@@ -294,12 +420,20 @@
       font-size: 1rem;
 
       color:
-        rgba(255,255,255,0.7);
+        rgba(
+          255,
+          255,
+          255,
+          0.7
+        );
+
     }
 
 
     .rosa-error {
-      color: #c00;
+
+      color: #ff5555;
+
     }
 
 
@@ -310,17 +444,24 @@
     @media (max-width: 600px) {
 
       .players-grid {
-        grid-template-columns: 1fr;
+
+        grid-template-columns:
+          1fr;
+
       }
 
 
       .rosa-section {
+
         margin-bottom: 32px;
+
       }
 
 
       .player-card {
+
         min-height: 70px;
+
       }
 
     }
@@ -338,6 +479,7 @@
   ══════════════════════════════════════ -->
 
   <nav class="navbar">
+
 
     <a
       href="index.html"
@@ -358,50 +500,72 @@
 
     <ul class="nav-links">
 
+
       <li>
+
         <a href="index.html">
           Home
         </a>
+
       </li>
 
+
       <li>
+
         <a href="calendario.html">
           Calendario
         </a>
+
       </li>
 
+
       <li>
+
         <a href="risultati.html">
           Risultati
         </a>
+
       </li>
 
+
       <li>
+
         <a href="classifica.html">
           Classifica
         </a>
+
       </li>
 
+
       <li>
+
         <a href="marcatori.html">
           Marcatori
         </a>
+
       </li>
 
+
       <li>
+
         <a
           href="squadre.html"
           class="active"
         >
           Squadre
         </a>
+
       </li>
 
+
       <li>
+
         <a href="regolamento.html">
           Regolamento
         </a>
+
       </li>
+
 
     </ul>
 
@@ -414,10 +578,13 @@
     >
 
       <span></span>
+
       <span></span>
+
       <span></span>
 
     </div>
+
 
   </nav>
 
@@ -431,33 +598,41 @@
     id="mobileMenu"
   >
 
+
     <a href="index.html">
       🏠 Home
     </a>
+
 
     <a href="calendario.html">
       📅 Calendario
     </a>
 
+
     <a href="risultati.html">
       📊 Risultati
     </a>
+
 
     <a href="classifica.html">
       🏆 Classifica
     </a>
 
+
     <a href="marcatori.html">
       ⚽ Marcatori
     </a>
+
 
     <a href="squadre.html">
       👥 Squadre
     </a>
 
+
     <a href="regolamento.html">
       📋 Regolamento
     </a>
+
 
   </div>
 
@@ -468,6 +643,7 @@
 
   <header class="page-header">
 
+
     <div class="page-eyebrow">
       Santa Cruz Cup · 2026
     </div>
@@ -477,6 +653,7 @@
       class="rosa-header"
       id="rosaHeader"
     >
+
 
       <h1
         class="rosa-team-name"
@@ -496,29 +673,37 @@
         href="squadre.html"
         class="rosa-back"
       >
+
         ← Torna alle squadre
+
       </a>
 
+
     </div>
+
 
   </header>
 
 
   <!-- ══════════════════════════════════════
-       ROSA
+       CONTENUTO ROSA
   ══════════════════════════════════════ -->
 
   <section class="section">
+
 
     <div
       id="rosaContainer"
     >
 
       <div class="rosa-message">
+
         Caricamento rosa...
+
       </div>
 
     </div>
+
 
   </section>
 
@@ -529,11 +714,15 @@
 
   <footer>
 
+
     <div class="footer-top">
+
 
       <div>
 
+
         <a href="index.html">
+
 
           <img
             src="logo.png"
@@ -543,77 +732,106 @@
               margin-bottom:0.4rem;
               filter:drop-shadow(
                 0 0 8px
-                rgba(255,183,0,0.4)
+                rgba(
+                  255,
+                  183,
+                  0,
+                  0.4
+                )
               );
             "
           >
+
 
         </a>
 
 
         <div class="footer-tagline">
-          Torneo Giovanile di Calcio · Edizione 2026
+
+          Torneo Giovanile di Calcio ·
+          Edizione 2026
+
         </div>
+
 
       </div>
 
 
       <nav class="footer-nav">
 
+
         <a href="index.html">
           Home
         </a>
+
 
         <a href="calendario.html">
           Calendario
         </a>
 
+
         <a href="risultati.html">
           Risultati
         </a>
+
 
         <a href="classifica.html">
           Classifica
         </a>
 
+
         <a href="marcatori.html">
           Marcatori
         </a>
+
 
         <a href="squadre.html">
           Squadre
         </a>
 
+
         <a href="regolamento.html">
           Regolamento
         </a>
 
+
       </nav>
+
 
     </div>
 
 
     <div class="footer-bottom">
 
+
       <span class="footer-copy">
+
         © 2026 Santa Cruz Cup.
         Tutti i diritti riservati.
+
       </span>
+
 
       <span class="footer-copy">
-        Fatto con ❤️ per i giovani campioni
+
+        Fatto con ❤️
+        per i giovani campioni
+
       </span>
 
+
     </div>
+
 
   </footer>
 
 
   <!-- ══════════════════════════════════════
-       SCRIPT
+       JAVASCRIPT
   ══════════════════════════════════════ -->
 
   <script>
+
 
     document.addEventListener(
       "DOMContentLoaded",
@@ -641,6 +859,7 @@
           mobileMenu
         ) {
 
+
           hamburger.addEventListener(
             "click",
             function (e) {
@@ -659,20 +878,29 @@
             "click",
             function (e) {
 
+
               if (
+
                 !hamburger.contains(
                   e.target
-                ) &&
+                )
+
+                &&
+
                 !mobileMenu.contains(
                   e.target
                 )
+
               ) {
+
 
                 mobileMenu.classList.remove(
                   "open"
                 );
 
+
               }
+
 
             }
           );
@@ -683,27 +911,33 @@
             .forEach(
               function (a) {
 
+
                 a.addEventListener(
                   "click",
                   function () {
+
 
                     mobileMenu.classList.remove(
                       "open"
                     );
 
+
                   }
                 );
 
+
               }
             );
+
 
         }
 
 
         /* ═══════════════════════════════
-           PRENDE ID SQUADRA DALL'URL
+           PRENDI ID DALL'URL
            
-           Esempio:
+           esempio:
+           
            rosa.html?id=T001
         ═══════════════════════════════ */
 
@@ -719,68 +953,89 @@
 
         if (!squadraId) {
 
+
           mostraErrore(
             "Nessuna squadra selezionata."
           );
 
+
           return;
+
 
         }
 
 
         /* ═══════════════════════════════
-           CARICA SQUADRE
+           CARICA I DATI
         ═══════════════════════════════ */
 
         Promise.all([
+
 
           fetch(
             "data/squadre.json?nocache="
             + Date.now()
           )
+
           .then(
             function (response) {
 
+
               if (!response.ok) {
+
 
                 throw new Error(
                   "Impossibile leggere squadre.json"
                 );
 
+
               }
+
 
               return response.json();
 
+
             }
           ),
+
 
           fetch(
             "data/rose.json?nocache="
             + Date.now()
           )
+
           .then(
             function (response) {
 
+
               if (!response.ok) {
+
 
                 throw new Error(
                   "Impossibile leggere rose.json"
                 );
 
+
               }
 
+
               return response.json();
+
 
             }
           )
 
+
         ])
+
 
         .then(
           function (data) {
 
+
             var squadre =
               data[0];
+
 
             var rose =
               data[1];
@@ -792,11 +1047,14 @@
               squadraId
             );
 
+
           }
         )
 
+
         .catch(
           function (error) {
+
 
             console.error(
               error
@@ -806,6 +1064,7 @@
             mostraErrore(
               "Errore nel caricamento della rosa."
             );
+
 
           }
         );
@@ -821,13 +1080,20 @@
           id
         ) {
 
+
+          /* ═════════════════════════
+             TROVA SQUADRA
+          ═════════════════════════ */
+
           var team =
             squadre.find(
               function (squadra) {
 
+
                 return String(
                   squadra.id
                 ) === String(id);
+
 
               }
             );
@@ -835,18 +1101,21 @@
 
           if (!team) {
 
+
             mostraErrore(
               "Squadra non trovata."
             );
 
+
             return;
+
 
           }
 
 
-          /* ═══════════════════════════════
+          /* ═════════════════════════
              NOME SQUADRA
-          ═══════════════════════════════ */
+          ═════════════════════════ */
 
           var teamName =
             document.getElementById(
@@ -854,15 +1123,14 @@
             );
 
 
-          teamName.innerHTML =
-            escapeHtml(
-              team.nome || "Squadra"
-            );
+          teamName.textContent =
+            team.nome ||
+            "Squadra";
 
 
-          /* ═══════════════════════════════
+          /* ═════════════════════════
              GIRONE
-          ═══════════════════════════════ */
+          ═════════════════════════ */
 
           var teamGirone =
             document.getElementById(
@@ -872,21 +1140,25 @@
 
           if (team.girone) {
 
+
             teamGirone.textContent =
               "Girone "
               + team.girone;
 
+
           } else {
+
 
             teamGirone.textContent =
               "";
 
+
           }
 
 
-          /* ═══════════════════════════════
-             TITOLO PAGINA
-          ═══════════════════════════════ */
+          /* ═════════════════════════
+             TITOLO DELLA PAGINA
+          ═════════════════════════ */
 
           document.title =
             "Rosa "
@@ -896,27 +1168,33 @@
             + " – Santa Cruz Cup";
 
 
-          /* ═══════════════════════════════
-             FILTRA GIOCATORI
-          ═══════════════════════════════ */
+          /* ═════════════════════════
+             PRENDI GIOCATORI
+          ═════════════════════════ */
 
           var giocatori =
             Array.isArray(rose)
+
               ? rose.filter(
                   function (giocatore) {
 
+
                     return String(
                       giocatore.squadra
-                    ) === String(id);
+                    )
+                    ===
+                    String(id);
+
 
                   }
                 )
+
               : [];
 
 
-          /* ═══════════════════════════════
+          /* ═════════════════════════
              CONTENITORE
-          ═══════════════════════════════ */
+          ═════════════════════════ */
 
           var container =
             document.getElementById(
@@ -928,13 +1206,20 @@
             "";
 
 
+          /* ═════════════════════════
+             NESSUN GIOCATORE
+          ═════════════════════════ */
+
           if (
             giocatori.length === 0
           ) {
 
+
             container.innerHTML = `
 
-              <div class="rosa-message">
+              <div
+                class="rosa-message"
+              >
 
                 Nessun giocatore presente
                 nella rosa di questa squadra.
@@ -943,16 +1228,19 @@
 
             `;
 
+
             return;
+
 
           }
 
 
-          /* ═══════════════════════════════
-             ORDINE RUOLI
-          ═══════════════════════════════ */
+          /* ═════════════════════════
+             RUOLI
+          ═════════════════════════ */
 
           var ruoli = [
+
 
             {
               nome: "Portieri",
@@ -960,11 +1248,13 @@
               icona: "🧤"
             },
 
+
             {
               nome: "Difensori",
               valore: "Difensore",
               icona: "🛡️"
             },
+
 
             {
               nome: "Centrocampisti",
@@ -972,49 +1262,64 @@
               icona: "⚙️"
             },
 
+
             {
               nome: "Attaccanti",
               valore: "Attaccante",
               icona: "⚽"
             }
 
+
           ];
 
 
-          /* ═══════════════════════════════
-             CREA SEZIONI
-          ═══════════════════════════════ */
+          /* ═════════════════════════
+             CREA LE SEZIONI
+          ═════════════════════════ */
 
           ruoli.forEach(
             function (ruolo) {
+
 
               var giocatoriRuolo =
                 giocatori.filter(
                   function (giocatore) {
 
+
                     return normalizza(
                       giocatore.ruolo
-                    ) === normalizza(
+                    )
+                    ===
+                    normalizza(
                       ruolo.valore
                     );
+
 
                   }
                 );
 
 
+              /* Nessun giocatore
+                 di questo ruolo */
+
               if (
                 giocatoriRuolo.length === 0
               ) {
 
+
                 return;
+
 
               }
 
 
-              /* Ordina alfabeticamente */
+              /* ═══════════════════════
+                 ORDINA NOMI
+              ═══════════════════════ */
 
               giocatoriRuolo.sort(
                 function (a, b) {
+
 
                   return String(
                     a.nome || ""
@@ -1024,13 +1329,14 @@
                     )
                   );
 
+
                 }
               );
 
 
-              /* ═════════════════════════
+              /* ═══════════════════════
                  SEZIONE
-              ═════════════════════════ */
+              ═══════════════════════ */
 
               var section =
                 document.createElement(
@@ -1042,9 +1348,9 @@
                 "rosa-section";
 
 
-              /* ═════════════════════════
+              /* ═══════════════════════
                  TITOLO
-              ═════════════════════════ */
+              ═══════════════════════ */
 
               var title =
                 document.createElement(
@@ -1056,12 +1362,10 @@
                 "rosa-section-title";
 
 
-              title.innerHTML =
+              title.textContent =
                 ruolo.icona
                 + " "
-                + escapeHtml(
-                    ruolo.nome
-                  );
+                + ruolo.nome;
 
 
               section.appendChild(
@@ -1069,9 +1373,9 @@
               );
 
 
-              /* ═════════════════════════
+              /* ═══════════════════════
                  GRIGLIA
-              ═════════════════════════ */
+              ═══════════════════════ */
 
               var grid =
                 document.createElement(
@@ -1083,11 +1387,16 @@
                 "players-grid";
 
 
+              /* ═══════════════════════
+                 GIOCATORI
+              ═══════════════════════ */
+
               giocatoriRuolo.forEach(
                 function (
                   giocatore,
                   index
                 ) {
+
 
                   var card =
                     document.createElement(
@@ -1099,57 +1408,99 @@
                     "player-card";
 
 
-                  card.innerHTML = `
+                  /* Numero */
 
-                    <div
-                      class="player-number"
-                    >
-
-                      ${String(
-                        index + 1
-                      ).padStart(
-                        2,
-                        "0"
-                      )}
-
-                    </div>
+                  var number =
+                    document.createElement(
+                      "div"
+                    );
 
 
-                    <div
-                      class="player-info"
-                    >
-
-                      <div
-                        class="player-name"
-                      >
-
-                        ${escapeHtml(
-                          giocatore.nome
-                          || "Giocatore"
-                        )}
-
-                      </div>
+                  number.className =
+                    "player-number";
 
 
-                      <div
-                        class="player-role"
-                      >
+                  number.textContent =
+                    String(
+                      index + 1
+                    ).padStart(
+                      2,
+                      "0"
+                    );
 
-                        ${escapeHtml(
-                          giocatore.ruolo
-                          || ruolo.valore
-                        )}
 
-                      </div>
+                  /* Info */
 
-                    </div>
+                  var info =
+                    document.createElement(
+                      "div"
+                    );
 
-                  `;
+
+                  info.className =
+                    "player-info";
+
+
+                  /* Nome */
+
+                  var name =
+                    document.createElement(
+                      "div"
+                    );
+
+
+                  name.className =
+                    "player-name";
+
+
+                  name.textContent =
+                    giocatore.nome ||
+                    "Giocatore";
+
+
+                  /* Posizione */
+
+                  var role =
+                    document.createElement(
+                      "div"
+                    );
+
+
+                  role.className =
+                    "player-role";
+
+
+                  role.textContent =
+                    giocatore.ruolo ||
+                    ruolo.valore;
+
+
+                  /* Inserisci */
+
+                  info.appendChild(
+                    name
+                  );
+
+
+                  info.appendChild(
+                    role
+                  );
+
+
+                  card.appendChild(
+                    number
+                  );
+
+
+                  card.appendChild(
+                    info
+                  );
 
 
                   grid.appendChild(
                     card
                   );
+
 
                 }
               );
@@ -1164,8 +1515,10 @@
                 section
               );
 
+
             }
           );
+
 
         }
 
@@ -1177,6 +1530,7 @@
         function mostraErrore(
           messaggio
         ) {
+
 
           document.getElementById(
             "teamName"
@@ -1210,22 +1564,25 @@
 
           `;
 
+
         }
 
 
         /* ═══════════════════════════════
-           NORMALIZZA TESTO
+           NORMALIZZA RUOLO
         ═══════════════════════════════ */
 
         function normalizza(
           value
         ) {
 
+
           return String(
             value || ""
           )
           .trim()
           .toLowerCase();
+
 
         }
 
@@ -1237,6 +1594,7 @@
         function escapeHtml(
           value
         ) {
+
 
           return String(
             value || ""
@@ -1267,13 +1625,17 @@
             "&#039;"
           );
 
+
         }
+
 
       }
     );
+
 
   </script>
 
 
 </body>
+
 </html>
