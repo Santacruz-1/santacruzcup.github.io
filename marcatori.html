@@ -2,7 +2,6 @@
 <html lang="it">
 
 <head>
-
   <meta charset="UTF-8">
 
   <meta
@@ -18,98 +17,58 @@
   >
 
   <style>
-
     .loading,
     .errore,
     .vuoto {
-
       text-align: center;
       padding: 40px;
-
       color: rgba(255,255,255,0.7);
-
     }
-
 
     .errore {
-
       color: #ff6b6b;
-
     }
-
 
     .rank {
-
       display: inline-flex;
-
       align-items: center;
       justify-content: center;
-
       min-width: 32px;
       height: 32px;
-
       border-radius: 50%;
-
       font-weight: 800;
-
     }
-
 
     .rank.gold {
-
       background: rgba(255,183,0,0.18);
-
       color: #ffb700;
-
     }
-
 
     .rank.silver {
-
       background: rgba(190,190,190,0.18);
-
       color: #cfcfcf;
-
     }
-
 
     .rank.bronze {
-
       background: rgba(205,127,50,0.18);
-
       color: #cd7f32;
-
     }
-
 
     .rank-normal {
-
       font-weight: 700;
-
       opacity: 0.75;
-
     }
-
 
     .gol-numero {
-
       color: var(--gold);
-
       font-weight: 800;
-
     }
-
   </style>
-
 </head>
-
 
 <body>
 
-
-  <!-- =====================================================
-       NAVBAR
-  ====================================================== -->
+  <!-- NAVBAR -->
 
   <nav class="navbar">
 
@@ -117,7 +76,6 @@
       href="index.html"
       class="nav-brand"
     >
-
       <img
         src="logo.png"
         alt="Santa Cruz Cup"
@@ -126,34 +84,24 @@
       <span class="nav-brand-text">
         SANTA CRUZ CUP
       </span>
-
     </a>
-
 
     <ul class="nav-links">
 
       <li>
-        <a href="index.html">
-          Home
-        </a>
+        <a href="index.html">Home</a>
       </li>
 
       <li>
-        <a href="calendario.html">
-          Calendario
-        </a>
+        <a href="calendario.html">Calendario</a>
       </li>
 
       <li>
-        <a href="risultati.html">
-          Risultati
-        </a>
+        <a href="risultati.html">Risultati</a>
       </li>
 
       <li>
-        <a href="classifica.html">
-          Classifica
-        </a>
+        <a href="classifica.html">Classifica</a>
       </li>
 
       <li>
@@ -166,77 +114,46 @@
       </li>
 
       <li>
-        <a href="squadre.html">
-          Squadre
-        </a>
+        <a href="squadre.html">Squadre</a>
       </li>
 
       <li>
-        <a href="regolamento.html">
-          Regolamento
-        </a>
+        <a href="regolamento.html">Regolamento</a>
       </li>
 
     </ul>
-
 
     <div
       class="hamburger"
       id="hamburger"
     >
-
       <span></span>
       <span></span>
       <span></span>
-
     </div>
 
   </nav>
 
 
-  <!-- =====================================================
-       MOBILE MENU
-  ====================================================== -->
+  <!-- MOBILE MENU -->
 
   <div
     class="mobile-menu"
     id="mobileMenu"
   >
 
-    <a href="index.html">
-      🏠 Home
-    </a>
-
-    <a href="calendario.html">
-      📅 Calendario
-    </a>
-
-    <a href="risultati.html">
-      📊 Risultati
-    </a>
-
-    <a href="classifica.html">
-      🏆 Classifica
-    </a>
-
-    <a href="marcatori.html">
-      ⚽ Marcatori
-    </a>
-
-    <a href="squadre.html">
-      👥 Squadre
-    </a>
-
-    <a href="regolamento.html">
-      📋 Regolamento
-    </a>
+    <a href="index.html">🏠 Home</a>
+    <a href="calendario.html">📅 Calendario</a>
+    <a href="risultati.html">📊 Risultati</a>
+    <a href="classifica.html">🏆 Classifica</a>
+    <a href="marcatori.html">⚽ Marcatori</a>
+    <a href="squadre.html">👥 Squadre</a>
+    <a href="regolamento.html">📋 Regolamento</a>
 
   </div>
 
 
-  <!-- =====================================================
-       HEADER
-  ====================================================== -->
+  <!-- HEADER -->
 
   <header class="page-header">
 
@@ -255,9 +172,7 @@
   </header>
 
 
-  <!-- =====================================================
-       CONTENUTO
-  ====================================================== -->
+  <!-- CONTENUTO -->
 
   <section class="section">
 
@@ -266,7 +181,6 @@
       <table>
 
         <thead>
-
           <tr>
 
             <th class="center">
@@ -286,23 +200,17 @@
             </th>
 
           </tr>
-
         </thead>
-
 
         <tbody id="marcatoriBody">
 
           <tr>
-
             <td
               colspan="4"
               class="loading"
             >
-
               ⚽ Caricamento marcatori...
-
             </td>
-
           </tr>
 
         </tbody>
@@ -314,9 +222,7 @@
   </section>
 
 
-  <!-- =====================================================
-       FOOTER
-  ====================================================== -->
+  <!-- FOOTER -->
 
   <footer>
 
@@ -350,33 +256,13 @@
 
       <nav class="footer-nav">
 
-        <a href="index.html">
-          Home
-        </a>
-
-        <a href="calendario.html">
-          Calendario
-        </a>
-
-        <a href="risultati.html">
-          Risultati
-        </a>
-
-        <a href="classifica.html">
-          Classifica
-        </a>
-
-        <a href="marcatori.html">
-          Marcatori
-        </a>
-
-        <a href="squadre.html">
-          Squadre
-        </a>
-
-        <a href="regolamento.html">
-          Regolamento
-        </a>
+        <a href="index.html">Home</a>
+        <a href="calendario.html">Calendario</a>
+        <a href="risultati.html">Risultati</a>
+        <a href="classifica.html">Classifica</a>
+        <a href="marcatori.html">Marcatori</a>
+        <a href="squadre.html">Squadre</a>
+        <a href="regolamento.html">Regolamento</a>
 
       </nav>
 
@@ -398,153 +284,102 @@
   </footer>
 
 
-  <!-- =====================================================
-       JAVASCRIPT
-  ====================================================== -->
+  <!-- JAVASCRIPT -->
 
   <script>
 
-    document.addEventListener(
-      "DOMContentLoaded",
-      function () {
+    document.addEventListener("DOMContentLoaded", () => {
 
-        /* =================================================
-           MENU MOBILE
-        ================================================= */
+      /* ==============================
+         MENU MOBILE
+      ============================== */
 
-        const hamburger =
-          document.getElementById("hamburger");
+      const hamburger =
+        document.getElementById("hamburger");
 
-        const mobileMenu =
-          document.getElementById("mobileMenu");
+      const mobileMenu =
+        document.getElementById("mobileMenu");
 
+      if (hamburger && mobileMenu) {
 
-        if (
-          hamburger &&
-          mobileMenu
-        ) {
+        hamburger.addEventListener("click", (e) => {
 
-          hamburger.addEventListener(
-            "click",
-            function (e) {
+          e.stopPropagation();
 
-              e.stopPropagation();
+          mobileMenu.classList.toggle("open");
 
-              mobileMenu.classList.toggle("open");
+        });
 
-            }
-          );
+        document.addEventListener("click", (e) => {
 
+          if (
+            !hamburger.contains(e.target) &&
+            !mobileMenu.contains(e.target)
+          ) {
 
-          document.addEventListener(
-            "click",
-            function (e) {
+            mobileMenu.classList.remove("open");
 
-              if (
-                !hamburger.contains(e.target) &&
-                !mobileMenu.contains(e.target)
-              ) {
+          }
 
-                mobileMenu.classList.remove("open");
+        });
 
-              }
+        mobileMenu
+          .querySelectorAll("a")
+          .forEach(link => {
 
-            }
-          );
+            link.addEventListener("click", () => {
 
+              mobileMenu.classList.remove("open");
 
-          mobileMenu
-            .querySelectorAll("a")
-            .forEach(
-              function (link) {
+            });
 
-                link.addEventListener(
-                  "click",
-                  function () {
-
-                    mobileMenu.classList.remove("open");
-
-                  }
-                );
-
-              }
-            );
-
-        }
-
-
-        /* =================================================
-           CARICAMENTO
-        ================================================= */
-
-        caricaMarcatori();
+          });
 
       }
-    );
 
 
-    /* =====================================================
-       CARICA MARCATORI
-    ====================================================== */
+      /* ==============================
+         CARICA MARCATORI
+      ============================== */
+
+      caricaMarcatori();
+
+    });
+
 
     async function caricaMarcatori() {
 
-      const timestamp =
-        Date.now();
-
+      const tbody =
+        document.getElementById("marcatoriBody");
 
       try {
 
-        const [
-          marcatoriResponse,
-          squadreResponse
-        ] = await Promise.all([
-
-          fetch(
-            "data/marcatori.json?nocache=" + timestamp,
-            {
-              cache: "no-store"
-            }
-          ),
-
-          fetch(
-            "data/squadre.json?nocache=" + timestamp,
-            {
-              cache: "no-store"
-            }
-          )
-
-        ]);
+        const response = await fetch(
+          "data/marcatori.json?nocache=" + Date.now(),
+          {
+            cache: "no-store"
+          }
+        );
 
 
-        if (
-          !marcatoriResponse.ok
-        ) {
+        console.log(
+          "RISPOSTA MARCATORI:",
+          response.status,
+          response.ok
+        );
+
+
+        if (!response.ok) {
 
           throw new Error(
-            "Errore caricamento marcatori.json"
-          );
-
-        }
-
-
-        if (
-          !squadreResponse.ok
-        ) {
-
-          throw new Error(
-            "Errore caricamento squadre.json"
+            "HTTP " + response.status
           );
 
         }
 
 
         const marcatori =
-          await marcatoriResponse.json();
-
-
-        const squadre =
-          await squadreResponse.json();
+          await response.json();
 
 
         console.log(
@@ -553,16 +388,16 @@
         );
 
 
-        console.log(
-          "SQUADRE CARICATE:",
-          squadre
-        );
+        if (!Array.isArray(marcatori)) {
+
+          throw new Error(
+            "marcatori.json non contiene un array"
+          );
+
+        }
 
 
-        mostraMarcatori(
-          marcatori,
-          squadre
-        );
+        mostraMarcatori(marcatori);
 
       }
 
@@ -574,63 +409,39 @@
         );
 
 
-        mostraErrore(
-          "Impossibile caricare i marcatori."
-        );
+        tbody.innerHTML = `
+
+          <tr>
+
+            <td
+              colspan="4"
+              class="errore"
+            >
+
+              ❌ Errore nel caricamento dei marcatori.
+
+              <br><br>
+
+              ${escapeHtml(errore.message)}
+
+            </td>
+
+          </tr>
+
+        `;
 
       }
 
     }
 
 
-    /* =====================================================
-       MOSTRA MARCATORI
-    ====================================================== */
-
-    function mostraMarcatori(
-      marcatori,
-      squadre
-    ) {
+    function mostraMarcatori(marcatori) {
 
       const tbody =
-        document.getElementById(
-          "marcatoriBody"
-        );
+        document.getElementById("marcatoriBody");
 
 
-      /* =================================================
-         CONTROLLO ARRAY
-      ================================================= */
-
-      if (
-        !Array.isArray(marcatori)
-      ) {
-
-        mostraErrore(
-          "marcatori.json non contiene una lista valida."
-        );
-
-        return;
-
-      }
-
-
-      if (
-        !Array.isArray(squadre)
-      ) {
-
-        squadre = [];
-
-      }
-
-
-      /* =================================================
-         NESSUN MARCATORE
-      ================================================= */
-
-      if (
-        marcatori.length === 0
-      ) {
+      if (marcatori.length === 0) {
 
         tbody.innerHTML = `
 
@@ -641,8 +452,7 @@
               class="vuoto"
             >
 
-              ⚽ Nessun marcatore
-              registrato.
+              ⚽ Nessun marcatore registrato.
 
             </td>
 
@@ -655,639 +465,241 @@
       }
 
 
-      /* =================================================
-         MAPPA SQUADRE
-      ================================================= */
+      /* ==============================
+         NORMALIZZA DATI
+      ============================== */
 
-      const squadrePerId = {};
+      const lista =
+        marcatori.map((m) => {
 
-      const squadrePerNome = {};
+          let nome = "";
 
-
-      squadre.forEach(
-        function (squadra) {
 
           if (
-            !squadra
+            m.cognome !== undefined &&
+            m.cognome !== null &&
+            String(m.cognome).trim() !== ""
           ) {
 
-            return;
+            nome =
+              String(m.cognome).trim();
+
+          }
+
+          else if (
+            m.nome !== undefined &&
+            m.nome !== null &&
+            String(m.nome).trim() !== ""
+          ) {
+
+            nome =
+              String(m.nome).trim();
+
+          }
+
+          else if (
+            m.giocatore !== undefined &&
+            m.giocatore !== null
+          ) {
+
+            nome =
+              String(m.giocatore).trim();
 
           }
 
 
-          const id =
-            String(
-              squadra.id ??
-              ""
-            ).trim();
+          if (!nome) {
 
-
-          const nome =
-            String(
-              squadra.nome ??
-              ""
-            ).trim();
-
-
-          if (
-            id
-          ) {
-
-            squadrePerId[id] =
-              nome || "-";
+            nome = "Giocatore";
 
           }
 
 
-          if (
-            nome
-          ) {
+          /* SQUADRA */
 
-            squadrePerNome[
-              normalizza(nome)
-            ] = nome;
+          let squadra = "";
 
-          }
-
-        }
-      );
-
-
-      /* =================================================
-         NORMALIZZA MARCATORI
-      ================================================= */
-
-      const lista = [];
-
-
-      marcatori.forEach(
-        function (marcatore) {
 
           if (
-            !marcatore ||
-            typeof marcatore !== "object"
+            m.squadra !== undefined &&
+            m.squadra !== null &&
+            String(m.squadra).trim() !== ""
           ) {
 
-            return;
+            squadra =
+              String(m.squadra).trim();
 
           }
 
 
-          /* ---------------------------------------------
-             GOL
-          --------------------------------------------- */
+          if (!squadra) {
+
+            squadra = "-";
+
+          }
+
+
+          /* GOL */
 
           let gol =
-            convertiNumero(
-              marcatore.gol
+            Number(
+              String(m.gol ?? "0")
+                .replace(",", ".")
+                .trim()
             );
 
 
-          if (
-            gol === null
-          ) {
+          if (!Number.isFinite(gol)) {
 
             gol = 0;
 
           }
 
 
-          /* ---------------------------------------------
-             NOME GIOCATORE
-          --------------------------------------------- */
+          return {
+            nome,
+            squadra,
+            gol
+          };
 
-          let nome =
-            "";
+        });
 
 
-          /*
-           * Possibili formati:
-           *
-           * cognome
-           * nome
-           * giocatore
-           * giocatore_nome
-           * giocatoreNome
-           */
+      /* ==============================
+         ORDINA PER GOL
+      ============================== */
 
-          const possibiliNomi = [
+      lista.sort((a, b) => {
 
-            marcatore.cognome,
+        if (b.gol !== a.gol) {
 
-            marcatore.nome,
-
-            marcatore.giocatore_nome,
-
-            marcatore.giocatoreNome,
-
-            marcatore.giocatore
-
-          ];
-
-
-          for (
-            const valore of possibiliNomi
-          ) {
-
-            if (
-              valore !== null &&
-              valore !== undefined &&
-              String(valore).trim() !== ""
-            ) {
-
-              nome =
-                String(valore).trim();
-
-              break;
-
-            }
-
-          }
-
-
-          if (
-            !nome
-          ) {
-
-            nome =
-              "Giocatore";
-
-          }
-
-
-          /*
-           * Se "giocatore" è un ID del tipo R001
-           * e abbiamo il nome da qualche altra parte,
-           * non lo usiamo come nome visibile.
-           */
-
-          if (
-            /^R\d+$/i.test(nome) &&
-            (
-              marcatore.cognome ||
-              marcatore.nome
-            )
-          ) {
-
-            nome =
-              String(
-                marcatore.cognome ||
-                marcatore.nome
-              ).trim();
-
-          }
-
-
-          /* ---------------------------------------------
-             SQUADRA
-          --------------------------------------------- */
-
-          let squadra =
-            "";
-
-
-          /*
-           * Prima cerchiamo il nome diretto.
-           */
-
-          const possibiliSquadre = [
-
-            marcatore.squadra,
-
-            marcatore.squadra_nome,
-
-            marcatore.squadraNome
-
-          ];
-
-
-          for (
-            const valore of possibiliSquadre
-          ) {
-
-            if (
-              valore !== null &&
-              valore !== undefined &&
-              String(valore).trim() !== ""
-            ) {
-
-              squadra =
-                String(valore).trim();
-
-              break;
-
-            }
-
-          }
-
-
-          /*
-           * Se manca il nome, cerchiamo l'ID.
-           */
-
-          const squadraId =
-            marcatore.squadra_id ??
-            marcatore.squadraId ??
-            marcatore.team_id ??
-            marcatore.teamId;
-
-
-          if (
-            !squadra &&
-            squadraId !== null &&
-            squadraId !== undefined
-          ) {
-
-            squadra =
-              squadrePerId[
-                String(squadraId).trim()
-              ] || "";
-
-          }
-
-
-          /*
-           * Se per qualche motivo "squadra"
-           * contiene un ID T001, proviamo comunque
-           * a convertirlo nel nome.
-           */
-
-          if (
-            squadra &&
-            squadrePerId[squadra]
-          ) {
-
-            squadra =
-              squadrePerId[squadra];
-
-          }
-
-
-          if (
-            !squadra
-          ) {
-
-            squadra =
-              "-";
-
-          }
-
-
-          lista.push({
-
-            nome: nome,
-
-            squadra: squadra,
-
-            gol: gol,
-
-            originale: marcatore
-
-          });
+          return b.gol - a.gol;
 
         }
-      );
 
-
-      /* =================================================
-         ORDINA
-      ================================================= */
-
-      lista.sort(
-        function (a, b) {
-
-          /*
-           * 1. Gol decrescenti
-           */
-
-          if (
-            b.gol !==
-            a.gol
-          ) {
-
-            return (
-              b.gol -
-              a.gol
-            );
-
+        return a.nome.localeCompare(
+          b.nome,
+          "it",
+          {
+            sensitivity: "base"
           }
+        );
+
+      });
 
 
-          /*
-           * 2. Nome alfabetico
-           */
-
-          return a.nome.localeCompare(
-            b.nome,
-            "it",
-            {
-              sensitivity: "base"
-            }
-          );
-
-        }
-      );
-
-
-      /* =================================================
+      /* ==============================
          CREA TABELLA
-      ================================================= */
+      ============================== */
 
       tbody.innerHTML = "";
 
 
-      lista.forEach(
-        function (
-          marcatore,
-          index
-        ) {
+      lista.forEach((marcatore, index) => {
 
-          const posizione =
-            index + 1;
+        const posizione =
+          index + 1;
 
 
-          const tr =
-            document.createElement(
-              "tr"
-            );
+        let rankHTML;
 
 
-          /* ---------------------------------------------
-             POSIZIONE
-          --------------------------------------------- */
+        if (posizione === 1) {
 
-          let rankHTML =
-            "";
-
-
-          if (
-            posizione === 1
-          ) {
-
-            rankHTML = `
-
-              <span class="rank gold">
-                1
-              </span>
-
-            `;
-
-          }
-
-          else if (
-            posizione === 2
-          ) {
-
-            rankHTML = `
-
-              <span class="rank silver">
-                2
-              </span>
-
-            `;
-
-          }
-
-          else if (
-            posizione === 3
-          ) {
-
-            rankHTML = `
-
-              <span class="rank bronze">
-                3
-              </span>
-
-            `;
-
-          }
-
-          else {
-
-            rankHTML = `
-
-              <span class="rank-normal">
-                ${posizione}
-              </span>
-
-            `;
-
-          }
-
-
-          /* ---------------------------------------------
-             HTML RIGA
-          --------------------------------------------- */
-
-          tr.innerHTML = `
-
-            <td class="center">
-
-              ${rankHTML}
-
-            </td>
-
-
-            <td>
-
-              <strong>
-                ${escapeHtml(
-                  marcatore.nome
-                )}
-              </strong>
-
-            </td>
-
-
-            <td>
-
-              ${escapeHtml(
-                marcatore.squadra
-              )}
-
-            </td>
-
-
-            <td class="center">
-
-              <strong class="gol-numero">
-
-                ${marcatore.gol}
-
-              </strong>
-
-            </td>
-
+          rankHTML = `
+            <span class="rank gold">
+              1
+            </span>
           `;
 
+        }
 
-          tbody.appendChild(
-            tr
-          );
+        else if (posizione === 2) {
+
+          rankHTML = `
+            <span class="rank silver">
+              2
+            </span>
+          `;
 
         }
-      );
+
+        else if (posizione === 3) {
+
+          rankHTML = `
+            <span class="rank bronze">
+              3
+            </span>
+          `;
+
+        }
+
+        else {
+
+          rankHTML = `
+            <span class="rank-normal">
+              ${posizione}
+            </span>
+          `;
+
+        }
 
 
-      /*
-       * Debug utile.
-       */
+        const tr =
+          document.createElement("tr");
+
+
+        tr.innerHTML = `
+
+          <td class="center">
+            ${rankHTML}
+          </td>
+
+          <td>
+            <strong>
+              ${escapeHtml(marcatore.nome)}
+            </strong>
+          </td>
+
+          <td>
+            ${escapeHtml(marcatore.squadra)}
+          </td>
+
+          <td class="center">
+            <strong class="gol-numero">
+              ${marcatore.gol}
+            </strong>
+          </td>
+
+        `;
+
+
+        tbody.appendChild(tr);
+
+      });
+
 
       console.log(
-        "CLASSIFICA MARCATORI:",
+        "TABELLA MARCATORI CREATA:",
         lista
       );
 
     }
 
 
-    /* =====================================================
-       CONVERTI NUMERO
-    ====================================================== */
+    function escapeHtml(testo) {
 
-    function convertiNumero(
-      valore
-    ) {
+      return String(testo ?? "")
 
-      if (
-        valore === null ||
-        valore === undefined ||
-        String(valore).trim() === ""
-      ) {
+        .replace(/&/g, "&amp;")
 
-        return null;
+        .replace(/</g, "&lt;")
 
-      }
+        .replace(/>/g, "&gt;")
 
+        .replace(/"/g, "&quot;")
 
-      const numero =
-        Number(
-          String(valore)
-            .replace(",", ".")
-            .trim()
-        );
-
-
-      if (
-        Number.isFinite(numero)
-      ) {
-
-        return numero;
-
-      }
-
-
-      return null;
-
-    }
-
-
-    /* =====================================================
-       NORMALIZZA TESTO
-    ====================================================== */
-
-    function normalizza(
-      valore
-    ) {
-
-      return String(
-        valore ?? ""
-      )
-      .trim()
-      .toLowerCase();
-
-    }
-
-
-    /* =====================================================
-       ERRORE
-    ====================================================== */
-
-    function mostraErrore(
-      messaggio
-    ) {
-
-      const tbody =
-        document.getElementById(
-          "marcatoriBody"
-        );
-
-
-      tbody.innerHTML = `
-
-        <tr>
-
-          <td
-            colspan="4"
-            class="errore"
-          >
-
-            ❌ ${escapeHtml(
-              messaggio
-            )}
-
-            <br><br>
-
-            Controlla i file:
-
-            <br>
-
-            <strong>
-              data/marcatori.json
-            </strong>
-
-            <br>
-
-            <strong>
-              data/squadre.json
-            </strong>
-
-          </td>
-
-        </tr>
-
-      `;
-
-    }
-
-
-    /* =====================================================
-       ESCAPE HTML
-    ====================================================== */
-
-    function escapeHtml(
-      testo
-    ) {
-
-      return String(
-        testo ?? ""
-      )
-
-      .replace(
-        /&/g,
-        "&amp;"
-      )
-
-      .replace(
-        /</g,
-        "&lt;"
-      )
-
-      .replace(
-        />/g,
-        "&gt;"
-      )
-
-      .replace(
-        /"/g,
-        "&quot;"
-      )
-
-      .replace(
-        /'/g,
-        "&#039;"
-      );
+        .replace(/'/g, "&#039;");
 
     }
 
