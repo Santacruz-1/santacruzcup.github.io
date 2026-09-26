@@ -1,57 +1,143 @@
-```html
 <!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Risultati – Santa Cruz Cup</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
+  <!-- =========================================================
+       NAVBAR
+  ========================================================== -->
+
   <nav class="navbar">
 
     <a href="index.html" class="nav-brand">
-      <img src="logo.png" alt="Santa Cruz Cup">
-      <span class="nav-brand-text">SANTA CRUZ CUP</span>
+
+      <img
+        src="logo.png"
+        alt="Santa Cruz Cup"
+      >
+
+      <span class="nav-brand-text">
+        SANTA CRUZ CUP
+      </span>
+
     </a>
 
+
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="calendario.html">Calendario</a></li>
-      <li><a href="risultati.html" class="active">Risultati</a></li>
-      <li><a href="classifica.html">Classifica</a></li>
-      <li><a href="marcatori.html">Marcatori</a></li>
-      <li><a href="squadre.html">Squadre</a></li>
-      <li><a href="regolamento.html">Regolamento</a></li>
+
+      <li>
+        <a href="index.html">
+          Home
+        </a>
+      </li>
+
+      <li>
+        <a href="calendario.html">
+          Calendario
+        </a>
+      </li>
+
+      <li>
+        <a href="risultati.html" class="active">
+          Risultati
+        </a>
+      </li>
+
+      <li>
+        <a href="classifica.html">
+          Classifica
+        </a>
+      </li>
+
+      <li>
+        <a href="marcatori.html">
+          Marcatori
+        </a>
+      </li>
+
+      <li>
+        <a href="squadre.html">
+          Squadre
+        </a>
+      </li>
+
+      <li>
+        <a href="regolamento.html">
+          Regolamento
+        </a>
+      </li>
+
     </ul>
 
-    <div class="hamburger" id="hamburger">
+
+    <!-- HAMBURGER -->
+
+    <div
+      class="hamburger"
+      id="hamburger"
+    >
+
       <span></span>
       <span></span>
       <span></span>
+
     </div>
 
   </nav>
 
 
-  <!-- MOBILE MENU -->
-  <div class="mobile-menu" id="mobileMenu">
+  <!-- =========================================================
+       MOBILE MENU
+  ========================================================== -->
 
-    <a href="index.html">🏠 Home</a>
-    <a href="calendario.html">📅 Calendario</a>
-    <a href="risultati.html">📊 Risultati</a>
-    <a href="classifica.html">🏆 Classifica</a>
-    <a href="marcatori.html">⚽ Marcatori</a>
-    <a href="squadre.html">👥 Squadre</a>
-    <a href="regolamento.html">📋 Regolamento</a>
+  <div
+    class="mobile-menu"
+    id="mobileMenu"
+  >
+
+    <a href="index.html">
+      🏠 Home
+    </a>
+
+    <a href="calendario.html">
+      📅 Calendario
+    </a>
+
+    <a href="risultati.html">
+      📊 Risultati
+    </a>
+
+    <a href="classifica.html">
+      🏆 Classifica
+    </a>
+
+    <a href="marcatori.html">
+      ⚽ Marcatori
+    </a>
+
+    <a href="squadre.html">
+      👥 Squadre
+    </a>
+
+    <a href="regolamento.html">
+      📋 Regolamento
+    </a>
 
   </div>
 
 
-  <!-- HEADER -->
+  <!-- =========================================================
+       HEADER
+  ========================================================== -->
+
   <header class="page-header">
 
     <div class="page-eyebrow">
@@ -69,7 +155,10 @@
   </header>
 
 
-  <!-- CONTENUTO -->
+  <!-- =========================================================
+       RISULTATI
+  ========================================================== -->
+
   <section class="section">
 
     <div
@@ -83,7 +172,9 @@
           padding:40px;
         "
       >
+
         Caricamento risultati...
+
       </div>
 
     </div>
@@ -91,7 +182,10 @@
   </section>
 
 
-  <!-- FOOTER -->
+  <!-- =========================================================
+       FOOTER
+  ========================================================== -->
+
   <footer>
 
     <div class="footer-top">
@@ -124,13 +218,33 @@
 
       <nav class="footer-nav">
 
-        <a href="index.html">Home</a>
-        <a href="calendario.html">Calendario</a>
-        <a href="risultati.html">Risultati</a>
-        <a href="classifica.html">Classifica</a>
-        <a href="marcatori.html">Marcatori</a>
-        <a href="squadre.html">Squadre</a>
-        <a href="regolamento.html">Regolamento</a>
+        <a href="index.html">
+          Home
+        </a>
+
+        <a href="calendario.html">
+          Calendario
+        </a>
+
+        <a href="risultati.html">
+          Risultati
+        </a>
+
+        <a href="classifica.html">
+          Classifica
+        </a>
+
+        <a href="marcatori.html">
+          Marcatori
+        </a>
+
+        <a href="squadre.html">
+          Squadre
+        </a>
+
+        <a href="regolamento.html">
+          Regolamento
+        </a>
 
       </nav>
 
@@ -152,7 +266,10 @@
   </footer>
 
 
-  <!-- SCRIPT -->
+  <!-- =========================================================
+       SCRIPT
+  ========================================================== -->
+
   <script>
 
     document.addEventListener(
@@ -160,9 +277,9 @@
       function () {
 
 
-        /* =========================
+        /* =====================================================
            HAMBURGER
-        ========================= */
+        ====================================================== */
 
         var hamburger =
           document.getElementById("hamburger");
@@ -194,7 +311,9 @@
                 !mobileMenu.contains(e.target)
               ) {
 
-                mobileMenu.classList.remove("open");
+                mobileMenu.classList.remove(
+                  "open"
+                );
 
               }
 
@@ -204,63 +323,456 @@
 
           mobileMenu
             .querySelectorAll("a")
-            .forEach(function (a) {
+            .forEach(
+              function (a) {
 
-              a.addEventListener(
-                "click",
-                function () {
+                a.addEventListener(
+                  "click",
+                  function () {
 
-                  mobileMenu.classList.remove(
-                    "open"
-                  );
+                    mobileMenu.classList.remove(
+                      "open"
+                    );
 
-                }
-              );
+                  }
+                );
 
-            });
+              }
+            );
 
         }
 
 
-        /* =========================
-           CARICA PARTITE
-        ========================= */
+        /* =====================================================
+           CARICA PARTITE DA GITHUB
+        ====================================================== */
 
         fetch(
           "data/partite.json?nocache="
           + Date.now()
         )
 
-        .then(function (response) {
+        .then(
+          function (response) {
 
-          if (!response.ok) {
+            if (!response.ok) {
 
-            throw new Error(
-              "Impossibile leggere partite.json"
+              throw new Error(
+                "Impossibile leggere partite.json"
+              );
+
+            }
+
+            return response.json();
+
+          }
+        )
+
+        .then(
+          function (partite) {
+
+            mostraRisultati(partite);
+
+          }
+        )
+
+        .catch(
+          function (error) {
+
+            console.error(
+              "Errore caricamento risultati:",
+              error
+            );
+
+
+            var contenitore =
+              document.getElementById(
+                "resultsList"
+              );
+
+
+            if (contenitore) {
+
+              contenitore.innerHTML = `
+
+                <div
+                  style="
+                    text-align:center;
+                    padding:40px;
+                  "
+                >
+
+                  <h3>
+                    ❌ Impossibile caricare i risultati
+                  </h3>
+
+                  <p>
+                    Riprova tra qualche secondo.
+                  </p>
+
+                </div>
+
+              `;
+
+            }
+
+          }
+        );
+
+
+        /* =====================================================
+           MOSTRA RISULTATI
+        ====================================================== */
+
+        function mostraRisultati(partite) {
+
+          var contenitore =
+            document.getElementById(
+              "resultsList"
+            );
+
+
+          if (!contenitore) {
+            return;
+          }
+
+
+          /* ---------------------------------------------------
+             CONTROLLO DATI
+          --------------------------------------------------- */
+
+          if (
+            !Array.isArray(partite)
+          ) {
+
+            contenitore.innerHTML = `
+
+              <div
+                style="
+                  text-align:center;
+                  padding:40px;
+                "
+              >
+
+                <h3>
+                  ❌ Errore nei dati
+                </h3>
+
+                <p>
+                  Il file partite.json non contiene
+                  una lista valida di partite.
+                </p>
+
+              </div>
+
+            `;
+
+            return;
+
+          }
+
+
+          /* ---------------------------------------------------
+             PRENDI SOLO LE PARTITE GIOCATE
+          --------------------------------------------------- */
+
+          var risultati =
+            partite.filter(
+              function (partita) {
+
+                return (
+                  partita &&
+                  partita.stato === "giocata" &&
+                  partita.golCasa !== null &&
+                  partita.golOspite !== null
+                );
+
+              }
+            );
+
+
+          /* ---------------------------------------------------
+             SE NON CI SONO RISULTATI
+          --------------------------------------------------- */
+
+          if (
+            risultati.length === 0
+          ) {
+
+            contenitore.innerHTML = `
+
+              <div
+                style="
+                  text-align:center;
+                  padding:40px;
+                "
+              >
+
+                <h3>
+                  ⚽ Nessun risultato
+                </h3>
+
+                <p>
+                  Non sono ancora state disputate
+                  partite.
+                </p>
+
+              </div>
+
+            `;
+
+            return;
+
+          }
+
+
+          /* ---------------------------------------------------
+             ORDINA DAL PIÙ RECENTE
+          --------------------------------------------------- */
+
+          risultati.sort(
+            function (a, b) {
+
+              var dataA =
+                (a.data || "") +
+                " " +
+                (a.ora || "");
+
+              var dataB =
+                (b.data || "") +
+                " " +
+                (b.ora || "");
+
+              return dataB.localeCompare(
+                dataA
+              );
+
+            }
+          );
+
+
+          /* ---------------------------------------------------
+             CREA HTML
+          --------------------------------------------------- */
+
+          var html = "";
+
+
+          risultati.forEach(
+            function (partita) {
+
+
+              var casa =
+                partita.casa || "-";
+
+              var ospite =
+                partita.ospite || "-";
+
+              var golCasa =
+                partita.golCasa;
+
+              var golOspite =
+                partita.golOspite;
+
+              var data =
+                formattaData(
+                  partita.data
+                );
+
+              var ora =
+                partita.ora || "";
+
+              var id =
+                partita.id || "";
+
+
+              html += `
+
+                <div class="match-card">
+
+
+                  <div class="match-date">
+
+                    <span>
+                      ${escapeHtml(data)}
+                    </span>
+
+                    ${
+                      ora
+                        ? `
+                          <span>
+                            · ${escapeHtml(ora)}
+                          </span>
+                        `
+                        : ""
+                    }
+
+                  </div>
+
+
+                  <div class="match-teams">
+
+
+                    <div class="match-team">
+
+                      <span>
+                        ${escapeHtml(casa)}
+                      </span>
+
+                    </div>
+
+
+                    <div class="match-score">
+
+                      <strong>
+                        ${golCasa}
+                      </strong>
+
+                      <span>
+                        -
+                      </span>
+
+                      <strong>
+                        ${golOspite}
+                      </strong>
+
+                    </div>
+
+
+                    <div class="match-team">
+
+                      <span>
+                        ${escapeHtml(ospite)}
+                      </span>
+
+                    </div>
+
+
+                  </div>
+
+
+                  <div
+                    style="
+                      text-align:center;
+                      margin-top:8px;
+                      font-size:0.8rem;
+                      opacity:0.6;
+                    "
+                  >
+
+                    ${
+                      id
+                        ? `ID: ${escapeHtml(id)}`
+                        : ""
+                    }
+
+                  </div>
+
+
+                </div>
+
+              `;
+
+            }
+          );
+
+
+          contenitore.innerHTML =
+            html;
+
+        }
+
+
+        /* =====================================================
+           FORMATTA DATA
+        ====================================================== */
+
+        function formattaData(data) {
+
+          if (!data) {
+            return "-";
+          }
+
+
+          /*
+           * Il bot salva la data nel formato:
+           *
+           * YYYY-MM-DD
+           *
+           * Esempio:
+           * 2026-06-15
+           */
+
+
+          var parti =
+            String(data).split("-");
+
+
+          if (
+            parti.length === 3
+          ) {
+
+            return (
+              parti[2] +
+              "/" +
+              parti[1] +
+              "/" +
+              parti[0]
             );
 
           }
 
-          return response.json();
 
-        })
+          return data;
 
-        .then(function (partite) {
+        }
 
-          mostraRisultati(partite);
 
-        })
+        /* =====================================================
+           PROTEZIONE TESTO HTML
+        ====================================================== */
 
-        .catch(function (error) {
+        function escapeHtml(testo) {
 
-          console.error(error);
+          if (
+            testo === null ||
+            testo === undefined
+          ) {
 
-          document.getElementById(
-            "resultsList"
-          ).innerHTML = `
+            return "";
 
-            <div
-              style="
-                text-align:center;
-                p
-```
+          }
+
+
+          return String(testo)
+            .replace(
+              /&/g,
+              "&amp;"
+            )
+            .replace(
+              /</g,
+              "&lt;"
+            )
+            .replace(
+              />/g,
+              "&gt;"
+            )
+            .replace(
+              /"/g,
+              "&quot;"
+            )
+            .replace(
+              /'/g,
+              "&#039;"
+            );
+
+        }
+
+
+      }
+    );
+
+  </script>
+
+</body>
+</html>
