@@ -16,5 +16,10 @@
     "nome": "1",
     "categoria": "1",
     "girone": "1"
+  },
+  {
+    "id": "T004",
+    "nome": "new team",
+    "girone": "1"
   }
 ]
