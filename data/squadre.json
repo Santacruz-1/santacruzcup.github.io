@@ -1,35 +1,12 @@
 [
   {
     "id": "T001",
-    "nome": "ciao",
-    "categoria": "U12",
-    "girone": "A"
+    "nome": "down",
+    "girone": "1"
   },
   {
     "id": "T002",
-    "nome": "e",
-    "categoria": "E",
-    "girone": "E"
-  },
-  {
-    "id": "T003",
-    "nome": "1",
-    "categoria": "1",
+    "nome": "m",
     "girone": "1"
-  },
-  {
-    "id": "T004",
-    "nome": "new team",
-    "girone": "1"
-  },
-  {
-    "id": "T005",
-    "nome": "muraglia",
-    "girone": "1"
-  },
-  {
-    "id": "T006",
-    "nome": "cuiao",
-    "girone": "A"
   }
 ]
