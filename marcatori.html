@@ -408,21 +408,15 @@
       "DOMContentLoaded",
       function () {
 
-
         /* =================================================
            MENU MOBILE
         ================================================= */
 
-        var hamburger =
-          document.getElementById(
-            "hamburger"
-          );
+        const hamburger =
+          document.getElementById("hamburger");
 
-
-        var mobileMenu =
-          document.getElementById(
-            "mobileMenu"
-          );
+        const mobileMenu =
+          document.getElementById("mobileMenu");
 
 
         if (
@@ -436,9 +430,7 @@
 
               e.stopPropagation();
 
-              mobileMenu.classList.toggle(
-                "open"
-              );
+              mobileMenu.classList.toggle("open");
 
             }
           );
@@ -449,17 +441,11 @@
             function (e) {
 
               if (
-                !hamburger.contains(
-                  e.target
-                ) &&
-                !mobileMenu.contains(
-                  e.target
-                )
+                !hamburger.contains(e.target) &&
+                !mobileMenu.contains(e.target)
               ) {
 
-                mobileMenu.classList.remove(
-                  "open"
-                );
+                mobileMenu.classList.remove("open");
 
               }
 
@@ -470,15 +456,13 @@
           mobileMenu
             .querySelectorAll("a")
             .forEach(
-              function (a) {
+              function (link) {
 
-                a.addEventListener(
+                link.addEventListener(
                   "click",
                   function () {
 
-                    mobileMenu.classList.remove(
-                      "open"
-                    );
+                    mobileMenu.classList.remove("open");
 
                   }
                 );
@@ -490,7 +474,7 @@
 
 
         /* =================================================
-           CARICA DATI
+           CARICAMENTO
         ================================================= */
 
         caricaMarcatori();
@@ -500,137 +484,101 @@
 
 
     /* =====================================================
-       CARICA MARCATORI + SQUADRE
+       CARICA MARCATORI
     ====================================================== */
 
-    function caricaMarcatori() {
+    async function caricaMarcatori() {
 
-      var timestamp =
+      const timestamp =
         Date.now();
 
 
-      Promise.all([
+      try {
 
-        fetch(
-          "data/marcatori.json?nocache="
-          + timestamp,
-          {
-            cache: "no-store"
-          }
-        )
+        const [
+          marcatoriResponse,
+          squadreResponse
+        ] = await Promise.all([
 
-        .then(
-          function (response) {
-
-            if (!response.ok) {
-
-              throw new Error(
-                "Impossibile leggere marcatori.json"
-              );
-
+          fetch(
+            "data/marcatori.json?nocache=" + timestamp,
+            {
+              cache: "no-store"
             }
+          ),
 
-            return response.json();
-
-          }
-        ),
-
-
-        fetch(
-          "data/squadre.json?nocache="
-          + timestamp,
-          {
-            cache: "no-store"
-          }
-        )
-
-        .then(
-          function (response) {
-
-            if (!response.ok) {
-
-              throw new Error(
-                "Impossibile leggere squadre.json"
-              );
-
+          fetch(
+            "data/squadre.json?nocache=" + timestamp,
+            {
+              cache: "no-store"
             }
+          )
 
-            return response.json();
-
-          }
-        )
-
-      ])
-
-      .then(
-        function (dati) {
-
-          var marcatori =
-            dati[0];
-
-          var squadre =
-            dati[1];
+        ]);
 
 
-          mostraMarcatori(
-            marcatori,
-            squadre
+        if (
+          !marcatoriResponse.ok
+        ) {
+
+          throw new Error(
+            "Errore caricamento marcatori.json"
           );
 
         }
-      )
 
-      .catch(
-        function (error) {
 
-          console.error(
-            "Errore marcatori:",
-            error
+        if (
+          !squadreResponse.ok
+        ) {
+
+          throw new Error(
+            "Errore caricamento squadre.json"
           );
 
-
-          var tbody =
-            document.getElementById(
-              "marcatoriBody"
-            );
-
-
-          tbody.innerHTML = `
-
-            <tr>
-
-              <td
-                colspan="4"
-                class="errore"
-              >
-
-                ❌ Impossibile caricare
-                i marcatori.
-
-                <br><br>
-
-                Controlla che esistano:
-
-                <br>
-
-                <strong>
-                  data/marcatori.json
-                </strong>
-
-                <br>
-
-                <strong>
-                  data/squadre.json
-                </strong>
-
-              </td>
-
-            </tr>
-
-          `;
-
         }
-      );
+
+
+        const marcatori =
+          await marcatoriResponse.json();
+
+
+        const squadre =
+          await squadreResponse.json();
+
+
+        console.log(
+          "MARCATORI CARICATI:",
+          marcatori
+        );
+
+
+        console.log(
+          "SQUADRE CARICATE:",
+          squadre
+        );
+
+
+        mostraMarcatori(
+          marcatori,
+          squadre
+        );
+
+      }
+
+      catch (errore) {
+
+        console.error(
+          "ERRORE MARCATORI:",
+          errore
+        );
+
+
+        mostraErrore(
+          "Impossibile caricare i marcatori."
+        );
+
+      }
 
     }
 
@@ -644,57 +592,31 @@
       squadre
     ) {
 
-      var tbody =
+      const tbody =
         document.getElementById(
           "marcatoriBody"
         );
 
 
       /* =================================================
-         CONTROLLO MARCATORI
+         CONTROLLO ARRAY
       ================================================= */
 
       if (
-        !Array.isArray(
-          marcatori
-        )
+        !Array.isArray(marcatori)
       ) {
 
-        tbody.innerHTML = `
-
-          <tr>
-
-            <td
-              colspan="4"
-              class="errore"
-            >
-
-              ❌ Errore nei dati.
-
-              <br><br>
-
-              marcatori.json
-              deve contenere una lista.
-
-            </td>
-
-          </tr>
-
-        `;
+        mostraErrore(
+          "marcatori.json non contiene una lista valida."
+        );
 
         return;
 
       }
 
 
-      /* =================================================
-         CONTROLLO SQUADRE
-      ================================================= */
-
       if (
-        !Array.isArray(
-          squadre
-        )
+        !Array.isArray(squadre)
       ) {
 
         squadre = [];
@@ -737,25 +659,54 @@
          MAPPA SQUADRE
       ================================================= */
 
-      var squadrePerId = {};
+      const squadrePerId = {};
+
+      const squadrePerNome = {};
 
 
       squadre.forEach(
         function (squadra) {
 
           if (
-            squadra &&
-            squadra.id !== undefined
+            !squadra
           ) {
 
-            squadrePerId[
-              String(
-                squadra.id
-              )
-            ] =
-              String(
-                squadra.nome || "-"
-              );
+            return;
+
+          }
+
+
+          const id =
+            String(
+              squadra.id ??
+              ""
+            ).trim();
+
+
+          const nome =
+            String(
+              squadra.nome ??
+              ""
+            ).trim();
+
+
+          if (
+            id
+          ) {
+
+            squadrePerId[id] =
+              nome || "-";
+
+          }
+
+
+          if (
+            nome
+          ) {
+
+            squadrePerNome[
+              normalizza(nome)
+            ] = nome;
 
           }
 
@@ -764,27 +715,239 @@
 
 
       /* =================================================
-         CREA COPIA DATI
+         NORMALIZZA MARCATORI
       ================================================= */
 
-      var lista =
-        marcatori.map(
-          function (marcatore) {
+      const lista = [];
 
-            return {
 
-              dati:
-                marcatore,
+      marcatori.forEach(
+        function (marcatore) {
 
-              gol:
-                Number(
-                  marcatore.gol
-                ) || 0
+          if (
+            !marcatore ||
+            typeof marcatore !== "object"
+          ) {
 
-            };
+            return;
 
           }
-        );
+
+
+          /* ---------------------------------------------
+             GOL
+          --------------------------------------------- */
+
+          let gol =
+            convertiNumero(
+              marcatore.gol
+            );
+
+
+          if (
+            gol === null
+          ) {
+
+            gol = 0;
+
+          }
+
+
+          /* ---------------------------------------------
+             NOME GIOCATORE
+          --------------------------------------------- */
+
+          let nome =
+            "";
+
+
+          /*
+           * Possibili formati:
+           *
+           * cognome
+           * nome
+           * giocatore
+           * giocatore_nome
+           * giocatoreNome
+           */
+
+          const possibiliNomi = [
+
+            marcatore.cognome,
+
+            marcatore.nome,
+
+            marcatore.giocatore_nome,
+
+            marcatore.giocatoreNome,
+
+            marcatore.giocatore
+
+          ];
+
+
+          for (
+            const valore of possibiliNomi
+          ) {
+
+            if (
+              valore !== null &&
+              valore !== undefined &&
+              String(valore).trim() !== ""
+            ) {
+
+              nome =
+                String(valore).trim();
+
+              break;
+
+            }
+
+          }
+
+
+          if (
+            !nome
+          ) {
+
+            nome =
+              "Giocatore";
+
+          }
+
+
+          /*
+           * Se "giocatore" è un ID del tipo R001
+           * e abbiamo il nome da qualche altra parte,
+           * non lo usiamo come nome visibile.
+           */
+
+          if (
+            /^R\d+$/i.test(nome) &&
+            (
+              marcatore.cognome ||
+              marcatore.nome
+            )
+          ) {
+
+            nome =
+              String(
+                marcatore.cognome ||
+                marcatore.nome
+              ).trim();
+
+          }
+
+
+          /* ---------------------------------------------
+             SQUADRA
+          --------------------------------------------- */
+
+          let squadra =
+            "";
+
+
+          /*
+           * Prima cerchiamo il nome diretto.
+           */
+
+          const possibiliSquadre = [
+
+            marcatore.squadra,
+
+            marcatore.squadra_nome,
+
+            marcatore.squadraNome
+
+          ];
+
+
+          for (
+            const valore of possibiliSquadre
+          ) {
+
+            if (
+              valore !== null &&
+              valore !== undefined &&
+              String(valore).trim() !== ""
+            ) {
+
+              squadra =
+                String(valore).trim();
+
+              break;
+
+            }
+
+          }
+
+
+          /*
+           * Se manca il nome, cerchiamo l'ID.
+           */
+
+          const squadraId =
+            marcatore.squadra_id ??
+            marcatore.squadraId ??
+            marcatore.team_id ??
+            marcatore.teamId;
+
+
+          if (
+            !squadra &&
+            squadraId !== null &&
+            squadraId !== undefined
+          ) {
+
+            squadra =
+              squadrePerId[
+                String(squadraId).trim()
+              ] || "";
+
+          }
+
+
+          /*
+           * Se per qualche motivo "squadra"
+           * contiene un ID T001, proviamo comunque
+           * a convertirlo nel nome.
+           */
+
+          if (
+            squadra &&
+            squadrePerId[squadra]
+          ) {
+
+            squadra =
+              squadrePerId[squadra];
+
+          }
+
+
+          if (
+            !squadra
+          ) {
+
+            squadra =
+              "-";
+
+          }
+
+
+          lista.push({
+
+            nome: nome,
+
+            squadra: squadra,
+
+            gol: gol,
+
+            originale: marcatore
+
+          });
+
+        }
+      );
 
 
       /* =================================================
@@ -793,6 +956,10 @@
 
       lista.sort(
         function (a, b) {
+
+          /*
+           * 1. Gol decrescenti
+           */
 
           if (
             b.gol !==
@@ -807,25 +974,16 @@
           }
 
 
-          var nomeA =
-            String(
-              a.dati.cognome ||
-              a.dati.nome ||
-              "Giocatore"
-            );
+          /*
+           * 2. Nome alfabetico
+           */
 
-
-          var nomeB =
-            String(
-              b.dati.cognome ||
-              b.dati.nome ||
-              "Giocatore"
-            );
-
-
-          return nomeA.localeCompare(
-            nomeB,
-            "it"
+          return a.nome.localeCompare(
+            b.nome,
+            "it",
+            {
+              sensitivity: "base"
+            }
           );
 
         }
@@ -841,101 +999,26 @@
 
       lista.forEach(
         function (
-          elemento,
+          marcatore,
           index
         ) {
 
-
-          var marcatore =
-            elemento.dati;
-
-
-          var gol =
-            elemento.gol;
-
-
-          var posizione =
+          const posizione =
             index + 1;
 
 
-          /* ---------------------------------------------
-             NOME GIOCATORE
-          --------------------------------------------- */
-
-          var nome =
-            marcatore.cognome ||
-            marcatore.nome ||
-            "Giocatore";
-
-
-          /*
-           * Il bot nuovo può avere:
-           *
-           * giocatore = R001
-           *
-           * ma il nome pubblico è normalmente
-           * già presente in cognome.
-           */
-
-          if (
-            !nome &&
-            marcatore.giocatore
-          ) {
-
-            nome =
-              marcatore.giocatore;
-
-          }
-
-
-          /* ---------------------------------------------
-             SQUADRA
-          --------------------------------------------- */
-
-          var squadra =
-            marcatore.squadra ||
-            "";
-
-
-          /*
-           * Se manca il nome della squadra,
-           * proviamo a recuperarlo dall'ID.
-           */
-
-          var squadraId =
-            marcatore.squadra_id ||
-            marcatore.squadraId;
-
-
-          if (
-            !squadra &&
-            squadraId
-          ) {
-
-            squadra =
-              squadrePerId[
-                String(
-                  squadraId
-                )
-              ] || "";
-
-          }
-
-
-          if (
-            !squadra
-          ) {
-
-            squadra = "-";
-
-          }
+          const tr =
+            document.createElement(
+              "tr"
+            );
 
 
           /* ---------------------------------------------
              POSIZIONE
           --------------------------------------------- */
 
-          var rankHTML;
+          let rankHTML =
+            "";
 
 
           if (
@@ -994,16 +1077,10 @@
 
 
           /* ---------------------------------------------
-             RIGA
+             HTML RIGA
           --------------------------------------------- */
 
-          var riga =
-            document.createElement(
-              "tr"
-            );
-
-
-          riga.innerHTML = `
+          tr.innerHTML = `
 
             <td class="center">
 
@@ -1015,11 +1092,9 @@
             <td>
 
               <strong>
-
                 ${escapeHtml(
-                  nome
+                  marcatore.nome
                 )}
-
               </strong>
 
             </td>
@@ -1028,7 +1103,7 @@
             <td>
 
               ${escapeHtml(
-                squadra
+                marcatore.squadra
               )}
 
             </td>
@@ -1038,7 +1113,7 @@
 
               <strong class="gol-numero">
 
-                ${gol}
+                ${marcatore.gol}
 
               </strong>
 
@@ -1048,11 +1123,131 @@
 
 
           tbody.appendChild(
-            riga
+            tr
           );
 
         }
       );
+
+
+      /*
+       * Debug utile.
+       */
+
+      console.log(
+        "CLASSIFICA MARCATORI:",
+        lista
+      );
+
+    }
+
+
+    /* =====================================================
+       CONVERTI NUMERO
+    ====================================================== */
+
+    function convertiNumero(
+      valore
+    ) {
+
+      if (
+        valore === null ||
+        valore === undefined ||
+        String(valore).trim() === ""
+      ) {
+
+        return null;
+
+      }
+
+
+      const numero =
+        Number(
+          String(valore)
+            .replace(",", ".")
+            .trim()
+        );
+
+
+      if (
+        Number.isFinite(numero)
+      ) {
+
+        return numero;
+
+      }
+
+
+      return null;
+
+    }
+
+
+    /* =====================================================
+       NORMALIZZA TESTO
+    ====================================================== */
+
+    function normalizza(
+      valore
+    ) {
+
+      return String(
+        valore ?? ""
+      )
+      .trim()
+      .toLowerCase();
+
+    }
+
+
+    /* =====================================================
+       ERRORE
+    ====================================================== */
+
+    function mostraErrore(
+      messaggio
+    ) {
+
+      const tbody =
+        document.getElementById(
+          "marcatoriBody"
+        );
+
+
+      tbody.innerHTML = `
+
+        <tr>
+
+          <td
+            colspan="4"
+            class="errore"
+          >
+
+            ❌ ${escapeHtml(
+              messaggio
+            )}
+
+            <br><br>
+
+            Controlla i file:
+
+            <br>
+
+            <strong>
+              data/marcatori.json
+            </strong>
+
+            <br>
+
+            <strong>
+              data/squadre.json
+            </strong>
+
+          </td>
+
+        </tr>
+
+      `;
 
     }
 
@@ -1065,42 +1260,34 @@
       testo
     ) {
 
-      if (
-        testo === null ||
-        testo === undefined
-      ) {
+      return String(
+        testo ?? ""
+      )
 
-        return "";
+      .replace(
+        /&/g,
+        "&amp;"
+      )
 
-      }
+      .replace(
+        /</g,
+        "&lt;"
+      )
 
+      .replace(
+        />/g,
+        "&gt;"
+      )
 
-      return String(testo)
+      .replace(
+        /"/g,
+        "&quot;"
+      )
 
-        .replace(
-          /&/g,
-          "&amp;"
-        )
-
-        .replace(
-          /</g,
-          "&lt;"
-        )
-
-        .replace(
-          />/g,
-          "&gt;"
-        )
-
-        .replace(
-          /"/g,
-          "&quot;"
-        )
-
-        .replace(
-          /'/g,
-          "&#039;"
-        );
+      .replace(
+        /'/g,
+        "&#039;"
+      );
 
     }
 
