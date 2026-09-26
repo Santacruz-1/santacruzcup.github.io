@@ -21,5 +21,10 @@
     "id": "T004",
     "nome": "new team",
     "girone": "1"
+  },
+  {
+    "id": "T005",
+    "nome": "muraglia",
+    "girone": "1"
   }
 ]
