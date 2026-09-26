@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Rosa – Santa Cruz Cup</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <style>
+
+    /* ══════════════════════════════════════
+       ROSA SQUADRA
+    ══════════════════════════════════════ */
+
+    .rosa-header {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+
+    .rosa-team-name {
+      margin: 0;
+      font-family:
+        'Barlow Condensed',
+        sans-serif;
+      font-size: clamp(
+        2.5rem,
+        6vw,
+        4.8rem
+      );
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text, #111);
+    }
+
+
+    .rosa-team-name span {
+      color: var(--gold, #ffb700);
+    }
+
+
+    .rosa-girone {
+      margin-top: 14px;
+      font-family:
+        'Barlow Condensed',
+        sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold, #ffb700);
+    }
+
+
+    .rosa-back {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-top: 24px;
+
+      padding: 10px 18px;
+
+      border: 1px solid
+        rgba(255,183,0,0.45);
+
+      text-decoration: none;
+
+      font-family:
+        'Barlow Condensed',
+        sans-serif;
+
+      font-size: 0.8rem;
+      font-weight: 700;
+
+      letter-spacing: 1.5px;
+
+      text-transform: uppercase;
+
+      color: var(--gold, #ffb700);
+
+      transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+    }
+
+
+    .rosa-back:hover {
+      background: var(--gold, #ffb700);
+      color: #111;
+      transform: translateY(-2px);
+    }
+
+
+    /* ══════════════════════════════════════
+       SEZIONE RUOLO
+    ══════════════════════════════════════ */
+
+    .rosa-section {
+      margin-bottom: 42px;
+    }
+
+
+    .rosa-section-title {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+
+      margin: 0 0 18px;
+
+      font-family:
+        'Barlow Condensed',
+        sans-serif;
+
+      font-size: 1.35rem;
+      font-weight: 800;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+
+      color: var(--text, #111);
+    }
+
+
+    .rosa-section-title::after {
+      content: "";
+
+      flex: 1;
+
+      height: 1px;
+
+      background:
+        rgba(255,183,0,0.35);
+    }
+
+
+    /* ══════════════════════════════════════
+       GRIGLIA GIOCATORI
+    ══════════════════════════════════════ */
+
+    .players-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          auto-fit,
+          minmax(220px, 1fr)
+        );
+
+      gap: 14px;
+    }
+
+
+    /* ══════════════════════════════════════
+       CARD GIOCATORE
+    ══════════════════════════════════════ */
+
+    .player-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+
+      min-height: 76px;
+
+      padding: 14px 16px;
+
+      background:
+        rgba(255,255,255,0.025);
+
+      border: 1px solid
+        rgba(255,255,255,0.08);
+
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+    }
+
+
+    .player-card:hover {
+      transform: translateY(-3px);
+
+      border-color:
+        rgba(255,183,0,0.45);
+
+      background:
+        rgba(255,183,0,0.045);
+    }
+
+
+    .player-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      flex: 0 0 40px;
+
+      width: 40px;
+      height: 40px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(255,183,0,0.12);
+
+      border: 1px solid
+        rgba(255,183,0,0.25);
+
+      font-family:
+        'Barlow Condensed',
+        sans-serif;
+
+      font-size: 0.75rem;
+      font-weight: 800;
+
+      color:
+        var(--gold, #ffb700);
+    }
+
+
+    .player-info {
+      min-width: 0;
+    }
+
+
+    .player-name {
+      font-family:
+        'Barlow Condensed',
+        sans-serif;
+
+      font-size: 1.1rem;
+      font-weight: 800;
+
+      line-height: 1.1;
+
+      text-transform: uppercase;
+
+      word-break: break-word;
+
+      color:
+        var(--text, #111);
+    }
+
+
+    .player-role {
+      margin-top: 4px;
+
+      font-family:
+        'Barlow Condensed',
+        sans-serif;
+
+      font-size: 0.7rem;
+      font-weight: 700;
+
+      letter-spacing: 1px;
+
+      text-transform: uppercase;
+
+      color:
+        rgba(255,255,255,0.5);
+    }
+
+
+    /* ══════════════════════════════════════
+       STATI
+    ══════════════════════════════════════ */
+
+    .rosa-message {
+      width: 100%;
+
+      padding: 45px 20px;
+
+      text-align: center;
+
+      font-family:
+        'Barlow Condensed',
+        sans-serif;
+
+      font-size: 1rem;
+
+      color:
+        rgba(255,255,255,0.7);
+    }
+
+
+    .rosa-error {
+      color: #c00;
+    }
+
+
+    /* ══════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════ */
+
+    @media (max-width: 600px) {
+
+      .players-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .rosa-section {
+        margin-bottom: 32px;
+      }
+
+
+      .player-card {
+        min-height: 70px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- ══════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════ -->
+
+  <nav class="navbar">
+
+    <a
+      href="index.html"
+      class="nav-brand"
+    >
+
+      <img
+        src="logo.png"
+        alt="Santa Cruz Cup"
+      >
+
+      <span class="nav-brand-text">
+        SANTA CRUZ CUP
+      </span>
+
+    </a>
+
+
+    <ul class="nav-links">
+
+      <li>
+        <a href="index.html">
+          Home
+        </a>
+      </li>
+
+      <li>
+        <a href="calendario.html">
+          Calendario
+        </a>
+      </li>
+
+      <li>
+        <a href="risultati.html">
+          Risultati
+        </a>
+      </li>
+
+      <li>
+        <a href="classifica.html">
+          Classifica
+        </a>
+      </li>
+
+      <li>
+        <a href="marcatori.html">
+          Marcatori
+        </a>
+      </li>
+
+      <li>
+        <a
+          href="squadre.html"
+          class="active"
+        >
+          Squadre
+        </a>
+      </li>
+
+      <li>
+        <a href="regolamento.html">
+          Regolamento
+        </a>
+      </li>
+
+    </ul>
+
+
+    <!-- HAMBURGER -->
+
+    <div
+      class="hamburger"
+      id="hamburger"
+    >
+
+      <span></span>
+      <span></span>
+      <span></span>
+
+    </div>
+
+  </nav>
+
+
+  <!-- ══════════════════════════════════════
+       MOBILE MENU
+  ══════════════════════════════════════ -->
+
+  <div
+    class="mobile-menu"
+    id="mobileMenu"
+  >
+
+    <a href="index.html">
+      🏠 Home
+    </a>
+
+    <a href="calendario.html">
+      📅 Calendario
+    </a>
+
+    <a href="risultati.html">
+      📊 Risultati
+    </a>
+
+    <a href="classifica.html">
+      🏆 Classifica
+    </a>
+
+    <a href="marcatori.html">
+      ⚽ Marcatori
+    </a>
+
+    <a href="squadre.html">
+      👥 Squadre
+    </a>
+
+    <a href="regolamento.html">
+      📋 Regolamento
+    </a>
+
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       HEADER
+  ══════════════════════════════════════ -->
+
+  <header class="page-header">
+
+    <div class="page-eyebrow">
+      Santa Cruz Cup · 2026
+    </div>
+
+
+    <div
+      class="rosa-header"
+      id="rosaHeader"
+    >
+
+      <h1
+        class="rosa-team-name"
+        id="teamName"
+      >
+        Caricamento...
+      </h1>
+
+
+      <div
+        class="rosa-girone"
+        id="teamGirone"
+      ></div>
+
+
+      <a
+        href="squadre.html"
+        class="rosa-back"
+      >
+        ← Torna alle squadre
+      </a>
+
+    </div>
+
+  </header>
+
+
+  <!-- ══════════════════════════════════════
+       ROSA
+  ══════════════════════════════════════ -->
+
+  <section class="section">
+
+    <div
+      id="rosaContainer"
+    >
+
+      <div class="rosa-message">
+        Caricamento rosa...
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+
+  <footer>
+
+    <div class="footer-top">
+
+      <div>
+
+        <a href="index.html">
+
+          <img
+            src="logo.png"
+            alt="Santa Cruz Cup"
+            style="
+              height:50px;
+              margin-bottom:0.4rem;
+              filter:drop-shadow(
+                0 0 8px
+                rgba(255,183,0,0.4)
+              );
+            "
+          >
+
+        </a>
+
+
+        <div class="footer-tagline">
+          Torneo Giovanile di Calcio · Edizione 2026
+        </div>
+
+      </div>
+
+
+      <nav class="footer-nav">
+
+        <a href="index.html">
+          Home
+        </a>
+
+        <a href="calendario.html">
+          Calendario
+        </a>
+
+        <a href="risultati.html">
+          Risultati
+        </a>
+
+        <a href="classifica.html">
+          Classifica
+        </a>
+
+        <a href="marcatori.html">
+          Marcatori
+        </a>
+
+        <a href="squadre.html">
+          Squadre
+        </a>
+
+        <a href="regolamento.html">
+          Regolamento
+        </a>
+
+      </nav>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <span class="footer-copy">
+        © 2026 Santa Cruz Cup.
+        Tutti i diritti riservati.
+      </span>
+
+      <span class="footer-copy">
+        Fatto con ❤️ per i giovani campioni
+      </span>
+
+    </div>
+
+  </footer>
+
+
+  <!-- ══════════════════════════════════════
+       SCRIPT
+  ══════════════════════════════════════ -->
+
+  <script>
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      function () {
+
+
+        /* ═══════════════════════════════
+           HAMBURGER
+        ═══════════════════════════════ */
+
+        var hamburger =
+          document.getElementById(
+            "hamburger"
+          );
+
+
+        var mobileMenu =
+          document.getElementById(
+            "mobileMenu"
+          );
+
+
+        if (
+          hamburger &&
+          mobileMenu
+        ) {
+
+          hamburger.addEventListener(
+            "click",
+            function (e) {
+
+              e.stopPropagation();
+
+              mobileMenu.classList.toggle(
+                "open"
+              );
+
+            }
+          );
+
+
+          document.addEventListener(
+            "click",
+            function (e) {
+
+              if (
+                !hamburger.contains(
+                  e.target
+                ) &&
+                !mobileMenu.contains(
+                  e.target
+                )
+              ) {
+
+                mobileMenu.classList.remove(
+                  "open"
+                );
+
+              }
+
+            }
+          );
+
+
+          mobileMenu
+            .querySelectorAll("a")
+            .forEach(
+              function (a) {
+
+                a.addEventListener(
+                  "click",
+                  function () {
+
+                    mobileMenu.classList.remove(
+                      "open"
+                    );
+
+                  }
+                );
+
+              }
+            );
+
+        }
+
+
+        /* ═══════════════════════════════
+           PRENDE ID SQUADRA DALL'URL
+           
+           Esempio:
+           rosa.html?id=T001
+        ═══════════════════════════════ */
+
+        var params =
+          new URLSearchParams(
+            window.location.search
+          );
+
+
+        var squadraId =
+          params.get("id");
+
+
+        if (!squadraId) {
+
+          mostraErrore(
+            "Nessuna squadra selezionata."
+          );
+
+          return;
+
+        }
+
+
+        /* ═══════════════════════════════
+           CARICA SQUADRE
+        ═══════════════════════════════ */
+
+        Promise.all([
+
+          fetch(
+            "data/squadre.json?nocache="
+            + Date.now()
+          )
+          .then(
+            function (response) {
+
+              if (!response.ok) {
+
+                throw new Error(
+                  "Impossibile leggere squadre.json"
+                );
+
+              }
+
+              return response.json();
+
+            }
+          ),
+
+          fetch(
+            "data/rose.json?nocache="
+            + Date.now()
+          )
+          .then(
+            function (response) {
+
+              if (!response.ok) {
+
+                throw new Error(
+                  "Impossibile leggere rose.json"
+                );
+
+              }
+
+              return response.json();
+
+            }
+          )
+
+        ])
+
+        .then(
+          function (data) {
+
+            var squadre =
+              data[0];
+
+            var rose =
+              data[1];
+
+
+            mostraRosa(
+              squadre,
+              rose,
+              squadraId
+            );
+
+          }
+        )
+
+        .catch(
+          function (error) {
+
+            console.error(
+              error
+            );
+
+
+            mostraErrore(
+              "Errore nel caricamento della rosa."
+            );
+
+          }
+        );
+
+
+        /* ═══════════════════════════════
+           MOSTRA ROSA
+        ═══════════════════════════════ */
+
+        function mostraRosa(
+          squadre,
+          rose,
+          id
+        ) {
+
+          var team =
+            squadre.find(
+              function (squadra) {
+
+                return String(
+                  squadra.id
+                ) === String(id);
+
+              }
+            );
+
+
+          if (!team) {
+
+            mostraErrore(
+              "Squadra non trovata."
+            );
+
+            return;
+
+          }
+
+
+          /* ═══════════════════════════════
+             NOME SQUADRA
+          ═══════════════════════════════ */
+
+          var teamName =
+            document.getElementById(
+              "teamName"
+            );
+
+
+          teamName.innerHTML =
+            escapeHtml(
+              team.nome || "Squadra"
+            );
+
+
+          /* ═══════════════════════════════
+             GIRONE
+          ═══════════════════════════════ */
+
+          var teamGirone =
+            document.getElementById(
+              "teamGirone"
+            );
+
+
+          if (team.girone) {
+
+            teamGirone.textContent =
+              "Girone "
+              + team.girone;
+
+          } else {
+
+            teamGirone.textContent =
+              "";
+
+          }
+
+
+          /* ═══════════════════════════════
+             TITOLO PAGINA
+          ═══════════════════════════════ */
+
+          document.title =
+            "Rosa "
+            + (
+              team.nome || ""
+            )
+            + " – Santa Cruz Cup";
+
+
+          /* ═══════════════════════════════
+             FILTRA GIOCATORI
+          ═══════════════════════════════ */
+
+          var giocatori =
+            Array.isArray(rose)
+              ? rose.filter(
+                  function (giocatore) {
+
+                    return String(
+                      giocatore.squadra
+                    ) === String(id);
+
+                  }
+                )
+              : [];
+
+
+          /* ═══════════════════════════════
+             CONTENITORE
+          ═══════════════════════════════ */
+
+          var container =
+            document.getElementById(
+              "rosaContainer"
+            );
+
+
+          container.innerHTML =
+            "";
+
+
+          if (
+            giocatori.length === 0
+          ) {
+
+            container.innerHTML = `
+
+              <div class="rosa-message">
+
+                Nessun giocatore presente
+                nella rosa di questa squadra.
+
+              </div>
+
+            `;
+
+            return;
+
+          }
+
+
+          /* ═══════════════════════════════
+             ORDINE RUOLI
+          ═══════════════════════════════ */
+
+          var ruoli = [
+
+            {
+              nome: "Portieri",
+              valore: "Portiere",
+              icona: "🧤"
+            },
+
+            {
+              nome: "Difensori",
+              valore: "Difensore",
+              icona: "🛡️"
+            },
+
+            {
+              nome: "Centrocampisti",
+              valore: "Centrocampista",
+              icona: "⚙️"
+            },
+
+            {
+              nome: "Attaccanti",
+              valore: "Attaccante",
+              icona: "⚽"
+            }
+
+          ];
+
+
+          /* ═══════════════════════════════
+             CREA SEZIONI
+          ═══════════════════════════════ */
+
+          ruoli.forEach(
+            function (ruolo) {
+
+              var giocatoriRuolo =
+                giocatori.filter(
+                  function (giocatore) {
+
+                    return normalizza(
+                      giocatore.ruolo
+                    ) === normalizza(
+                      ruolo.valore
+                    );
+
+                  }
+                );
+
+
+              if (
+                giocatoriRuolo.length === 0
+              ) {
+
+                return;
+
+              }
+
+
+              /* Ordina alfabeticamente */
+
+              giocatoriRuolo.sort(
+                function (a, b) {
+
+                  return String(
+                    a.nome || ""
+                  ).localeCompare(
+                    String(
+                      b.nome || ""
+                    )
+                  );
+
+                }
+              );
+
+
+              /* ═════════════════════════
+                 SEZIONE
+              ═════════════════════════ */
+
+              var section =
+                document.createElement(
+                  "div"
+                );
+
+
+              section.className =
+                "rosa-section";
+
+
+              /* ═════════════════════════
+                 TITOLO
+              ═════════════════════════ */
+
+              var title =
+                document.createElement(
+                  "h2"
+                );
+
+
+              title.className =
+                "rosa-section-title";
+
+
+              title.innerHTML =
+                ruolo.icona
+                + " "
+                + escapeHtml(
+                    ruolo.nome
+                  );
+
+
+              section.appendChild(
+                title
+              );
+
+
+              /* ═════════════════════════
+                 GRIGLIA
+              ═════════════════════════ */
+
+              var grid =
+                document.createElement(
+                  "div"
+                );
+
+
+              grid.className =
+                "players-grid";
+
+
+              giocatoriRuolo.forEach(
+                function (
+                  giocatore,
+                  index
+                ) {
+
+                  var card =
+                    document.createElement(
+                      "div"
+                    );
+
+
+                  card.className =
+                    "player-card";
+
+
+                  card.innerHTML = `
+
+                    <div
+                      class="player-number"
+                    >
+
+                      ${String(
+                        index + 1
+                      ).padStart(
+                        2,
+                        "0"
+                      )}
+
+                    </div>
+
+
+                    <div
+                      class="player-info"
+                    >
+
+                      <div
+                        class="player-name"
+                      >
+
+                        ${escapeHtml(
+                          giocatore.nome
+                          || "Giocatore"
+                        )}
+
+                      </div>
+
+
+                      <div
+                        class="player-role"
+                      >
+
+                        ${escapeHtml(
+                          giocatore.ruolo
+                          || ruolo.valore
+                        )}
+
+                      </div>
+
+                    </div>
+
+                  `;
+
+
+                  grid.appendChild(
+                    card
+                  );
+
+                }
+              );
+
+
+              section.appendChild(
+                grid
+              );
+
+
+              container.appendChild(
+                section
+              );
+
+            }
+          );
+
+        }
+
+
+        /* ═══════════════════════════════
+           ERRORE
+        ═══════════════════════════════ */
+
+        function mostraErrore(
+          messaggio
+        ) {
+
+          document.getElementById(
+            "teamName"
+          ).textContent =
+            "Errore";
+
+
+          document.getElementById(
+            "teamGirone"
+          ).textContent =
+            "";
+
+
+          document.getElementById(
+            "rosaContainer"
+          ).innerHTML = `
+
+            <div
+              class="
+                rosa-message
+                rosa-error
+              "
+            >
+
+              ❌
+              ${escapeHtml(
+                messaggio
+              )}
+
+            </div>
+
+          `;
+
+        }
+
+
+        /* ═══════════════════════════════
+           NORMALIZZA TESTO
+        ═══════════════════════════════ */
+
+        function normalizza(
+          value
+        ) {
+
+          return String(
+            value || ""
+          )
+          .trim()
+          .toLowerCase();
+
+        }
+
+
+        /* ═══════════════════════════════
+           SICUREZZA HTML
+        ═══════════════════════════════ */
+
+        function escapeHtml(
+          value
+        ) {
+
+          return String(
+            value || ""
+          )
+
+          .replace(
+            /&/g,
+            "&amp;"
+          )
+
+          .replace(
+            /</g,
+            "&lt;"
+          )
+
+          .replace(
+            />/g,
+            "&gt;"
+          )
+
+          .replace(
+            /"/g,
+            "&quot;"
+          )
+
+          .replace(
+            /'/g,
+            "&#039;"
+          );
+
+        }
+
+      }
+    );
+
+  </script>
+
+
+</body>
+</html>
