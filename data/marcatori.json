@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "id": "M001",
+    "posizione": 1,
+    "cognome": "borccoli",
+    "squadra": "new team",
+    "gol": 104
+  }
+]
