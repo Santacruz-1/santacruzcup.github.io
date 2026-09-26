@@ -18,5 +18,15 @@
     "gol": 20,
     "squadra_id": "T002",
     "posizione": 2
+  },
+  {
+    "id": "M003",
+    "giocatore": "R005",
+    "cognome": "Salvatori",
+    "squadra": "m",
+    "squadra_id": "T002",
+    "squadraId": "T002",
+    "gol": 1,
+    "posizione": 3
   }
 ]
