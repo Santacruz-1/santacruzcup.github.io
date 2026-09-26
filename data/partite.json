@@ -37,8 +37,8 @@
     "ospite": "ciao",
     "data": "2026-10-21",
     "ora": "21:00",
-    "golCasa": null,
-    "golOspite": null,
-    "stato": "programmata"
+    "golCasa": 1,
+    "golOspite": 1,
+    "stato": "giocata"
   }
 ]
