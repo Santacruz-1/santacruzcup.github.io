@@ -30,5 +30,15 @@
     "golCasa": 3,
     "golOspite": 1,
     "stato": "giocata"
+  },
+  {
+    "id": "P004",
+    "casa": "cuiao",
+    "ospite": "ciao",
+    "data": "2026-10-21",
+    "ora": "21:00",
+    "golCasa": null,
+    "golOspite": null,
+    "stato": "programmata"
   }
 ]
