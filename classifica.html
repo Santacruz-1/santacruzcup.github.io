@@ -83,11 +83,9 @@
       class="hamburger"
       id="hamburger"
     >
-
       <span></span>
       <span></span>
       <span></span>
-
     </div>
 
   </nav>
@@ -205,9 +203,7 @@
               class="center"
               style="padding:40px;"
             >
-
               Caricamento classifica...
-
             </td>
 
           </tr>
@@ -315,21 +311,15 @@
       "DOMContentLoaded",
       function () {
 
-
         /* =================================================
            HAMBURGER
         ================================================= */
 
-        var hamburger =
-          document.getElementById(
-            "hamburger"
-          );
+        const hamburger =
+          document.getElementById("hamburger");
 
-        var mobileMenu =
-          document.getElementById(
-            "mobileMenu"
-          );
-
+        const mobileMenu =
+          document.getElementById("mobileMenu");
 
         if (
           hamburger &&
@@ -342,9 +332,7 @@
 
               e.stopPropagation();
 
-              mobileMenu.classList.toggle(
-                "open"
-              );
+              mobileMenu.classList.toggle("open");
 
             }
           );
@@ -355,17 +343,11 @@
             function (e) {
 
               if (
-                !hamburger.contains(
-                  e.target
-                ) &&
-                !mobileMenu.contains(
-                  e.target
-                )
+                !hamburger.contains(e.target) &&
+                !mobileMenu.contains(e.target)
               ) {
 
-                mobileMenu.classList.remove(
-                  "open"
-                );
+                mobileMenu.classList.remove("open");
 
               }
 
@@ -376,15 +358,13 @@
           mobileMenu
             .querySelectorAll("a")
             .forEach(
-              function (a) {
+              function (link) {
 
-                a.addEventListener(
+                link.addEventListener(
                   "click",
                   function () {
 
-                    mobileMenu.classList.remove(
-                      "open"
-                    );
+                    mobileMenu.classList.remove("open");
 
                   }
                 );
@@ -396,26 +376,35 @@
 
 
         /* =================================================
-           CARICAMENTO DATI
+           URL JSON
+        ================================================= */
+
+        const squadreUrl =
+          "data/squadre.json?nocache=" + Date.now();
+
+        const partiteUrl =
+          "data/partite.json?nocache=" + Date.now();
+
+
+        /* =================================================
+           CARICAMENTO JSON
         ================================================= */
 
         Promise.all([
 
           fetch(
-            "data/squadre.json?nocache="
-            + Date.now(),
+            squadreUrl,
             {
               cache: "no-store"
             }
           )
-
           .then(
             function (response) {
 
               if (!response.ok) {
 
                 throw new Error(
-                  "Errore caricamento squadre.json"
+                  "Impossibile caricare squadre.json"
                 );
 
               }
@@ -427,20 +416,18 @@
 
 
           fetch(
-            "data/partite.json?nocache="
-            + Date.now(),
+            partiteUrl,
             {
               cache: "no-store"
             }
           )
-
           .then(
             function (response) {
 
               if (!response.ok) {
 
                 throw new Error(
-                  "Errore caricamento partite.json"
+                  "Impossibile caricare partite.json"
                 );
 
               }
@@ -455,9 +442,19 @@
         .then(
           function (dati) {
 
-            var squadre = dati[0];
+            const squadre = dati[0];
+            const partite = dati[1];
 
-            var partite = dati[1];
+
+            console.log(
+              "SQUADRE:",
+              squadre
+            );
+
+            console.log(
+              "PARTITE:",
+              partite
+            );
 
 
             if (
@@ -465,7 +462,7 @@
             ) {
 
               throw new Error(
-                "squadre.json non contiene un array"
+                "squadre.json non è un array"
               );
 
             }
@@ -476,7 +473,7 @@
             ) {
 
               throw new Error(
-                "partite.json non contiene un array"
+                "partite.json non è un array"
               );
 
             }
@@ -491,11 +488,11 @@
         )
 
         .catch(
-          function (error) {
+          function (errore) {
 
             console.error(
-              "Errore classifica:",
-              error
+              "ERRORE CLASSIFICA:",
+              errore
             );
 
 
@@ -508,7 +505,421 @@
 
 
         /* =================================================
-           CREA CLASSIFICA
+           NORMALIZZA TESTO
+        ================================================= */
+
+        function normalizzaTesto(
+          valore
+        ) {
+
+          return String(
+            valore ?? ""
+          )
+          .trim()
+          .toLowerCase();
+
+        }
+
+
+        /* =================================================
+           CONVERTE NUMERO
+        ================================================= */
+
+        function numero(
+          valore
+        ) {
+
+          if (
+            valore === null ||
+            valore === undefined ||
+            valore === ""
+          ) {
+
+            return null;
+
+          }
+
+
+          const n =
+            Number(
+              String(valore)
+                .replace(",", ".")
+                .trim()
+            );
+
+
+          if (
+            Number.isFinite(n)
+          ) {
+
+            return n;
+
+          }
+
+
+          return null;
+
+        }
+
+
+        /* =================================================
+           PRENDE ID SQUADRA
+        ================================================= */
+
+        function trovaIdSquadra(
+          partita,
+          lato,
+          idPerNome
+        ) {
+
+          let id = null;
+
+
+          if (
+            lato === "casa"
+          ) {
+
+            const possibiliId = [
+
+              partita.casa_id,
+              partita.casaId,
+              partita.casaID,
+              partita.home_id,
+              partita.homeId,
+              partita.squadraCasaId
+
+            ];
+
+
+            for (
+              const valore of possibiliId
+            ) {
+
+              if (
+                valore !== null &&
+                valore !== undefined &&
+                String(valore).trim() !== ""
+              ) {
+
+                id = String(valore).trim();
+
+                break;
+
+              }
+
+            }
+
+
+            if (!id) {
+
+              const possibiliNomi = [
+
+                partita.casa,
+                partita.casa_nome,
+                partita.casaNome,
+                partita.home,
+                partita.home_name,
+                partita.homeName
+
+              ];
+
+
+              for (
+                const valore of possibiliNomi
+              ) {
+
+                if (
+                  valore !== null &&
+                  valore !== undefined &&
+                  String(valore).trim() !== ""
+                ) {
+
+                  const cercato =
+                    normalizzaTesto(valore);
+
+                  if (
+                    idPerNome[cercato]
+                  ) {
+
+                    id =
+                      idPerNome[cercato];
+
+                    break;
+
+                  }
+
+                }
+
+              }
+
+            }
+
+          }
+
+
+          if (
+            lato === "ospite"
+          ) {
+
+            const possibiliId = [
+
+              partita.trasferta_id,
+              partita.trasfertaId,
+              partita.trasfertaID,
+              partita.ospite_id,
+              partita.ospiteId,
+              partita.ospiteID,
+              partita.away_id,
+              partita.awayId,
+              partita.squadraOspiteId
+
+            ];
+
+
+            for (
+              const valore of possibiliId
+            ) {
+
+              if (
+                valore !== null &&
+                valore !== undefined &&
+                String(valore).trim() !== ""
+              ) {
+
+                id =
+                  String(valore).trim();
+
+                break;
+
+              }
+
+            }
+
+
+            if (!id) {
+
+              const possibiliNomi = [
+
+                partita.ospite,
+                partita.trasferta,
+                partita.trasferta_nome,
+                partita.trasfertaNome,
+                partita.away,
+                partita.away_name,
+                partita.awayName
+
+              ];
+
+
+              for (
+                const valore of possibiliNomi
+              ) {
+
+                if (
+                  valore !== null &&
+                  valore !== undefined &&
+                  String(valore).trim() !== ""
+                ) {
+
+                  const cercato =
+                    normalizzaTesto(valore);
+
+                  if (
+                    idPerNome[cercato]
+                  ) {
+
+                    id =
+                      idPerNome[cercato];
+
+                    break;
+
+                  }
+
+                }
+
+              }
+
+            }
+
+          }
+
+
+          return id;
+
+        }
+
+
+        /* =================================================
+           LEGGE RISULTATO
+        ================================================= */
+
+        function trovaRisultato(
+          partita
+        ) {
+
+          let golCasa =
+            numero(partita.golCasa);
+
+          let golOspite =
+            numero(partita.golOspite);
+
+
+          /*
+           * Se abbiamo già entrambi i gol,
+           * usiamo quelli.
+           */
+
+          if (
+            golCasa !== null &&
+            golOspite !== null
+          ) {
+
+            return {
+              casa: golCasa,
+              ospite: golOspite
+            };
+
+          }
+
+
+          /*
+           * Prova vari nomi.
+           */
+
+          const possibiliRisultati = [
+
+            partita.risultato,
+            partita.result,
+            partita.score
+
+          ];
+
+
+          for (
+            const valore of possibiliRisultati
+          ) {
+
+            if (
+              valore === null ||
+              valore === undefined
+            ) {
+
+              continue;
+
+            }
+
+
+            const testo =
+              String(valore).trim();
+
+
+            /*
+             * Accetta:
+             *
+             * 3-1
+             * 3 - 1
+             * 3:1
+             */
+
+            const match =
+              testo.match(
+                /^(\d+)\s*[-:]\s*(\d+)$/
+              );
+
+
+            if (
+              match
+            ) {
+
+              golCasa =
+                Number(match[1]);
+
+              golOspite =
+                Number(match[2]);
+
+
+              return {
+                casa: golCasa,
+                ospite: golOspite
+              };
+
+            }
+
+          }
+
+
+          return null;
+
+        }
+
+
+        /* =================================================
+           CONTROLLA SE PARTITA È GIOCATA
+        ================================================= */
+
+        function partitaGiocata(
+          partita,
+          risultato
+        ) {
+
+          /*
+           * Se esiste uno stato esplicito
+           * "giocata", lo consideriamo.
+           */
+
+          const stato =
+            normalizzaTesto(
+              partita.stato
+            );
+
+
+          if (
+            stato === "giocata" ||
+            stato === "giocato" ||
+            stato === "terminata" ||
+            stato === "terminato" ||
+            stato === "conclusa" ||
+            stato === "concluso"
+          ) {
+
+            return true;
+
+          }
+
+
+          /*
+           * Se lo stato dice chiaramente
+           * che non è giocata, ignoriamo.
+           */
+
+          if (
+            stato === "da giocare" ||
+            stato === "programmata" ||
+            stato === "programmato" ||
+            stato === "in programma" ||
+            stato === "rinviata" ||
+            stato === "rinviato"
+          ) {
+
+            return false;
+
+          }
+
+
+          /*
+           * Se non c'è stato ma c'è un risultato
+           * valido, consideriamo la partita giocata.
+           */
+
+          return (
+            risultato !== null
+          );
+
+        }
+
+
+        /* =================================================
+           COSTRUISCI CLASSIFICA
         ================================================= */
 
         function costruisciClassifica(
@@ -516,15 +927,14 @@
           partite
         ) {
 
-
-          var tbody =
+          const tbody =
             document.getElementById(
               "classificaBody"
             );
 
 
           if (
-            !squadre.length
+            squadre.length === 0
           ) {
 
             mostraMessaggio(
@@ -538,39 +948,38 @@
 
           /*
            * =================================================
-           * CREA LE STATISTICHE
+           * CREA MAPPA SQUADRE
            * =================================================
            */
 
-          var classifica = {};
+          const classifica = {};
 
 
-          /*
-           * Salviamo sia l'ID che il nome.
-           *
-           * Questo permette alla pagina di funzionare
-           * sia con:
-           *
-           * casa_id / trasferta_id
-           *
-           * sia con:
-           *
-           * casa / ospite
-           */
+          const idPerNome = {};
+
 
           squadre.forEach(
             function (squadra) {
 
-              var id =
+              const id =
                 String(
-                  squadra.id || ""
-                );
+                  squadra.id ??
+                  ""
+                ).trim();
 
 
-              var nome =
+              const nome =
                 String(
-                  squadra.nome || ""
-                );
+                  squadra.nome ??
+                  "Squadra"
+                ).trim();
+
+
+              if (!id) {
+
+                return;
+
+              }
 
 
               classifica[id] = {
@@ -580,10 +989,16 @@
                 nome: nome,
 
                 categoria:
-                  squadra.categoria || "",
+                  String(
+                    squadra.categoria ??
+                    ""
+                  ),
 
                 girone:
-                  squadra.girone || "",
+                  String(
+                    squadra.girone ??
+                    ""
+                  ),
 
                 punti: 0,
 
@@ -599,36 +1014,12 @@
 
               };
 
-            }
-          );
-
-
-          /*
-           * =================================================
-           * MAPPA DEI NOMI
-           * =================================================
-           */
-
-          var idPerNome = {};
-
-
-          squadre.forEach(
-            function (squadra) {
-
-              var nome =
-                String(
-                  squadra.nome || ""
-                )
-                .trim()
-                .toLowerCase();
-
 
               if (nome) {
 
-                idPerNome[nome] =
-                  String(
-                    squadra.id || ""
-                  );
+                idPerNome[
+                  normalizzaTesto(nome)
+                ] = id;
 
               }
 
@@ -638,250 +1029,32 @@
 
           /*
            * =================================================
-           * ANALIZZA PARTITE
+           * ELABORA PARTITE
            * =================================================
            */
 
           partite.forEach(
             function (partita) {
 
+              console.log(
+                "Analizzo partita:",
+                partita
+              );
 
-              /*
-               * La partita deve avere un risultato.
-               *
-               * Supportiamo entrambi i formati:
-               *
-               * golCasa / golOspite
-               *
-               * oppure
-               *
-               * risultato: "3-1"
-               */
 
-              var golCasa =
-                partita.golCasa;
-
-              var golOspite =
-                partita.golOspite;
+              const risultato =
+                trovaRisultato(partita);
 
 
               /*
-               * Se i gol non sono presenti,
-               * proviamo a leggere "risultato".
+               * Nessun risultato:
+               * la partita non conta.
                */
 
-              if (
-                golCasa === null ||
-                golCasa === undefined ||
-                golOspite === null ||
-                golOspite === undefined
-              ) {
+              if (!risultato) {
 
-                var risultato =
-                  partita.risultato;
-
-
-                if (
-                  typeof risultato ===
-                  "string"
-                ) {
-
-                  var parti =
-                    risultato
-                      .split("-");
-
-
-                  if (
-                    parti.length === 2
-                  ) {
-
-                    golCasa =
-                      Number(
-                        parti[0].trim()
-                      );
-
-                    golOspite =
-                      Number(
-                        parti[1].trim()
-                      );
-
-                  }
-
-                }
-
-              }
-
-
-              /*
-               * Controllo numeri.
-               */
-
-              golCasa =
-                Number(golCasa);
-
-              golOspite =
-                Number(golOspite);
-
-
-              if (
-                !Number.isFinite(
-                  golCasa
-                ) ||
-                !Number.isFinite(
-                  golOspite
-                )
-              ) {
-
-                return;
-
-              }
-
-
-              if (
-                golCasa < 0 ||
-                golOspite < 0
-              ) {
-
-                return;
-
-              }
-
-
-              /*
-               * =================================================
-               * TROVA CASA
-               * =================================================
-               */
-
-              var casaId = null;
-
-
-              /*
-               * Prima proviamo casa_id.
-               */
-
-              if (
-                partita.casa_id !==
-                undefined &&
-                partita.casa_id !==
-                null
-              ) {
-
-                casaId =
-                  String(
-                    partita.casa_id
-                  );
-
-              }
-
-
-              /*
-               * Compatibilità con casaId.
-               */
-
-              if (
-                !casaId &&
-                partita.casaId !==
-                undefined
-              ) {
-
-                casaId =
-                  String(
-                    partita.casaId
-                  );
-
-              }
-
-
-              /*
-               * Se manca l'ID,
-               * cerchiamo tramite nome.
-               */
-
-              if (
-                !casaId &&
-                partita.casa
-              ) {
-
-                casaId =
-                  idPerNome[
-                    String(
-                      partita.casa
-                    )
-                    .trim()
-                    .toLowerCase()
-                  ];
-
-              }
-
-
-              /*
-               * =================================================
-               * TROVA OSPITE
-               * =================================================
-               */
-
-              var ospiteId = null;
-
-
-              if (
-                partita.trasferta_id !==
-                undefined &&
-                partita.trasferta_id !==
-                null
-              ) {
-
-                ospiteId =
-                  String(
-                    partita.trasferta_id
-                  );
-
-              }
-
-
-              if (
-                !ospiteId &&
-                partita.trasfertaId !==
-                undefined
-              ) {
-
-                ospiteId =
-                  String(
-                    partita.trasfertaId
-                  );
-
-              }
-
-
-              if (
-                !ospiteId &&
-                partita.ospite
-              ) {
-
-                ospiteId =
-                  idPerNome[
-                    String(
-                      partita.ospite
-                    )
-                    .trim()
-                    .toLowerCase()
-                  ];
-
-              }
-
-
-              /*
-               * Se non troviamo le squadre,
-               * ignoriamo la partita.
-               */
-
-              if (
-                !casaId ||
-                !ospiteId
-              ) {
-
-                console.warn(
-                  "Partita ignorata:",
+                console.log(
+                  "Partita senza risultato:",
                   partita
                 );
 
@@ -890,10 +1063,66 @@
               }
 
 
-              var casa =
+              /*
+               * Controllo che la partita
+               * sia effettivamente giocata.
+               */
+
+              if (
+                !partitaGiocata(
+                  partita,
+                  risultato
+                )
+              ) {
+
+                return;
+
+              }
+
+
+              const casaId =
+                trovaIdSquadra(
+                  partita,
+                  "casa",
+                  idPerNome
+                );
+
+
+              const ospiteId =
+                trovaIdSquadra(
+                  partita,
+                  "ospite",
+                  idPerNome
+                );
+
+
+              console.log(
+                "Squadre partita:",
+                casaId,
+                ospiteId
+              );
+
+
+              if (
+                !casaId ||
+                !ospiteId
+              ) {
+
+                console.warn(
+                  "Impossibile trovare le squadre:",
+                  partita
+                );
+
+                return;
+
+              }
+
+
+              const casa =
                 classifica[casaId];
 
-              var ospite =
+
+              const ospite =
                 classifica[ospiteId];
 
 
@@ -903,13 +1132,22 @@
               ) {
 
                 console.warn(
-                  "Squadra non trovata per partita:",
-                  partita
+                  "ID squadra non presente nella classifica:",
+                  casaId,
+                  ospiteId
                 );
 
                 return;
 
               }
+
+
+              const golCasa =
+                risultato.casa;
+
+
+              const golOspite =
+                risultato.ospite;
 
 
               /*
@@ -934,7 +1172,7 @@
 
               /*
                * =================================================
-               * RISULTATO
+               * PUNTI
                * =================================================
                */
 
@@ -982,29 +1220,20 @@
 
           /*
            * =================================================
-           * ARRAY
+           * ORDINA
            * =================================================
            */
 
-          var classificaArray =
-            Object.values(
-              classifica
-            );
+          const classificaArray =
+            Object.values(classifica);
 
-
-          /*
-           * =================================================
-           * ORDINAMENTO
-           *
-           * 1. Punti
-           * 2. Differenza reti
-           * 3. Gol fatti
-           * 4. Nome
-           * =================================================
-           */
 
           classificaArray.sort(
             function (a, b) {
+
+              /*
+               * 1 - PUNTI
+               */
 
               if (
                 b.punti !==
@@ -1019,12 +1248,16 @@
               }
 
 
-              var diffA =
+              /*
+               * 2 - DIFFERENZA RETI
+               */
+
+              const diffA =
                 a.golFatti -
                 a.golSubiti;
 
 
-              var diffB =
+              const diffB =
                 b.golFatti -
                 b.golSubiti;
 
@@ -1042,6 +1275,10 @@
               }
 
 
+              /*
+               * 3 - GOL FATTI
+               */
+
               if (
                 b.golFatti !==
                 a.golFatti
@@ -1055,6 +1292,10 @@
               }
 
 
+              /*
+               * 4 - NOME
+               */
+
               return a.nome.localeCompare(
                 b.nome,
                 "it"
@@ -1066,7 +1307,7 @@
 
           /*
            * =================================================
-           * CREA HTML
+           * CREA TABELLA
            * =================================================
            */
 
@@ -1079,18 +1320,17 @@
               index
             ) {
 
-
-              var posizione =
+              const posizione =
                 index + 1;
 
 
-              var tr =
+              const tr =
                 document.createElement(
                   "tr"
                 );
 
 
-              var classeRank = "";
+              let classeRank = "";
 
 
               if (
@@ -1121,15 +1361,47 @@
               }
 
 
-              var differenza =
-                squadra.golFatti -
-                squadra.golSubiti;
+              const categoria =
+                squadra.categoria;
 
 
-              var differenzaTesto =
-                differenza > 0
-                  ? "+" + differenza
-                  : differenza;
+              const girone =
+                squadra.girone;
+
+
+              let info = "";
+
+
+              if (
+                categoria &&
+                girone
+              ) {
+
+                info =
+                  categoria +
+                  " · Girone " +
+                  girone;
+
+              }
+
+              else if (
+                categoria
+              ) {
+
+                info =
+                  categoria;
+
+              }
+
+              else if (
+                girone
+              ) {
+
+                info =
+                  "Girone " +
+                  girone;
+
+              }
 
 
               tr.innerHTML = `
@@ -1153,35 +1425,21 @@
                     )}
                   </strong>
 
-                  <small
-                    style="
-                      display:block;
-                      opacity:0.6;
-                      margin-top:3px;
-                    "
-                  >
-
-                    ${escapeHtml(
-                      squadra.categoria
-                    )}
-
-                    ${
-                      squadra.categoria
-                      ? " · "
+                  ${
+                    info
+                      ? `
+                        <small
+                          style="
+                            display:block;
+                            opacity:0.6;
+                            margin-top:3px;
+                          "
+                        >
+                          ${escapeHtml(info)}
+                        </small>
+                      `
                       : ""
-                    }
-
-                    ${
-                      squadra.girone
-                      ? "Girone "
-                      : ""
-                    }
-
-                    ${escapeHtml(
-                      squadra.girone
-                    )}
-
-                  </small>
+                  }
 
                 </td>
 
@@ -1190,12 +1448,10 @@
 
                   <strong
                     style="
-                      color:var(--gold)
+                      color:var(--gold);
                     "
                   >
-
                     ${squadra.punti}
-
                   </strong>
 
                 </td>
@@ -1226,20 +1482,10 @@
           );
 
 
-          /*
-           * Se non ci sono partite ma ci sono squadre,
-           * mostriamo comunque tutte le squadre.
-           */
-
-          if (
-            classificaArray.length === 0
-          ) {
-
-            mostraMessaggio(
-              "Nessuna squadra iscritta."
-            );
-
-          }
+          console.log(
+            "CLASSIFICA FINALE:",
+            classificaArray
+          );
 
         }
 
@@ -1252,7 +1498,7 @@
           messaggio
         ) {
 
-          var tbody =
+          const tbody =
             document.getElementById(
               "classificaBody"
             );
