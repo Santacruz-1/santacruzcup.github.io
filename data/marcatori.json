@@ -1,9 +1,11 @@
 [
   {
     "id": "M001",
-    "posizione": 1,
-    "cognome": "borccoli",
-    "squadra": "new team",
-    "gol": 104
+    "giocatore": "R004",
+    "squadra": "down",
+    "gol": 34,
+    "squadraId": "T001",
+    "cognome": "rocci",
+    "posizione": 1
   }
 ]
