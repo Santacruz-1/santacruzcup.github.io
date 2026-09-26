@@ -6,7 +6,8 @@
     "gol": 44,
     "squadraId": "T001",
     "cognome": "rocci",
-    "posizione": 1
+    "posizione": 1,
+    "squadra_id": "T001"
   },
   {
     "id": "M002",
