@@ -1,110 +1,228 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>Marcatori – Santa Cruz Cup</title>
 
-  <link rel="stylesheet" href="style.css">
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
 
   <style>
+
     .loading,
     .errore,
     .vuoto {
+
       text-align: center;
-      padding: 2rem;
+      padding: 40px;
+
       color: rgba(255,255,255,0.7);
+
     }
+
 
     .errore {
+
       color: #ff6b6b;
+
     }
+
 
     .rank {
+
       display: inline-flex;
+
       align-items: center;
       justify-content: center;
+
       min-width: 32px;
       height: 32px;
+
       border-radius: 50%;
+
       font-weight: 800;
+
     }
+
 
     .rank.gold {
+
       background: rgba(255,183,0,0.18);
+
       color: #ffb700;
+
     }
+
 
     .rank.silver {
+
       background: rgba(190,190,190,0.18);
+
       color: #cfcfcf;
+
     }
+
 
     .rank.bronze {
+
       background: rgba(205,127,50,0.18);
+
       color: #cd7f32;
+
     }
+
 
     .rank-normal {
-      color: rgba(255,255,255,0.7);
+
       font-weight: 700;
+
+      opacity: 0.75;
+
     }
 
+
     .gol-numero {
+
       color: var(--gold);
+
       font-weight: 800;
-      font-size: 1.05rem;
+
     }
+
   </style>
+
 </head>
+
 
 <body>
 
-  <!-- ══ NAVBAR ══ -->
+
+  <!-- =====================================================
+       NAVBAR
+  ====================================================== -->
 
   <nav class="navbar">
 
-    <a href="index.html" class="nav-brand">
-      <img src="logo.png" alt="Santa Cruz Cup">
-      <span class="nav-brand-text">SANTA CRUZ CUP</span>
+    <a
+      href="index.html"
+      class="nav-brand"
+    >
+
+      <img
+        src="logo.png"
+        alt="Santa Cruz Cup"
+      >
+
+      <span class="nav-brand-text">
+        SANTA CRUZ CUP
+      </span>
+
     </a>
 
+
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="calendario.html">Calendario</a></li>
-      <li><a href="risultati.html">Risultati</a></li>
-      <li><a href="classifica.html">Classifica</a></li>
-      <li><a href="marcatori.html" class="active">Marcatori</a></li>
-      <li><a href="squadre.html">Squadre</a></li>
-      <li><a href="regolamento.html">Regolamento</a></li>
+
+      <li>
+        <a href="index.html">
+          Home
+        </a>
+      </li>
+
+      <li>
+        <a href="calendario.html">
+          Calendario
+        </a>
+      </li>
+
+      <li>
+        <a href="risultati.html">
+          Risultati
+        </a>
+      </li>
+
+      <li>
+        <a href="classifica.html">
+          Classifica
+        </a>
+      </li>
+
+      <li>
+        <a
+          href="marcatori.html"
+          class="active"
+        >
+          Marcatori
+        </a>
+      </li>
+
+      <li>
+        <a href="squadre.html">
+          Squadre
+        </a>
+      </li>
+
+      <li>
+        <a href="regolamento.html">
+          Regolamento
+        </a>
+      </li>
+
     </ul>
 
-    <div class="hamburger" id="hamburger">
+
+    <div
+      class="hamburger"
+      id="hamburger"
+    >
+
       <span></span>
       <span></span>
       <span></span>
+
     </div>
 
   </nav>
 
 
-  <!-- ══ MOBILE MENU ══ -->
+  <!-- =====================================================
+       MOBILE MENU
+  ====================================================== -->
 
-  <div class="mobile-menu" id="mobileMenu">
+  <div
+    class="mobile-menu"
+    id="mobileMenu"
+  >
 
     <a href="index.html">🏠 Home</a>
+
     <a href="calendario.html">📅 Calendario</a>
+
     <a href="risultati.html">📊 Risultati</a>
+
     <a href="classifica.html">🏆 Classifica</a>
+
     <a href="marcatori.html">⚽ Marcatori</a>
+
     <a href="squadre.html">👥 Squadre</a>
+
     <a href="regolamento.html">📋 Regolamento</a>
 
   </div>
 
 
-  <!-- ══ PAGE HEADER ══ -->
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
 
   <header class="page-header">
 
@@ -123,7 +241,9 @@
   </header>
 
 
-  <!-- ══ CONTENUTO ══ -->
+  <!-- =====================================================
+       CONTENUTO
+  ====================================================== -->
 
   <section class="section">
 
@@ -132,20 +252,43 @@
       <table>
 
         <thead>
+
           <tr>
-            <th class="center">#</th>
-            <th>Giocatore</th>
-            <th>Squadra</th>
-            <th class="center">⚽ Gol</th>
+
+            <th class="center">
+              #
+            </th>
+
+            <th>
+              Giocatore
+            </th>
+
+            <th>
+              Squadra
+            </th>
+
+            <th class="center">
+              ⚽ Gol
+            </th>
+
           </tr>
+
         </thead>
+
 
         <tbody id="marcatoriBody">
 
           <tr>
-            <td colspan="4" class="loading">
+
+            <td
+              colspan="4"
+              class="loading"
+            >
+
               ⚽ Caricamento marcatori...
+
             </td>
+
           </tr>
 
         </tbody>
@@ -157,7 +300,9 @@
   </section>
 
 
-  <!-- ══ FOOTER ══ -->
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
 
   <footer>
 
@@ -166,19 +311,26 @@
       <div>
 
         <a href="index.html">
+
           <img
             src="logo.png"
             alt="Santa Cruz Cup"
             style="
               height:50px;
               margin-bottom:0.4rem;
-              filter:drop-shadow(0 0 8px rgba(255,183,0,0.4));
+              filter:drop-shadow(
+                0 0 8px
+                rgba(255,183,0,0.4)
+              );
             "
           >
+
         </a>
 
         <div class="footer-tagline">
+
           Torneo Giovanile di Calcio · Edizione 2026
+
         </div>
 
       </div>
@@ -186,13 +338,33 @@
 
       <nav class="footer-nav">
 
-        <a href="index.html">Home</a>
-        <a href="calendario.html">Calendario</a>
-        <a href="risultati.html">Risultati</a>
-        <a href="classifica.html">Classifica</a>
-        <a href="marcatori.html">Marcatori</a>
-        <a href="squadre.html">Squadre</a>
-        <a href="regolamento.html">Regolamento</a>
+        <a href="index.html">
+          Home
+        </a>
+
+        <a href="calendario.html">
+          Calendario
+        </a>
+
+        <a href="risultati.html">
+          Risultati
+        </a>
+
+        <a href="classifica.html">
+          Classifica
+        </a>
+
+        <a href="marcatori.html">
+          Marcatori
+        </a>
+
+        <a href="squadre.html">
+          Squadre
+        </a>
+
+        <a href="regolamento.html">
+          Regolamento
+        </a>
 
       </nav>
 
@@ -214,424 +386,244 @@
   </footer>
 
 
-  <!-- ══ SCRIPT ══ -->
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
 
   <script>
 
-    document.addEventListener("DOMContentLoaded", function () {
-
-      /* ==========================================
-         MENU MOBILE
-      ========================================== */
-
-      var hamburger = document.getElementById("hamburger");
-      var mobileMenu = document.getElementById("mobileMenu");
-
-      if (hamburger && mobileMenu) {
-
-        hamburger.addEventListener("click", function (e) {
-
-          e.stopPropagation();
-
-          mobileMenu.classList.toggle("open");
-
-        });
+    document.addEventListener(
+      "DOMContentLoaded",
+      function () {
 
 
-        document.addEventListener("click", function (e) {
+        /* =================================================
+           MENU MOBILE
+        ================================================== */
 
-          if (
-            !hamburger.contains(e.target) &&
-            !mobileMenu.contains(e.target)
-          ) {
-
-            mobileMenu.classList.remove("open");
-
-          }
-
-        });
+        var hamburger =
+          document.getElementById(
+            "hamburger"
+          );
 
 
-        mobileMenu.querySelectorAll("a").forEach(function (a) {
-
-          a.addEventListener("click", function () {
-
-            mobileMenu.classList.remove("open");
-
-          });
-
-        });
-
-      }
+        var mobileMenu =
+          document.getElementById(
+            "mobileMenu"
+          );
 
 
-      /* ==========================================
-         ANIMAZIONE
-      ========================================== */
+        if (
+          hamburger &&
+          mobileMenu
+        ) {
 
-      if ("IntersectionObserver" in window) {
+          hamburger.addEventListener(
+            "click",
+            function (e) {
 
-        var obs = new IntersectionObserver(
-          function (entries, observer) {
+              e.stopPropagation();
 
-            entries.forEach(function (entry, idx) {
+              mobileMenu.classList.toggle(
+                "open"
+              );
 
-              if (entry.isIntersecting) {
+            }
+          );
 
-                setTimeout(function () {
 
-                  entry.target.classList.add("in");
+          document.addEventListener(
+            "click",
+            function (e) {
 
-                }, idx * 70);
+              if (
+                !hamburger.contains(
+                  e.target
+                ) &&
+                !mobileMenu.contains(
+                  e.target
+                )
+              ) {
 
-                observer.unobserve(entry.target);
+                mobileMenu.classList.remove(
+                  "open"
+                );
 
               }
 
-            });
+            }
+          );
 
-          },
-          {
-            threshold: 0.12
+
+          mobileMenu
+            .querySelectorAll("a")
+            .forEach(
+              function (a) {
+
+                a.addEventListener(
+                  "click",
+                  function () {
+
+                    mobileMenu.classList.remove(
+                      "open"
+                    );
+
+                  }
+                );
+
+              }
+            );
+
+        }
+
+
+        /* =================================================
+           CARICA MARCATORI
+        ================================================== */
+
+        caricaMarcatori();
+
+
+      });
+
+
+    /* =====================================================
+       CARICAMENTO JSON
+    ====================================================== */
+
+    function caricaMarcatori() {
+
+      var url =
+        "data/marcatori.json?nocache="
+        + Date.now();
+
+
+      fetch(
+        url,
+        {
+          cache: "no-store"
+        }
+      )
+
+      .then(
+        function (response) {
+
+          if (!response.ok) {
+
+            throw new Error(
+              "Impossibile leggere marcatori.json"
+            );
+
           }
-        );
 
+          return response.json();
 
-        document
-          .querySelectorAll(".reveal")
-          .forEach(function (el) {
+        }
+      )
 
-            obs.observe(el);
+      .then(
+        function (marcatori) {
 
-          });
-
-      } else {
-
-        document
-          .querySelectorAll(".reveal")
-          .forEach(function (el) {
-
-            el.classList.add("in");
-
-          });
-
-      }
-
-
-      /* ==========================================
-         CARICAMENTO DATI
-      ========================================== */
-
-      caricaMarcatori();
-
-    });
-
-
-    /* ==========================================
-       URL JSON
-    ========================================== */
-
-    /*
-      I file vengono letti direttamente dal repository
-      GitHub Pages.
-
-      Il parametro ?v= evita che il browser utilizzi
-      una vecchia copia del JSON.
-    */
-
-    var BASE_DATA = "data/";
-
-    var FILE_MARCATORI =
-      BASE_DATA + "marcatori.json?v=" + Date.now();
-
-    var FILE_ROSE =
-      BASE_DATA + "rose.json?v=" + Date.now();
-
-    var FILE_SQUADRE =
-      BASE_DATA + "squadre.json?v=" + Date.now();
-
-
-    /* ==========================================
-       CARICA MARCATORI
-    ========================================== */
-
-    async function caricaMarcatori() {
-
-      var tbody =
-        document.getElementById("marcatoriBody");
-
-
-      try {
-
-        var risultati = await Promise.all([
-
-          fetch(FILE_MARCATORI, {
-            cache: "no-store"
-          }),
-
-          fetch(FILE_ROSE, {
-            cache: "no-store"
-          }),
-
-          fetch(FILE_SQUADRE, {
-            cache: "no-store"
-          })
-
-        ]);
-
-
-        var responseMarcatori = risultati[0];
-        var responseRose = risultati[1];
-        var responseSquadre = risultati[2];
-
-
-        if (!responseMarcatori.ok) {
-
-          throw new Error(
-            "Impossibile caricare marcatori.json"
+          mostraMarcatori(
+            marcatori
           );
 
         }
+      )
 
+      .catch(
+        function (error) {
 
-        if (!responseRose.ok) {
-
-          throw new Error(
-            "Impossibile caricare rose.json"
+          console.error(
+            "Errore marcatori:",
+            error
           );
 
+
+          var tbody =
+            document.getElementById(
+              "marcatoriBody"
+            );
+
+
+          tbody.innerHTML = `
+
+            <tr>
+
+              <td
+                colspan="4"
+                class="errore"
+              >
+
+                ❌ Impossibile caricare
+                i marcatori.
+
+                <br><br>
+
+                Controlla che esista:
+
+                <br>
+
+                <strong>
+                  data/marcatori.json
+                </strong>
+
+              </td>
+
+            </tr>
+
+          `;
+
         }
-
-
-        if (!responseSquadre.ok) {
-
-          throw new Error(
-            "Impossibile caricare squadre.json"
-          );
-
-        }
-
-
-        var marcatori =
-          await responseMarcatori.json();
-
-        var rose =
-          await responseRose.json();
-
-        var squadre =
-          await responseSquadre.json();
-
-
-        mostraMarcatori(
-          marcatori,
-          rose,
-          squadre
-        );
-
-
-      } catch (errore) {
-
-        console.error(
-          "Errore caricamento marcatori:",
-          errore
-        );
-
-
-        tbody.innerHTML = `
-          <tr>
-            <td colspan="4" class="errore">
-              ❌ Errore nel caricamento dei marcatori.
-              <br>
-              <small>
-                Controlla che i file
-                <strong>data/marcatori.json</strong>,
-                <strong>data/rose.json</strong>
-                e
-                <strong>data/squadre.json</strong>
-                esistano nel repository.
-              </small>
-            </td>
-          </tr>
-        `;
-
-      }
+      );
 
     }
 
 
-    /* ==========================================
+    /* =====================================================
        MOSTRA MARCATORI
-    ========================================== */
+    ====================================================== */
 
     function mostraMarcatori(
-      marcatori,
-      rose,
-      squadre
+      marcatori
     ) {
 
       var tbody =
-        document.getElementById("marcatoriBody");
-
-
-      /*
-        Se il JSON non è un array,
-        evitiamo errori.
-      */
-
-      if (!Array.isArray(marcatori)) {
-
-        marcatori = [];
-
-      }
-
-
-      if (!Array.isArray(rose)) {
-
-        rose = [];
-
-      }
-
-
-      if (!Array.isArray(squadre)) {
-
-        squadre = [];
-
-      }
-
-
-      /*
-        Mappa:
-        ID giocatore -> giocatore
-      */
-
-      var giocatoriMap = {};
-
-
-      rose.forEach(function (giocatore) {
-
-        if (!giocatore) {
-          return;
-        }
-
-
-        var id =
-          giocatore.id;
-
-
-        if (id) {
-
-          giocatoriMap[id] =
-            giocatore;
-
-        }
-
-      });
-
-
-      /*
-        Mappa:
-        ID squadra -> nome squadra
-      */
-
-      var squadreMap = {};
-
-
-      squadre.forEach(function (squadra) {
-
-        if (!squadra) {
-          return;
-        }
-
-
-        if (squadra.id) {
-
-          squadreMap[squadra.id] =
-            squadra.nome || squadra.name || "Squadra";
-
-        }
-
-      });
-
-
-      /*
-        Costruiamo i dati finali.
-      */
-
-      var dati = marcatori.map(function (marcatore) {
-
-        var giocatore =
-          giocatoriMap[marcatore.giocatore];
-
-
-        var nome =
-          marcatore.nome ||
-          (giocatore ? giocatore.nome : null) ||
-          "Giocatore";
-
-
-        var squadraId =
-          marcatore.squadra ||
-          (giocatore ? giocatore.squadra : null);
-
-
-        var squadra =
-          squadreMap[squadraId] ||
-          "Squadra non trovata";
-
-
-        var gol =
-          Number(marcatore.gol) || 0;
-
-
-        return {
-
-          nome: nome,
-          squadra: squadra,
-          gol: gol
-
-        };
-
-      });
-
-
-      /*
-        Ordina:
-        1. più gol
-        2. nome alfabetico
-      */
-
-      dati.sort(function (a, b) {
-
-        if (b.gol !== a.gol) {
-
-          return b.gol - a.gol;
-
-        }
-
-
-        return a.nome.localeCompare(
-          b.nome,
-          "it",
-          {
-            sensitivity: "base"
-          }
+        document.getElementById(
+          "marcatoriBody"
         );
 
-      });
 
+      /* -----------------------------------------------
+         CONTROLLO ARRAY
+      ------------------------------------------------ */
 
-      /*
-        Nessun marcatore.
-      */
-
-      if (dati.length === 0) {
+      if (
+        !Array.isArray(
+          marcatori
+        )
+      ) {
 
         tbody.innerHTML = `
+
           <tr>
-            <td colspan="4" class="vuoto">
-              ⚽ Nessun marcatore registrato.
+
+            <td
+              colspan="4"
+              class="errore"
+            >
+
+              ❌ Errore nei dati.
+
+              <br>
+
+              marcatori.json
+              deve contenere una lista.
+
             </td>
+
           </tr>
+
         `;
 
         return;
@@ -639,107 +631,279 @@
       }
 
 
-      /*
-        Generazione tabella.
-      */
+      /* -----------------------------------------------
+         NESSUN MARCATORE
+      ------------------------------------------------ */
+
+      if (
+        marcatori.length === 0
+      ) {
+
+        tbody.innerHTML = `
+
+          <tr>
+
+            <td
+              colspan="4"
+              class="vuoto"
+            >
+
+              ⚽ Nessun marcatore
+              registrato.
+
+            </td>
+
+          </tr>
+
+        `;
+
+        return;
+
+      }
+
+
+      /* -----------------------------------------------
+         ORDINA PER GOL
+      ------------------------------------------------ */
+
+      marcatori.sort(
+        function (a, b) {
+
+          var golA =
+            Number(a.gol) || 0;
+
+
+          var golB =
+            Number(b.gol) || 0;
+
+
+          if (
+            golB !== golA
+          ) {
+
+            return golB - golA;
+
+          }
+
+
+          var nomeA =
+            String(
+              a.cognome || ""
+            );
+
+
+          var nomeB =
+            String(
+              b.cognome || ""
+            );
+
+
+          return nomeA.localeCompare(
+            nomeB,
+            "it"
+          );
+
+        }
+      );
+
+
+      /* -----------------------------------------------
+         CREA TABELLA
+      ------------------------------------------------ */
 
       tbody.innerHTML = "";
 
 
-      dati.forEach(function (marcatore, index) {
-
-        var posizione =
-          index + 1;
-
-
-        var classeRank = "";
+      marcatori.forEach(
+        function (
+          marcatore,
+          index
+        ) {
 
 
-        if (posizione === 1) {
+          var posizione =
+            index + 1;
 
-          classeRank = "gold";
 
-        } else if (posizione === 2) {
+          var nome =
+            marcatore.cognome ||
+            "Giocatore";
 
-          classeRank = "silver";
 
-        } else if (posizione === 3) {
+          var squadra =
+            marcatore.squadra ||
+            "-";
 
-          classeRank = "bronze";
+
+          var gol =
+            Number(
+              marcatore.gol
+            ) || 0;
+
+
+          var rankHTML;
+
+
+          if (
+            posizione === 1
+          ) {
+
+            rankHTML = `
+
+              <span class="rank gold">
+                1
+              </span>
+
+            `;
+
+          }
+
+          else if (
+            posizione === 2
+          ) {
+
+            rankHTML = `
+
+              <span class="rank silver">
+                2
+              </span>
+
+            `;
+
+          }
+
+          else if (
+            posizione === 3
+          ) {
+
+            rankHTML = `
+
+              <span class="rank bronze">
+                3
+              </span>
+
+            `;
+
+          }
+
+          else {
+
+            rankHTML = `
+
+              <span class="rank-normal">
+                ${posizione}
+              </span>
+
+            `;
+
+          }
+
+
+          var riga =
+            document.createElement(
+              "tr"
+            );
+
+
+          riga.innerHTML = `
+
+            <td class="center">
+
+              ${rankHTML}
+
+            </td>
+
+
+            <td>
+
+              ${escapeHtml(
+                nome
+              )}
+
+            </td>
+
+
+            <td>
+
+              ${escapeHtml(
+                squadra
+              )}
+
+            </td>
+
+
+            <td class="center">
+
+              <strong class="gol-numero">
+
+                ${gol}
+
+              </strong>
+
+            </td>
+
+          `;
+
+
+          tbody.appendChild(
+            riga
+          );
 
         }
-
-
-        var rankHTML;
-
-
-        if (classeRank) {
-
-          rankHTML =
-            `<span class="rank ${classeRank}">
-              ${posizione}
-            </span>`;
-
-        } else {
-
-          rankHTML =
-            `<span class="rank-normal">
-              ${posizione}
-            </span>`;
-
-        }
-
-
-        var tr =
-          document.createElement("tr");
-
-
-        tr.innerHTML = `
-
-          <td class="center">
-            ${rankHTML}
-          </td>
-
-          <td>
-            ${escapeHTML(marcatore.nome)}
-          </td>
-
-          <td>
-            ${escapeHTML(marcatore.squadra)}
-          </td>
-
-          <td class="center">
-            <strong class="gol-numero">
-              ${marcatore.gol}
-            </strong>
-          </td>
-
-        `;
-
-
-        tbody.appendChild(tr);
-
-      });
+      );
 
     }
 
 
-    /* ==========================================
-       SICUREZZA HTML
-    ========================================== */
+    /* =====================================================
+       PROTEZIONE HTML
+    ====================================================== */
 
-    function escapeHTML(testo) {
+    function escapeHtml(
+      testo
+    ) {
+
+      if (
+        testo === null ||
+        testo === undefined
+      ) {
+
+        return "";
+
+      }
+
 
       return String(testo)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+
+        .replace(
+          /&/g,
+          "&amp;"
+        )
+
+        .replace(
+          /</g,
+          "&lt;"
+        )
+
+        .replace(
+          />/g,
+          "&gt;"
+        )
+
+        .replace(
+          /"/g,
+          "&quot;"
+        )
+
+        .replace(
+          /'/g,
+          "&#039;"
+        );
 
     }
 
   </script>
 
 </body>
+
 </html>
