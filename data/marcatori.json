@@ -14,6 +14,8 @@
     "cognome": "Ferri",
     "squadra": "m",
     "squadraId": "T002",
-    "gol": 10
+    "gol": 20,
+    "squadra_id": "T002",
+    "posizione": 2
   }
 ]
