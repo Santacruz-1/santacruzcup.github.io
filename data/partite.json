@@ -27,8 +27,8 @@
     "ospite": "new team",
     "data": "2026-10-12",
     "ora": "17:00",
-    "golCasa": null,
-    "golOspite": null,
-    "stato": "programmata"
+    "golCasa": 3,
+    "golOspite": 1,
+    "stato": "giocata"
   }
 ]
