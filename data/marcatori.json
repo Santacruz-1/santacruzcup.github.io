@@ -7,5 +7,13 @@
     "squadraId": "T001",
     "cognome": "rocci",
     "posizione": 1
+  },
+  {
+    "id": "M002",
+    "giocatore": "R008",
+    "cognome": "Ferri",
+    "squadra": "m",
+    "squadraId": "T002",
+    "gol": 10
   }
 ]
