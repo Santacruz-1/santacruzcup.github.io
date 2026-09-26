@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "id": "P001",
+    "casa": "m",
+    "casa_id": "T002",
+    "trasferta": "down",
+    "trasferta_id": "T001",
+    "ospite": "down",
+    "data": "12/10/2026",
+    "ora": "12:11",
+    "stato": "programmata",
+    "risultato": null,
+    "golCasa": null,
+    "golOspite": null
+  }
+]
