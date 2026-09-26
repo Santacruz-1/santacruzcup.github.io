@@ -203,19 +203,33 @@
     id="mobileMenu"
   >
 
-    <a href="index.html">🏠 Home</a>
+    <a href="index.html">
+      🏠 Home
+    </a>
 
-    <a href="calendario.html">📅 Calendario</a>
+    <a href="calendario.html">
+      📅 Calendario
+    </a>
 
-    <a href="risultati.html">📊 Risultati</a>
+    <a href="risultati.html">
+      📊 Risultati
+    </a>
 
-    <a href="classifica.html">🏆 Classifica</a>
+    <a href="classifica.html">
+      🏆 Classifica
+    </a>
 
-    <a href="marcatori.html">⚽ Marcatori</a>
+    <a href="marcatori.html">
+      ⚽ Marcatori
+    </a>
 
-    <a href="squadre.html">👥 Squadre</a>
+    <a href="squadre.html">
+      👥 Squadre
+    </a>
 
-    <a href="regolamento.html">📋 Regolamento</a>
+    <a href="regolamento.html">
+      📋 Regolamento
+    </a>
 
   </div>
 
@@ -328,9 +342,7 @@
         </a>
 
         <div class="footer-tagline">
-
           Torneo Giovanile di Calcio · Edizione 2026
-
         </div>
 
       </div>
@@ -399,7 +411,7 @@
 
         /* =================================================
            MENU MOBILE
-        ================================================== */
+        ================================================= */
 
         var hamburger =
           document.getElementById(
@@ -478,54 +490,91 @@
 
 
         /* =================================================
-           CARICA MARCATORI
-        ================================================== */
+           CARICA DATI
+        ================================================= */
 
         caricaMarcatori();
 
-
-      });
+      }
+    );
 
 
     /* =====================================================
-       CARICAMENTO JSON
+       CARICA MARCATORI + SQUADRE
     ====================================================== */
 
     function caricaMarcatori() {
 
-      var url =
-        "data/marcatori.json?nocache="
-        + Date.now();
+      var timestamp =
+        Date.now();
 
 
-      fetch(
-        url,
-        {
-          cache: "no-store"
-        }
-      )
+      Promise.all([
 
-      .then(
-        function (response) {
+        fetch(
+          "data/marcatori.json?nocache="
+          + timestamp,
+          {
+            cache: "no-store"
+          }
+        )
 
-          if (!response.ok) {
+        .then(
+          function (response) {
 
-            throw new Error(
-              "Impossibile leggere marcatori.json"
-            );
+            if (!response.ok) {
+
+              throw new Error(
+                "Impossibile leggere marcatori.json"
+              );
+
+            }
+
+            return response.json();
 
           }
+        ),
 
-          return response.json();
 
-        }
-      )
+        fetch(
+          "data/squadre.json?nocache="
+          + timestamp,
+          {
+            cache: "no-store"
+          }
+        )
+
+        .then(
+          function (response) {
+
+            if (!response.ok) {
+
+              throw new Error(
+                "Impossibile leggere squadre.json"
+              );
+
+            }
+
+            return response.json();
+
+          }
+        )
+
+      ])
 
       .then(
-        function (marcatori) {
+        function (dati) {
+
+          var marcatori =
+            dati[0];
+
+          var squadre =
+            dati[1];
+
 
           mostraMarcatori(
-            marcatori
+            marcatori,
+            squadre
           );
 
         }
@@ -560,12 +609,18 @@
 
                 <br><br>
 
-                Controlla che esista:
+                Controlla che esistano:
 
                 <br>
 
                 <strong>
                   data/marcatori.json
+                </strong>
+
+                <br>
+
+                <strong>
+                  data/squadre.json
                 </strong>
 
               </td>
@@ -585,7 +640,8 @@
     ====================================================== */
 
     function mostraMarcatori(
-      marcatori
+      marcatori,
+      squadre
     ) {
 
       var tbody =
@@ -594,9 +650,9 @@
         );
 
 
-      /* -----------------------------------------------
-         CONTROLLO ARRAY
-      ------------------------------------------------ */
+      /* =================================================
+         CONTROLLO MARCATORI
+      ================================================= */
 
       if (
         !Array.isArray(
@@ -615,7 +671,7 @@
 
               ❌ Errore nei dati.
 
-              <br>
+              <br><br>
 
               marcatori.json
               deve contenere una lista.
@@ -631,9 +687,24 @@
       }
 
 
-      /* -----------------------------------------------
+      /* =================================================
+         CONTROLLO SQUADRE
+      ================================================= */
+
+      if (
+        !Array.isArray(
+          squadre
+        )
+      ) {
+
+        squadre = [];
+
+      }
+
+
+      /* =================================================
          NESSUN MARCATORE
-      ------------------------------------------------ */
+      ================================================= */
 
       if (
         marcatori.length === 0
@@ -662,39 +733,93 @@
       }
 
 
-      /* -----------------------------------------------
-         ORDINA PER GOL
-      ------------------------------------------------ */
+      /* =================================================
+         MAPPA SQUADRE
+      ================================================= */
 
-      marcatori.sort(
-        function (a, b) {
-
-          var golA =
-            Number(a.gol) || 0;
+      var squadrePerId = {};
 
 
-          var golB =
-            Number(b.gol) || 0;
-
+      squadre.forEach(
+        function (squadra) {
 
           if (
-            golB !== golA
+            squadra &&
+            squadra.id !== undefined
           ) {
 
-            return golB - golA;
+            squadrePerId[
+              String(
+                squadra.id
+              )
+            ] =
+              String(
+                squadra.nome || "-"
+              );
+
+          }
+
+        }
+      );
+
+
+      /* =================================================
+         CREA COPIA DATI
+      ================================================= */
+
+      var lista =
+        marcatori.map(
+          function (marcatore) {
+
+            return {
+
+              dati:
+                marcatore,
+
+              gol:
+                Number(
+                  marcatore.gol
+                ) || 0
+
+            };
+
+          }
+        );
+
+
+      /* =================================================
+         ORDINA
+      ================================================= */
+
+      lista.sort(
+        function (a, b) {
+
+          if (
+            b.gol !==
+            a.gol
+          ) {
+
+            return (
+              b.gol -
+              a.gol
+            );
 
           }
 
 
           var nomeA =
             String(
-              a.cognome || ""
+              a.dati.cognome ||
+              a.dati.nome ||
+              "Giocatore"
             );
 
 
           var nomeB =
             String(
-              b.cognome || ""
+              b.dati.cognome ||
+              b.dati.nome ||
+              "Giocatore"
             );
 
 
@@ -707,39 +832,108 @@
       );
 
 
-      /* -----------------------------------------------
+      /* =================================================
          CREA TABELLA
-      ------------------------------------------------ */
+      ================================================= */
 
       tbody.innerHTML = "";
 
 
-      marcatori.forEach(
+      lista.forEach(
         function (
-          marcatore,
+          elemento,
           index
         ) {
+
+
+          var marcatore =
+            elemento.dati;
+
+
+          var gol =
+            elemento.gol;
 
 
           var posizione =
             index + 1;
 
 
+          /* ---------------------------------------------
+             NOME GIOCATORE
+          --------------------------------------------- */
+
           var nome =
             marcatore.cognome ||
+            marcatore.nome ||
             "Giocatore";
 
 
+          /*
+           * Il bot nuovo può avere:
+           *
+           * giocatore = R001
+           *
+           * ma il nome pubblico è normalmente
+           * già presente in cognome.
+           */
+
+          if (
+            !nome &&
+            marcatore.giocatore
+          ) {
+
+            nome =
+              marcatore.giocatore;
+
+          }
+
+
+          /* ---------------------------------------------
+             SQUADRA
+          --------------------------------------------- */
+
           var squadra =
             marcatore.squadra ||
-            "-";
+            "";
 
 
-          var gol =
-            Number(
-              marcatore.gol
-            ) || 0;
+          /*
+           * Se manca il nome della squadra,
+           * proviamo a recuperarlo dall'ID.
+           */
 
+          var squadraId =
+            marcatore.squadra_id ||
+            marcatore.squadraId;
+
+
+          if (
+            !squadra &&
+            squadraId
+          ) {
+
+            squadra =
+              squadrePerId[
+                String(
+                  squadraId
+                )
+              ] || "";
+
+          }
+
+
+          if (
+            !squadra
+          ) {
+
+            squadra = "-";
+
+          }
+
+
+          /* ---------------------------------------------
+             POSIZIONE
+          --------------------------------------------- */
 
           var rankHTML;
 
@@ -799,6 +993,10 @@
           }
 
 
+          /* ---------------------------------------------
+             RIGA
+          --------------------------------------------- */
+
           var riga =
             document.createElement(
               "tr"
@@ -816,9 +1014,13 @@
 
             <td>
 
-              ${escapeHtml(
-                nome
-              )}
+              <strong>
+
+                ${escapeHtml(
+                  nome
+                )}
+
+              </strong>
 
             </td>
 
@@ -856,7 +1058,7 @@
 
 
     /* =====================================================
-       PROTEZIONE HTML
+       ESCAPE HTML
     ====================================================== */
 
     function escapeHtml(
