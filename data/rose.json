@@ -2,25 +2,49 @@
   {
     "id": "R001",
     "squadra": "T001",
-    "nome": "Mario Rossi",
+    "nome": "ff",
     "ruolo": "Portiere"
   },
   {
     "id": "R002",
     "squadra": "T001",
-    "nome": "Luca Bianchi",
+    "nome": "rop",
     "ruolo": "Difensore"
   },
   {
     "id": "R003",
     "squadra": "T001",
-    "nome": "Andrea Verdi",
+    "nome": "matti",
     "ruolo": "Centrocampista"
   },
   {
     "id": "R004",
     "squadra": "T001",
-    "nome": "Marco Neri",
+    "nome": "rocci",
+    "ruolo": "Attaccante"
+  },
+  {
+    "id": "R005",
+    "squadra": "T002",
+    "nome": "Salvatori",
+    "ruolo": "Portiere"
+  },
+  {
+    "id": "R006",
+    "squadra": "T002",
+    "nome": "Natan",
+    "ruolo": "Difensore"
+  },
+  {
+    "id": "R007",
+    "squadra": "T002",
+    "nome": "Stefanelli",
+    "ruolo": "Centrocampista"
+  },
+  {
+    "id": "R008",
+    "squadra": "T002",
+    "nome": "Ferri",
     "ruolo": "Attaccante"
   }
 ]
