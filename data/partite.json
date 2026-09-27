@@ -22,9 +22,9 @@
     "ospite": "down",
     "data": "27/09/2026",
     "ora": "22",
-    "stato": "giocata",
-    "risultato": "3-2",
-    "golCasa": 3,
-    "golOspite": 2
+    "stato": "programmata",
+    "risultato": null,
+    "golCasa": null,
+    "golOspite": null
   }
 ]
