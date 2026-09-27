@@ -38,6 +38,7 @@
           transparent 42%
         ),
         #050505;
+
       color: var(--scc-white);
     }
 
@@ -52,7 +53,9 @@
           rgba(217, 4, 41, 0.13),
           transparent 65%
         );
-      border-bottom: 1px solid rgba(217, 4, 41, 0.22);
+
+      border-bottom:
+        1px solid rgba(217, 4, 41, 0.22);
     }
 
     .page-eyebrow {
@@ -61,6 +64,7 @@
 
     .page-title span {
       color: var(--scc-red) !important;
+
       text-shadow:
         0 0 18px rgba(217, 4, 41, 0.35);
     }
@@ -136,60 +140,78 @@
 
     /* =========================================================
        POSIZIONI
+       1 = ORO
+       2 = ARGENTO
+       3 = BRONZO
+       SOLO NUMERO, SENZA PALLINO
     ========================================================= */
 
     .rank {
-      display: inline-flex;
+      display: inline-block;
 
-      align-items: center;
-      justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
 
-      min-width: 32px;
-      height: 32px;
+      font-size: 1.35rem;
 
-      border-radius: 50%;
+      line-height: 1;
 
-      font-weight: 800;
+      font-weight: 400;
 
-      border: 1px solid transparent;
+      background: transparent;
+
+      border: none;
+
+      box-shadow: none;
+
+      min-width: auto;
+
+      height: auto;
+
+      border-radius: 0;
     }
 
     .rank.gold {
-      background:
-        rgba(217, 4, 41, 0.18);
+      color: #FFD700;
 
-      color: #ff244d;
+      background: transparent;
 
-      border-color:
-        rgba(217, 4, 41, 0.45);
+      border: none;
 
-      box-shadow:
-        0 0 14px rgba(217, 4, 41, 0.15);
+      box-shadow: none;
     }
 
     .rank.silver {
-      background:
-        rgba(190, 190, 190, 0.14);
+      color: #C0C0C0;
 
-      color: #d4d4d4;
+      background: transparent;
 
-      border-color:
-        rgba(190, 190, 190, 0.25);
+      border: none;
+
+      box-shadow: none;
     }
 
     .rank.bronze {
-      background:
-        rgba(217, 4, 41, 0.10);
+      color: #CD7F32;
 
-      color: #ff526f;
+      background: transparent;
 
-      border-color:
-        rgba(217, 4, 41, 0.28);
+      border: none;
+
+      box-shadow: none;
     }
 
     .rank-normal {
-      font-weight: 700;
-      color: rgba(255, 255, 255, 0.65);
+      display: inline-block;
+
+      font-family: 'Bebas Neue', sans-serif;
+
+      font-size: 1.15rem;
+
+      line-height: 1;
+
+      font-weight: 400;
+
+      color: rgba(255, 255, 255, 0.50);
     }
 
     /* =========================================================
@@ -213,7 +235,9 @@
     .errore,
     .vuoto {
       text-align: center;
+
       padding: 40px;
+
       color: rgba(255, 255, 255, 0.7);
     }
 
@@ -249,6 +273,7 @@
 
       .table-wrap {
         overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
       }
 
       table {
@@ -257,6 +282,14 @@
 
       tbody tr:hover {
         transform: none;
+      }
+
+      .rank {
+        font-size: 1.25rem;
+      }
+
+      .rank-normal {
+        font-size: 1.10rem;
       }
 
     }
@@ -640,6 +673,10 @@
     });
 
 
+    /* =======================================================
+       CARICAMENTO MARCATORI
+    ======================================================== */
+
     async function caricaMarcatori() {
 
       const tbody =
@@ -730,6 +767,10 @@
     }
 
 
+    /* =======================================================
+       MOSTRA MARCATORI
+    ======================================================== */
+
     function mostraMarcatori(marcatori) {
 
       const tbody =
@@ -770,6 +811,8 @@
           let nome = "";
 
 
+          /* COGNOME */
+
           if (
             m.cognome !== undefined &&
             m.cognome !== null &&
@@ -781,6 +824,9 @@
 
           }
 
+
+          /* NOME */
+
           else if (
             m.nome !== undefined &&
             m.nome !== null &&
@@ -791,6 +837,9 @@
               String(m.nome).trim();
 
           }
+
+
+          /* GIOCATORE */
 
           else if (
             m.giocatore !== undefined &&
@@ -810,7 +859,9 @@
           }
 
 
-          /* SQUADRA */
+          /* =================================================
+             SQUADRA
+          ================================================== */
 
           let squadra = "";
 
@@ -834,7 +885,9 @@
           }
 
 
-          /* GOL */
+          /* =================================================
+             GOL
+          ================================================== */
 
           let gol =
             Number(
@@ -872,6 +925,7 @@
 
         }
 
+
         return a.nome.localeCompare(
           b.nome,
           "it",
@@ -895,6 +949,16 @@
         const posizione =
           index + 1;
 
+
+        /* =================================================
+           POSIZIONE
+           
+           1 = ORO
+           2 = ARGENTO
+           3 = BRONZO
+           
+           SENZA PALLINO
+        ================================================== */
 
         let rankHTML;
 
@@ -950,6 +1014,10 @@
 
         }
 
+
+        /* =================================================
+           CREA RIGA
+        ================================================== */
 
         const tr =
           document.createElement("tr");
