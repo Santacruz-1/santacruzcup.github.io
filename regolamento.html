@@ -1,209 +1,1365 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
   <title>Regolamento – Santa Cruz Cup</title>
-  <link rel="stylesheet" href="style.css">
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <style>
+
+    /* =========================================================
+       ROSSO / NERO
+    ========================================================= */
+
+    :root {
+      --scc-red: #d90429;
+      --scc-red-light: #ff244d;
+      --scc-red-dark: #8f001b;
+      --scc-black: #050505;
+      --scc-panel: #0d0d0d;
+      --scc-white: #f5f5f5;
+    }
+
+
+    body {
+
+      background:
+        radial-gradient(
+          circle at 50% 15%,
+          rgba(217, 4, 41, 0.10),
+          transparent 42%
+        ),
+        #050505;
+
+      color: var(--scc-white);
+
+    }
+
+
+    /* =========================================================
+       HEADER
+    ========================================================= */
+
+    .page-header {
+
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(217, 4, 41, 0.13),
+          transparent 65%
+        );
+
+      border-bottom:
+        1px solid
+        rgba(217, 4, 41, 0.22);
+
+    }
+
+
+    .page-eyebrow {
+
+      color:
+        var(--scc-red) !important;
+
+    }
+
+
+    .page-title span {
+
+      color:
+        var(--scc-red) !important;
+
+      text-shadow:
+        0 0 22px
+        rgba(217, 4, 41, 0.35);
+
+    }
+
+
+    .page-subtitle {
+
+      color:
+        rgba(245, 245, 245, 0.65);
+
+    }
+
+
+    /* =========================================================
+       REGOLAMENTO
+    ========================================================= */
+
+    .rules-list {
+
+      position: relative;
+
+    }
+
+
+    .rule-item {
+
+      position: relative;
+
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          145deg,
+          #151515,
+          #080808
+        ) !important;
+
+      border:
+        1px solid
+        rgba(217, 4, 41, 0.20) !important;
+
+      box-shadow:
+        0 10px 30px
+        rgba(0, 0, 0, 0.30);
+
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+
+    }
+
+
+    .rule-item::before {
+
+      content: "";
+
+      position: absolute;
+
+      width: 220px;
+      height: 220px;
+
+      top: -140px;
+      right: -100px;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(217, 4, 41, 0.15),
+          transparent 70%
+        );
+
+      pointer-events: none;
+
+    }
+
+
+    .rule-item:hover {
+
+      transform:
+        translateY(-3px);
+
+      border-color:
+        rgba(217, 4, 41, 0.55) !important;
+
+      box-shadow:
+        0 14px 38px
+        rgba(217, 4, 41, 0.10);
+
+    }
+
+
+    /* =========================================================
+       NUMERI
+    ========================================================= */
+
+    .rule-num {
+
+      position: relative;
+
+      z-index: 1;
+
+      background:
+        linear-gradient(
+          145deg,
+          var(--scc-red),
+          var(--scc-red-dark)
+        ) !important;
+
+      color:
+        #ffffff !important;
+
+      box-shadow:
+        0 0 20px
+        rgba(217, 4, 41, 0.20);
+
+    }
+
+
+    /* =========================================================
+       TESTI
+    ========================================================= */
+
+    .rule-body {
+
+      position: relative;
+
+      z-index: 1;
+
+    }
+
+
+    .rule-title {
+
+      color:
+        #ffffff !important;
+
+    }
+
+
+    .rule-text {
+
+      color:
+        rgba(245, 245, 245, 0.72) !important;
+
+      line-height: 1.7;
+
+    }
+
+
+    .rule-text strong {
+
+      color:
+        #ffffff !important;
+
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+
+      background:
+        linear-gradient(
+          180deg,
+          #080808,
+          #030303
+        );
+
+      border-top:
+        1px solid
+        rgba(217, 4, 41, 0.20);
+
+    }
+
+
+    .footer-nav a:hover {
+
+      color:
+        var(--scc-red) !important;
+
+    }
+
+
+    /* =========================================================
+       MOBILE
+    ========================================================= */
+
+    @media (max-width: 600px) {
+
+      .rule-item:hover {
+
+        transform:
+          none;
+
+      }
+
+      .rule-text {
+
+        line-height: 1.65;
+
+      }
+
+    }
+
+  </style>
+
 </head>
+
+
 <body>
 
-  <!-- ══ NAVBAR ══ -->
+
+  <!-- =======================================================
+       NAVBAR
+  ======================================================== -->
+
   <nav class="navbar">
-    <a href="index.html" class="nav-brand">
-      <img src="logo.png" alt="Santa Cruz Cup">
-      <span class="nav-brand-text">SANTA CRUZ CUP</span>
+
+
+    <a
+      href="index.html"
+      class="nav-brand"
+    >
+
+      <img
+        src="logo.png"
+        alt="Santa Cruz Cup"
+      >
+
+      <span class="nav-brand-text">
+        SANTA CRUZ CUP
+      </span>
+
     </a>
+
+
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="calendario.html">Calendario</a></li>
-      <li><a href="risultati.html">Risultati</a></li>
-      <li><a href="classifica.html">Classifica</a></li>
-      <li><a href="marcatori.html">Marcatori</a></li>
-      <li><a href="squadre.html">Squadre</a></li>
-      <li><a href="regolamento.html" class="active">Regolamento</a></li>
+
+
+      <li>
+        <a href="index.html">
+          Home
+        </a>
+      </li>
+
+
+      <li>
+        <a href="calendario.html">
+          Calendario
+        </a>
+      </li>
+
+
+      <li>
+        <a href="risultati.html">
+          Risultati
+        </a>
+      </li>
+
+
+      <li>
+        <a href="classifica.html">
+          Classifica
+        </a>
+      </li>
+
+
+      <li>
+        <a href="marcatori.html">
+          Marcatori
+        </a>
+      </li>
+
+
+      <li>
+        <a href="squadre.html">
+          Squadre
+        </a>
+      </li>
+
+
+      <li>
+
+        <a
+          href="regolamento.html"
+          class="active"
+        >
+          Regolamento
+        </a>
+
+      </li>
+
+
+      <!-- ULTIMA VOCE -->
+
+      <li>
+        <a href="contatti.html">
+          Contatti
+        </a>
+      </li>
+
+
     </ul>
-    <div class="hamburger" id="hamburger">
-      <span></span><span></span><span></span>
+
+
+    <!-- HAMBURGER -->
+
+    <div
+      class="hamburger"
+      id="hamburger"
+    >
+
+      <span></span>
+      <span></span>
+      <span></span>
+
     </div>
+
+
   </nav>
 
-  <!-- Mobile menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html">🏠 Home</a>
-    <a href="calendario.html">📅 Calendario</a>
-    <a href="risultati.html">📊 Risultati</a>
-    <a href="classifica.html">🏆 Classifica</a>
-    <a href="marcatori.html">⚽ Marcatori</a>
-    <a href="squadre.html">👥 Squadre</a>
-    <a href="regolamento.html">📋 Regolamento</a>
+
+  <!-- =======================================================
+       MOBILE MENU
+  ======================================================== -->
+
+  <div
+    class="mobile-menu"
+    id="mobileMenu"
+  >
+
+
+    <a href="index.html">
+      🏠 Home
+    </a>
+
+
+    <a href="calendario.html">
+      📅 Calendario
+    </a>
+
+
+    <a href="risultati.html">
+      📊 Risultati
+    </a>
+
+
+    <a href="classifica.html">
+      🏆 Classifica
+    </a>
+
+
+    <a href="marcatori.html">
+      ⚽ Marcatori
+    </a>
+
+
+    <a href="squadre.html">
+      👥 Squadre
+    </a>
+
+
+    <a href="regolamento.html">
+      📋 Regolamento
+    </a>
+
+
+    <a href="contatti.html">
+      📩 Contatti
+    </a>
+
+
   </div>
 
-  <!-- ══ PAGE HEADER ══ -->
+
+  <!-- =======================================================
+       PAGE HEADER
+  ======================================================== -->
+
   <header class="page-header">
-    <div class="page-eyebrow">Santa Cruz Cup · 2026</div>
-    <h1 class="page-title">REGOLA<span>MENTO</span></h1>
-    <p class="page-subtitle">Regolamento ufficiale del torneo. Leggilo con attenzione.</p>
+
+
+    <div class="page-eyebrow">
+      Santa Cruz Cup · 2026
+    </div>
+
+
+    <h1 class="page-title">
+
+      REGOLA<span>MENTO</span>
+
+    </h1>
+
+
+    <p class="page-subtitle">
+
+      Regolamento ufficiale del torneo.
+      Leggilo con attenzione.
+
+    </p>
+
+
   </header>
 
-  <!-- ══ CONTENUTO ══ -->
+
+  <!-- =======================================================
+       CONTENUTO
+  ======================================================== -->
+
   <section class="section">
+
+
     <div class="rules-list">
 
-      <div class="rule-item reveal">
-        <div class="rule-num">1</div>
-        <div class="rule-body">
-          <div class="rule-title">Generale</div>
-          <div class="rule-text">
-            <strong>Fair-play e condotta:</strong> è fondamentale mantenere serietà e fair-play durante tutta la competizione. Ogni comportamento antisportivo, verbale o fisico, verso avversari, arbitri o organizzatori potrà essere sanzionato con l'espulsione immediata dal torneo.<br><br>
-            <strong>Composizione squadre:</strong> ogni squadra deve iscrivere un minimo di 7 giocatori e un massimo di 14.<br><br>
-            <strong>Limiti d'età:</strong> la partecipazione è riservata ai nati tra il 2008 (18 anni) e il 2011 (14 anni). Non è consentita l'iscrizione di giocatori fuori quota.<br><br>
-            <strong>Documentazione:</strong> ogni partecipante deve presentare un documento d'identità valido e (consigliato) un certificato medico per attività sportiva non agonistica.<br><br>
-            <strong>Distinta gara:</strong> prima di ogni match, il capitano deve consegnare la lista dei giocatori presenti. Non è permesso aggiungere giocatori esterni a torneo iniziato senza approvazione degli organizzatori.<br><br>
-            <strong>Responsabilità:</strong> l'organizzazione declina ogni responsabilità per infortuni o smarrimento di oggetti personali all'interno dell'impianto sportivo.<br><br>
-            <strong>Divise:</strong> ogni squadra deve presentarsi con maglie dello stesso colore, da comunicare almeno 2 ore prima della gara. In caso di colori simili, l'organizzazione fornirà delle casacche.<br><br>
-            <strong>Puntualità:</strong> le squadre devono presentarsi a bordo campo almeno 10 minuti prima dell'orario d'inizio. Ritardo massimo consentito: 15 minuti con avviso del capitano, dopodiché scatterà la sconfitta a tavolino.
-          </div>
-        </div>
-      </div>
+
+      <!-- =====================================================
+           1 — GENERALE
+      ====================================================== -->
 
       <div class="rule-item reveal">
-        <div class="rule-num">2</div>
-        <div class="rule-body">
-          <div class="rule-title">Le Partite</div>
-          <div class="rule-text">
-            <strong>Durata:</strong> due tempi da 15 minuti ciascuno, con 5 minuti di intervallo.<br><br>
-            <strong>Giocatori in campo:</strong> 5 per squadra (4 in movimento + 1 portiere).<br><br>
-            <strong>Numero minimo:</strong> se una squadra non raggiunge 3 giocatori, non potrà iniziare o proseguire la gara.<br><br>
-            <strong>Sconfitta a tavolino:</strong> in caso di numero insufficiente di giocatori o assenza ingiustificata, verrà decretata la sconfitta per 3-0.<br><br>
-            <strong>Cronometro:</strong> il tempo di gioco è continuato (il cronometro non si ferma). Il recupero sarà a discrezione dell'arbitro.
-          </div>
+
+
+        <div class="rule-num">
+          1
         </div>
+
+
+        <div class="rule-body">
+
+
+          <div class="rule-title">
+            Generale
+          </div>
+
+
+          <div class="rule-text">
+
+
+            <strong>
+              Fair-play e condotta:
+            </strong>
+
+            è fondamentale mantenere serietà e fair-play
+            durante tutta la competizione. Ogni comportamento
+            antisportivo, verbale o fisico, verso avversari,
+            arbitri o organizzatori potrà essere sanzionato
+            con l'espulsione immediata dal torneo.
+
+            <br><br>
+
+
+            <strong>
+              Composizione squadre:
+            </strong>
+
+            ogni squadra deve iscrivere un minimo di
+            7 giocatori e un massimo di 14.
+
+            <br><br>
+
+
+            <strong>
+              Limiti d'età:
+            </strong>
+
+            la partecipazione è riservata ai nati tra il
+            2008 (18 anni) e il 2011 (14 anni).
+            Non è consentita l'iscrizione di giocatori fuori quota.
+
+            <br><br>
+
+
+            <strong>
+              Documentazione:
+            </strong>
+
+            ogni partecipante deve presentare un documento
+            d'identità valido e (consigliato) un certificato
+            medico per attività sportiva non agonistica.
+
+            <br><br>
+
+
+            <strong>
+              Distinta gara:
+            </strong>
+
+            prima di ogni match, il capitano deve consegnare
+            la lista dei giocatori presenti. Non è permesso
+            aggiungere giocatori esterni a torneo iniziato
+            senza approvazione degli organizzatori.
+
+            <br><br>
+
+
+            <strong>
+              Responsabilità:
+            </strong>
+
+            l'organizzazione declina ogni responsabilità
+            per infortuni o smarrimento di oggetti personali
+            all'interno dell'impianto sportivo.
+
+            <br><br>
+
+
+            <strong>
+              Divise:
+            </strong>
+
+            ogni squadra deve presentarsi con maglie dello
+            stesso colore, da comunicare almeno 2 ore prima
+            della gara. In caso di colori simili,
+            l'organizzazione fornirà delle casacche.
+
+            <br><br>
+
+
+            <strong>
+              Puntualità:
+            </strong>
+
+            le squadre devono presentarsi a bordo campo
+            almeno 10 minuti prima dell'orario d'inizio.
+            Ritardo massimo consentito: 15 minuti con avviso
+            del capitano, dopodiché scatterà la sconfitta
+            a tavolino.
+
+
+          </div>
+
+
+        </div>
+
+
       </div>
 
-      <div class="rule-item reveal">
-        <div class="rule-num">3</div>
-        <div class="rule-body">
-          <div class="rule-title">Falli, Cartellini e Infrazioni</div>
-          <div class="rule-text">
-            <strong>Fallo:</strong> calcio di punizione nel punto in cui è stato commesso. La barriera deve stare a 5 metri.<br><br>
-            <strong>Fallo in area:</strong> comporta un calcio di rigore.<br><br>
-            <strong>Falli cumulativi:</strong> dal 6° fallo di squadra per tempo, verrà assegnato un tiro libero senza barriera da 10 metri per ogni ulteriore fallo.<br><br>
-            <strong>Cartellino giallo:</strong> sanzione per falli di gioco o proteste moderate. Dopo 4 cartellini gialli il giocatore viene squalificato.<br><br>
-            <strong>Cartellino rosso:</strong> la squadra resta in inferiorità numerica per 5 minuti. In caso di gol subito durante i 5 minuti, la squadra può tornare subito in 5.<br><br>
-            <strong>Giocatore espulso:</strong> può giocare la partita seguente ma scende in campo solo dopo 5 minuti dall'inizio. In caso di 2 espulsioni consecutive, non parteciperà alla partita seguente.
-          </div>
-        </div>
-      </div>
+
+      <!-- =====================================================
+           2 — PARTITE
+      ====================================================== -->
 
       <div class="rule-item reveal">
-        <div class="rule-num">4</div>
-        <div class="rule-body">
-          <div class="rule-title">Rimesse</div>
-          <div class="rule-text">
-            <strong>Rimessa laterale:</strong> si batte con i piedi, palla ferma sulla linea. Un gol diretto su rimessa laterale non è valido, ma è valido se toccato da un altro giocatore.<br><br>
-            <strong>Calci d'angolo:</strong> si battono con i piedi. È possibile segnare direttamente in porta.<br><br>
-            <strong>Rimesse dal fondo:</strong> il portiere batte con i piedi.<br><br>
-            <strong>Distanza avversari:</strong> in tutte le rimesse gli avversari devono stare ad almeno 5 metri dalla palla.<br><br>
-            <strong>4 secondi:</strong> chi batte la rimessa ha 4 secondi. Se scadono, la rimessa passa agli avversari.
-          </div>
+
+
+        <div class="rule-num">
+          2
         </div>
+
+
+        <div class="rule-body">
+
+
+          <div class="rule-title">
+            Le Partite
+          </div>
+
+
+          <div class="rule-text">
+
+
+            <strong>
+              Durata:
+            </strong>
+
+            due tempi da 15 minuti ciascuno,
+            con 5 minuti di intervallo.
+
+            <br><br>
+
+
+            <strong>
+              Giocatori in campo:
+            </strong>
+
+            5 per squadra
+            (4 in movimento + 1 portiere).
+
+            <br><br>
+
+
+            <strong>
+              Numero minimo:
+            </strong>
+
+            se una squadra non raggiunge 3 giocatori,
+            non potrà iniziare o proseguire la gara.
+
+            <br><br>
+
+
+            <strong>
+              Sconfitta a tavolino:
+            </strong>
+
+            in caso di numero insufficiente di giocatori
+            o assenza ingiustificata, verrà decretata
+            la sconfitta per 3-0.
+
+            <br><br>
+
+
+            <strong>
+              Cronometro:
+            </strong>
+
+            il tempo di gioco è continuato
+            (il cronometro non si ferma).
+            Il recupero sarà a discrezione dell'arbitro.
+
+
+          </div>
+
+
+        </div>
+
+
       </div>
 
-      <div class="rule-item reveal">
-        <div class="rule-num">5</div>
-        <div class="rule-body">
-          <div class="rule-title">Portiere</div>
-          <div class="rule-text">
-            <strong>Rimesse dal fondo:</strong> il portiere batte con i piedi e non si può segnare direttamente nella porta avversaria (la palla deve essere toccata da qualcuno).<br><br>
-            <strong>Retropassaggio:</strong> il portiere non può toccare la palla con le mani su passaggio volontario di un compagno. In caso contrario: calcio di punizione indiretto per gli avversari.<br><br>
-            <strong>Possesso palla:</strong> il portiere non può tenere la palla in mano più di 3 secondi. In caso contrario: calcio di punizione indiretto per gli avversari.
-          </div>
-        </div>
-      </div>
+
+      <!-- =====================================================
+           3 — FALLI
+      ====================================================== -->
 
       <div class="rule-item reveal">
-        <div class="rule-num">6</div>
-        <div class="rule-body">
-          <div class="rule-title">Sostituzioni</div>
-          <div class="rule-text">
-            Le sostituzioni sono <strong>illimitate</strong> e volanti. Si effettuano in ogni momento in cui non sia in atto un'azione di gioco. Il giocatore entrante può farlo solo dopo che il compagno sostituito è uscito completamente dal campo. Il cambio deve avvenire nella zona della propria panchina.
-          </div>
+
+
+        <div class="rule-num">
+          3
         </div>
+
+
+        <div class="rule-body">
+
+
+          <div class="rule-title">
+            Falli, Cartellini e Infrazioni
+          </div>
+
+
+          <div class="rule-text">
+
+
+            <strong>
+              Fallo:
+            </strong>
+
+            calcio di punizione nel punto in cui è stato
+            commesso. La barriera deve stare a 5 metri.
+
+            <br><br>
+
+
+            <strong>
+              Fallo in area:
+            </strong>
+
+            comporta un calcio di rigore.
+
+            <br><br>
+
+
+            <strong>
+              Falli cumulativi:
+            </strong>
+
+            dal 6° fallo di squadra per tempo,
+            verrà assegnato un tiro libero senza barriera
+            da 10 metri per ogni ulteriore fallo.
+
+            <br><br>
+
+
+            <strong>
+              Cartellino giallo:
+            </strong>
+
+            sanzione per falli di gioco o proteste moderate.
+            Dopo 4 cartellini gialli il giocatore viene squalificato.
+
+            <br><br>
+
+
+            <strong>
+              Cartellino rosso:
+            </strong>
+
+            la squadra resta in inferiorità numerica per
+            5 minuti. In caso di gol subito durante i 5 minuti,
+            la squadra può tornare subito in 5.
+
+            <br><br>
+
+
+            <strong>
+              Giocatore espulso:
+            </strong>
+
+            può giocare la partita seguente ma scende in campo
+            solo dopo 5 minuti dall'inizio. In caso di 2 espulsioni
+            consecutive, non parteciperà alla partita seguente.
+
+
+          </div>
+
+
+        </div>
+
+
       </div>
 
+
+      <!-- =====================================================
+           4 — RIMESSE
+      ====================================================== -->
+
       <div class="rule-item reveal">
-        <div class="rule-num">7</div>
-        <div class="rule-body">
-          <div class="rule-title">Altre Regole</div>
-          <div class="rule-text">
-            Si consiglia vivamente l'uso dei <strong>parastinchi</strong>.<br><br>
-            Non è consentito giocare con orologi, catenine o braccialetti metallici per la sicurezza di tutti.<br><br>
-            <strong>Non si considera la posizione di fuorigioco.</strong>
-          </div>
+
+
+        <div class="rule-num">
+          4
         </div>
+
+
+        <div class="rule-body">
+
+
+          <div class="rule-title">
+            Rimesse
+          </div>
+
+
+          <div class="rule-text">
+
+
+            <strong>
+              Rimessa laterale:
+            </strong>
+
+            si batte con i piedi, palla ferma sulla linea.
+            Un gol diretto su rimessa laterale non è valido,
+            ma è valido se toccato da un altro giocatore.
+
+            <br><br>
+
+
+            <strong>
+              Calci d'angolo:
+            </strong>
+
+            si battono con i piedi.
+            È possibile segnare direttamente in porta.
+
+            <br><br>
+
+
+            <strong>
+              Rimesse dal fondo:
+            </strong>
+
+            il portiere batte con i piedi.
+
+            <br><br>
+
+
+            <strong>
+              Distanza avversari:
+            </strong>
+
+            in tutte le rimesse gli avversari devono stare
+            ad almeno 5 metri dalla palla.
+
+            <br><br>
+
+
+            <strong>
+              4 secondi:
+            </strong>
+
+            chi batte la rimessa ha 4 secondi.
+            Se scadono, la rimessa passa agli avversari.
+
+
+          </div>
+
+
+        </div>
+
+
       </div>
+
+
+      <!-- =====================================================
+           5 — PORTIERE
+      ====================================================== -->
+
+      <div class="rule-item reveal">
+
+
+        <div class="rule-num">
+          5
+        </div>
+
+
+        <div class="rule-body">
+
+
+          <div class="rule-title">
+            Portiere
+          </div>
+
+
+          <div class="rule-text">
+
+
+            <strong>
+              Rimesse dal fondo:
+            </strong>
+
+            il portiere batte con i piedi e non si può segnare
+            direttamente nella porta avversaria
+            (la palla deve essere toccata da qualcuno).
+
+            <br><br>
+
+
+            <strong>
+              Retropassaggio:
+            </strong>
+
+            il portiere non può toccare la palla con le mani
+            su passaggio volontario di un compagno.
+            In caso contrario: calcio di punizione indiretto
+            per gli avversari.
+
+            <br><br>
+
+
+            <strong>
+              Possesso palla:
+            </strong>
+
+            il portiere non può tenere la palla in mano
+            più di 3 secondi. In caso contrario:
+            calcio di punizione indiretto per gli avversari.
+
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+
+      <!-- =====================================================
+           6 — SOSTITUZIONI
+      ====================================================== -->
+
+      <div class="rule-item reveal">
+
+
+        <div class="rule-num">
+          6
+        </div>
+
+
+        <div class="rule-body">
+
+
+          <div class="rule-title">
+            Sostituzioni
+          </div>
+
+
+          <div class="rule-text">
+
+            Le sostituzioni sono
+            <strong>illimitate</strong>
+            e volanti.
+
+            Si effettuano in ogni momento in cui non sia
+            in atto un'azione di gioco.
+
+            Il giocatore entrante può farlo solo dopo che
+            il compagno sostituito è uscito completamente
+            dal campo.
+
+            Il cambio deve avvenire nella zona
+            della propria panchina.
+
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+
+      <!-- =====================================================
+           7 — ALTRE REGOLE
+      ====================================================== -->
+
+      <div class="rule-item reveal">
+
+
+        <div class="rule-num">
+          7
+        </div>
+
+
+        <div class="rule-body">
+
+
+          <div class="rule-title">
+            Altre Regole
+          </div>
+
+
+          <div class="rule-text">
+
+
+            Si consiglia vivamente l'uso dei
+            <strong>parastinchi</strong>.
+
+            <br><br>
+
+
+            Non è consentito giocare con orologi,
+            catenine o braccialetti metallici
+            per la sicurezza di tutti.
+
+            <br><br>
+
+
+            <strong>
+              Non si considera la posizione di fuorigioco.
+            </strong>
+
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
 
     </div>
+
+
   </section>
 
-  <!-- ══ FOOTER ══ -->
+
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
+
   <footer>
+
+
     <div class="footer-top">
+
+
       <div>
-        <a href="index.html"><img src="logo.png" alt="Santa Cruz Cup" style="height:50px; margin-bottom:0.4rem; filter:drop-shadow(0 0 8px rgba(255,183,0,0.4));"></a>
-        <div class="footer-tagline">Torneo Giovanile di Calcio · Edizione 2026</div>
+
+
+        <a href="index.html">
+
+
+          <img
+            src="logo.png"
+            alt="Santa Cruz Cup"
+            style="
+              height:50px;
+              margin-bottom:0.4rem;
+              filter:drop-shadow(
+                0 0 8px
+                rgba(217,4,41,0.5)
+              );
+            "
+          >
+
+
+        </a>
+
+
+        <div class="footer-tagline">
+
+          Torneo Giovanile di Calcio ·
+          Edizione 2026
+
+        </div>
+
+
       </div>
+
+
       <nav class="footer-nav">
-        <a href="index.html">Home</a>
-        <a href="calendario.html">Calendario</a>
-        <a href="risultati.html">Risultati</a>
-        <a href="classifica.html">Classifica</a>
-        <a href="marcatori.html">Marcatori</a>
-        <a href="squadre.html">Squadre</a>
-        <a href="regolamento.html">Regolamento</a>
+
+
+        <a href="index.html">
+          Home
+        </a>
+
+
+        <a href="calendario.html">
+          Calendario
+        </a>
+
+
+        <a href="risultati.html">
+          Risultati
+        </a>
+
+
+        <a href="classifica.html">
+          Classifica
+        </a>
+
+
+        <a href="marcatori.html">
+          Marcatori
+        </a>
+
+
+        <a href="squadre.html">
+          Squadre
+        </a>
+
+
+        <a href="regolamento.html">
+          Regolamento
+        </a>
+
+
+        <a href="contatti.html">
+          Contatti
+        </a>
+
+
       </nav>
+
+
     </div>
+
+
     <div class="footer-bottom">
-      <span class="footer-copy">© 2026 Santa Cruz Cup. Tutti i diritti riservati.</span>
-      <span class="footer-copy">Fatto con ❤️ per i giovani campioni</span>
+
+
+      <span class="footer-copy">
+
+        © 2026 Santa Cruz Cup.
+        Tutti i diritti riservati.
+
+      </span>
+
+
+      <span class="footer-copy">
+
+        Fatto con ❤️ per i giovani campioni
+
+      </span>
+
+
     </div>
+
+
   </footer>
 
-  <!-- ══ SCRIPT ══ -->
+
+  <!-- =======================================================
+       SCRIPT
+  ======================================================== -->
+
   <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var hamburger = document.getElementById('hamburger');
-    var mobileMenu = document.getElementById('mobileMenu');
-    if (hamburger && mobileMenu) {
-      hamburger.addEventListener('click', function(e) {
-        e.stopPropagation();
-        mobileMenu.classList.toggle('open');
-      });
-      document.addEventListener('click', function(e) {
-        if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
-          mobileMenu.classList.remove('open');
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      function () {
+
+
+        /* =====================================================
+           HAMBURGER
+        ===================================================== */
+
+        var hamburger =
+          document.getElementById(
+            "hamburger"
+          );
+
+
+        var mobileMenu =
+          document.getElementById(
+            "mobileMenu"
+          );
+
+
+        if (
+          hamburger &&
+          mobileMenu
+        ) {
+
+
+          hamburger.addEventListener(
+            "click",
+            function (e) {
+
+              e.stopPropagation();
+
+              mobileMenu.classList.toggle(
+                "open"
+              );
+
+            }
+          );
+
+
+          document.addEventListener(
+            "click",
+            function (e) {
+
+
+              if (
+                !hamburger.contains(
+                  e.target
+                ) &&
+                !mobileMenu.contains(
+                  e.target
+                )
+              ) {
+
+                mobileMenu.classList.remove(
+                  "open"
+                );
+
+              }
+
+            }
+          );
+
+
+          mobileMenu
+            .querySelectorAll("a")
+            .forEach(
+              function (a) {
+
+
+                a.addEventListener(
+                  "click",
+                  function () {
+
+                    mobileMenu.classList.remove(
+                      "open"
+                    );
+
+                  }
+                );
+
+
+              }
+            );
+
+
         }
-      });
-      mobileMenu.querySelectorAll('a').forEach(function(a) {
-        a.addEventListener('click', function() { mobileMenu.classList.remove('open'); });
-      });
-    }
-    if ('IntersectionObserver' in window) {
-      var obs = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry, idx) {
-          if (entry.isIntersecting) {
-            setTimeout(function() { entry.target.classList.add('in'); }, idx * 70);
-            obs.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12 });
-      document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
-    } else {
-      document.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('in'); });
-    }
-  });
+
+
+        /* =====================================================
+           ANIMAZIONI
+        ===================================================== */
+
+        if (
+          "IntersectionObserver"
+          in window
+        ) {
+
+
+          var obs =
+            new IntersectionObserver(
+              function (
+                entries
+              ) {
+
+
+                entries.forEach(
+                  function (
+                    entry,
+                    idx
+                  ) {
+
+
+                    if (
+                      entry.isIntersecting
+                    ) {
+
+
+                      setTimeout(
+                        function () {
+
+                          entry.target
+                            .classList
+                            .add("in");
+
+                        },
+                        idx * 70
+                      );
+
+
+                      obs.unobserve(
+                        entry.target
+                      );
+
+
+                    }
+
+
+                  }
+                );
+
+
+              },
+              {
+                threshold: 0.12
+              }
+            );
+
+
+          document
+            .querySelectorAll(
+              ".reveal"
+            )
+            .forEach(
+              function (el) {
+
+                obs.observe(el);
+
+              }
+            );
+
+
+        }
+
+
+        else {
+
+
+          document
+            .querySelectorAll(
+              ".reveal"
+            )
+            .forEach(
+              function (el) {
+
+                el.classList.add(
+                  "in"
+                );
+
+              }
+            );
+
+
+        }
+
+
+      }
+    );
+
   </script>
 
+
 </body>
+
 </html>
