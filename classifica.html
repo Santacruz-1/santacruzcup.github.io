@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="it">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,151 +7,310 @@
   <title>Classifica – Santa Cruz Cup</title>
 
   <link rel="stylesheet" href="style.css">
-</head>
 
+  <style>
+    /* =========================================================
+       CLASSIFICA
+    ========================================================= */
+
+    .standings-wrap {
+      width: 100%;
+    }
+
+    .table-scroll {
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+
+      scrollbar-width: thin;
+      scrollbar-color: var(--red) rgba(255,255,255,0.06);
+    }
+
+    .table-scroll::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .table-scroll::-webkit-scrollbar-track {
+      background: rgba(255,255,255,0.04);
+      border-radius: 10px;
+    }
+
+    .table-scroll::-webkit-scrollbar-thumb {
+      background: var(--red);
+      border-radius: 10px;
+    }
+
+    .standings-table {
+      width: 100%;
+      min-width: 950px;
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+
+    .standings-table thead th {
+      background: rgba(225,6,0,0.08);
+      color: rgba(255,255,255,0.75);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      padding: 15px 12px;
+      border-bottom: 1px solid rgba(225,6,0,0.30);
+      white-space: nowrap;
+    }
+
+    .standings-table tbody tr {
+      transition: background 0.2s ease;
+    }
+
+    .standings-table tbody tr:hover {
+      background: rgba(225,6,0,0.045);
+    }
+
+    .standings-table tbody td {
+      padding: 14px 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      color: rgba(255,255,255,0.78);
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+
+    .standings-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .standings-table .team-name {
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      min-width: 160px;
+    }
+
+    .standings-table .number {
+      text-align: center;
+      font-weight: 600;
+      color: rgba(255,255,255,0.68);
+    }
+
+    .standings-table .points {
+      text-align: center;
+      color: var(--red);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 900;
+    }
+
+    .standings-table .goal-difference {
+      text-align: center;
+      font-weight: 800;
+    }
+
+    /* =========================================================
+       POSIZIONI
+       Solo numero colorato, senza pallino
+    ========================================================= */
+
+    .rank-medal {
+      display: inline-block;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.35rem;
+      line-height: 1;
+      text-align: center;
+    }
+
+    .rank-medal.gold {
+      color: #FFD700;
+    }
+
+    .rank-medal.silver {
+      color: #C0C0C0;
+    }
+
+    .rank-medal.bronze {
+      color: #CD7F32;
+    }
+
+    .rank-normal {
+      display: inline-block;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.15rem;
+      line-height: 1;
+      color: rgba(255,255,255,0.40);
+      text-align: center;
+    }
+
+    /* =========================================================
+       DIFFERENZA RETI
+    ========================================================= */
+
+    .goal-positive {
+      color: #65d98b !important;
+    }
+
+    .goal-negative {
+      color: #ff6862 !important;
+    }
+
+    .goal-neutral {
+      color: rgba(255,255,255,0.55) !important;
+    }
+
+    /* =========================================================
+       LEGENDA
+    ========================================================= */
+
+    .standings-legend {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+
+      margin-top: 20px;
+      padding: 14px 16px;
+
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius);
+    }
+
+    .legend-item {
+      color: rgba(255,255,255,0.50);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* =========================================================
+       MOBILE
+    ========================================================= */
+
+    @media (max-width: 860px) {
+
+      .standings-table {
+        min-width: 950px;
+      }
+
+      .standings-table thead th {
+        font-size: 0.74rem;
+        padding: 13px 10px;
+      }
+
+      .standings-table tbody td {
+        padding: 12px 10px;
+        font-size: 0.88rem;
+      }
+
+      .standings-table .team-name {
+        font-size: 0.95rem;
+      }
+
+      .rank-medal {
+        font-size: 1.25rem;
+      }
+
+      .rank-normal {
+        font-size: 1.08rem;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      .standings-legend {
+        gap: 10px 16px;
+        padding: 12px;
+      }
+
+      .legend-item {
+        font-size: 0.70rem;
+      }
+    }
+  </style>
+</head>
 
 <body>
 
-
-  <!-- ══════════════════════════════════════
+  <!-- =======================================================
        NAVBAR
-  ══════════════════════════════════════ -->
+  ======================================================== -->
 
   <nav class="navbar">
 
     <a href="index.html" class="nav-brand">
-
-      <img
-        src="logo.png"
-        alt="Santa Cruz Cup"
-      >
-
-      <span class="nav-brand-text">
-        SANTA CRUZ CUP
-      </span>
-
+      <img src="logo.png" alt="Santa Cruz Cup">
+      <span class="nav-brand-text">SANTA CRUZ CUP</span>
     </a>
-
 
     <ul class="nav-links">
 
       <li>
-        <a href="index.html">
-          Home
-        </a>
+        <a href="index.html">Home</a>
       </li>
 
       <li>
-        <a href="calendario.html">
-          Calendario
-        </a>
+        <a href="calendario.html">Calendario</a>
       </li>
 
       <li>
-        <a href="risultati.html">
-          Risultati
-        </a>
+        <a href="risultati.html">Risultati</a>
       </li>
 
       <li>
-        <a href="classifica.html" class="active">
-          Classifica
-        </a>
+        <a href="classifica.html" class="active">Classifica</a>
       </li>
 
       <li>
-        <a href="marcatori.html">
-          Marcatori
-        </a>
+        <a href="marcatori.html">Marcatori</a>
       </li>
 
       <li>
-        <a href="squadre.html">
-          Squadre
-        </a>
+        <a href="squadre.html">Squadre</a>
       </li>
 
       <li>
-        <a href="regolamento.html">
-          Regolamento
-        </a>
+        <a href="regolamento.html">Regolamento</a>
       </li>
 
       <li>
-        <a href="contatti.html">
-          Contatti
-        </a>
+        <a href="contatti.html">Contatti</a>
       </li>
 
     </ul>
 
-
-    <!-- HAMBURGER -->
-
-    <div
-      class="hamburger"
-      id="hamburger"
-      aria-label="Apri menu"
-    >
-
+    <div class="hamburger" id="hamburger">
       <span></span>
       <span></span>
       <span></span>
-
     </div>
 
   </nav>
 
 
-
-  <!-- ══════════════════════════════════════
+  <!-- =======================================================
        MOBILE MENU
-  ══════════════════════════════════════ -->
+  ======================================================== -->
 
-  <div
-    class="mobile-menu"
-    id="mobileMenu"
-  >
+  <div class="mobile-menu" id="mobileMenu">
 
-    <a href="index.html">
-      🏠 Home
-    </a>
-
-    <a href="calendario.html">
-      📅 Calendario
-    </a>
-
-    <a href="risultati.html">
-      📊 Risultati
-    </a>
-
-    <a href="classifica.html">
-      🏆 Classifica
-    </a>
-
-    <a href="marcatori.html">
-      ⚽ Marcatori
-    </a>
-
-    <a href="squadre.html">
-      👥 Squadre
-    </a>
-
-    <a href="regolamento.html">
-      📋 Regolamento
-    </a>
-
-    <a href="contatti.html">
-      ✉️ Contatti
-    </a>
+    <a href="index.html">🏠 Home</a>
+    <a href="calendario.html">📅 Calendario</a>
+    <a href="risultati.html">📊 Risultati</a>
+    <a href="classifica.html">🏆 Classifica</a>
+    <a href="marcatori.html">⚽ Marcatori</a>
+    <a href="squadre.html">👥 Squadre</a>
+    <a href="regolamento.html">📋 Regolamento</a>
+    <a href="contatti.html">📩 Contatti</a>
 
   </div>
 
 
-
-  <!-- ══════════════════════════════════════
-       PAGE HEADER
-  ══════════════════════════════════════ -->
+  <!-- =======================================================
+       HEADER
+  ======================================================== -->
 
   <header class="page-header">
 
@@ -171,181 +329,196 @@
   </header>
 
 
+  <!-- =======================================================
+       CONTENUTO
+  ======================================================== -->
 
-  <!-- ══════════════════════════════════════
-       CLASSIFICA
-  ══════════════════════════════════════ -->
+  <main>
 
-  <section class="section">
+    <section class="section">
 
-    <div class="section-eyebrow">
-      Classifica ufficiale
-    </div>
+      <div class="table-wrap standings-wrap">
 
-    <h2 class="section-title">
-      LA CORSA AL TITOLO
-    </h2>
+        <div class="table-scroll">
 
-    <p class="section-lead">
-      Posizione, punti e risultati delle squadre
-      aggiornati automaticamente in base alle partite disputate.
-    </p>
+          <table class="standings-table">
 
+            <thead>
 
-    <!-- TABELLA -->
+              <tr>
 
-    <div class="table-wrap">
+                <th class="center">
+                  #
+                </th>
 
-      <table>
+                <th>
+                  Squadra
+                </th>
 
-        <thead>
+                <th class="center">
+                  Partite<br>giocate
+                </th>
 
-          <tr>
+                <th class="center">
+                  Vittorie
+                </th>
 
-            <th class="center">
-              Pos.
-            </th>
+                <th class="center">
+                  Pareggi
+                </th>
 
-            <th>
-              Squadra
-            </th>
+                <th class="center">
+                  Sconfitte
+                </th>
 
-            <th class="center">
-              Pt
-            </th>
+                <th class="center">
+                  Numero<br>di goal
+                </th>
 
-            <th class="center">
-              V
-            </th>
+                <th class="center">
+                  Gol<br>subiti
+                </th>
 
-            <th class="center">
-              P
-            </th>
+                <th class="center">
+                  Differenza<br>reti
+                </th>
 
-            <th class="center">
-              S
-            </th>
+                <th class="center">
+                  Pt
+                </th>
 
-          </tr>
+              </tr>
 
-        </thead>
+            </thead>
 
+            <tbody id="classificaBody">
 
-        <tbody id="classificaBody">
+              <tr>
 
-          <tr>
+                <td
+                  colspan="10"
+                  class="center"
+                  style="padding:40px;"
+                >
+                  Caricamento classifica...
+                </td>
 
-            <td
-              colspan="6"
-              class="center"
-              style="padding:40px;"
-            >
-              ⚽ Caricamento classifica...
-            </td>
+              </tr>
 
-          </tr>
+            </tbody>
 
-        </tbody>
+          </table>
 
-      </table>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- ══════════════════════════════════════
-       FOOTER
-  ══════════════════════════════════════ -->
-
-  <footer>
-
-    <div class="footer-top">
-
-
-      <!-- BRAND -->
-
-      <div>
-
-        <a href="index.html">
-
-          <img
-            src="logo.png"
-            alt="Santa Cruz Cup"
-            style="
-              height:50px;
-              margin-bottom:0.5rem;
-              filter:drop-shadow(
-                0 0 8px
-                rgba(225,6,0,0.5)
-              );
-            "
-          >
-
-        </a>
-
-
-        <div class="footer-tagline">
-          Torneo Giovanile di Calcio · Edizione 2026
         </div>
 
       </div>
 
 
+      <!-- =====================================================
+           LEGENDA
+      ====================================================== -->
 
-      <!-- FOOTER NAV -->
+      <div class="standings-legend">
+
+        <div class="legend-item">
+          PG = Partite giocate
+        </div>
+
+        <div class="legend-item">
+          V = Vittorie
+        </div>
+
+        <div class="legend-item">
+          P = Pareggi
+        </div>
+
+        <div class="legend-item">
+          S = Sconfitte
+        </div>
+
+        <div class="legend-item">
+          GF = Gol fatti
+        </div>
+
+        <div class="legend-item">
+          GS = Gol subiti
+        </div>
+
+        <div class="legend-item">
+          DR = Differenza reti
+        </div>
+
+        <div class="legend-item">
+          Pt = Punti
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
+
+  <footer>
+
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+
+        <img
+          src="logo.png"
+          alt="Santa Cruz Cup"
+          style="
+            width:70px;
+            height:70px;
+            object-fit:contain;
+            filter:drop-shadow(0 0 8px rgba(225,6,0,0.5));
+          "
+        >
+
+        <div>
+
+          <strong>
+            SANTA CRUZ CUP
+          </strong>
+
+          <span>
+            Il torneo. La passione. La sfida.
+          </span>
+
+        </div>
+
+      </div>
+
 
       <nav class="footer-nav">
 
-        <a href="index.html">
-          Home
-        </a>
-
-        <a href="calendario.html">
-          Calendario
-        </a>
-
-        <a href="risultati.html">
-          Risultati
-        </a>
-
-        <a href="classifica.html">
-          Classifica
-        </a>
-
-        <a href="marcatori.html">
-          Marcatori
-        </a>
-
-        <a href="squadre.html">
-          Squadre
-        </a>
-
-        <a href="regolamento.html">
-          Regolamento
-        </a>
-
-        <a href="contatti.html">
-          Contatti
-        </a>
+        <a href="index.html">Home</a>
+        <a href="calendario.html">Calendario</a>
+        <a href="risultati.html">Risultati</a>
+        <a href="classifica.html">Classifica</a>
+        <a href="marcatori.html">Marcatori</a>
+        <a href="squadre.html">Squadre</a>
+        <a href="regolamento.html">Regolamento</a>
+        <a href="contatti.html">Contatti</a>
 
       </nav>
 
     </div>
 
 
-
-    <!-- FOOTER BOTTOM -->
-
     <div class="footer-bottom">
 
-      <span class="footer-copy">
-        © 2026 Santa Cruz Cup. Tutti i diritti riservati.
+      <span>
+        © 2026 Santa Cruz Cup
       </span>
 
-      <span class="footer-copy">
-        Fatto con ❤️ per i giovani campioni
+      <span>
+        Tutti i diritti riservati
       </span>
 
     </div>
@@ -353,19 +526,17 @@
   </footer>
 
 
-
-  <!-- ══════════════════════════════════════
-       SCRIPT
-  ══════════════════════════════════════ -->
+  <!-- =======================================================
+       JAVASCRIPT
+  ======================================================== -->
 
   <script>
 
     document.addEventListener("DOMContentLoaded", () => {
 
-
-      /* ══════════════════════════════════════
+      /* =====================================================
          MENU MOBILE
-      ══════════════════════════════════════ */
+      ====================================================== */
 
       const hamburger =
         document.getElementById("hamburger");
@@ -376,25 +547,11 @@
 
       if (hamburger && mobileMenu) {
 
-        hamburger.addEventListener("click", (e) => {
+        hamburger.addEventListener("click", () => {
 
-          e.stopPropagation();
+          hamburger.classList.toggle("active");
 
-          mobileMenu.classList.toggle("open");
-
-        });
-
-
-        document.addEventListener("click", (e) => {
-
-          if (
-            !hamburger.contains(e.target) &&
-            !mobileMenu.contains(e.target)
-          ) {
-
-            mobileMenu.classList.remove("open");
-
-          }
+          mobileMenu.classList.toggle("active");
 
         });
 
@@ -405,7 +562,9 @@
 
             link.addEventListener("click", () => {
 
-              mobileMenu.classList.remove("open");
+              hamburger.classList.remove("active");
+
+              mobileMenu.classList.remove("active");
 
             });
 
@@ -414,25 +573,144 @@
       }
 
 
-
-      /* ══════════════════════════════════════
+      /* =====================================================
          TABELLA
-      ══════════════════════════════════════ */
+      ====================================================== */
 
-      const tbody =
+      const classificaBody =
         document.getElementById("classificaBody");
 
 
+      if (!classificaBody) {
+        return;
+      }
 
-      /* ══════════════════════════════════════
-         CARICAMENTO CLASSIFICA
-      ══════════════════════════════════════ */
+
+      /* =====================================================
+         ESCAPE HTML
+      ====================================================== */
+
+      function escapeHtml(value) {
+
+        return String(value ?? "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+
+      }
+
+
+      /* =====================================================
+         NORMALIZZA
+      ====================================================== */
+
+      function normalizza(value) {
+
+        return String(value ?? "")
+          .trim()
+          .toLowerCase();
+
+      }
+
+
+      /* =====================================================
+         LETTURA RISULTATO
+      ====================================================== */
+
+      function leggiRisultato(partita) {
+
+        let golCasa = null;
+        let golOspite = null;
+
+
+        /*
+         * Formato:
+         * golCasa / golOspite
+         */
+
+        if (
+          partita.golCasa !== undefined &&
+          partita.golOspite !== undefined
+        ) {
+
+          golCasa =
+            Number(partita.golCasa);
+
+          golOspite =
+            Number(partita.golOspite);
+
+        }
+
+
+        /*
+         * Formato:
+         * risultato / result / score
+         *
+         * Esempio:
+         * "2-1"
+         */
+
+        if (
+          !Number.isFinite(golCasa) ||
+          !Number.isFinite(golOspite)
+        ) {
+
+          const risultato =
+            partita.risultato ??
+            partita.result ??
+            partita.score ??
+            "";
+
+
+          const match =
+            String(risultato)
+              .trim()
+              .match(/^(\d+)\s*[-:]\s*(\d+)$/);
+
+
+          if (match) {
+
+            golCasa =
+              Number(match[1]);
+
+            golOspite =
+              Number(match[2]);
+
+          }
+
+        }
+
+
+        if (
+          !Number.isFinite(golCasa) ||
+          !Number.isFinite(golOspite)
+        ) {
+
+          return null;
+
+        }
+
+
+        return {
+          casa: golCasa,
+          ospite: golOspite
+        };
+
+      }
+
+
+      /* =====================================================
+         CARICAMENTO
+      ====================================================== */
 
       async function caricaClassifica() {
 
         try {
 
-          const timestamp = Date.now();
+          const timestamp =
+            Date.now();
 
 
           const [
@@ -457,12 +735,10 @@
           ]);
 
 
-          /* CONTROLLO RISPOSTE */
-
           if (!squadreResponse.ok) {
 
             throw new Error(
-              `squadre.json HTTP ${squadreResponse.status}`
+              `Errore caricamento squadre: ${squadreResponse.status}`
             );
 
           }
@@ -471,7 +747,7 @@
           if (!partiteResponse.ok) {
 
             throw new Error(
-              `partite.json HTTP ${partiteResponse.status}`
+              `Errore caricamento partite: ${partiteResponse.status}`
             );
 
           }
@@ -480,17 +756,15 @@
           const squadre =
             await squadreResponse.json();
 
+
           const partite =
             await partiteResponse.json();
 
 
-
-          /* CONTROLLO ARRAY */
-
           if (!Array.isArray(squadre)) {
 
             throw new Error(
-              "squadre.json non contiene un array"
+              "Il file squadre.json non contiene un array."
             );
 
           }
@@ -499,58 +773,42 @@
           if (!Array.isArray(partite)) {
 
             throw new Error(
-              "partite.json non contiene un array"
+              "Il file partite.json non contiene un array."
             );
 
           }
 
 
-          /* NESSUNA SQUADRA */
-
-          if (squadre.length === 0) {
-
-            mostraMessaggio(
-              "Nessuna squadra iscritta."
-            );
-
-            return;
-
-          }
-
-
-
-          /* ══════════════════════════════════════
-             CREA CLASSIFICA
-          ══════════════════════════════════════ */
+          /* =================================================
+             CREAZIONE CLASSIFICA
+          ================================================== */
 
           const classifica = [];
 
 
-          squadre.forEach((squadra) => {
+          squadre.forEach((squadra, index) => {
+
+            const id =
+              squadra.id ??
+              squadra.ID ??
+              squadra.squadraId ??
+              index + 1;
+
+
+            const nome =
+              squadra.nome ??
+              squadra.squadra ??
+              squadra.name ??
+              `Squadra ${index + 1}`;
+
 
             classifica.push({
 
-              id:
-                String(
-                  squadra.id ?? ""
-                ).trim(),
+              id: String(id),
 
-              nome:
-                String(
-                  squadra.nome ?? "Squadra"
-                ).trim(),
+              nome: String(nome),
 
-              categoria:
-                String(
-                  squadra.categoria ?? ""
-                ).trim(),
-
-              girone:
-                String(
-                  squadra.girone ?? ""
-                ).trim(),
-
-              punti: 0,
+              partite: 0,
 
               vittorie: 0,
 
@@ -560,167 +818,208 @@
 
               golFatti: 0,
 
-              golSubiti: 0
+              golSubiti: 0,
+
+              differenzaReti: 0,
+
+              punti: 0
 
             });
 
           });
 
 
+          /* =================================================
+             MAPPE
+          ================================================== */
 
-          /* ══════════════════════════════════════
-             MAPPA ID
-          ══════════════════════════════════════ */
+          const squadraById =
+            new Map();
 
-          const perId = {};
+          const squadraByNome =
+            new Map();
 
 
           classifica.forEach(squadra => {
 
-            if (squadra.id) {
+            squadraById.set(
+              normalizza(squadra.id),
+              squadra
+            );
 
-              perId[squadra.id] =
-                squadra;
+
+            squadraByNome.set(
+              normalizza(squadra.nome),
+              squadra
+            );
+
+          });
+
+
+          /* =================================================
+             TROVA SQUADRA
+          ================================================== */
+
+          function trovaSquadra(value) {
+
+            if (
+              value === undefined ||
+              value === null ||
+              value === ""
+            ) {
+
+              return null;
 
             }
 
-          });
+
+            const valore =
+              normalizza(value);
 
 
+            return (
+              squadraById.get(valore) ||
+              squadraByNome.get(valore) ||
+              null
+            );
 
-          /* ══════════════════════════════════════
-             MAPPA NOMI
-          ══════════════════════════════════════ */
-
-          const perNome = {};
-
-
-          classifica.forEach(squadra => {
-
-            perNome[
-              normalizza(squadra.nome)
-            ] = squadra;
-
-          });
+          }
 
 
-
-          /* ══════════════════════════════════════
+          /* =================================================
              ANALIZZA PARTITE
-          ══════════════════════════════════════ */
+          ================================================== */
 
-          partite.forEach((partita) => {
+          partite.forEach(partita => {
+
+            const squadraCasa =
+              partita.squadraCasa ??
+              partita.casa ??
+              partita.homeTeam ??
+              partita.home ??
+              partita.teamCasa;
+
+
+            const squadraOspite =
+              partita.squadraOspite ??
+              partita.ospite ??
+              partita.awayTeam ??
+              partita.away ??
+              partita.teamOspite;
+
+
+            const casa =
+              trovaSquadra(squadraCasa);
+
+
+            const ospite =
+              trovaSquadra(squadraOspite);
+
+
+            if (!casa || !ospite) {
+              return;
+            }
+
 
             const risultato =
               leggiRisultato(partita);
 
 
-            /* PARTITA NON ANCORA GIOCATA */
+            /*
+             * Partita senza risultato:
+             * non viene conteggiata.
+             */
 
             if (!risultato) {
-
               return;
-
-            }
-
-
-            const casa =
-              trovaSquadra(
-                partita,
-                "casa",
-                perId,
-                perNome
-              );
-
-
-            const ospite =
-              trovaSquadra(
-                partita,
-                "ospite",
-                perId,
-                perNome
-              );
-
-
-            /* SQUADRE NON TROVATE */
-
-            if (!casa || !ospite) {
-
-              return;
-
             }
 
 
             const golCasa =
               risultato.casa;
 
+
             const golOspite =
               risultato.ospite;
 
 
+            /* ===============================================
+               PARTITE GIOCATE
+            ================================================ */
 
-            /* ══════════════════════════════════
-               GOL
-            ══════════════════════════════════ */
+            casa.partite++;
+            ospite.partite++;
+
+
+            /* ===============================================
+               GOL FATTI E SUBITI
+            ================================================ */
 
             casa.golFatti += golCasa;
-
             casa.golSubiti += golOspite;
 
             ospite.golFatti += golOspite;
-
             ospite.golSubiti += golCasa;
 
 
-
-            /* ══════════════════════════════════
+            /* ===============================================
                RISULTATO
-            ══════════════════════════════════ */
+            ================================================ */
 
             if (golCasa > golOspite) {
 
               casa.vittorie++;
+              ospite.sconfitte++;
 
               casa.punti += 3;
-
-              ospite.sconfitte++;
 
             }
 
             else if (golCasa < golOspite) {
 
               ospite.vittorie++;
+              casa.sconfitte++;
 
               ospite.punti += 3;
-
-              casa.sconfitte++;
 
             }
 
             else {
 
               casa.pareggi++;
-
               ospite.pareggi++;
 
-              casa.punti++;
-
-              ospite.punti++;
+              casa.punti += 1;
+              ospite.punti += 1;
 
             }
 
           });
 
 
+          /* =================================================
+             DIFFERENZA RETI
+          ================================================== */
 
-          /* ══════════════════════════════════════
-             ORDINA CLASSIFICA
-          ══════════════════════════════════════ */
+          classifica.forEach(squadra => {
+
+            squadra.differenzaReti =
+              squadra.golFatti -
+              squadra.golSubiti;
+
+          });
+
+
+          /* =================================================
+             ORDINAMENTO
+             
+             1. Punti
+             2. Differenza reti
+             3. Gol fatti
+             4. Nome squadra
+          ================================================== */
 
           classifica.sort((a, b) => {
-
-
-            /* 1. PUNTI */
 
             if (b.punti !== a.punti) {
 
@@ -729,35 +1028,25 @@
             }
 
 
-            /* 2. DIFFERENZA RETI */
+            if (
+              b.differenzaReti !==
+              a.differenzaReti
+            ) {
 
-            const diffA =
-              a.golFatti -
-              a.golSubiti;
-
-            const diffB =
-              b.golFatti -
-              b.golSubiti;
-
-
-            if (diffB !== diffA) {
-
-              return diffB - diffA;
+              return (
+                b.differenzaReti -
+                a.differenzaReti
+              );
 
             }
 
-
-            /* 3. GOL FATTI */
 
             if (b.golFatti !== a.golFatti) {
 
-              return b.golFatti -
-                a.golFatti;
+              return b.golFatti - a.golFatti;
 
             }
 
-
-            /* 4. NOME */
 
             return a.nome.localeCompare(
               b.nome,
@@ -767,533 +1056,209 @@
           });
 
 
-
-          /* ══════════════════════════════════════
+          /* =================================================
              RENDER
-          ══════════════════════════════════════ */
+          ================================================== */
 
-          tbody.innerHTML = "";
-
-
-          classifica.forEach(
-            (squadra, index) => {
-
-              const posizione =
-                index + 1;
+          classificaBody.innerHTML = "";
 
 
-              const tr =
-                document.createElement("tr");
+          classifica.forEach((squadra, index) => {
+
+            const posizione =
+              index + 1;
 
 
-              /* ══════════════════════════════
-                 CLASSE MEDAGLIA
-              ══════════════════════════════ */
+            /* ===============================================
+               POSIZIONE COLORATA
+            ================================================ */
 
-              let classeRank =
-                "rank-normal";
-
-
-              if (posizione === 1) {
-
-                classeRank =
-                  "rank gold";
-
-              }
-
-              else if (posizione === 2) {
-
-                classeRank =
-                  "rank silver";
-
-              }
-
-              else if (posizione === 3) {
-
-                classeRank =
-                  "rank bronze";
-
-              }
+            let rankHtml =
+              `<span class="rank-normal">${posizione}</span>`;
 
 
+            if (posizione === 1) {
 
-              /* ══════════════════════════════
-                 INFO SQUADRA
-              ══════════════════════════════ */
-
-              let info = "";
-
-
-              if (
-                squadra.categoria &&
-                squadra.girone
-              ) {
-
-                info =
-                  `${squadra.categoria} · Girone ${squadra.girone}`;
-
-              }
-
-              else if (squadra.categoria) {
-
-                info =
-                  squadra.categoria;
-
-              }
-
-              else if (squadra.girone) {
-
-                info =
-                  `Girone ${squadra.girone}`;
-
-              }
-
-
-
-              /* ══════════════════════════════
-                 HTML RIGA
-              ══════════════════════════════ */
-
-              tr.innerHTML = `
-
-                <td class="center">
-
-                  ${
-                    posizione <= 3
-
-                      ? `
-                        <span class="${classeRank}">
-                          ${posizione}
-                        </span>
-                      `
-
-                      : `
-                        <span class="rank-normal">
-                          ${posizione}
-                        </span>
-                      `
-                  }
-
-                </td>
-
-
-                <td>
-
-                  <strong>
-                    ${escapeHtml(squadra.nome)}
-                  </strong>
-
-                  ${
-                    info
-
-                      ? `
-                        <small
-                          style="
-                            display:block;
-                            color:rgba(255,255,255,0.38);
-                            font-family:'Barlow',sans-serif;
-                            font-size:0.72rem;
-                            font-weight:400;
-                            margin-top:3px;
-                            letter-spacing:0.3px;
-                          "
-                        >
-                          ${escapeHtml(info)}
-                        </small>
-                      `
-
-                      : ""
-                  }
-
-                </td>
-
-
-                <td class="center">
-
-                  <strong
-                    style="
-                      color:var(--red);
-                      font-size:1.15rem;
-                    "
-                  >
-                    ${squadra.punti}
-                  </strong>
-
-                </td>
-
-
-                <td class="center">
-                  ${squadra.vittorie}
-                </td>
-
-
-                <td class="center">
-                  ${squadra.pareggi}
-                </td>
-
-
-                <td class="center">
-                  ${squadra.sconfitte}
-                </td>
-
-              `;
-
-
-              tbody.appendChild(tr);
+              rankHtml =
+                `<span class="rank-medal gold">${posizione}</span>`;
 
             }
-          );
 
+            else if (posizione === 2) {
+
+              rankHtml =
+                `<span class="rank-medal silver">${posizione}</span>`;
+
+            }
+
+            else if (posizione === 3) {
+
+              rankHtml =
+                `<span class="rank-medal bronze">${posizione}</span>`;
+
+            }
+
+
+            /* ===============================================
+               DIFFERENZA RETI
+            ================================================ */
+
+            let classeDifferenza =
+              "goal-neutral";
+
+
+            let differenzaTesto =
+              String(squadra.differenzaReti);
+
+
+            if (
+              squadra.differenzaReti > 0
+            ) {
+
+              classeDifferenza =
+                "goal-positive";
+
+
+              differenzaTesto =
+                `+${squadra.differenzaReti}`;
+
+            }
+
+            else if (
+              squadra.differenzaReti < 0
+            ) {
+
+              classeDifferenza =
+                "goal-negative";
+
+            }
+
+
+            /* ===============================================
+               RIGA
+            ================================================ */
+
+            const row =
+              document.createElement("tr");
+
+
+            row.innerHTML = `
+
+              <td class="center">
+                ${rankHtml}
+              </td>
+
+              <td class="team-name">
+                ${escapeHtml(squadra.nome)}
+              </td>
+
+              <td class="number">
+                ${squadra.partite}
+              </td>
+
+              <td class="number">
+                ${squadra.vittorie}
+              </td>
+
+              <td class="number">
+                ${squadra.pareggi}
+              </td>
+
+              <td class="number">
+                ${squadra.sconfitte}
+              </td>
+
+              <td class="number">
+                ${squadra.golFatti}
+              </td>
+
+              <td class="number">
+                ${squadra.golSubiti}
+              </td>
+
+              <td class="goal-difference ${classeDifferenza}">
+                ${differenzaTesto}
+              </td>
+
+              <td class="points">
+                ${squadra.punti}
+              </td>
+
+            `;
+
+
+            classificaBody.appendChild(row);
+
+          });
+
+
+          /* =================================================
+             NESSUNA SQUADRA
+          ================================================== */
+
+          if (classifica.length === 0) {
+
+            classificaBody.innerHTML = `
+
+              <tr>
+
+                <td
+                  colspan="10"
+                  class="center"
+                  style="padding:40px;"
+                >
+                  Nessuna squadra disponibile.
+                </td>
+
+              </tr>
+
+            `;
+
+          }
 
         }
 
-        catch (errore) {
+        catch (error) {
 
           console.error(
-            "ERRORE CLASSIFICA:",
-            errore
+            "Errore caricamento classifica:",
+            error
           );
 
 
-          mostraMessaggio(
-            "Errore nel caricamento della classifica."
-          );
+          classificaBody.innerHTML = `
+
+            <tr>
+
+              <td
+                colspan="10"
+                class="center"
+                style="
+                  padding:40px;
+                  color:#ff6862;
+                "
+              >
+                Impossibile caricare la classifica.
+              </td>
+
+            </tr>
+
+          `;
 
         }
 
       }
 
 
-
-      /* ══════════════════════════════════════
-         TROVA SQUADRA
-      ══════════════════════════════════════ */
-
-      function trovaSquadra(
-        partita,
-        lato,
-        perId,
-        perNome
-      ) {
-
-        let valoriId = [];
-
-        let valoriNome = [];
-
-
-        if (lato === "casa") {
-
-          valoriId = [
-
-            partita.casa_id,
-            partita.casaId,
-            partita.casaID,
-            partita.home_id,
-            partita.homeId,
-            partita.squadraCasaId
-
-          ];
-
-
-          valoriNome = [
-
-            partita.casa,
-            partita.casa_nome,
-            partita.casaNome,
-            partita.home,
-            partita.home_name,
-            partita.homeName
-
-          ];
-
-        }
-
-        else {
-
-          valoriId = [
-
-            partita.trasferta_id,
-            partita.trasfertaId,
-            partita.trasfertaID,
-            partita.ospite_id,
-            partita.ospiteId,
-            partita.ospiteID,
-            partita.away_id,
-            partita.awayId,
-            partita.squadraOspiteId
-
-          ];
-
-
-          valoriNome = [
-
-            partita.trasferta,
-            partita.trasferta_nome,
-            partita.trasfertaNome,
-            partita.ospite,
-            partita.away,
-            partita.away_name,
-            partita.awayName
-
-          ];
-
-        }
-
-
-
-        /* CERCA ID */
-
-        for (const valore of valoriId) {
-
-          if (
-            valore !== null &&
-            valore !== undefined &&
-            String(valore).trim() !== ""
-          ) {
-
-            const id =
-              String(valore).trim();
-
-
-            if (perId[id]) {
-
-              return perId[id];
-
-            }
-
-          }
-
-        }
-
-
-
-        /* CERCA NOME */
-
-        for (const valore of valoriNome) {
-
-          if (
-            valore !== null &&
-            valore !== undefined &&
-            String(valore).trim() !== ""
-          ) {
-
-            const nome =
-              normalizza(valore);
-
-
-            if (perNome[nome]) {
-
-              return perNome[nome];
-
-            }
-
-          }
-
-        }
-
-
-        return null;
-
-      }
-
-
-
-      /* ══════════════════════════════════════
-         LEGGE RISULTATO
-      ══════════════════════════════════════ */
-
-      function leggiRisultato(partita) {
-
-        let casa =
-          convertiNumero(
-            partita.golCasa
-          );
-
-
-        let ospite =
-          convertiNumero(
-            partita.golOspite
-          );
-
-
-        if (
-          casa !== null &&
-          ospite !== null
-        ) {
-
-          return {
-            casa,
-            ospite
-          };
-
-        }
-
-
-
-        const possibili = [
-
-          partita.risultato,
-          partita.result,
-          partita.score
-
-        ];
-
-
-        for (const valore of possibili) {
-
-          if (
-            valore === null ||
-            valore === undefined
-          ) {
-
-            continue;
-
-          }
-
-
-          const testo =
-            String(valore).trim();
-
-
-          const match =
-            testo.match(
-              /^(\d+)\s*[-:]\s*(\d+)$/
-            );
-
-
-          if (match) {
-
-            return {
-
-              casa:
-                Number(match[1]),
-
-              ospite:
-                Number(match[2])
-
-            };
-
-          }
-
-        }
-
-
-        return null;
-
-      }
-
-
-
-      /* ══════════════════════════════════════
-         CONVERTI NUMERO
-      ══════════════════════════════════════ */
-
-      function convertiNumero(valore) {
-
-        if (
-          valore === null ||
-          valore === undefined ||
-          valore === ""
-        ) {
-
-          return null;
-
-        }
-
-
-        const numero =
-          Number(
-            String(valore)
-              .replace(",", ".")
-              .trim()
-          );
-
-
-        return Number.isFinite(numero)
-          ? numero
-          : null;
-
-      }
-
-
-
-      /* ══════════════════════════════════════
-         NORMALIZZA
-      ══════════════════════════════════════ */
-
-      function normalizza(valore) {
-
-        return String(
-          valore ?? ""
-        )
-          .trim()
-          .toLowerCase();
-
-      }
-
-
-
-      /* ══════════════════════════════════════
-         MESSAGGIO
-      ══════════════════════════════════════ */
-
-      function mostraMessaggio(messaggio) {
-
-        tbody.innerHTML = `
-
-          <tr>
-
-            <td
-              colspan="6"
-              class="center"
-              style="
-                padding:40px;
-                color:rgba(255,255,255,0.5);
-              "
-            >
-
-              ${escapeHtml(messaggio)}
-
-            </td>
-
-          </tr>
-
-        `;
-
-      }
-
-
-
-      /* ══════════════════════════════════════
-         ESCAPE HTML
-      ══════════════════════════════════════ */
-
-      function escapeHtml(valore) {
-
-        return String(
-          valore ?? ""
-        )
-
-          .replace(/&/g, "&amp;")
-          .replace(/</g, "&lt;")
-          .replace(/>/g, "&gt;")
-          .replace(/"/g, "&quot;")
-          .replace(/'/g, "&#039;");
-
-      }
-
-
-
-      /* ══════════════════════════════════════
-         AVVIA
-      ══════════════════════════════════════ */
+      /* =====================================================
+         AVVIO
+      ====================================================== */
 
       caricaClassifica();
 
     });
 
   </script>
-
 
 </body>
 </html>
