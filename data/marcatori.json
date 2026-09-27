@@ -20,6 +20,16 @@
     "posizione": 2
   },
   {
+    "id": "M001",
+    "giocatore": "R004",
+    "squadra": "cica",
+    "gol": 1,
+    "squadraId": "T003",
+    "cognome": "rocci",
+    "posizione": 3,
+    "squadra_id": "T003"
+  },
+  {
     "id": "M003",
     "giocatore": "R005",
     "cognome": "Salvatori",
@@ -27,16 +37,6 @@
     "squadra_id": "T002",
     "squadraId": "T002",
     "gol": 1,
-    "posizione": 3
-  },
-  {
-    "id": "M001",
-    "giocatore": "R004",
-    "squadra": "cica",
-    "gol": 0,
-    "squadraId": "T003",
-    "cognome": "rocci",
-    "posizione": 4,
-    "squadra_id": "T003"
+    "posizione": 4
   }
 ]
