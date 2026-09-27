@@ -17,58 +17,259 @@
   >
 
   <style>
+    /* =========================================================
+       STILE ROSSO / NERO
+    ========================================================= */
+
+    :root {
+      --scc-red: #d90429;
+      --scc-red-dark: #8f001b;
+      --scc-black: #050505;
+      --scc-panel: #0d0d0d;
+      --scc-panel-light: #151515;
+      --scc-white: #f5f5f5;
+    }
+
+    body {
+      background:
+        radial-gradient(
+          circle at 50% 15%,
+          rgba(217, 4, 41, 0.10),
+          transparent 42%
+        ),
+        #050505;
+      color: var(--scc-white);
+    }
+
+    /* =========================================================
+       HEADER
+    ========================================================= */
+
+    .page-header {
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(217, 4, 41, 0.13),
+          transparent 65%
+        );
+      border-bottom: 1px solid rgba(217, 4, 41, 0.22);
+    }
+
+    .page-eyebrow {
+      color: var(--scc-red) !important;
+    }
+
+    .page-title span {
+      color: var(--scc-red) !important;
+      text-shadow:
+        0 0 18px rgba(217, 4, 41, 0.35);
+    }
+
+    .page-subtitle {
+      color: rgba(245, 245, 245, 0.65);
+    }
+
+    /* =========================================================
+       TABELLA
+    ========================================================= */
+
+    .table-wrap {
+      background: transparent;
+    }
+
+    table {
+      background: transparent;
+    }
+
+    thead th {
+      background:
+        linear-gradient(
+          180deg,
+          #171717,
+          #0c0c0c
+        ) !important;
+
+      color: #ffffff !important;
+
+      border-bottom:
+        2px solid var(--scc-red) !important;
+    }
+
+    tbody tr {
+      background:
+        linear-gradient(
+          145deg,
+          #111111,
+          #080808
+        ) !important;
+
+      border-bottom:
+        1px solid rgba(255, 255, 255, 0.06);
+
+      transition:
+        transform 0.22s ease,
+        background 0.22s ease,
+        box-shadow 0.22s ease;
+    }
+
+    tbody tr:hover {
+      background:
+        linear-gradient(
+          145deg,
+          #181818,
+          #0b0b0b
+        ) !important;
+
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 8px 30px rgba(217, 4, 41, 0.10);
+    }
+
+    tbody td {
+      color: rgba(245, 245, 245, 0.85);
+    }
+
+    tbody td strong {
+      color: #ffffff;
+    }
+
+    /* =========================================================
+       POSIZIONI
+    ========================================================= */
+
+    .rank {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      min-width: 32px;
+      height: 32px;
+
+      border-radius: 50%;
+
+      font-weight: 800;
+
+      border: 1px solid transparent;
+    }
+
+    .rank.gold {
+      background:
+        rgba(217, 4, 41, 0.18);
+
+      color: #ff244d;
+
+      border-color:
+        rgba(217, 4, 41, 0.45);
+
+      box-shadow:
+        0 0 14px rgba(217, 4, 41, 0.15);
+    }
+
+    .rank.silver {
+      background:
+        rgba(190, 190, 190, 0.14);
+
+      color: #d4d4d4;
+
+      border-color:
+        rgba(190, 190, 190, 0.25);
+    }
+
+    .rank.bronze {
+      background:
+        rgba(217, 4, 41, 0.10);
+
+      color: #ff526f;
+
+      border-color:
+        rgba(217, 4, 41, 0.28);
+    }
+
+    .rank-normal {
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    /* =========================================================
+       GOL
+    ========================================================= */
+
+    .gol-numero {
+      color: var(--scc-red) !important;
+
+      font-weight: 800;
+
+      text-shadow:
+        0 0 15px rgba(217, 4, 41, 0.35);
+    }
+
+    /* =========================================================
+       STATI
+    ========================================================= */
+
     .loading,
     .errore,
     .vuoto {
       text-align: center;
       padding: 40px;
-      color: rgba(255,255,255,0.7);
+      color: rgba(255, 255, 255, 0.7);
     }
 
     .errore {
       color: #ff6b6b;
     }
 
-    .rank {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      font-weight: 800;
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      background:
+        linear-gradient(
+          180deg,
+          #080808,
+          #030303
+        );
+
+      border-top:
+        1px solid rgba(217, 4, 41, 0.20);
     }
 
-    .rank.gold {
-      background: rgba(255,183,0,0.18);
-      color: #ffb700;
+    .footer-nav a:hover {
+      color: var(--scc-red) !important;
     }
 
-    .rank.silver {
-      background: rgba(190,190,190,0.18);
-      color: #cfcfcf;
-    }
+    /* =========================================================
+       MOBILE
+    ========================================================= */
 
-    .rank.bronze {
-      background: rgba(205,127,50,0.18);
-      color: #cd7f32;
-    }
+    @media (max-width: 600px) {
 
-    .rank-normal {
-      font-weight: 700;
-      opacity: 0.75;
-    }
+      .table-wrap {
+        overflow-x: auto;
+      }
 
-    .gol-numero {
-      color: var(--gold);
-      font-weight: 800;
+      table {
+        min-width: 520px;
+      }
+
+      tbody tr:hover {
+        transform: none;
+      }
+
     }
   </style>
 </head>
 
+
 <body>
 
-  <!-- NAVBAR -->
+
+  <!-- =======================================================
+       NAVBAR
+  ======================================================== -->
 
   <nav class="navbar">
 
@@ -76,6 +277,7 @@
       href="index.html"
       class="nav-brand"
     >
+
       <img
         src="logo.png"
         alt="Santa Cruz Cup"
@@ -84,24 +286,34 @@
       <span class="nav-brand-text">
         SANTA CRUZ CUP
       </span>
+
     </a>
+
 
     <ul class="nav-links">
 
       <li>
-        <a href="index.html">Home</a>
+        <a href="index.html">
+          Home
+        </a>
       </li>
 
       <li>
-        <a href="calendario.html">Calendario</a>
+        <a href="calendario.html">
+          Calendario
+        </a>
       </li>
 
       <li>
-        <a href="risultati.html">Risultati</a>
+        <a href="risultati.html">
+          Risultati
+        </a>
       </li>
 
       <li>
-        <a href="classifica.html">Classifica</a>
+        <a href="classifica.html">
+          Classifica
+        </a>
       </li>
 
       <li>
@@ -114,46 +326,87 @@
       </li>
 
       <li>
-        <a href="squadre.html">Squadre</a>
+        <a href="squadre.html">
+          Squadre
+        </a>
       </li>
 
       <li>
-        <a href="regolamento.html">Regolamento</a>
+        <a href="regolamento.html">
+          Regolamento
+        </a>
+      </li>
+
+      <li>
+        <a href="contatti.html">
+          Contatti
+        </a>
       </li>
 
     </ul>
+
 
     <div
       class="hamburger"
       id="hamburger"
     >
+
       <span></span>
       <span></span>
       <span></span>
+
     </div>
 
   </nav>
 
 
-  <!-- MOBILE MENU -->
+  <!-- =======================================================
+       MOBILE MENU
+  ======================================================== -->
 
   <div
     class="mobile-menu"
     id="mobileMenu"
   >
 
-    <a href="index.html">🏠 Home</a>
-    <a href="calendario.html">📅 Calendario</a>
-    <a href="risultati.html">📊 Risultati</a>
-    <a href="classifica.html">🏆 Classifica</a>
-    <a href="marcatori.html">⚽ Marcatori</a>
-    <a href="squadre.html">👥 Squadre</a>
-    <a href="regolamento.html">📋 Regolamento</a>
+    <a href="index.html">
+      🏠 Home
+    </a>
+
+    <a href="calendario.html">
+      📅 Calendario
+    </a>
+
+    <a href="risultati.html">
+      📊 Risultati
+    </a>
+
+    <a href="classifica.html">
+      🏆 Classifica
+    </a>
+
+    <a href="marcatori.html">
+      ⚽ Marcatori
+    </a>
+
+    <a href="squadre.html">
+      👥 Squadre
+    </a>
+
+    <a href="regolamento.html">
+      📋 Regolamento
+    </a>
+
+    <a href="contatti.html">
+      📩 Contatti
+    </a>
 
   </div>
 
 
-  <!-- HEADER -->
+  <!-- =======================================================
+       HEADER
+  ======================================================== -->
 
   <header class="page-header">
 
@@ -172,16 +425,18 @@
   </header>
 
 
-  <!-- CONTENUTO -->
+  <!-- =======================================================
+       CONTENUTO
+  ======================================================== -->
 
   <section class="section">
 
-    <!-- Rimossa la classe 'reveal' per evitare che la tabella resti nascosta -->
     <div class="table-wrap">
 
       <table>
 
         <thead>
+
           <tr>
 
             <th class="center">
@@ -201,17 +456,21 @@
             </th>
 
           </tr>
+
         </thead>
+
 
         <tbody id="marcatoriBody">
 
           <tr>
+
             <td
               colspan="4"
               class="loading"
             >
               ⚽ Caricamento marcatori...
             </td>
+
           </tr>
 
         </tbody>
@@ -223,7 +482,9 @@
   </section>
 
 
-  <!-- FOOTER -->
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
 
   <footer>
 
@@ -241,12 +502,13 @@
               margin-bottom:0.4rem;
               filter:drop-shadow(
                 0 0 8px
-                rgba(255,183,0,0.4)
+                rgba(217,4,41,0.5)
               );
             "
           >
 
         </a>
+
 
         <div class="footer-tagline">
           Torneo Giovanile di Calcio · Edizione 2026
@@ -257,13 +519,37 @@
 
       <nav class="footer-nav">
 
-        <a href="index.html">Home</a>
-        <a href="calendario.html">Calendario</a>
-        <a href="risultati.html">Risultati</a>
-        <a href="classifica.html">Classifica</a>
-        <a href="marcatori.html">Marcatori</a>
-        <a href="squadre.html">Squadre</a>
-        <a href="regolamento.html">Regolamento</a>
+        <a href="index.html">
+          Home
+        </a>
+
+        <a href="calendario.html">
+          Calendario
+        </a>
+
+        <a href="risultati.html">
+          Risultati
+        </a>
+
+        <a href="classifica.html">
+          Classifica
+        </a>
+
+        <a href="marcatori.html">
+          Marcatori
+        </a>
+
+        <a href="squadre.html">
+          Squadre
+        </a>
+
+        <a href="regolamento.html">
+          Regolamento
+        </a>
+
+        <a href="contatti.html">
+          Contatti
+        </a>
 
       </nav>
 
@@ -285,21 +571,25 @@
   </footer>
 
 
-  <!-- JAVASCRIPT -->
+  <!-- =======================================================
+       JAVASCRIPT
+  ======================================================== -->
 
   <script>
 
     document.addEventListener("DOMContentLoaded", () => {
 
-      /* ==============================
+
+      /* =====================================================
          MENU MOBILE
-      ============================== */
+      ===================================================== */
 
       const hamburger =
         document.getElementById("hamburger");
 
       const mobileMenu =
         document.getElementById("mobileMenu");
+
 
       if (hamburger && mobileMenu) {
 
@@ -310,6 +600,7 @@
           mobileMenu.classList.toggle("open");
 
         });
+
 
         document.addEventListener("click", (e) => {
 
@@ -323,6 +614,7 @@
           }
 
         });
+
 
         mobileMenu
           .querySelectorAll("a")
@@ -339,9 +631,9 @@
       }
 
 
-      /* ==============================
+      /* =====================================================
          CARICA MARCATORI
-      ============================== */
+      ===================================================== */
 
       caricaMarcatori();
 
@@ -352,6 +644,7 @@
 
       const tbody =
         document.getElementById("marcatoriBody");
+
 
       try {
 
@@ -401,6 +694,7 @@
         mostraMarcatori(marcatori);
 
       }
+
 
       catch (errore) {
 
@@ -466,9 +760,9 @@
       }
 
 
-      /* ==============================
+      /* =====================================================
          NORMALIZZA DATI
-      ============================== */
+      ===================================================== */
 
       const lista =
         marcatori.map((m) => {
@@ -566,9 +860,9 @@
         });
 
 
-      /* ==============================
+      /* =====================================================
          ORDINA PER GOL
-      ============================== */
+      ===================================================== */
 
       lista.sort((a, b) => {
 
@@ -589,9 +883,9 @@
       });
 
 
-      /* ==============================
+      /* =====================================================
          CREA TABELLA
-      ============================== */
+      ===================================================== */
 
       tbody.innerHTML = "";
 
@@ -608,39 +902,50 @@
         if (posizione === 1) {
 
           rankHTML = `
+
             <span class="rank gold">
               1
             </span>
+
           `;
 
         }
+
 
         else if (posizione === 2) {
 
           rankHTML = `
+
             <span class="rank silver">
               2
             </span>
+
           `;
 
         }
+
 
         else if (posizione === 3) {
 
           rankHTML = `
+
             <span class="rank bronze">
               3
             </span>
+
           `;
 
         }
 
+
         else {
 
           rankHTML = `
+
             <span class="rank-normal">
               ${posizione}
             </span>
+
           `;
 
         }
@@ -653,23 +958,34 @@
         tr.innerHTML = `
 
           <td class="center">
+
             ${rankHTML}
+
           </td>
 
+
           <td>
+
             <strong>
               ${escapeHtml(marcatore.nome)}
             </strong>
+
           </td>
+
 
           <td>
+
             ${escapeHtml(marcatore.squadra)}
+
           </td>
 
+
           <td class="center">
+
             <strong class="gol-numero">
               ${marcatore.gol}
             </strong>
+
           </td>
 
         `;
@@ -688,6 +1004,10 @@
     }
 
 
+    /* =======================================================
+       SICUREZZA HTML
+    ======================================================== */
+
     function escapeHtml(testo) {
 
       return String(testo ?? "")
@@ -705,6 +1025,7 @@
     }
 
   </script>
+
 
 </body>
 
