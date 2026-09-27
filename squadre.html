@@ -1,23 +1,344 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>Squadre – Santa Cruz Cup</title>
 
-  <link rel="stylesheet" href="style.css">
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <style>
+
+    /* =========================================================
+       ROSSO / NERO
+    ========================================================= */
+
+    :root {
+      --scc-red: #d90429;
+      --scc-red-light: #ff244d;
+      --scc-red-dark: #8f001b;
+      --scc-black: #050505;
+      --scc-panel: #0d0d0d;
+      --scc-panel-light: #151515;
+      --scc-white: #f5f5f5;
+    }
+
+
+    body {
+
+      background:
+        radial-gradient(
+          circle at 50% 15%,
+          rgba(217, 4, 41, 0.10),
+          transparent 42%
+        ),
+        #050505;
+
+      color: var(--scc-white);
+
+    }
+
+
+    /* =========================================================
+       HEADER
+    ========================================================= */
+
+    .page-header {
+
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(217, 4, 41, 0.13),
+          transparent 65%
+        );
+
+      border-bottom:
+        1px solid rgba(217, 4, 41, 0.22);
+
+    }
+
+
+    .page-eyebrow {
+
+      color:
+        var(--scc-red) !important;
+
+    }
+
+
+    .page-title span {
+
+      color:
+        var(--scc-red) !important;
+
+      text-shadow:
+        0 0 22px
+        rgba(217, 4, 41, 0.35);
+
+    }
+
+
+    .page-subtitle {
+
+      color:
+        rgba(245, 245, 245, 0.65);
+
+    }
+
+
+    /* =========================================================
+       GRIGLIA SQUADRE
+    ========================================================= */
+
+    .teams-grid {
+
+      position: relative;
+
+    }
+
+
+    .team-card {
+
+      position: relative;
+
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          145deg,
+          #151515,
+          #080808
+        ) !important;
+
+      border:
+        1px solid
+        rgba(217, 4, 41, 0.20) !important;
+
+      box-shadow:
+        0 10px 30px
+        rgba(0, 0, 0, 0.35);
+
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+
+    }
+
+
+    .team-card::before {
+
+      content: "";
+
+      position: absolute;
+
+      width: 180px;
+      height: 180px;
+
+      top: -100px;
+      right: -80px;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(217, 4, 41, 0.18),
+          transparent 70%
+        );
+
+      pointer-events: none;
+
+    }
+
+
+    .team-card:hover {
+
+      transform:
+        translateY(-6px);
+
+      border-color:
+        rgba(217, 4, 41, 0.70) !important;
+
+      box-shadow:
+        0 16px 42px
+        rgba(217, 4, 41, 0.13);
+
+    }
+
+
+    .team-crest {
+
+      position: relative;
+
+      z-index: 1;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      width: 74px;
+      height: 74px;
+
+      margin: 0 auto 16px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(217, 4, 41, 0.20),
+          rgba(217, 4, 41, 0.04)
+        );
+
+      border:
+        1px solid
+        rgba(217, 4, 41, 0.35);
+
+      box-shadow:
+        0 0 24px
+        rgba(217, 4, 41, 0.10);
+
+      font-size: 2rem;
+
+    }
+
+
+    .team-name {
+
+      position: relative;
+
+      z-index: 1;
+
+      color:
+        #ffffff !important;
+
+    }
+
+
+    .team-cat {
+
+      position: relative;
+
+      z-index: 1;
+
+      color:
+        rgba(245, 245, 245, 0.55) !important;
+
+    }
+
+
+    .team-card .team-link {
+
+      color:
+        var(--scc-red) !important;
+
+    }
+
+
+    /* =========================================================
+       MESSAGGI
+    ========================================================= */
+
+    .teams-message {
+
+      width: 100%;
+
+      text-align: center;
+
+      padding: 50px 20px;
+
+      color:
+        rgba(255, 255, 255, 0.65);
+
+    }
+
+
+    .teams-error {
+
+      width: 100%;
+
+      text-align: center;
+
+      padding: 50px 20px;
+
+      color:
+        #ff6b6b;
+
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+
+      background:
+        linear-gradient(
+          180deg,
+          #080808,
+          #030303
+        );
+
+      border-top:
+        1px solid
+        rgba(217, 4, 41, 0.20);
+
+    }
+
+
+    .footer-nav a:hover {
+
+      color:
+        var(--scc-red) !important;
+
+    }
+
+
+    /* =========================================================
+       MOBILE
+    ========================================================= */
+
+    @media (max-width: 600px) {
+
+      .team-card:hover {
+
+        transform:
+          translateY(-3px);
+
+      }
+
+    }
+
+  </style>
+
 </head>
+
 
 <body>
 
-  <!-- ══════════════════════════════════════
+
+  <!-- =======================================================
        NAVBAR
-  ══════════════════════════════════════ -->
+  ======================================================== -->
 
   <nav class="navbar">
 
-    <a href="index.html" class="nav-brand">
+
+    <a
+      href="index.html"
+      class="nav-brand"
+    >
 
       <img
         src="logo.png"
@@ -33,11 +354,13 @@
 
     <ul class="nav-links">
 
+
       <li>
         <a href="index.html">
           Home
         </a>
       </li>
+
 
       <li>
         <a href="calendario.html">
@@ -45,11 +368,13 @@
         </a>
       </li>
 
+
       <li>
         <a href="risultati.html">
           Risultati
         </a>
       </li>
+
 
       <li>
         <a href="classifica.html">
@@ -57,26 +382,41 @@
         </a>
       </li>
 
+
       <li>
         <a href="marcatori.html">
           Marcatori
         </a>
       </li>
 
+
       <li>
+
         <a
           href="squadre.html"
           class="active"
         >
           Squadre
         </a>
+
       </li>
+
 
       <li>
         <a href="regolamento.html">
           Regolamento
         </a>
       </li>
+
+
+      <!-- ULTIMA VOCE -->
+
+      <li>
+        <a href="contatti.html">
+          Contatti
+        </a>
+      </li>
+
 
     </ul>
 
@@ -94,108 +434,135 @@
 
     </div>
 
+
   </nav>
 
 
-  <!-- ══════════════════════════════════════
+  <!-- =======================================================
        MOBILE MENU
-  ══════════════════════════════════════ -->
+  ======================================================== -->
 
   <div
     class="mobile-menu"
     id="mobileMenu"
   >
 
+
     <a href="index.html">
       🏠 Home
     </a>
+
 
     <a href="calendario.html">
       📅 Calendario
     </a>
 
+
     <a href="risultati.html">
       📊 Risultati
     </a>
+
 
     <a href="classifica.html">
       🏆 Classifica
     </a>
 
+
     <a href="marcatori.html">
       ⚽ Marcatori
     </a>
+
 
     <a href="squadre.html">
       👥 Squadre
     </a>
 
+
     <a href="regolamento.html">
       📋 Regolamento
     </a>
 
+
+    <a href="contatti.html">
+      📩 Contatti
+    </a>
+
+
   </div>
 
 
-  <!-- ══════════════════════════════════════
+  <!-- =======================================================
        HEADER
-  ══════════════════════════════════════ -->
+  ======================================================== -->
 
   <header class="page-header">
+
 
     <div class="page-eyebrow">
       Santa Cruz Cup · 2026
     </div>
 
+
     <h1 class="page-title">
-      LE <span>SQUADRE</span>
+
+      LE
+      <span>SQUADRE</span>
+
     </h1>
 
+
     <p class="page-subtitle">
+
       Le squadre partecipanti al torneo.
       Clicca su una squadra per vedere la rosa.
+
     </p>
+
 
   </header>
 
 
-  <!-- ══════════════════════════════════════
+  <!-- =======================================================
        CONTENUTO
-  ══════════════════════════════════════ -->
+  ======================================================== -->
 
   <section class="section">
+
 
     <div
       class="teams-grid"
       id="teamsGrid"
     >
 
-      <div
-        style="
-          text-align:center;
-          padding:40px;
-          width:100%;
-        "
-      >
+
+      <div class="teams-message">
+
         Caricamento squadre...
+
       </div>
 
+
     </div>
+
 
   </section>
 
 
-  <!-- ══════════════════════════════════════
+  <!-- =======================================================
        FOOTER
-  ══════════════════════════════════════ -->
+  ======================================================== -->
 
   <footer>
 
+
     <div class="footer-top">
+
 
       <div>
 
+
         <a href="index.html">
+
 
           <img
             src="logo.png"
@@ -205,90 +572,120 @@
               margin-bottom:0.4rem;
               filter:drop-shadow(
                 0 0 8px
-                rgba(255,183,0,0.4)
+                rgba(217,4,41,0.5)
               );
             "
           >
 
+
         </a>
 
+
         <div class="footer-tagline">
-          Torneo Giovanile di Calcio · Edizione 2026
+
+          Torneo Giovanile di Calcio ·
+          Edizione 2026
+
         </div>
+
 
       </div>
 
 
       <nav class="footer-nav">
 
+
         <a href="index.html">
           Home
         </a>
+
 
         <a href="calendario.html">
           Calendario
         </a>
 
+
         <a href="risultati.html">
           Risultati
         </a>
+
 
         <a href="classifica.html">
           Classifica
         </a>
 
+
         <a href="marcatori.html">
           Marcatori
         </a>
+
 
         <a href="squadre.html">
           Squadre
         </a>
 
+
         <a href="regolamento.html">
           Regolamento
         </a>
 
+
+        <a href="contatti.html">
+          Contatti
+        </a>
+
+
       </nav>
+
 
     </div>
 
 
     <div class="footer-bottom">
 
+
       <span class="footer-copy">
+
         © 2026 Santa Cruz Cup.
         Tutti i diritti riservati.
+
       </span>
+
 
       <span class="footer-copy">
+
         Fatto con ❤️ per i giovani campioni
+
       </span>
 
+
     </div>
+
 
   </footer>
 
 
-  <!-- ══════════════════════════════════════
-       SCRIPT
-  ══════════════════════════════════════ -->
+  <!-- =======================================================
+       JAVASCRIPT
+  ======================================================== -->
 
   <script>
+
 
     document.addEventListener(
       "DOMContentLoaded",
       function () {
 
 
-        /* ═══════════════════════════════
+        /* =====================================================
            HAMBURGER
-        ═══════════════════════════════ */
+        ===================================================== */
 
         var hamburger =
           document.getElementById(
             "hamburger"
           );
+
 
         var mobileMenu =
           document.getElementById(
@@ -300,6 +697,7 @@
           hamburger &&
           mobileMenu
         ) {
+
 
           hamburger.addEventListener(
             "click",
@@ -318,6 +716,7 @@
           document.addEventListener(
             "click",
             function (e) {
+
 
               if (
                 !hamburger.contains(
@@ -343,6 +742,7 @@
             .forEach(
               function (a) {
 
+
                 a.addEventListener(
                   "click",
                   function () {
@@ -354,15 +754,17 @@
                   }
                 );
 
+
               }
             );
+
 
         }
 
 
-        /* ═══════════════════════════════
+        /* =====================================================
            CARICA SQUADRE
-        ═══════════════════════════════ */
+        ===================================================== */
 
         fetch(
           "data/squadre.json?nocache="
@@ -372,6 +774,7 @@
         .then(
           function (response) {
 
+
             if (!response.ok) {
 
               throw new Error(
@@ -380,59 +783,64 @@
 
             }
 
+
             return response.json();
+
 
           }
         )
 
+
         .then(
           function (squadre) {
+
 
             mostraSquadre(
               squadre
             );
 
+
           }
         )
 
+
         .catch(
           function (error) {
+
 
             console.error(
               error
             );
 
+
             document.getElementById(
               "teamsGrid"
             ).innerHTML = `
 
-              <div
-                style="
-                  text-align:center;
-                  padding:40px;
-                  width:100%;
-                  color:#c00;
-                "
-              >
+
+              <div class="teams-error">
 
                 ❌ Errore nel caricamento
                 delle squadre.
 
               </div>
 
+
             `;
+
 
           }
         );
 
 
-        /* ═══════════════════════════════
+        /* =====================================================
            MOSTRA SQUADRE
-        ═══════════════════════════════ */
+        ===================================================== */
 
         function mostraSquadre(
           squadre
         ) {
+
 
           var grid =
             document.getElementById(
@@ -448,42 +856,43 @@
             squadre.length === 0
           ) {
 
+
             grid.innerHTML = `
 
-              <div
-                style="
-                  text-align:center;
-                  padding:40px;
-                  width:100%;
-                "
-              >
+
+              <div class="teams-message">
 
                 Nessuna squadra iscritta
                 al momento.
 
               </div>
 
+
             `;
 
+
             return;
+
 
           }
 
 
-          /* ═══════════════════════════════
+          /* ===================================================
              ORDINA:
 
              1. GIRONE
              2. NOME
-          ═══════════════════════════════ */
+          =================================================== */
 
           squadre.sort(
             function (a, b) {
+
 
               var gironeA =
                 String(
                   a.girone || ""
                 );
+
 
               var gironeB =
                 String(
@@ -495,9 +904,11 @@
                 gironeA !== gironeB
               ) {
 
+
                 return gironeA.localeCompare(
                   gironeB
                 );
+
 
               }
 
@@ -507,19 +918,25 @@
               ).localeCompare(
                 String(
                   b.nome || ""
-                )
+                ),
+                "it",
+                {
+                  sensitivity: "base"
+                }
               );
+
 
             }
           );
 
 
-          /* ═══════════════════════════════
+          /* ===================================================
              CREA CARD SQUADRA
-          ═══════════════════════════════ */
+          =================================================== */
 
           squadre.forEach(
             function (squadra) {
+
 
               var card =
                 document.createElement(
@@ -528,11 +945,12 @@
 
 
               /*
-               * La card porta alla rosa
+               * La card porta alla rosa.
                *
                * Esempio:
                * rosa.html?id=T001
                */
+
 
               card.href =
                 "rosa.html?id="
@@ -556,6 +974,7 @@
 
               card.innerHTML = `
 
+
                 <div class="team-crest">
                   🛡️
                 </div>
@@ -570,12 +989,7 @@
                 </div>
 
 
-                <div
-                  class="team-cat"
-                  style="
-                    margin-top:8px;
-                  "
-                >
+                <div class="team-cat">
 
                   ${
                     squadra.girone
@@ -590,7 +1004,10 @@
 
 
                 <div
+                  class="team-link"
                   style="
+                    position:relative;
+                    z-index:1;
                     margin-top:14px;
                     font-family:
                       'Barlow Condensed',
@@ -599,13 +1016,13 @@
                     font-size:0.75rem;
                     letter-spacing:1.5px;
                     text-transform:uppercase;
-                    color:var(--gold);
                   "
                 >
 
                   👥 Vedi rosa →
 
                 </div>
+
 
               `;
 
@@ -614,53 +1031,68 @@
                 card
               );
 
+
             }
           );
+
 
         }
 
 
-        /* ═══════════════════════════════
+        /* =====================================================
            SICUREZZA HTML
-        ═══════════════════════════════ */
+        ===================================================== */
 
         function escapeHtml(
           value
         ) {
 
-          return String(value)
 
-            .replace(
-              /&/g,
-              "&amp;"
-            )
+          return String(
+            value ?? ""
+          )
 
-            .replace(
-              /</g,
-              "&lt;"
-            )
 
-            .replace(
-              />/g,
-              "&gt;"
-            )
+          .replace(
+            /&/g,
+            "&amp;"
+          )
 
-            .replace(
-              /"/g,
-              "&quot;"
-            )
 
-            .replace(
-              /'/g,
-              "&#039;"
-            );
+          .replace(
+            /</g,
+            "&lt;"
+          )
+
+
+          .replace(
+            />/g,
+            "&gt;"
+          )
+
+
+          .replace(
+            /"/g,
+            "&quot;"
+          )
+
+
+          .replace(
+            /'/g,
+            "&#039;"
+          );
+
 
         }
+
 
       }
     );
 
+
   </script>
 
+
 </body>
+
 </html>
