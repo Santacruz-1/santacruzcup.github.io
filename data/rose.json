@@ -19,9 +19,9 @@
   },
   {
     "id": "R004",
-    "squadra": "T001",
+    "squadra": "T003",
     "nome": "rocci",
-    "ruolo": "Attaccante"
+    "ruolo": "Centrocampista"
   },
   {
     "id": "R005",
@@ -45,6 +45,24 @@
     "id": "R008",
     "squadra": "T002",
     "nome": "Ferri",
+    "ruolo": "Attaccante"
+  },
+  {
+    "id": "R009",
+    "squadra": "T003",
+    "nome": "merca",
+    "ruolo": "Portiere"
+  },
+  {
+    "id": "R010",
+    "squadra": "T003",
+    "nome": "tonno",
+    "ruolo": "Difensore"
+  },
+  {
+    "id": "R011",
+    "squadra": "T003",
+    "nome": "cica",
     "ruolo": "Attaccante"
   }
 ]
