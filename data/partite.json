@@ -36,9 +36,9 @@
     "ospite": "cica",
     "data": "27/10/2026",
     "ora": "22",
-    "stato": "programmata",
-    "risultato": null,
-    "golCasa": null,
-    "golOspite": null
+    "stato": "giocata",
+    "risultato": "3-2",
+    "golCasa": 3,
+    "golOspite": 2
   }
 ]
