@@ -20,7 +20,202 @@
   <style>
 
     /* =====================================================
-       RISULTATI
+       RISULTATI - STILE ROSSO / NERO
+    ====================================================== */
+
+    .page-header {
+      position: relative;
+      overflow: hidden;
+    }
+
+
+    .page-header::before {
+
+      content: '';
+
+      position: absolute;
+
+      width: 500px;
+      height: 500px;
+
+      right: -180px;
+      top: -220px;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(224,0,0,0.20) 0%,
+          rgba(224,0,0,0.06) 35%,
+          transparent 70%
+        );
+
+      pointer-events: none;
+
+    }
+
+
+    .page-header::after {
+
+      content: '';
+
+      position: absolute;
+
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      height: 2px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--red),
+          transparent
+        );
+
+      opacity: 0.7;
+
+    }
+
+
+    .page-eyebrow {
+
+      color: var(--red-light) !important;
+
+    }
+
+
+    .page-title span {
+
+      color: var(--red-light) !important;
+
+      text-shadow:
+        0 0 25px rgba(224,0,0,0.45);
+
+    }
+
+
+    .section {
+
+      background:
+        linear-gradient(
+          180deg,
+          #050505 0%,
+          #0A0A0A 100%
+        );
+
+    }
+
+
+    /* =====================================================
+       MATCH CARD
+    ====================================================== */
+
+    .match-card {
+
+      position: relative;
+
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          145deg,
+          #111111 0%,
+          #090909 100%
+        ) !important;
+
+      border:
+        1px solid
+        rgba(224,0,0,0.16) !important;
+
+      border-radius: 14px;
+
+      padding: 1.5rem;
+
+      margin-bottom: 1rem;
+
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+
+    }
+
+
+    .match-card::before {
+
+      content: '';
+
+      position: absolute;
+
+      top: 0;
+      left: 0;
+      right: 0;
+
+      height: 3px;
+
+      background:
+        linear-gradient(
+          90deg,
+          #8B0000,
+          #E00000,
+          #FF3333
+        );
+
+      opacity: 0.8;
+
+    }
+
+
+    .match-card:hover {
+
+      transform:
+        translateY(-3px);
+
+      border-color:
+        rgba(224,0,0,0.55) !important;
+
+      box-shadow:
+        0 12px 35px
+        rgba(0,0,0,0.55),
+
+        0 0 25px
+        rgba(224,0,0,0.08);
+
+    }
+
+
+    /* =====================================================
+       DATA
+    ====================================================== */
+
+    .match-date {
+
+      text-align: center;
+
+      margin-bottom: 18px;
+
+      color:
+        rgba(245,245,245,0.55);
+
+      font-family:
+        'Barlow Condensed',
+        sans-serif;
+
+      font-weight: 600;
+
+      font-size: 0.9rem;
+
+      letter-spacing: 1px;
+
+      text-transform: uppercase;
+
+    }
+
+
+    /* =====================================================
+       SQUADRE
     ====================================================== */
 
     .match-teams {
@@ -43,11 +238,23 @@
 
     .match-team {
 
-      font-size: 1.15rem;
+      font-family:
+        'Barlow Condensed',
+        sans-serif;
+
+      font-size: 1.25rem;
 
       font-weight: 700;
 
       line-height: 1.3;
+
+      color: var(--white);
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.5px;
+
+      overflow-wrap: anywhere;
 
     }
 
@@ -66,6 +273,10 @@
     }
 
 
+    /* =====================================================
+       RISULTATO
+    ====================================================== */
+
     .match-score {
 
       display: flex;
@@ -78,7 +289,11 @@
 
       min-width: 120px;
 
-      font-size: 2.3rem;
+      font-family:
+        'Bebas Neue',
+        sans-serif;
+
+      font-size: 2.8rem;
 
       font-weight: 900;
 
@@ -88,12 +303,17 @@
 
       text-align: center;
 
+      color: var(--red-light);
+
+      text-shadow:
+        0 0 18px rgba(224,0,0,0.35);
+
     }
 
 
     .match-score strong {
 
-      font-size: 2.3rem;
+      font-size: 2.8rem;
 
       font-weight: 900;
 
@@ -102,33 +322,84 @@
 
     .match-score span {
 
-      font-size: 1.8rem;
+      font-size: 2rem;
 
       font-weight: 700;
 
-      opacity: 0.8;
+      color:
+        rgba(245,245,245,0.45);
 
     }
 
 
-    .match-date {
-
-      text-align: center;
-
-      margin-bottom: 15px;
-
-    }
-
+    /* =====================================================
+       ID PARTITA
+    ====================================================== */
 
     .match-id {
 
       text-align: center;
 
-      margin-top: 12px;
+      margin-top: 15px;
 
-      font-size: 0.8rem;
+      font-family:
+        'Barlow Condensed',
+        sans-serif;
 
-      opacity: 0.55;
+      font-size: 0.75rem;
+
+      letter-spacing: 1px;
+
+      color:
+        rgba(245,245,245,0.30);
+
+    }
+
+
+    /* =====================================================
+       MESSAGGI
+    ====================================================== */
+
+    #resultsList > div[style] {
+
+      color:
+        rgba(245,245,245,0.65);
+
+    }
+
+
+    #resultsList h3 {
+
+      font-family:
+        'Barlow Condensed',
+        sans-serif;
+
+      text-transform: uppercase;
+
+      letter-spacing: 1px;
+
+    }
+
+
+    #resultsList p {
+
+      color:
+        rgba(245,245,245,0.55);
+
+    }
+
+
+    /* =====================================================
+       FOOTER LOGO
+    ====================================================== */
+
+    .footer-logo-red {
+
+      filter:
+        drop-shadow(
+          0 0 8px
+          rgba(224,0,0,0.55)
+        ) !important;
 
     }
 
@@ -139,9 +410,17 @@
 
     @media (max-width: 600px) {
 
+      .match-card {
+
+        padding:
+          1.25rem 0.9rem;
+
+      }
+
+
       .match-teams {
 
-        gap: 10px;
+        gap: 8px;
 
       }
 
@@ -155,18 +434,18 @@
 
       .match-score {
 
-        min-width: 85px;
+        min-width: 75px;
 
-        gap: 6px;
+        gap: 5px;
 
-        font-size: 1.8rem;
+        font-size: 2rem;
 
       }
 
 
       .match-score strong {
 
-        font-size: 1.8rem;
+        font-size: 2rem;
 
       }
 
@@ -174,6 +453,65 @@
       .match-score span {
 
         font-size: 1.4rem;
+
+      }
+
+
+      .match-date {
+
+        font-size: 0.78rem;
+
+        margin-bottom: 14px;
+
+      }
+
+
+      .match-id {
+
+        margin-top: 12px;
+
+        font-size: 0.7rem;
+
+      }
+
+    }
+
+
+    @media (max-width: 380px) {
+
+      .match-teams {
+
+        gap: 5px;
+
+      }
+
+
+      .match-team {
+
+        font-size: 0.82rem;
+
+      }
+
+
+      .match-score {
+
+        min-width: 65px;
+
+        font-size: 1.7rem;
+
+      }
+
+
+      .match-score strong {
+
+        font-size: 1.7rem;
+
+      }
+
+
+      .match-score span {
+
+        font-size: 1.2rem;
 
       }
 
@@ -257,6 +595,14 @@
         </a>
       </li>
 
+      <!-- CONTATTI SEMPRE ULTIMO -->
+
+      <li>
+        <a href="contatti.html">
+          Contatti
+        </a>
+      </li>
+
     </ul>
 
 
@@ -265,6 +611,9 @@
     <div
       class="hamburger"
       id="hamburger"
+      aria-label="Apri menu"
+      role="button"
+      tabindex="0"
     >
 
       <span></span>
@@ -311,6 +660,12 @@
 
     <a href="regolamento.html">
       📋 Regolamento
+    </a>
+
+    <!-- CONTATTI SEMPRE ULTIMO -->
+
+    <a href="contatti.html">
+      📩 Contatti
     </a>
 
   </div>
@@ -379,13 +734,10 @@
           <img
             src="logo.png"
             alt="Santa Cruz Cup"
+            class="footer-logo-red"
             style="
               height:50px;
               margin-bottom:0.4rem;
-              filter:drop-shadow(
-                0 0 8px
-                rgba(255,183,0,0.4)
-              );
             "
           >
 
@@ -398,7 +750,10 @@
       </div>
 
 
-      <nav class="footer-nav">
+      <nav
+        class="footer-nav"
+        aria-label="Footer navigation"
+      >
 
         <a href="index.html">
           Home
@@ -426,6 +781,12 @@
 
         <a href="regolamento.html">
           Regolamento
+        </a>
+
+        <!-- CONTATTI SEMPRE ULTIMO -->
+
+        <a href="contatti.html">
+          Contatti
         </a>
 
       </nav>
@@ -479,7 +840,6 @@
           hamburger &&
           mobileMenu
         ) {
-
 
           hamburger.addEventListener(
             "click",
@@ -541,12 +901,47 @@
 
 
         /* =================================================
+           HAMBURGER KEYBOARD
+        ================================================== */
+
+        if (
+          hamburger &&
+          mobileMenu
+        ) {
+
+          hamburger.addEventListener(
+            "keydown",
+            function (e) {
+
+              if (
+                e.key === "Enter" ||
+                e.key === " "
+              ) {
+
+                e.preventDefault();
+
+                mobileMenu.classList.toggle(
+                  "open"
+                );
+
+              }
+
+            }
+          );
+
+        }
+
+
+        /* =================================================
            CARICAMENTO PARTITE
         ================================================== */
 
         fetch(
           "data/partite.json?nocache="
-          + Date.now()
+          + Date.now(),
+          {
+            cache: "no-store"
+          }
         )
 
         .then(
@@ -628,7 +1023,6 @@
           partite
         ) {
 
-
           var contenitore =
             document.getElementById(
               "resultsList"
@@ -684,19 +1078,26 @@
             partite.filter(
               function (partita) {
 
+                if (!partita) {
+                  return false;
+                }
+
+
+                if (
+                  partita.stato !==
+                  "giocata"
+                ) {
+
+                  return false;
+
+                }
+
+
                 return (
-
-                  partita &&
-
-                  partita.stato ===
-                    "giocata" &&
-
-                  partita.golCasa !==
-                    null &&
-
-                  partita.golOspite !==
-                    null
-
+                  partita.golCasa !== null &&
+                  partita.golCasa !== undefined &&
+                  partita.golOspite !== null &&
+                  partita.golOspite !== undefined
                 );
 
               }
@@ -746,15 +1147,15 @@
             function (a, b) {
 
               var dataA =
-                (a.data || "") +
+                String(a.data || "") +
                 " " +
-                (a.ora || "");
+                String(a.ora || "");
 
 
               var dataB =
-                (b.data || "") +
+                String(b.data || "") +
                 " " +
-                (b.ora || "");
+                String(b.ora || "");
 
 
               return dataB.localeCompare(
@@ -774,7 +1175,6 @@
 
           risultati.forEach(
             function (partita) {
-
 
               var casa =
                 partita.casa || "-";
@@ -849,12 +1249,12 @@
                     </div>
 
 
-                    <!-- RISULTATO CENTRALE -->
+                    <!-- RISULTATO -->
 
                     <div class="match-score">
 
                       <strong>
-                        ${golCasa}
+                        ${escapeHtml(golCasa)}
                       </strong>
 
                       <span>
@@ -862,7 +1262,7 @@
                       </span>
 
                       <strong>
-                        ${golOspite}
+                        ${escapeHtml(golOspite)}
                       </strong>
 
                     </div>
@@ -920,7 +1320,6 @@
           data
         ) {
 
-
           if (!data) {
             return "-";
           }
@@ -959,7 +1358,6 @@
         function escapeHtml(
           testo
         ) {
-
 
           if (
             testo === null ||
@@ -1000,8 +1398,8 @@
 
         }
 
-
       }
+
     );
 
   </script>
