@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,52 +10,150 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
+
 <body>
 
-  <!-- NAVBAR -->
+
+  <!-- ══════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════ -->
+
   <nav class="navbar">
 
     <a href="index.html" class="nav-brand">
-      <img src="logo.png" alt="Santa Cruz Cup">
-      <span class="nav-brand-text">SANTA CRUZ CUP</span>
+
+      <img
+        src="logo.png"
+        alt="Santa Cruz Cup"
+      >
+
+      <span class="nav-brand-text">
+        SANTA CRUZ CUP
+      </span>
+
     </a>
+
 
     <ul class="nav-links">
 
-      <li><a href="index.html">Home</a></li>
-      <li><a href="calendario.html">Calendario</a></li>
-      <li><a href="risultati.html">Risultati</a></li>
-      <li><a href="classifica.html" class="active">Classifica</a></li>
-      <li><a href="marcatori.html">Marcatori</a></li>
-      <li><a href="squadre.html">Squadre</a></li>
-      <li><a href="regolamento.html">Regolamento</a></li>
+      <li>
+        <a href="index.html">
+          Home
+        </a>
+      </li>
+
+      <li>
+        <a href="calendario.html">
+          Calendario
+        </a>
+      </li>
+
+      <li>
+        <a href="risultati.html">
+          Risultati
+        </a>
+      </li>
+
+      <li>
+        <a href="classifica.html" class="active">
+          Classifica
+        </a>
+      </li>
+
+      <li>
+        <a href="marcatori.html">
+          Marcatori
+        </a>
+      </li>
+
+      <li>
+        <a href="squadre.html">
+          Squadre
+        </a>
+      </li>
+
+      <li>
+        <a href="regolamento.html">
+          Regolamento
+        </a>
+      </li>
+
+      <li>
+        <a href="contatti.html">
+          Contatti
+        </a>
+      </li>
 
     </ul>
 
-    <div class="hamburger" id="hamburger">
+
+    <!-- HAMBURGER -->
+
+    <div
+      class="hamburger"
+      id="hamburger"
+      aria-label="Apri menu"
+    >
+
       <span></span>
       <span></span>
       <span></span>
+
     </div>
 
   </nav>
 
 
-  <!-- MOBILE MENU -->
-  <div class="mobile-menu" id="mobileMenu">
 
-    <a href="index.html">🏠 Home</a>
-    <a href="calendario.html">📅 Calendario</a>
-    <a href="risultati.html">📊 Risultati</a>
-    <a href="classifica.html">🏆 Classifica</a>
-    <a href="marcatori.html">⚽ Marcatori</a>
-    <a href="squadre.html">👥 Squadre</a>
-    <a href="regolamento.html">📋 Regolamento</a>
+  <!-- ══════════════════════════════════════
+       MOBILE MENU
+  ══════════════════════════════════════ -->
+
+  <div
+    class="mobile-menu"
+    id="mobileMenu"
+  >
+
+    <a href="index.html">
+      🏠 Home
+    </a>
+
+    <a href="calendario.html">
+      📅 Calendario
+    </a>
+
+    <a href="risultati.html">
+      📊 Risultati
+    </a>
+
+    <a href="classifica.html">
+      🏆 Classifica
+    </a>
+
+    <a href="marcatori.html">
+      ⚽ Marcatori
+    </a>
+
+    <a href="squadre.html">
+      👥 Squadre
+    </a>
+
+    <a href="regolamento.html">
+      📋 Regolamento
+    </a>
+
+    <a href="contatti.html">
+      ✉️ Contatti
+    </a>
 
   </div>
 
 
-  <!-- HEADER -->
+
+  <!-- ══════════════════════════════════════
+       PAGE HEADER
+  ══════════════════════════════════════ -->
+
   <header class="page-header">
 
     <div class="page-eyebrow">
@@ -72,42 +171,78 @@
   </header>
 
 
-  <!-- CONTENUTO -->
+
+  <!-- ══════════════════════════════════════
+       CLASSIFICA
+  ══════════════════════════════════════ -->
+
   <section class="section">
 
-    <!-- Rimossa la classe 'reveal' per evitare che la tabella resti nascosta -->
+    <div class="section-eyebrow">
+      Classifica ufficiale
+    </div>
+
+    <h2 class="section-title">
+      LA CORSA AL TITOLO
+    </h2>
+
+    <p class="section-lead">
+      Posizione, punti e risultati delle squadre
+      aggiornati automaticamente in base alle partite disputate.
+    </p>
+
+
+    <!-- TABELLA -->
+
     <div class="table-wrap">
 
       <table>
 
         <thead>
+
           <tr>
 
-            <th class="center">#</th>
+            <th class="center">
+              Pos.
+            </th>
 
-            <th>Squadra</th>
+            <th>
+              Squadra
+            </th>
 
-            <th class="center">Pt</th>
+            <th class="center">
+              Pt
+            </th>
 
-            <th class="center">V</th>
+            <th class="center">
+              V
+            </th>
 
-            <th class="center">P</th>
+            <th class="center">
+              P
+            </th>
 
-            <th class="center">S</th>
+            <th class="center">
+              S
+            </th>
 
           </tr>
+
         </thead>
+
 
         <tbody id="classificaBody">
 
           <tr>
+
             <td
               colspan="6"
               class="center"
               style="padding:40px;"
             >
-              Caricamento classifica...
+              ⚽ Caricamento classifica...
             </td>
+
           </tr>
 
         </tbody>
@@ -119,10 +254,17 @@
   </section>
 
 
-  <!-- FOOTER -->
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+
   <footer>
 
     <div class="footer-top">
+
+
+      <!-- BRAND -->
 
       <div>
 
@@ -133,15 +275,16 @@
             alt="Santa Cruz Cup"
             style="
               height:50px;
-              margin-bottom:0.4rem;
+              margin-bottom:0.5rem;
               filter:drop-shadow(
                 0 0 8px
-                rgba(255,183,0,0.4)
+                rgba(225,6,0,0.5)
               );
             "
           >
 
         </a>
+
 
         <div class="footer-tagline">
           Torneo Giovanile di Calcio · Edizione 2026
@@ -150,20 +293,50 @@
       </div>
 
 
+
+      <!-- FOOTER NAV -->
+
       <nav class="footer-nav">
 
-        <a href="index.html">Home</a>
-        <a href="calendario.html">Calendario</a>
-        <a href="risultati.html">Risultati</a>
-        <a href="classifica.html">Classifica</a>
-        <a href="marcatori.html">Marcatori</a>
-        <a href="squadre.html">Squadre</a>
-        <a href="regolamento.html">Regolamento</a>
+        <a href="index.html">
+          Home
+        </a>
+
+        <a href="calendario.html">
+          Calendario
+        </a>
+
+        <a href="risultati.html">
+          Risultati
+        </a>
+
+        <a href="classifica.html">
+          Classifica
+        </a>
+
+        <a href="marcatori.html">
+          Marcatori
+        </a>
+
+        <a href="squadre.html">
+          Squadre
+        </a>
+
+        <a href="regolamento.html">
+          Regolamento
+        </a>
+
+        <a href="contatti.html">
+          Contatti
+        </a>
 
       </nav>
 
     </div>
 
+
+
+    <!-- FOOTER BOTTOM -->
 
     <div class="footer-bottom">
 
@@ -180,20 +353,26 @@
   </footer>
 
 
-  <!-- SCRIPT -->
+
+  <!-- ══════════════════════════════════════
+       SCRIPT
+  ══════════════════════════════════════ -->
+
   <script>
 
     document.addEventListener("DOMContentLoaded", () => {
 
-      /* ==========================================
+
+      /* ══════════════════════════════════════
          MENU MOBILE
-      ========================================== */
+      ══════════════════════════════════════ */
 
       const hamburger =
         document.getElementById("hamburger");
 
       const mobileMenu =
         document.getElementById("mobileMenu");
+
 
       if (hamburger && mobileMenu) {
 
@@ -204,6 +383,7 @@
           mobileMenu.classList.toggle("open");
 
         });
+
 
         document.addEventListener("click", (e) => {
 
@@ -217,6 +397,7 @@
           }
 
         });
+
 
         mobileMenu
           .querySelectorAll("a")
@@ -233,51 +414,50 @@
       }
 
 
-      /* ==========================================
-         ELEMENTO TABELLA
-      ========================================== */
+
+      /* ══════════════════════════════════════
+         TABELLA
+      ══════════════════════════════════════ */
 
       const tbody =
         document.getElementById("classificaBody");
 
 
-      /* ==========================================
-         CARICAMENTO DATI
-      ========================================== */
+
+      /* ══════════════════════════════════════
+         CARICAMENTO CLASSIFICA
+      ══════════════════════════════════════ */
 
       async function caricaClassifica() {
 
         try {
 
-          console.log("Caricamento classifica...");
-
-
           const timestamp = Date.now();
 
 
-          const [squadreResponse, partiteResponse] =
-            await Promise.all([
+          const [
+            squadreResponse,
+            partiteResponse
+          ] = await Promise.all([
 
-              fetch(
-                `data/squadre.json?nocache=${timestamp}`,
-                {
-                  cache: "no-store"
-                }
-              ),
+            fetch(
+              `data/squadre.json?nocache=${timestamp}`,
+              {
+                cache: "no-store"
+              }
+            ),
 
-              fetch(
-                `data/partite.json?nocache=${timestamp}`,
-                {
-                  cache: "no-store"
-                }
-              )
+            fetch(
+              `data/partite.json?nocache=${timestamp}`,
+              {
+                cache: "no-store"
+              }
+            )
 
-            ]);
+          ]);
 
 
-          /* ======================================
-             CONTROLLO RISPOSTE
-          ====================================== */
+          /* CONTROLLO RISPOSTE */
 
           if (!squadreResponse.ok) {
 
@@ -304,14 +484,8 @@
             await partiteResponse.json();
 
 
-          console.log("SQUADRE CARICATE:", squadre);
 
-          console.log("PARTITE CARICATE:", partite);
-
-
-          /* ======================================
-             CONTROLLO ARRAY
-          ====================================== */
+          /* CONTROLLO ARRAY */
 
           if (!Array.isArray(squadre)) {
 
@@ -331,9 +505,7 @@
           }
 
 
-          /* ======================================
-             NESSUNA SQUADRA
-          ====================================== */
+          /* NESSUNA SQUADRA */
 
           if (squadre.length === 0) {
 
@@ -346,9 +518,10 @@
           }
 
 
-          /* ======================================
+
+          /* ══════════════════════════════════════
              CREA CLASSIFICA
-          ====================================== */
+          ══════════════════════════════════════ */
 
           const classifica = [];
 
@@ -394,24 +567,33 @@
           });
 
 
-          /* ======================================
+
+          /* ══════════════════════════════════════
              MAPPA ID
-          ====================================== */
+          ══════════════════════════════════════ */
 
           const perId = {};
 
+
           classifica.forEach(squadra => {
 
-            perId[squadra.id] = squadra;
+            if (squadra.id) {
+
+              perId[squadra.id] =
+                squadra;
+
+            }
 
           });
 
 
-          /* ======================================
+
+          /* ══════════════════════════════════════
              MAPPA NOMI
-          ====================================== */
+          ══════════════════════════════════════ */
 
           const perNome = {};
+
 
           classifica.forEach(squadra => {
 
@@ -422,27 +604,20 @@
           });
 
 
-          /* ======================================
+
+          /* ══════════════════════════════════════
              ANALIZZA PARTITE
-          ====================================== */
+          ══════════════════════════════════════ */
 
           partite.forEach((partita) => {
-
-            console.log(
-              "Analizzo partita:",
-              partita
-            );
-
 
             const risultato =
               leggiRisultato(partita);
 
 
-            if (!risultato) {
+            /* PARTITA NON ANCORA GIOCATA */
 
-              console.log(
-                "Partita ignorata: nessun risultato."
-              );
+            if (!risultato) {
 
               return;
 
@@ -467,12 +642,9 @@
               );
 
 
-            if (!casa || !ospite) {
+            /* SQUADRE NON TROVATE */
 
-              console.warn(
-                "Squadre non trovate:",
-                partita
-              );
+            if (!casa || !ospite) {
 
               return;
 
@@ -486,7 +658,10 @@
               risultato.ospite;
 
 
-            /* GOL */
+
+            /* ══════════════════════════════════
+               GOL
+            ══════════════════════════════════ */
 
             casa.golFatti += golCasa;
 
@@ -497,7 +672,10 @@
             ospite.golSubiti += golCasa;
 
 
-            /* PUNTI */
+
+            /* ══════════════════════════════════
+               RISULTATO
+            ══════════════════════════════════ */
 
             if (golCasa > golOspite) {
 
@@ -534,11 +712,13 @@
           });
 
 
-          /* ======================================
+
+          /* ══════════════════════════════════════
              ORDINA CLASSIFICA
-          ====================================== */
+          ══════════════════════════════════════ */
 
           classifica.sort((a, b) => {
+
 
             /* 1. PUNTI */
 
@@ -571,7 +751,8 @@
 
             if (b.golFatti !== a.golFatti) {
 
-              return b.golFatti - a.golFatti;
+              return b.golFatti -
+                a.golFatti;
 
             }
 
@@ -586,15 +767,10 @@
           });
 
 
-          console.log(
-            "CLASSIFICA FINALE:",
-            classifica
-          );
 
-
-          /* ======================================
-             MOSTRA CLASSIFICA
-          ====================================== */
+          /* ══════════════════════════════════════
+             RENDER
+          ══════════════════════════════════════ */
 
           tbody.innerHTML = "";
 
@@ -610,27 +786,40 @@
                 document.createElement("tr");
 
 
-              let classeRank = "";
+              /* ══════════════════════════════
+                 CLASSE MEDAGLIA
+              ══════════════════════════════ */
+
+              let classeRank =
+                "rank-normal";
 
 
               if (posizione === 1) {
 
-                classeRank = "gold";
+                classeRank =
+                  "rank gold";
 
               }
 
               else if (posizione === 2) {
 
-                classeRank = "silver";
+                classeRank =
+                  "rank silver";
 
               }
 
               else if (posizione === 3) {
 
-                classeRank = "bronze";
+                classeRank =
+                  "rank bronze";
 
               }
 
+
+
+              /* ══════════════════════════════
+                 INFO SQUADRA
+              ══════════════════════════════ */
 
               let info = "";
 
@@ -660,13 +849,30 @@
               }
 
 
+
+              /* ══════════════════════════════
+                 HTML RIGA
+              ══════════════════════════════ */
+
               tr.innerHTML = `
 
                 <td class="center">
 
-                  <span class="rank ${classeRank}">
-                    ${posizione}
-                  </span>
+                  ${
+                    posizione <= 3
+
+                      ? `
+                        <span class="${classeRank}">
+                          ${posizione}
+                        </span>
+                      `
+
+                      : `
+                        <span class="rank-normal">
+                          ${posizione}
+                        </span>
+                      `
+                  }
 
                 </td>
 
@@ -679,17 +885,23 @@
 
                   ${
                     info
+
                       ? `
                         <small
                           style="
                             display:block;
-                            opacity:0.6;
+                            color:rgba(255,255,255,0.38);
+                            font-family:'Barlow',sans-serif;
+                            font-size:0.72rem;
+                            font-weight:400;
                             margin-top:3px;
+                            letter-spacing:0.3px;
                           "
                         >
                           ${escapeHtml(info)}
                         </small>
                       `
+
                       : ""
                   }
 
@@ -699,7 +911,10 @@
                 <td class="center">
 
                   <strong
-                    style="color:var(--gold);"
+                    style="
+                      color:var(--red);
+                      font-size:1.15rem;
+                    "
                   >
                     ${squadra.punti}
                   </strong>
@@ -749,9 +964,10 @@
       }
 
 
-      /* ==========================================
+
+      /* ══════════════════════════════════════
          TROVA SQUADRA
-      ========================================== */
+      ══════════════════════════════════════ */
 
       function trovaSquadra(
         partita,
@@ -792,7 +1008,6 @@
 
         }
 
-
         else {
 
           valoriId = [
@@ -825,6 +1040,7 @@
         }
 
 
+
         /* CERCA ID */
 
         for (const valore of valoriId) {
@@ -848,6 +1064,7 @@
           }
 
         }
+
 
 
         /* CERCA NOME */
@@ -880,9 +1097,10 @@
       }
 
 
-      /* ==========================================
+
+      /* ══════════════════════════════════════
          LEGGE RISULTATO
-      ========================================== */
+      ══════════════════════════════════════ */
 
       function leggiRisultato(partita) {
 
@@ -890,6 +1108,7 @@
           convertiNumero(
             partita.golCasa
           );
+
 
         let ospite =
           convertiNumero(
@@ -908,6 +1127,7 @@
           };
 
         }
+
 
 
         const possibili = [
@@ -963,9 +1183,10 @@
       }
 
 
-      /* ==========================================
-         NUMERO
-      ========================================== */
+
+      /* ══════════════════════════════════════
+         CONVERTI NUMERO
+      ══════════════════════════════════════ */
 
       function convertiNumero(valore) {
 
@@ -995,24 +1216,26 @@
       }
 
 
-      /* ==========================================
+
+      /* ══════════════════════════════════════
          NORMALIZZA
-      ========================================== */
+      ══════════════════════════════════════ */
 
       function normalizza(valore) {
 
         return String(
           valore ?? ""
         )
-        .trim()
-        .toLowerCase();
+          .trim()
+          .toLowerCase();
 
       }
 
 
-      /* ==========================================
+
+      /* ══════════════════════════════════════
          MESSAGGIO
-      ========================================== */
+      ══════════════════════════════════════ */
 
       function mostraMessaggio(messaggio) {
 
@@ -1023,9 +1246,14 @@
             <td
               colspan="6"
               class="center"
-              style="padding:40px;"
+              style="
+                padding:40px;
+                color:rgba(255,255,255,0.5);
+              "
             >
+
               ${escapeHtml(messaggio)}
+
             </td>
 
           </tr>
@@ -1035,9 +1263,10 @@
       }
 
 
-      /* ==========================================
+
+      /* ══════════════════════════════════════
          ESCAPE HTML
-      ========================================== */
+      ══════════════════════════════════════ */
 
       function escapeHtml(valore) {
 
@@ -1045,24 +1274,26 @@
           valore ?? ""
         )
 
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
 
       }
 
 
-      /* ==========================================
+
+      /* ══════════════════════════════════════
          AVVIA
-      ========================================== */
+      ══════════════════════════════════════ */
 
       caricaClassifica();
 
     });
 
   </script>
+
 
 </body>
 </html>
