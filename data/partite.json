@@ -12,5 +12,19 @@
     "risultato": null,
     "golCasa": null,
     "golOspite": null
+  },
+  {
+    "id": "P002",
+    "casa": "cica",
+    "casa_id": "T003",
+    "trasferta": "down",
+    "trasferta_id": "T001",
+    "ospite": "down",
+    "data": "27/09/2026",
+    "ora": "22",
+    "stato": "programmata",
+    "risultato": null,
+    "golCasa": null,
+    "golOspite": null
   }
 ]
