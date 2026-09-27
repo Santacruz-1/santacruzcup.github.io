@@ -28,15 +28,5 @@
     "squadraId": "T002",
     "gol": 1,
     "posizione": 3
-  },
-  {
-    "id": "M001",
-    "giocatore": "R004",
-    "squadra": "cica",
-    "gol": 0,
-    "squadraId": "T003",
-    "cognome": "rocci",
-    "posizione": 4,
-    "squadra_id": "T003"
   }
 ]
