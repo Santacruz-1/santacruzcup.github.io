@@ -1,10 +1,18 @@
+// ============================================
+// SANTA CRUZ CUP - MUSIC PLAYER
+// ============================================
+
 const tracks = [
     "data/Jefe - Run! (side quest).mp3",
     "data/no mix no master.mp3"
 ];
 
 const STORAGE_KEY = "santaCruzCupMusic";
-const DEFAULT_VOLUME = 0.10;
+const DEFAULT_VOLUME = 0.12;
+
+// ============================================
+// AUDIO
+// ============================================
 
 const audio = new Audio();
 audio.preload = "auto";
@@ -17,13 +25,14 @@ let volume = musicState.volume;
 let musicEnabled = musicState.enabled;
 let wasPlaying = musicState.playing;
 
+// Impostazioni iniziali
 audio.volume = volume;
 audio.src = tracks[currentTrack];
 
 
-// ======================================
+// ============================================
 // PANNELLO MUSICA
-// ======================================
+// ============================================
 
 const musicPanel = document.createElement("div");
 
@@ -32,26 +41,34 @@ Object.assign(musicPanel.style, {
     bottom: "12px",
     right: "12px",
     zIndex: "99999",
+
     display: "flex",
     alignItems: "center",
     gap: "8px",
+
     padding: "6px 9px",
+
     background: "rgba(17,17,17,0.18)",
     border: "1px solid rgba(255,255,255,0.08)",
     borderRadius: "20px",
+
     boxShadow: "none",
+
     backdropFilter: "blur(2px)",
     WebkitBackdropFilter: "blur(2px)",
+
     opacity: "0.28",
+
     transition:
         "opacity 0.25s ease, background 0.25s ease, box-shadow 0.25s ease",
+
     fontFamily: "Arial, sans-serif"
 });
 
 
-// ======================================
-// PULSANTE
-// ======================================
+// ============================================
+// PULSANTE ON / OFF
+// ============================================
 
 const musicButton = document.createElement("button");
 
@@ -61,16 +78,19 @@ Object.assign(musicButton.style, {
     border: "none",
     background: "transparent",
     color: "white",
+
     fontSize: "12px",
     fontWeight: "600",
+
     cursor: "pointer",
+
     padding: "2px 3px"
 });
 
 
-// ======================================
+// ============================================
 // VOLUME
-// ======================================
+// ============================================
 
 const volumeContainer = document.createElement("div");
 
@@ -81,6 +101,7 @@ Object.assign(volumeContainer.style, {
     gap: "2px"
 });
 
+
 const volumeRow = document.createElement("div");
 
 Object.assign(volumeRow.style, {
@@ -89,10 +110,13 @@ Object.assign(volumeRow.style, {
     gap: "4px"
 });
 
+
 const volumeIcon = document.createElement("span");
 
 volumeIcon.textContent = "🔊";
+
 volumeIcon.style.fontSize = "13px";
+
 
 const volumeSlider = document.createElement("input");
 
@@ -108,6 +132,11 @@ Object.assign(volumeSlider.style, {
     cursor: "pointer"
 });
 
+
+// ============================================
+// CREDIT
+// ============================================
+
 const musicCredit = document.createElement("div");
 
 musicCredit.textContent = "Music by Jefe";
@@ -119,6 +148,11 @@ Object.assign(musicCredit.style, {
     letterSpacing: "0.2px",
     textAlign: "center"
 });
+
+
+// ============================================
+// COSTRUZIONE INTERFACCIA
+// ============================================
 
 volumeRow.append(
     volumeIcon,
@@ -138,38 +172,9 @@ musicPanel.append(
 document.body.appendChild(musicPanel);
 
 
-// ======================================
-// AVVISO AUTOPLAY
-// ======================================
-
-const autoplayNotice = document.createElement("button");
-
-autoplayNotice.type = "button";
-autoplayNotice.textContent = "▶ Attiva musica";
-
-Object.assign(autoplayNotice.style, {
-    position: "fixed",
-    bottom: "65px",
-    right: "12px",
-    zIndex: "100000",
-    display: "none",
-    padding: "8px 13px",
-    border: "none",
-    borderRadius: "18px",
-    background: "rgba(17,17,17,0.92)",
-    color: "white",
-    fontSize: "12px",
-    fontWeight: "600",
-    cursor: "pointer",
-    boxShadow: "0 3px 12px rgba(0,0,0,0.25)"
-});
-
-document.body.appendChild(autoplayNotice);
-
-
-// ======================================
+// ============================================
 // HOVER
-// ======================================
+// ============================================
 
 musicPanel.addEventListener("mouseenter", () => {
 
@@ -188,6 +193,7 @@ musicPanel.addEventListener("mouseenter", () => {
         "blur(6px)";
 });
 
+
 musicPanel.addEventListener("mouseleave", () => {
 
     musicPanel.style.opacity = "0.28";
@@ -195,7 +201,8 @@ musicPanel.addEventListener("mouseleave", () => {
     musicPanel.style.background =
         "rgba(17,17,17,0.18)";
 
-    musicPanel.style.boxShadow = "none";
+    musicPanel.style.boxShadow =
+        "none";
 
     musicPanel.style.backdropFilter =
         "blur(2px)";
@@ -205,9 +212,9 @@ musicPanel.addEventListener("mouseleave", () => {
 });
 
 
-// ======================================
-// STATO
-// ======================================
+// ============================================
+// LOCAL STORAGE
+// ============================================
 
 function loadState() {
 
@@ -218,6 +225,7 @@ function loadState() {
         );
 
         return {
+
             track:
                 Number.isInteger(saved.track) &&
                 saved.track >= 0 &&
@@ -232,10 +240,7 @@ function loadState() {
 
             volume:
                 typeof saved.volume === "number"
-                    ? Math.max(
-                        0,
-                        Math.min(1, saved.volume)
-                    )
+                    ? Math.max(0, Math.min(1, saved.volume))
                     : DEFAULT_VOLUME,
 
             enabled:
@@ -248,113 +253,160 @@ function loadState() {
     } catch {
 
         return {
+
             track: 0,
+
             time: 0,
+
             volume: DEFAULT_VOLUME,
+
             enabled: true,
+
             playing: false
         };
     }
 }
 
 
+// ============================================
+// SALVATAGGIO STATO
+// ============================================
+
 function saveState() {
 
-    localStorage.setItem(
-        STORAGE_KEY,
-        JSON.stringify({
-            track: currentTrack,
-            time: audio.currentTime || 0,
-            volume: audio.volume,
-            enabled: musicEnabled,
-            playing: !audio.paused
-        })
-    );
+    try {
+
+        localStorage.setItem(
+            STORAGE_KEY,
+            JSON.stringify({
+
+                track: currentTrack,
+
+                time:
+                    audio.currentTime || 0,
+
+                volume:
+                    audio.volume,
+
+                enabled:
+                    musicEnabled,
+
+                playing:
+                    !audio.paused
+            })
+        );
+
+    } catch {
+        // Ignora eventuali errori localStorage
+    }
 }
 
 
-// ======================================
-// UI
-// ======================================
+// ============================================
+// AGGIORNA PULSANTE
+// ============================================
 
 function updateMusicButton() {
 
-    musicButton.textContent =
-        musicEnabled && !audio.paused
-            ? "🎵 ON"
-            : "🔇 OFF";
-}
+    if (musicEnabled && !audio.paused) {
 
+        musicButton.textContent = "🎵 ON";
 
-function showAutoplayNotice() {
+    } else {
 
-    if (!musicEnabled) {
-        return;
-    }
-
-    if (audio.paused) {
-        autoplayNotice.style.display = "block";
+        musicButton.textContent = "🔇 OFF";
     }
 }
 
 
-function hideAutoplayNotice() {
-
-    autoplayNotice.style.display = "none";
-}
-
-
-// ======================================
+// ============================================
 // AVVIO MUSICA
-// ======================================
+// ============================================
 
 function startMusic() {
+
+    if (audio.volume === 0) {
+        return Promise.resolve();
+    }
 
     musicEnabled = true;
 
     return audio.play()
         .then(() => {
 
-            hideAutoplayNotice();
             updateMusicButton();
+
             saveState();
 
         })
         .catch(() => {
 
-            showAutoplayNotice();
+            // Il browser ha bloccato l'autoplay.
+            // La musica partirà al primo click/tocco.
             updateMusicButton();
         });
 }
 
 
-// ======================================
-// ON / OFF
-// ======================================
+// ============================================
+// CLICK / TOCCO QUALSIASI PUNTO
+// ============================================
+
+function handleFirstInteraction() {
+
+    // Se l'utente ha spento manualmente la musica,
+    // non la riaccendiamo automaticamente.
+    if (!musicEnabled) {
+        return;
+    }
+
+    // Se è già in riproduzione, non facciamo nulla.
+    if (!audio.paused) {
+        return;
+    }
+
+    startMusic();
+}
+
+
+// Ascolta il primo click/tocco sulla pagina.
+// Dopo il primo utilizzo viene rimosso.
+document.addEventListener(
+    "pointerdown",
+    handleFirstInteraction,
+    {
+        once: true,
+        passive: true
+    }
+);
+
+
+// ============================================
+// ON / OFF MANUALE
+// ============================================
 
 function toggleMusic() {
 
     if (musicEnabled && !audio.paused) {
 
+        // OFF
         musicEnabled = false;
 
         audio.pause();
 
-        hideAutoplayNotice();
-
     } else {
+
+        // ON
+        musicEnabled = true;
 
         startMusic();
     }
 
     updateMusicButton();
+
     saveState();
 }
 
-
-// ======================================
-// EVENTI PULSANTE
-// ======================================
 
 musicButton.addEventListener(
     "click",
@@ -367,24 +419,9 @@ musicButton.addEventListener(
 );
 
 
-// ======================================
-// AVVISO AUTOPLAY
-// ======================================
-
-autoplayNotice.addEventListener(
-    "click",
-    event => {
-
-        event.stopPropagation();
-
-        startMusic();
-    }
-);
-
-
-// ======================================
+// ============================================
 // VOLUME
-// ======================================
+// ============================================
 
 volumeSlider.addEventListener(
     "input",
@@ -401,8 +438,6 @@ volumeSlider.addEventListener(
 
             audio.pause();
 
-            hideAutoplayNotice();
-
         } else {
 
             musicEnabled = true;
@@ -411,9 +446,11 @@ volumeSlider.addEventListener(
         }
 
         updateMusicButton();
+
         saveState();
     }
 );
+
 
 volumeSlider.addEventListener(
     "click",
@@ -424,30 +461,9 @@ volumeSlider.addEventListener(
 );
 
 
-// ======================================
-// PRIMO CLICK / TOCCO
-// ======================================
-
-function handleFirstInteraction() {
-
-    if (
-        musicEnabled &&
-        audio.paused
-    ) {
-        startMusic();
-    }
-}
-
-document.addEventListener(
-    "pointerdown",
-    handleFirstInteraction,
-    { once: true }
-);
-
-
-// ======================================
-// CARICAMENTO BRANO
-// ======================================
+// ============================================
+// CARICAMENTO TRACCIA
+// ============================================
 
 audio.addEventListener(
     "loadedmetadata",
@@ -457,6 +473,7 @@ audio.addEventListener(
             savedTime > 0 &&
             savedTime < audio.duration
         ) {
+
             audio.currentTime = savedTime;
         }
 
@@ -466,6 +483,7 @@ audio.addEventListener(
             musicEnabled &&
             wasPlaying
         ) {
+
             startMusic();
         }
 
@@ -474,9 +492,9 @@ audio.addEventListener(
 );
 
 
-// ======================================
-// CAMBIO BRANO
-// ======================================
+// ============================================
+// FINE CANZONE → CANZONE SUCCESSIVA
+// ============================================
 
 audio.addEventListener(
     "ended",
@@ -485,9 +503,13 @@ audio.addEventListener(
         currentTrack =
             (currentTrack + 1) % tracks.length;
 
-        audio.src = tracks[currentTrack];
+        audio.src =
+            tracks[currentTrack];
+
+        savedTime = 0;
 
         if (musicEnabled) {
+
             startMusic();
         }
 
@@ -496,9 +518,9 @@ audio.addEventListener(
 );
 
 
-// ======================================
-// PROVA AUTOPLAY
-// ======================================
+// ============================================
+// CARICAMENTO PAGINA
+// ============================================
 
 window.addEventListener(
     "load",
@@ -506,26 +528,36 @@ window.addEventListener(
 
         updateMusicButton();
 
+        // Prova subito l'autoplay.
+        // Se il browser lo blocca,
+        // partirà al primo click/tocco.
         if (musicEnabled) {
+
             startMusic();
         }
     }
 );
 
 
-// ======================================
-// SALVATAGGIO
-// ======================================
+// ============================================
+// SALVATAGGIO PERIODICO
+// ============================================
 
 setInterval(
     saveState,
     1000
 );
 
+
+// ============================================
+// SALVATAGGIO PRIMA DI CAMBIARE PAGINA
+// ============================================
+
 window.addEventListener(
     "beforeunload",
     saveState
 );
+
 
 document.addEventListener(
     "visibilitychange",
@@ -533,13 +565,16 @@ document.addEventListener(
 );
 
 
-// ======================================
-// API
-// ======================================
+// ============================================
+// API FACOLTATIVA
+// ============================================
 
 window.SantaCruzMusic = {
 
     play() {
+
+        musicEnabled = true;
+
         startMusic();
     },
 
@@ -549,41 +584,64 @@ window.SantaCruzMusic = {
 
         audio.pause();
 
-        hideAutoplayNotice();
         updateMusicButton();
+
         saveState();
     },
 
     toggle() {
+
         toggleMusic();
     },
 
     setVolume(value) {
 
-        audio.volume = Math.max(
-            0,
-            Math.min(1, value)
-        );
+        audio.volume =
+            Math.max(
+                0,
+                Math.min(1, value)
+            );
 
         volumeSlider.value =
             Math.round(
                 audio.volume * 100
             );
 
+        if (audio.volume === 0) {
+
+            musicEnabled = false;
+
+            audio.pause();
+
+        } else {
+
+            musicEnabled = true;
+        }
+
+        updateMusicButton();
+
         saveState();
     },
 
     getVolume() {
+
         return audio.volume;
     },
 
     getCurrentTrack() {
+
         return currentTrack;
     }
 };
 
+
+// ============================================
+// AVVIO INIZIALE
+// ============================================
+
 updateMusicButton();
 
 if (musicEnabled) {
+
     startMusic();
 }
