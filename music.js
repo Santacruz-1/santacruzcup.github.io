@@ -4,7 +4,7 @@ const tracks = [
 ];
 
 const STORAGE_KEY = "santaCruzCupMusic";
-const DEFAULT_VOLUME = 0.12;
+const DEFAULT_VOLUME = 0.07;
 
 const audio = new Audio();
 audio.preload = "auto";
