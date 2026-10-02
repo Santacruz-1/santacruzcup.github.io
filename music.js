@@ -1,4 +1,3 @@
-```javascript
 // ================================
 // SANTA CRUZ CUP - MUSIC PLAYER
 // ================================
@@ -13,9 +12,9 @@ const STORAGE_KEY = "santaCruzCupMusic";
 const audio = new Audio();
 audio.preload = "auto";
 
-// -------------------------------
-// Recupera stato precedente
-// -------------------------------
+// ================================
+// RECUPERA STATO
+// ================================
 
 let savedState = {};
 
@@ -42,10 +41,12 @@ let volume =
         ? savedState.volume
         : 0.12;
 
+let musicEnabled =
+    savedState.enabled !== false;
+
 let wasPlaying =
     savedState.playing === true;
 
-// Controlli di sicurezza
 if (currentTrack < 0 || currentTrack >= tracks.length) {
     currentTrack = 0;
 }
@@ -55,129 +56,395 @@ volume = Math.max(0, Math.min(1, volume));
 audio.volume = volume;
 audio.src = tracks[currentTrack];
 
-// -------------------------------
-// Salva lo stato
-// -------------------------------
+
+// ================================
+// PANNELLO MUSICA
+// ================================
+
+const musicPanel = document.createElement("div");
+
+musicPanel.id = "santaCruzMusicPanel";
+
+musicPanel.style.position = "fixed";
+musicPanel.style.bottom = "12px";
+musicPanel.style.right = "12px";
+musicPanel.style.zIndex = "99999";
+
+musicPanel.style.display = "flex";
+musicPanel.style.alignItems = "center";
+musicPanel.style.gap = "8px";
+
+musicPanel.style.padding = "7px 10px";
+
+musicPanel.style.background = "rgba(17,17,17,0.92)";
+musicPanel.style.borderRadius = "22px";
+
+musicPanel.style.boxShadow =
+    "0 3px 12px rgba(0,0,0,0.25)";
+
+musicPanel.style.fontFamily =
+    "Arial, sans-serif";
+
+
+// ================================
+// PULSANTE ON/OFF
+// ================================
+
+const musicButton = document.createElement("button");
+
+musicButton.type = "button";
+
+musicButton.style.border = "none";
+musicButton.style.background = "transparent";
+musicButton.style.color = "white";
+
+musicButton.style.fontSize = "13px";
+musicButton.style.fontWeight = "600";
+
+musicButton.style.cursor = "pointer";
+
+musicButton.style.padding = "3px 4px";
+
+musicPanel.appendChild(musicButton);
+
+
+// ================================
+// ICONA VOLUME
+// ================================
+
+const volumeIcon = document.createElement("span");
+
+volumeIcon.textContent = "🔊";
+
+volumeIcon.style.fontSize = "14px";
+
+musicPanel.appendChild(volumeIcon);
+
+
+// ================================
+// BARRA VOLUME
+// ================================
+
+const volumeSlider = document.createElement("input");
+
+volumeSlider.type = "range";
+
+volumeSlider.min = "0";
+volumeSlider.max = "100";
+volumeSlider.step = "1";
+
+volumeSlider.value = Math.round(volume * 100);
+
+volumeSlider.style.width = "75px";
+volumeSlider.style.height = "4px";
+
+volumeSlider.style.cursor = "pointer";
+
+musicPanel.appendChild(volumeSlider);
+
+
+// ================================
+// AGGIUNGE IL PANNELLO ALLA PAGINA
+// ================================
+
+document.body.appendChild(musicPanel);
+
+
+// ================================
+// AGGIORNA PULSANTE
+// ================================
+
+function updateMusicButton() {
+
+    if (musicEnabled && !audio.paused) {
+
+        musicButton.textContent = "🎵 ON";
+
+        musicButton.style.opacity = "1";
+
+    } else {
+
+        musicButton.textContent = "🔇 OFF";
+
+        musicButton.style.opacity = "0.75";
+    }
+}
+
+
+// ================================
+// SALVA STATO
+// ================================
 
 function saveMusicState() {
+
     localStorage.setItem(
         STORAGE_KEY,
         JSON.stringify({
             track: currentTrack,
             time: audio.currentTime || 0,
             volume: audio.volume,
-            playing: !audio.paused
+            playing: !audio.paused,
+            enabled: musicEnabled
         })
     );
 }
 
-// Salva periodicamente la posizione
+
+// ================================
+// SALVATAGGIO AUTOMATICO
+// ================================
+
 setInterval(saveMusicState, 1000);
 
-// Salva quando si cambia pagina
-window.addEventListener("beforeunload", saveMusicState);
+window.addEventListener(
+    "beforeunload",
+    saveMusicState
+);
 
-document.addEventListener("visibilitychange", () => {
-    saveMusicState();
-});
+document.addEventListener(
+    "visibilitychange",
+    saveMusicState
+);
 
-// -------------------------------
-// Ripristina posizione
-// -------------------------------
 
-audio.addEventListener("loadedmetadata", () => {
+// ================================
+// ON / OFF
+// ================================
 
-    if (savedTime > 0 && savedTime < audio.duration) {
-        audio.currentTime = savedTime;
-    }
+musicButton.addEventListener("click", function(event) {
 
-    savedTime = 0;
+    event.stopPropagation();
 
-    if (wasPlaying) {
-        audio.play().catch(() => {
-            // Il browser potrebbe bloccare l'autoplay
-        });
-    }
-});
+    if (musicEnabled) {
 
-// -------------------------------
-// Passa al brano successivo
-// -------------------------------
+        musicEnabled = false;
 
-audio.addEventListener("ended", () => {
+        audio.pause();
 
-    currentTrack =
-        (currentTrack + 1) % tracks.length;
+    } else {
 
-    savedTime = 0;
+        musicEnabled = true;
 
-    audio.src = tracks[currentTrack];
-
-    audio.play().catch(() => {});
-
-    saveMusicState();
-});
-
-// -------------------------------
-// Primo avvio
-// -------------------------------
-
-window.addEventListener("load", () => {
-
-    if (!wasPlaying) {
-        // Primo accesso al sito:
-        // prova ad avviare la musica
         audio.play().catch(() => {});
     }
+
+    updateMusicButton();
+    saveMusicState();
 });
 
-// -------------------------------
-// Se l'autoplay viene bloccato
-// parte al primo click/tocco
-// -------------------------------
+
+// ================================
+// VOLUME
+// ================================
+
+volumeSlider.addEventListener("input", function(event) {
+
+    event.stopPropagation();
+
+    const value =
+        Number(volumeSlider.value) / 100;
+
+    audio.volume = value;
+
+    // Se alzo il volume da 0,
+    // riattiva automaticamente la musica
+    if (value > 0 && !musicEnabled) {
+
+        musicEnabled = true;
+
+        audio.play().catch(() => {});
+    }
+
+    // Se porto il volume a 0,
+    // mettiamo la musica in OFF
+    if (value === 0) {
+
+        musicEnabled = false;
+
+        audio.pause();
+    }
+
+    updateMusicButton();
+    saveMusicState();
+});
+
+
+// Evita che il click sulla barra
+// venga interpretato come click generale
+volumeSlider.addEventListener(
+    "click",
+    function(event) {
+        event.stopPropagation();
+    }
+);
+
+
+// ================================
+// RIPRISTINO POSIZIONE
+// ================================
+
+audio.addEventListener(
+    "loadedmetadata",
+    function() {
+
+        if (
+            savedTime > 0 &&
+            savedTime < audio.duration
+        ) {
+            audio.currentTime = savedTime;
+        }
+
+        savedTime = 0;
+
+        if (
+            musicEnabled &&
+            wasPlaying
+        ) {
+            audio.play().catch(() => {});
+        }
+
+        updateMusicButton();
+    }
+);
+
+
+// ================================
+// CAMBIO BRANO
+// ================================
+
+audio.addEventListener(
+    "ended",
+    function() {
+
+        currentTrack =
+            (currentTrack + 1) % tracks.length;
+
+        savedTime = 0;
+
+        audio.src = tracks[currentTrack];
+
+        if (musicEnabled) {
+            audio.play().catch(() => {});
+        }
+
+        updateMusicButton();
+        saveMusicState();
+    }
+);
+
+
+// ================================
+// AVVIO
+// ================================
+
+window.addEventListener(
+    "load",
+    function() {
+
+        updateMusicButton();
+
+        if (
+            musicEnabled &&
+            !wasPlaying
+        ) {
+            audio.play().catch(() => {});
+        }
+    }
+);
+
+
+// ================================
+// PRIMO CLICK / TOUCH
+// ================================
 
 function resumeMusic() {
 
-    if (audio.paused) {
+    if (
+        musicEnabled &&
+        audio.paused
+    ) {
         audio.play().catch(() => {});
     }
 
-    document.removeEventListener("click", resumeMusic);
-    document.removeEventListener("touchstart", resumeMusic);
+    updateMusicButton();
+
+    document.removeEventListener(
+        "click",
+        resumeMusic
+    );
+
+    document.removeEventListener(
+        "touchstart",
+        resumeMusic
+    );
 }
 
-document.addEventListener("click", resumeMusic);
-document.addEventListener("touchstart", resumeMusic);
+document.addEventListener(
+    "click",
+    resumeMusic
+);
 
-// -------------------------------
-// API semplice per i controlli
-// -------------------------------
+document.addEventListener(
+    "touchstart",
+    resumeMusic
+);
+
+
+// ================================
+// API
+// ================================
 
 window.SantaCruzMusic = {
 
     play() {
+
+        musicEnabled = true;
+
         audio.play().catch(() => {});
+
+        updateMusicButton();
+        saveMusicState();
     },
 
     pause() {
+
+        musicEnabled = false;
+
         audio.pause();
+
+        updateMusicButton();
         saveMusicState();
     },
 
     toggle() {
-        if (audio.paused) {
-            audio.play().catch(() => {});
-        } else {
+
+        if (musicEnabled) {
+
+            musicEnabled = false;
+
             audio.pause();
-            saveMusicState();
+
+        } else {
+
+            musicEnabled = true;
+
+            audio.play().catch(() => {});
         }
+
+        updateMusicButton();
+        saveMusicState();
     },
 
     setVolume(value) {
-        audio.volume = Math.max(
-            0,
-            Math.min(1, value)
-        );
+
+        audio.volume =
+            Math.max(
+                0,
+                Math.min(1, value)
+            );
+
+        volumeSlider.value =
+            Math.round(audio.volume * 100);
 
         saveMusicState();
     },
@@ -190,4 +457,5 @@ window.SantaCruzMusic = {
         return currentTrack;
     }
 };
-```
+
+updateMusicButton();
