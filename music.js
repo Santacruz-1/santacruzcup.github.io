@@ -5,7 +5,7 @@
 
 const tracks = [
     "audio/jefe-run.mp3",
-    "audio/secondo-brano.mp3"
+    "audio/no mix no master.mp3"
 ];
 
 const STORAGE_KEY = "santaCruzCupMusic";
