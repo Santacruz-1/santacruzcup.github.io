@@ -4,8 +4,8 @@
 // ================================
 
 const tracks = [
-    "audio/Jefe - Run! (side quest).mp3",
-    "audio/no mix no master.mp3"
+    "data/Jefe - Run! (side quest).mp3",
+    "data/no mix no master.mp3"
 ];
 
 const STORAGE_KEY = "santaCruzCupMusic";
