@@ -10,9 +10,36 @@
 
   <style>
     /* =========================================================
-       CLASSIFICA
+       RESPONSIVE & HAMBURGER MENU (SISTEMATO)
     ========================================================= */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none !important;
+      }
 
+      .hamburger {
+        display: flex !important;
+      }
+
+      .navbar {
+        padding: 0 1.2rem;
+      }
+    }
+
+    /* Animazione Hamburger */
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* =========================================================
+       STILI TABELLA CLASSIFICA
+    ========================================================= */
     .standings-wrap {
       width: 100%;
     }
@@ -22,7 +49,6 @@
       overflow-x: auto;
       overflow-y: hidden;
       -webkit-overflow-scrolling: touch;
-
       scrollbar-width: thin;
       scrollbar-color: var(--red) rgba(255,255,255,0.06);
     }
@@ -108,11 +134,7 @@
       font-weight: 800;
     }
 
-    /* =========================================================
-       POSIZIONI
-       Solo numero colorato, senza pallino
-    ========================================================= */
-
+    /* Posizioni */
     .rank-medal {
       display: inline-block;
       font-family: 'Bebas Neue', sans-serif;
@@ -121,17 +143,9 @@
       text-align: center;
     }
 
-    .rank-medal.gold {
-      color: #FFD700;
-    }
-
-    .rank-medal.silver {
-      color: #C0C0C0;
-    }
-
-    .rank-medal.bronze {
-      color: #CD7F32;
-    }
+    .rank-medal.gold { color: #FFD700; }
+    .rank-medal.silver { color: #C0C0C0; }
+    .rank-medal.bronze { color: #CD7F32; }
 
     .rank-normal {
       display: inline-block;
@@ -142,35 +156,19 @@
       text-align: center;
     }
 
-    /* =========================================================
-       DIFFERENZA RETI
-    ========================================================= */
+    /* Differenza reti */
+    .goal-positive { color: #65d98b !important; }
+    .goal-negative { color: #ff6862 !important; }
+    .goal-neutral { color: rgba(255,255,255,0.55) !important; }
 
-    .goal-positive {
-      color: #65d98b !important;
-    }
-
-    .goal-negative {
-      color: #ff6862 !important;
-    }
-
-    .goal-neutral {
-      color: rgba(255,255,255,0.55) !important;
-    }
-
-    /* =========================================================
-       LEGENDA
-    ========================================================= */
-
+    /* Legenda */
     .standings-legend {
       display: flex;
       align-items: center;
       gap: 18px;
       flex-wrap: wrap;
-
       margin-top: 20px;
       padding: 14px 16px;
-
       background: rgba(255,255,255,0.025);
       border: 1px solid rgba(255,255,255,0.07);
       border-radius: var(--radius);
@@ -185,100 +183,40 @@
       letter-spacing: 0.05em;
     }
 
-    /* =========================================================
-       MOBILE
-    ========================================================= */
-
     @media (max-width: 860px) {
-
-      .standings-table {
-        min-width: 950px;
-      }
-
-      .standings-table thead th {
-        font-size: 0.74rem;
-        padding: 13px 10px;
-      }
-
-      .standings-table tbody td {
-        padding: 12px 10px;
-        font-size: 0.88rem;
-      }
-
-      .standings-table .team-name {
-        font-size: 0.95rem;
-      }
-
-      .rank-medal {
-        font-size: 1.25rem;
-      }
-
-      .rank-normal {
-        font-size: 1.08rem;
-      }
+      .standings-table min-width: 950px;
+      .standings-table thead th { font-size: 0.74rem; padding: 13px 10px; }
+      .standings-table tbody td { padding: 12px 10px; font-size: 0.88rem; }
+      .standings-table .team-name { font-size: 0.95rem; }
+      .rank-medal { font-size: 1.25rem; }
+      .rank-normal { font-size: 1.08rem; }
     }
 
     @media (max-width: 500px) {
-
-      .standings-legend {
-        gap: 10px 16px;
-        padding: 12px;
-      }
-
-      .legend-item {
-        font-size: 0.70rem;
-      }
+      .standings-legend { gap: 10px 16px; padding: 12px; }
+      .legend-item { font-size: 0.70rem; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- =======================================================
-       NAVBAR
-  ======================================================== -->
-
+  <!-- NAVBAR -->
   <nav class="navbar">
-
     <a href="index.html" class="nav-brand">
       <img src="logo.png" alt="Santa Cruz Cup">
       <span class="nav-brand-text">SANTA CRUZ CUP</span>
     </a>
 
     <ul class="nav-links">
-
-      <li>
-        <a href="index.html">Home</a>
-      </li>
-
-      <li>
-        <a href="calendario.html">Calendario</a>
-      </li>
-
-      <li>
-        <a href="risultati.html">Risultati</a>
-      </li>
-
-      <li>
-        <a href="classifica.html" class="active">Classifica</a>
-      </li>
-
-      <li>
-        <a href="marcatori.html">Marcatori</a>
-      </li>
-
-      <li>
-        <a href="squadre.html">Squadre</a>
-      </li>
-
-      <li>
-        <a href="regolamento.html">Regolamento</a>
-      </li>
-
-      <li>
-        <a href="contatti.html">Contatti</a>
-      </li>
-
+      <li><a href="index.html">Home</a></li>
+      <li><a href="calendario.html">Calendario</a></li>
+      <li><a href="risultati.html">Risultati</a></li>
+      <li><a href="classifica.html" class="active">Classifica</a></li>
+      <li><a href="marcatori.html">Marcatori</a></li>
+      <li><a href="squadre.html">Squadre</a></li>
+      <li><a href="regolamento.html">Regolamento</a></li>
+      <li><a href="contatti.html">Contatti</a></li>
     </ul>
 
     <div class="hamburger" id="hamburger">
@@ -286,16 +224,10 @@
       <span></span>
       <span></span>
     </div>
-
   </nav>
 
-
-  <!-- =======================================================
-       MOBILE MENU
-  ======================================================== -->
-
+  <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
-
     <a href="index.html">🏠 Home</a>
     <a href="calendario.html">📅 Calendario</a>
     <a href="risultati.html">📊 Risultati</a>
@@ -304,199 +236,72 @@
     <a href="squadre.html">👥 Squadre</a>
     <a href="regolamento.html">📋 Regolamento</a>
     <a href="contatti.html">📩 Contatti</a>
-
   </div>
 
-
-  <!-- =======================================================
-       HEADER
-  ======================================================== -->
-
+  <!-- HEADER -->
   <header class="page-header">
-
-    <div class="page-eyebrow">
-      Santa Cruz Cup · 2026
-    </div>
-
-    <h1 class="page-title">
-      CLASSI<span>FICA</span>
-    </h1>
-
-    <p class="page-subtitle">
-      La situazione aggiornata del torneo.
-    </p>
-
+    <div class="page-eyebrow">Santa Cruz Cup · 2026</div>
+    <h1 class="page-title">CLASSI<span>FICA</span></h1>
+    <p class="page-subtitle">La situazione aggiornata del torneo.</p>
   </header>
 
-
-  <!-- =======================================================
-       CONTENUTO
-  ======================================================== -->
-
+  <!-- CONTENUTO PRINCIPALE -->
   <main>
-
     <section class="section">
-
       <div class="table-wrap standings-wrap">
-
         <div class="table-scroll">
-
           <table class="standings-table">
-
             <thead>
-
               <tr>
-
-                <th class="center">
-                  #
-                </th>
-
-                <th>
-                  Squadra
-                </th>
-
-                <th class="center">
-                  Partite<br>giocate
-                </th>
-
-                <th class="center">
-                  Vittorie
-                </th>
-
-                <th class="center">
-                  Pareggi
-                </th>
-
-                <th class="center">
-                  Sconfitte
-                </th>
-
-                <th class="center">
-                  Numero<br>di goal
-                </th>
-
-                <th class="center">
-                  Gol<br>subiti
-                </th>
-
-                <th class="center">
-                  Differenza<br>reti
-                </th>
-
-                <th class="center">
-                  Pt
-                </th>
-
+                <th class="center">#</th>
+                <th>Squadra</th>
+                <th class="center">Partite<br>giocate</th>
+                <th class="center">Vittorie</th>
+                <th class="center">Pareggi</th>
+                <th class="center">Sconfitte</th>
+                <th class="center">Gol<br>fatti</th>
+                <th class="center">Gol<br>subiti</th>
+                <th class="center">Differenza<br>reti</th>
+                <th class="center">Pt</th>
               </tr>
-
             </thead>
-
             <tbody id="classificaBody">
-
               <tr>
-
-                <td
-                  colspan="10"
-                  class="center"
-                  style="padding:40px;"
-                >
+                <td colspan="10" class="center" style="padding:40px;">
                   Caricamento classifica...
                 </td>
-
               </tr>
-
             </tbody>
-
           </table>
-
         </div>
-
       </div>
 
-
-      <!-- =====================================================
-           LEGENDA
-      ====================================================== -->
-
+      <!-- LEGENDA -->
       <div class="standings-legend">
-
-        <div class="legend-item">
-          PG = Partite giocate
-        </div>
-
-        <div class="legend-item">
-          V = Vittorie
-        </div>
-
-        <div class="legend-item">
-          P = Pareggi
-        </div>
-
-        <div class="legend-item">
-          S = Sconfitte
-        </div>
-
-        <div class="legend-item">
-          GF = Gol fatti
-        </div>
-
-        <div class="legend-item">
-          GS = Gol subiti
-        </div>
-
-        <div class="legend-item">
-          DR = Differenza reti
-        </div>
-
-        <div class="legend-item">
-          Pt = Punti
-        </div>
-
+        <div class="legend-item">PG = Partite giocate</div>
+        <div class="legend-item">V = Vittorie</div>
+        <div class="legend-item">P = Pareggi</div>
+        <div class="legend-item">S = Sconfitte</div>
+        <div class="legend-item">GF = Gol fatti</div>
+        <div class="legend-item">GS = Gol subiti</div>
+        <div class="legend-item">DR = Differenza reti</div>
+        <div class="legend-item">Pt = Punti</div>
       </div>
-
     </section>
-
   </main>
 
-
-  <!-- =======================================================
-       FOOTER
-  ======================================================== -->
-
+  <!-- FOOTER -->
   <footer>
-
     <div class="footer-inner">
-
       <div class="footer-brand">
-
-        <img
-          src="logo.png"
-          alt="Santa Cruz Cup"
-          style="
-            width:70px;
-            height:70px;
-            object-fit:contain;
-            filter:drop-shadow(0 0 8px rgba(225,6,0,0.5));
-          "
-        >
-
+        <img src="logo.png" alt="Santa Cruz Cup" style="width:70px; height:70px; object-fit:contain; filter:drop-shadow(0 0 8px rgba(225,6,0,0.5));">
         <div>
-
-          <strong>
-            SANTA CRUZ CUP
-          </strong>
-
-          <span>
-            Il torneo. La passione. La sfida.
-          </span>
-
+          <strong>SANTA CRUZ CUP</strong>
+          <span>Il torneo. La passione. La sfida.</span>
         </div>
-
       </div>
 
-
       <nav class="footer-nav">
-
         <a href="index.html">Home</a>
         <a href="calendario.html">Calendario</a>
         <a href="risultati.html">Risultati</a>
@@ -505,763 +310,228 @@
         <a href="squadre.html">Squadre</a>
         <a href="regolamento.html">Regolamento</a>
         <a href="contatti.html">Contatti</a>
-
       </nav>
-
     </div>
-
 
     <div class="footer-bottom">
-
-      <span>
-        © 2026 Santa Cruz Cup
-      </span>
-
-      <span>
-        Tutti i diritti riservati
-      </span>
-
+      <span>© 2026 Santa Cruz Cup</span>
+      <span>Tutti i diritti riservati</span>
     </div>
-
   </footer>
 
-
-  <!-- =======================================================
-       JAVASCRIPT
-  ======================================================== -->
-
+  <!-- JAVASCRIPT -->
   <script>
-
     document.addEventListener("DOMContentLoaded", () => {
 
       /* =====================================================
-         MENU MOBILE
+         MENU MOBILE (CORRETTO)
       ====================================================== */
-
-      const hamburger =
-        document.getElementById("hamburger");
-
-      const mobileMenu =
-        document.getElementById("mobileMenu");
-
+      const hamburger = document.getElementById("hamburger");
+      const mobileMenu = document.getElementById("mobileMenu");
 
       if (hamburger && mobileMenu) {
-
-        hamburger.addEventListener("click", () => {
-
+        hamburger.addEventListener("click", (e) => {
+          e.stopPropagation();
           hamburger.classList.toggle("active");
-
-          mobileMenu.classList.toggle("active");
-
+          mobileMenu.classList.toggle("open");
         });
 
+        document.addEventListener("click", (e) => {
+          if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+            hamburger.classList.remove("active");
+            mobileMenu.classList.remove("open");
+          }
+        });
 
-        mobileMenu
-          .querySelectorAll("a")
-          .forEach(link => {
-
-            link.addEventListener("click", () => {
-
-              hamburger.classList.remove("active");
-
-              mobileMenu.classList.remove("active");
-
-            });
-
+        mobileMenu.querySelectorAll("a").forEach(link => {
+          link.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            mobileMenu.classList.remove("open");
           });
-
+        });
       }
 
-
       /* =====================================================
-         TABELLA
+         CARICAMENTO ED ELABORAZIONE CLASSIFICA
       ====================================================== */
-
-      const classificaBody =
-        document.getElementById("classificaBody");
-
-
-      if (!classificaBody) {
-        return;
-      }
-
-
-      /* =====================================================
-         ESCAPE HTML
-      ====================================================== */
+      const classificaBody = document.getElementById("classificaBody");
+      if (!classificaBody) return;
 
       function escapeHtml(value) {
-
         return String(value ?? "")
           .replace(/&/g, "&amp;")
           .replace(/</g, "&lt;")
           .replace(/>/g, "&gt;")
           .replace(/"/g, "&quot;")
           .replace(/'/g, "&#039;");
-
       }
-
-
-      /* =====================================================
-         NORMALIZZA
-      ====================================================== */
 
       function normalizza(value) {
-
-        return String(value ?? "")
-          .trim()
-          .toLowerCase();
-
+        return String(value ?? "").trim().toLowerCase();
       }
 
-
-      /* =====================================================
-         LETTURA RISULTATO
-      ====================================================== */
-
       function leggiRisultato(partita) {
-
         let golCasa = null;
         let golOspite = null;
 
-
-        /*
-         * Formato:
-         * golCasa / golOspite
-         */
-
-        if (
-          partita.golCasa !== undefined &&
-          partita.golOspite !== undefined
-        ) {
-
-          golCasa =
-            Number(partita.golCasa);
-
-          golOspite =
-            Number(partita.golOspite);
-
+        if (partita.golCasa !== undefined && partita.golOspite !== undefined) {
+          golCasa = Number(partita.golCasa);
+          golOspite = Number(partita.golOspite);
         }
 
-
-        /*
-         * Formato:
-         * risultato / result / score
-         *
-         * Esempio:
-         * "2-1"
-         */
-
-        if (
-          !Number.isFinite(golCasa) ||
-          !Number.isFinite(golOspite)
-        ) {
-
-          const risultato =
-            partita.risultato ??
-            partita.result ??
-            partita.score ??
-            "";
-
-
-          const match =
-            String(risultato)
-              .trim()
-              .match(/^(\d+)\s*[-:]\s*(\d+)$/);
-
-
+        if (!Number.isFinite(golCasa) || !Number.isFinite(golOspite)) {
+          const risultato = partita.risultato ?? partita.result ?? partita.score ?? "";
+          const match = String(risultato).trim().match(/^(\d+)\s*[-:]\s*(\d+)$/);
           if (match) {
-
-            golCasa =
-              Number(match[1]);
-
-            golOspite =
-              Number(match[2]);
-
+            golCasa = Number(match[1]);
+            golOspite = Number(match[2]);
           }
-
         }
 
-
-        if (
-          !Number.isFinite(golCasa) ||
-          !Number.isFinite(golOspite)
-        ) {
-
+        if (!Number.isFinite(golCasa) || !Number.isFinite(golOspite)) {
           return null;
-
         }
 
-
-        return {
-          casa: golCasa,
-          ospite: golOspite
-        };
-
+        return { casa: golCasa, ospite: golOspite };
       }
 
-
-      /* =====================================================
-         CARICAMENTO
-      ====================================================== */
-
       async function caricaClassifica() {
-
         try {
-
-          const timestamp =
-            Date.now();
-
-
-          const [
-            squadreResponse,
-            partiteResponse
-          ] = await Promise.all([
-
-            fetch(
-              `data/squadre.json?nocache=${timestamp}`,
-              {
-                cache: "no-store"
-              }
-            ),
-
-            fetch(
-              `data/partite.json?nocache=${timestamp}`,
-              {
-                cache: "no-store"
-              }
-            )
-
+          const timestamp = Date.now();
+          const [squadreResponse, partiteResponse] = await Promise.all([
+            fetch(`data/squadre.json?nocache=${timestamp}`, { cache: "no-store" }),
+            fetch(`data/partite.json?nocache=${timestamp}`, { cache: "no-store" })
           ]);
 
-
-          if (!squadreResponse.ok) {
-
-            throw new Error(
-              `Errore caricamento squadre: ${squadreResponse.status}`
-            );
-
+          if (!squadreResponse.ok || !partiteResponse.ok) {
+            throw new Error("Errore nel recupero dei file JSON dati.");
           }
 
+          const squadre = await squadreResponse.json();
+          const partite = await partiteResponse.json();
 
-          if (!partiteResponse.ok) {
-
-            throw new Error(
-              `Errore caricamento partite: ${partiteResponse.status}`
-            );
-
+          if (!Array.isArray(squadre) || !Array.isArray(partite)) {
+            throw new Error("Formato JSON non valido.");
           }
 
+          const classifica = squadre.map((squadra, index) => ({
+            id: String(squadra.id ?? squadra.ID ?? squadra.squadraId ?? index + 1),
+            nome: String(squadra.nome ?? squadra.squadra ?? squadra.name ?? `Squadra ${index + 1}`),
+            partite: 0,
+            vittorie: 0,
+            pareggi: 0,
+            sconfitte: 0,
+            golFatti: 0,
+            golSubiti: 0,
+            differenzaReti: 0,
+            punti: 0
+          }));
 
-          const squadre =
-            await squadreResponse.json();
-
-
-          const partite =
-            await partiteResponse.json();
-
-
-          if (!Array.isArray(squadre)) {
-
-            throw new Error(
-              "Il file squadre.json non contiene un array."
-            );
-
-          }
-
-
-          if (!Array.isArray(partite)) {
-
-            throw new Error(
-              "Il file partite.json non contiene un array."
-            );
-
-          }
-
-
-          /* =================================================
-             CREAZIONE CLASSIFICA
-          ================================================== */
-
-          const classifica = [];
-
-
-          squadre.forEach((squadra, index) => {
-
-            const id =
-              squadra.id ??
-              squadra.ID ??
-              squadra.squadraId ??
-              index + 1;
-
-
-            const nome =
-              squadra.nome ??
-              squadra.squadra ??
-              squadra.name ??
-              `Squadra ${index + 1}`;
-
-
-            classifica.push({
-
-              id: String(id),
-
-              nome: String(nome),
-
-              partite: 0,
-
-              vittorie: 0,
-
-              pareggi: 0,
-
-              sconfitte: 0,
-
-              golFatti: 0,
-
-              golSubiti: 0,
-
-              differenzaReti: 0,
-
-              punti: 0
-
-            });
-
-          });
-
-
-          /* =================================================
-             MAPPE
-          ================================================== */
-
-          const squadraById =
-            new Map();
-
-          const squadraByNome =
-            new Map();
-
+          const squadraById = new Map();
+          const squadraByNome = new Map();
 
           classifica.forEach(squadra => {
-
-            squadraById.set(
-              normalizza(squadra.id),
-              squadra
-            );
-
-
-            squadraByNome.set(
-              normalizza(squadra.nome),
-              squadra
-            );
-
+            squadraById.set(normalizza(squadra.id), squadra);
+            squadraByNome.set(normalizza(squadra.nome), squadra);
           });
 
-
-          /* =================================================
-             TROVA SQUADRA
-          ================================================== */
-
           function trovaSquadra(value) {
-
-            if (
-              value === undefined ||
-              value === null ||
-              value === ""
-            ) {
-
-              return null;
-
-            }
-
-
-            const valore =
-              normalizza(value);
-
-
-            return (
-              squadraById.get(valore) ||
-              squadraByNome.get(valore) ||
-              null
-            );
-
+            if (!value) return null;
+            const val = normalizza(value);
+            return squadraById.get(val) || squadraByNome.get(val) || null;
           }
 
-
-          /* =================================================
-             ANALIZZA PARTITE
-          ================================================== */
-
           partite.forEach(partita => {
+            const sqCasa = partita.squadraCasa ?? partita.casa ?? partita.homeTeam ?? partita.home;
+            const sqOspite = partita.squadraOspite ?? partita.ospite ?? partita.awayTeam ?? partita.away;
 
-            const squadraCasa =
-              partita.squadraCasa ??
-              partita.casa ??
-              partita.homeTeam ??
-              partita.home ??
-              partita.teamCasa;
+            const casa = trovaSquadra(sqCasa);
+            const ospite = trovaSquadra(sqOspite);
 
+            if (!casa || !ospite) return;
 
-            const squadraOspite =
-              partita.squadraOspite ??
-              partita.ospite ??
-              partita.awayTeam ??
-              partita.away ??
-              partita.teamOspite;
-
-
-            const casa =
-              trovaSquadra(squadraCasa);
-
-
-            const ospite =
-              trovaSquadra(squadraOspite);
-
-
-            if (!casa || !ospite) {
-              return;
-            }
-
-
-            const risultato =
-              leggiRisultato(partita);
-
-
-            /*
-             * Partita senza risultato:
-             * non viene conteggiata.
-             */
-
-            if (!risultato) {
-              return;
-            }
-
-
-            const golCasa =
-              risultato.casa;
-
-
-            const golOspite =
-              risultato.ospite;
-
-
-            /* ===============================================
-               PARTITE GIOCATE
-            ================================================ */
+            const risultato = leggiRisultato(partita);
+            if (!risultato) return;
 
             casa.partite++;
             ospite.partite++;
 
+            casa.golFatti += risultato.casa;
+            casa.golSubiti += risultato.ospite;
+            ospite.golFatti += risultato.ospite;
+            ospite.golSubiti += risultato.casa;
 
-            /* ===============================================
-               GOL FATTI E SUBITI
-            ================================================ */
-
-            casa.golFatti += golCasa;
-            casa.golSubiti += golOspite;
-
-            ospite.golFatti += golOspite;
-            ospite.golSubiti += golCasa;
-
-
-            /* ===============================================
-               RISULTATO
-            ================================================ */
-
-            if (golCasa > golOspite) {
-
+            if (risultato.casa > risultato.ospite) {
               casa.vittorie++;
-              ospite.sconfitte++;
-
               casa.punti += 3;
-
-            }
-
-            else if (golCasa < golOspite) {
-
+              ospite.sconfitte++;
+            } else if (risultato.casa < risultato.ospite) {
               ospite.vittorie++;
-              casa.sconfitte++;
-
               ospite.punti += 3;
-
-            }
-
-            else {
-
+              casa.sconfitte++;
+            } else {
               casa.pareggi++;
-              ospite.pareggi++;
-
               casa.punti += 1;
+              ospite.pareggi++;
               ospite.punti += 1;
-
             }
-
           });
 
-
-          /* =================================================
-             DIFFERENZA RETI
-          ================================================== */
-
-          classifica.forEach(squadra => {
-
-            squadra.differenzaReti =
-              squadra.golFatti -
-              squadra.golSubiti;
-
+          classifica.forEach(s => {
+            s.differenzaReti = s.golFatti - s.golSubiti;
           });
 
-
-          /* =================================================
-             ORDINAMENTO
-             
-             1. Punti
-             2. Differenza reti
-             3. Gol fatti
-             4. Nome squadra
-          ================================================== */
-
+          // Ordina per Punti -> Differenza Reti -> Gol Fatti
           classifica.sort((a, b) => {
-
-            if (b.punti !== a.punti) {
-
-              return b.punti - a.punti;
-
-            }
-
-
-            if (
-              b.differenzaReti !==
-              a.differenzaReti
-            ) {
-
-              return (
-                b.differenzaReti -
-                a.differenzaReti
-              );
-
-            }
-
-
-            if (b.golFatti !== a.golFatti) {
-
-              return b.golFatti - a.golFatti;
-
-            }
-
-
-            return a.nome.localeCompare(
-              b.nome,
-              "it"
-            );
-
+            if (b.punti !== a.punti) return b.punti - a.punti;
+            if (b.differenzaReti !== a.differenzaReti) return b.differenzaReti - a.differenzaReti;
+            return b.golFatti - a.golFatti;
           });
 
-
-          /* =================================================
-             RENDER
-          ================================================== */
-
+          // Rendering HTML Tabella
           classificaBody.innerHTML = "";
 
-
-          classifica.forEach((squadra, index) => {
-
-            const posizione =
-              index + 1;
-
-
-            /* ===============================================
-               POSIZIONE COLORATA
-            ================================================ */
-
-            let rankHtml =
-              `<span class="rank-normal">${posizione}</span>`;
-
-
-            if (posizione === 1) {
-
-              rankHtml =
-                `<span class="rank-medal gold">${posizione}</span>`;
-
-            }
-
-            else if (posizione === 2) {
-
-              rankHtml =
-                `<span class="rank-medal silver">${posizione}</span>`;
-
-            }
-
-            else if (posizione === 3) {
-
-              rankHtml =
-                `<span class="rank-medal bronze">${posizione}</span>`;
-
-            }
-
-
-            /* ===============================================
-               DIFFERENZA RETI
-            ================================================ */
-
-            let classeDifferenza =
-              "goal-neutral";
-
-
-            let differenzaTesto =
-              String(squadra.differenzaReti);
-
-
-            if (
-              squadra.differenzaReti > 0
-            ) {
-
-              classeDifferenza =
-                "goal-positive";
-
-
-              differenzaTesto =
-                `+${squadra.differenzaReti}`;
-
-            }
-
-            else if (
-              squadra.differenzaReti < 0
-            ) {
-
-              classeDifferenza =
-                "goal-negative";
-
-            }
-
-
-            /* ===============================================
-               RIGA
-            ================================================ */
-
-            const row =
-              document.createElement("tr");
-
-
-            row.innerHTML = `
-
-              <td class="center">
-                ${rankHtml}
-              </td>
-
-              <td class="team-name">
-                ${escapeHtml(squadra.nome)}
-              </td>
-
-              <td class="number">
-                ${squadra.partite}
-              </td>
-
-              <td class="number">
-                ${squadra.vittorie}
-              </td>
-
-              <td class="number">
-                ${squadra.pareggi}
-              </td>
-
-              <td class="number">
-                ${squadra.sconfitte}
-              </td>
-
-              <td class="number">
-                ${squadra.golFatti}
-              </td>
-
-              <td class="number">
-                ${squadra.golSubiti}
-              </td>
-
-              <td class="goal-difference ${classeDifferenza}">
-                ${differenzaTesto}
-              </td>
-
-              <td class="points">
-                ${squadra.punti}
-              </td>
-
-            `;
-
-
-            classificaBody.appendChild(row);
-
-          });
-
-
-          /* =================================================
-             NESSUNA SQUADRA
-          ================================================== */
-
           if (classifica.length === 0) {
-
-            classificaBody.innerHTML = `
-
-              <tr>
-
-                <td
-                  colspan="10"
-                  class="center"
-                  style="padding:40px;"
-                >
-                  Nessuna squadra disponibile.
-                </td>
-
-              </tr>
-
-            `;
-
+            classificaBody.innerHTML = `<tr><td colspan="10" class="center" style="padding:30px;">Nessuna squadra trovata.</td></tr>`;
+            return;
           }
 
+          classifica.forEach((team, idx) => {
+            const pos = idx + 1;
+            let rankHtml = `<span class="rank-normal">${pos}</span>`;
+
+            if (pos === 1) rankHtml = `<span class="rank-medal gold">1</span>`;
+            else if (pos === 2) rankHtml = `<span class="rank-medal silver">2</span>`;
+            else if (pos === 3) rankHtml = `<span class="rank-medal bronze">3</span>`;
+
+            let drClass = "goal-neutral";
+            if (team.differenzaReti > 0) drClass = "goal-positive";
+            else if (team.differenzaReti < 0) drClass = "goal-negative";
+
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+              <td class="center">${rankHtml}</td>
+              <td class="team-name">${escapeHtml(team.nome)}</td>
+              <td class="number">${team.partite}</td>
+              <td class="number">${team.vittorie}</td>
+              <td class="number">${team.pareggi}</td>
+              <td class="number">${team.sconfitte}</td>
+              <td class="number">${team.golFatti}</td>
+              <td class="number">${team.golSubiti}</td>
+              <td class="number goal-difference ${drClass}">${team.differenzaReti > 0 ? '+' : ''}${team.differenzaReti}</td>
+              <td class="points">${team.punti}</td>
+            `;
+            classificaBody.appendChild(tr);
+          });
+
+        } catch (err) {
+          console.error(err);
+          classificaBody.innerHTML = `<tr><td colspan="10" class="center" style="padding:30px; color:var(--red);">Errore durante il caricamento dei dati della classifica.</td></tr>`;
         }
-
-        catch (error) {
-
-          console.error(
-            "Errore caricamento classifica:",
-            error
-          );
-
-
-          classificaBody.innerHTML = `
-
-            <tr>
-
-              <td
-                colspan="10"
-                class="center"
-                style="
-                  padding:40px;
-                  color:#ff6862;
-                "
-              >
-                Impossibile caricare la classifica.
-              </td>
-
-            </tr>
-
-          `;
-
-        }
-
       }
 
-
-      /* =====================================================
-         AVVIO
-      ====================================================== */
-
       caricaClassifica();
-
     });
-
   </script>
-  
- <!-- MUSICA SANTA CRUZ CUP -->
-  <script src="music.js"></script>
-  
 </body>
-</html>
+                  </html>
