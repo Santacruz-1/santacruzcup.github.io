@@ -18,13 +18,10 @@
 
   <meta
     name="description"
-    content="Santa Cruz Cup – Il torneo giovanile di calcio più appassionante della stagione. Calendario, risultati, classifica, marcatori e squadre."
+    content="Santa Cruz Cup – Torneo giovanile di calcio. Calendario, risultati, classifica, marcatori e squadre."
   >
 
-  <meta
-    name="robots"
-    content="index, follow"
-  >
+  <meta name="robots" content="index, follow">
 
   <link
     rel="canonical"
@@ -76,6 +73,11 @@
   >
 
   <meta
+    property="og:image:alt"
+    content="Logo Santa Cruz Cup"
+  >
+
+  <meta
     property="og:image:width"
     content="1200"
   >
@@ -85,15 +87,7 @@
     content="630"
   >
 
-  <meta
-    property="og:image:alt"
-    content="Logo Santa Cruz Cup - Torneo Giovanile di Calcio"
-  >
-
-  <!-- =========================
-       TWITTER / SOCIAL
-  ========================= -->
-
+  <!-- TWITTER / X -->
   <meta
     name="twitter:card"
     content="summary_large_image"
@@ -116,7 +110,7 @@
 
   <meta
     name="twitter:image:alt"
-    content="Logo Santa Cruz Cup - Torneo Giovanile di Calcio"
+    content="Logo Santa Cruz Cup"
   >
 
   <!-- FAVICON -->
@@ -126,11 +120,32 @@
     href="logo.png"
   >
 
+  <link
+    rel="apple-touch-icon"
+    href="logo.png"
+  >
+
   <!-- FONT -->
   <link
     href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,700&family=Barlow:wght@400;500;600&display=swap"
     rel="stylesheet"
   >
+
+  <!-- =========================
+       DATI STRUTTURATI GOOGLE
+  ========================= -->
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Santa Cruz Cup",
+    "alternateName": "Santa Cruz Cup – Torneo Giovanile di Calcio",
+    "url": "https://santacruz-1.github.io/",
+    "description": "Torneo giovanile di calcio Santa Cruz Cup. Calendario, risultati, classifica, marcatori e squadre.",
+    "image": "https://santacruz-1.github.io/logo.png"
+  }
+  </script>
 
   <style>
 
@@ -178,6 +193,33 @@
     }
 
     /* =========================
+       PARTICELLE
+    ========================= */
+
+    #particles {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.75;
+    }
+
+    .navbar,
+    .mobile-menu,
+    main,
+    footer {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* =========================
        NAVBAR
     ========================= */
 
@@ -186,7 +228,6 @@
       top: 0;
       left: 0;
       right: 0;
-
       z-index: 200;
 
       height: 66px;
@@ -197,75 +238,61 @@
 
       padding: 0 3rem;
 
-      background: rgba(5, 5, 5, 0.94);
+      background: rgba(5,5,5,0.94);
 
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
 
       border-bottom: 2px solid var(--red);
 
-      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.55);
+      box-shadow: 0 4px 25px rgba(0,0,0,0.55);
     }
 
     .nav-brand {
       display: flex;
       align-items: center;
-
       gap: 0.7rem;
-
       flex-shrink: 0;
     }
 
     .nav-brand img {
       height: 50px;
       width: auto;
-
       max-width: 160px;
-
       object-fit: contain;
 
       filter:
-        drop-shadow(0 0 8px rgba(224, 0, 0, 0.55));
+        drop-shadow(0 0 8px rgba(224,0,0,0.55));
     }
 
     .nav-brand-text {
       font-family: 'Bebas Neue', sans-serif;
-
       font-size: 1.6rem;
-
       letter-spacing: 2px;
-
       color: var(--red-light);
 
       text-shadow:
-        0 0 22px rgba(224, 0, 0, 0.55);
+        0 0 22px rgba(224,0,0,0.55);
 
       white-space: nowrap;
     }
 
     .nav-links {
       display: flex;
-
       list-style: none;
-
       gap: 0.1rem;
     }
 
     .nav-links a {
       font-family: 'Barlow Condensed', sans-serif;
-
       font-weight: 700;
-
       font-size: 0.82rem;
-
       letter-spacing: 1.4px;
-
       text-transform: uppercase;
 
-      color: rgba(245, 245, 245, 0.8);
+      color: rgba(245,245,245,0.8);
 
       padding: 0.45rem 0.75rem;
-
       border-radius: 5px;
 
       transition: 0.18s;
@@ -274,9 +301,7 @@
     .nav-links a:hover,
     .nav-links a.active {
       color: var(--red-light);
-
-      background:
-        rgba(224, 0, 0, 0.12);
+      background: rgba(224,0,0,0.12);
     }
 
     /* =========================
@@ -285,28 +310,19 @@
 
     .hamburger {
       display: none;
-
       flex-direction: column;
-
       gap: 5px;
-
       cursor: pointer;
-
       padding: 4px;
-
       background: none;
-
       border: none;
     }
 
     .hamburger span {
       width: 26px;
       height: 2px;
-
       background: var(--red-light);
-
       border-radius: 2px;
-
       display: block;
     }
 
@@ -320,12 +336,10 @@
       position: fixed;
 
       top: 66px;
-
       left: 0;
       right: 0;
 
-      background:
-        rgba(5, 5, 5, 0.98);
+      background: rgba(5,5,5,0.98);
 
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
@@ -337,7 +351,6 @@
       padding: 1rem 2rem 1.5rem;
 
       flex-direction: column;
-
       gap: 0.2rem;
     }
 
@@ -347,21 +360,17 @@
 
     .mobile-menu a {
       font-family: 'Barlow Condensed', sans-serif;
-
       font-weight: 700;
-
       font-size: 1.1rem;
-
       letter-spacing: 1.5px;
-
       text-transform: uppercase;
 
-      color: rgba(245, 245, 245, 0.85);
+      color: rgba(245,245,245,0.85);
 
       padding: 0.75rem 0;
 
       border-bottom:
-        1px solid rgba(224, 0, 0, 0.15);
+        1px solid rgba(224,0,0,0.15);
     }
 
     /* =========================
@@ -374,7 +383,6 @@
       min-height: 100vh;
 
       display: flex;
-
       align-items: center;
 
       overflow: hidden;
@@ -386,7 +394,6 @@
 
     .hero-bg {
       position: absolute;
-
       inset: 0;
 
       z-index: -5;
@@ -395,14 +402,14 @@
 
         radial-gradient(
           ellipse 70% 65% at 75% 50%,
-          rgba(224, 0, 0, 0.20) 0%,
-          rgba(120, 0, 0, 0.08) 35%,
+          rgba(224,0,0,0.20) 0%,
+          rgba(120,0,0,0.08) 35%,
           transparent 70%
         ),
 
         radial-gradient(
           ellipse 50% 70% at 10% 85%,
-          rgba(224, 0, 0, 0.16) 0%,
+          rgba(224,0,0,0.16) 0%,
           transparent 65%
         ),
 
@@ -415,12 +422,11 @@
     }
 
     /* =========================
-       HERO FOTO / LOGO
+       HERO LOGO / FOTO
     ========================= */
 
     .hero-photo {
       position: absolute;
-
       inset: 0;
 
       width: 100%;
@@ -438,7 +444,6 @@
       height: 100%;
 
       object-fit: cover;
-
       object-position: center;
 
       filter:
@@ -454,7 +459,6 @@
 
     .hero-photo-mask {
       position: absolute;
-
       inset: 0;
 
       z-index: 1;
@@ -463,105 +467,25 @@
 
         radial-gradient(
           ellipse 55% 70% at 75% 50%,
-          rgba(190, 0, 0, 0.32) 0%,
-          rgba(120, 0, 0, 0.13) 35%,
+          rgba(190,0,0,0.32) 0%,
+          rgba(120,0,0,0.13) 35%,
           transparent 72%
         ),
 
         linear-gradient(
           90deg,
-          rgba(0, 0, 0, 0.96) 0%,
-          rgba(0, 0, 0, 0.84) 28%,
-          rgba(0, 0, 0, 0.60) 60%,
-          rgba(0, 0, 0, 0.82) 100%
+          rgba(0,0,0,0.96) 0%,
+          rgba(0,0,0,0.84) 28%,
+          rgba(0,0,0,0.60) 60%,
+          rgba(0,0,0,0.82) 100%
         ),
 
         linear-gradient(
           180deg,
-          rgba(0, 0, 0, 0.80) 0%,
-          rgba(0, 0, 0, 0.25) 42%,
-          rgba(0, 0, 0, 0.88) 100%
+          rgba(0,0,0,0.80) 0%,
+          rgba(0,0,0,0.25) 42%,
+          rgba(0,0,0,0.88) 100%
         );
-    }
-
-    /* =========================
-       PARTICELLE
-    ========================= */
-
-    .particles {
-      position: absolute;
-
-      inset: 0;
-
-      z-index: 2;
-
-      overflow: hidden;
-
-      pointer-events: none;
-    }
-
-    .particle {
-      position: absolute;
-
-      bottom: -20px;
-
-      width: 4px;
-      height: 4px;
-
-      background: #ff3333;
-
-      border-radius: 50%;
-
-      opacity: 0;
-
-      box-shadow:
-        0 0 6px #ff3333,
-        0 0 14px rgba(224, 0, 0, 0.8),
-        0 0 25px rgba(224, 0, 0, 0.35);
-
-      animation:
-        particleFloat linear infinite;
-    }
-
-    .particle.small {
-      width: 2px;
-      height: 2px;
-    }
-
-    .particle.big {
-      width: 6px;
-      height: 6px;
-    }
-
-    @keyframes particleFloat {
-
-      0% {
-        transform:
-          translate3d(0, 110vh, 0)
-          scale(0.4);
-
-        opacity: 0;
-      }
-
-      10% {
-        opacity: 0.85;
-      }
-
-      45% {
-        opacity: 0.65;
-      }
-
-      75% {
-        opacity: 0.4;
-      }
-
-      100% {
-        transform:
-          translate3d(80px, -15vh, 0)
-          scale(1.2);
-
-        opacity: 0;
-      }
     }
 
     /* =========================
@@ -572,7 +496,6 @@
       position: absolute;
 
       right: -2%;
-
       top: 50%;
 
       transform: translateY(-50%);
@@ -581,7 +504,7 @@
       height: 88%;
 
       border:
-        2px solid rgba(255, 255, 255, 0.045);
+        2px solid rgba(255,255,255,0.045);
 
       border-radius: 14px;
 
@@ -600,10 +523,9 @@
       width: 2px;
 
       background:
-        rgba(255, 255, 255, 0.045);
+        rgba(255,255,255,0.045);
 
-      transform:
-        translateX(-50%);
+      transform: translateX(-50%);
     }
 
     .field-pattern::after {
@@ -618,12 +540,11 @@
       height: 130px;
 
       border:
-        2px solid rgba(255, 255, 255, 0.045);
+        2px solid rgba(255,255,255,0.045);
 
       border-radius: 50%;
 
-      transform:
-        translate(-50%, -50%);
+      transform: translate(-50%, -50%);
     }
 
     /* =========================
@@ -632,54 +553,42 @@
 
     .hero-content {
       position: relative;
-
       z-index: 10;
 
-      padding:
-        0 5% 0 7%;
+      padding: 0 5% 0 7%;
 
       max-width: 660px;
     }
 
     .hero-badge {
       display: inline-flex;
-
       align-items: center;
-
       gap: 0.5rem;
 
-      background:
-        rgba(224, 0, 0, 0.86);
+      background: rgba(224,0,0,0.86);
 
       color: var(--white);
 
-      font-family:
-        'Barlow Condensed',
-        sans-serif;
+      font-family: 'Barlow Condensed', sans-serif;
 
       font-weight: 700;
-
       font-size: 0.78rem;
 
       letter-spacing: 2px;
-
       text-transform: uppercase;
 
-      padding:
-        0.35rem 1rem;
+      padding: 0.35rem 1rem;
 
       border-radius: 4px;
 
       margin-bottom: 1.4rem;
 
       box-shadow:
-        0 0 25px rgba(224, 0, 0, 0.22);
+        0 0 25px rgba(224,0,0,0.22);
     }
 
     .hero-title {
-      font-family:
-        'Bebas Neue',
-        sans-serif;
+      font-family: 'Bebas Neue', sans-serif;
 
       font-size:
         clamp(4.2rem, 10vw, 8.5rem);
@@ -691,18 +600,16 @@
 
     .hero-title .t-white {
       color: var(--white);
-
       display: block;
     }
 
     .hero-title .t-gold {
       color: var(--red-light);
-
       display: block;
 
       text-shadow:
-        0 0 25px rgba(224, 0, 0, 0.75),
-        0 0 60px rgba(224, 0, 0, 0.42);
+        0 0 25px rgba(224,0,0,0.75),
+        0 0 60px rgba(224,0,0,0.42);
     }
 
     .hero-title .t-outline {
@@ -715,9 +622,7 @@
     }
 
     .hero-sub {
-      font-family:
-        'Barlow Condensed',
-        sans-serif;
+      font-family: 'Barlow Condensed', sans-serif;
 
       font-weight: 700;
 
@@ -729,8 +634,7 @@
 
       color: var(--red-light);
 
-      margin:
-        1rem 0 1.6rem;
+      margin: 1rem 0 1.6rem;
     }
 
     .hero-desc {
@@ -739,14 +643,13 @@
       line-height: 1.75;
 
       color:
-        rgba(245, 245, 245, 0.72);
+        rgba(245,245,245,0.72);
 
       max-width: 460px;
     }
 
     .hero-cta {
       display: flex;
-
       flex-wrap: wrap;
 
       gap: 1rem;
@@ -759,9 +662,7 @@
     ========================= */
 
     .btn-gold {
-      font-family:
-        'Barlow Condensed',
-        sans-serif;
+      font-family: 'Barlow Condensed', sans-serif;
 
       font-weight: 700;
 
@@ -791,24 +692,21 @@
 
       box-shadow:
         0 4px 22px
-        rgba(224, 0, 0, 0.40);
+        rgba(224,0,0,0.40);
 
       transition: 0.2s;
     }
 
     .btn-gold:hover {
-      transform:
-        translateY(-3px);
+      transform: translateY(-3px);
 
       box-shadow:
         0 10px 34px
-        rgba(224, 0, 0, 0.62);
+        rgba(224,0,0,0.62);
     }
 
     .btn-outline {
-      font-family:
-        'Barlow Condensed',
-        sans-serif;
+      font-family: 'Barlow Condensed', sans-serif;
 
       font-weight: 700;
 
@@ -838,7 +736,7 @@
 
     .btn-outline:hover {
       background:
-        rgba(224, 0, 0, 0.12);
+        rgba(224,0,0,0.12);
 
       transform:
         translateY(-3px);
@@ -902,7 +800,7 @@
       line-height: 1.7;
 
       color:
-        rgba(245, 245, 245, 0.60);
+        rgba(245,245,245,0.60);
 
       max-width: 560px;
 
@@ -927,7 +825,7 @@
         var(--black-mid);
 
       border:
-        1px solid rgba(224, 0, 0, 0.14);
+        1px solid rgba(224,0,0,0.14);
 
       border-radius:
         14px;
@@ -950,12 +848,11 @@
 
       box-shadow:
         0 14px 44px
-        rgba(0, 0, 0, 0.60);
+        rgba(0,0,0,0.60);
     }
 
     .card-icon {
       font-size: 2.4rem;
-
       margin-bottom: 0.9rem;
     }
 
@@ -983,7 +880,7 @@
       line-height: 1.65;
 
       color:
-        rgba(245, 245, 245, 0.60);
+        rgba(245,245,245,0.60);
     }
 
     /* =========================
@@ -1006,7 +903,7 @@
         var(--black-mid);
 
       border:
-        1px solid rgba(224, 0, 0, 0.16);
+        1px solid rgba(224,0,0,0.16);
 
       border-radius:
         12px;
@@ -1032,7 +929,7 @@
         var(--red);
 
       background:
-        rgba(224, 0, 0, 0.07);
+        rgba(224,0,0,0.07);
 
       transform:
         translateY(-4px);
@@ -1063,7 +960,7 @@
       font-size: 0.8rem;
 
       color:
-        rgba(245, 245, 245, 0.45);
+        rgba(245,245,245,0.45);
 
       line-height: 1.4;
     }
@@ -1078,7 +975,7 @@
 
       border-top:
         2px solid
-        rgba(224, 0, 0, 0.30);
+        rgba(224,0,0,0.30);
 
       padding:
         3rem 7% 2rem;
@@ -1103,7 +1000,7 @@
 
       border-bottom:
         1px solid
-        rgba(255, 255, 255, 0.06);
+        rgba(255,255,255,0.06);
     }
 
     .footer-brand-block img {
@@ -1112,7 +1009,7 @@
       margin-bottom: 0.4rem;
 
       filter:
-        drop-shadow(0 0 8px rgba(224, 0, 0, 0.55));
+        drop-shadow(0 0 8px rgba(224,0,0,0.55));
     }
 
     .footer-tagline {
@@ -1129,7 +1026,7 @@
       text-transform: uppercase;
 
       color:
-        rgba(245, 245, 245, 0.35);
+        rgba(245,245,245,0.35);
     }
 
     .footer-nav {
@@ -1155,7 +1052,7 @@
       text-transform: uppercase;
 
       color:
-        rgba(245, 245, 245, 0.45);
+        rgba(245,245,245,0.45);
     }
 
     .footer-bottom {
@@ -1173,7 +1070,7 @@
       font-size: 0.82rem;
 
       color:
-        rgba(245, 245, 245, 0.25);
+        rgba(245,245,245,0.25);
     }
 
     /* =========================
@@ -1245,15 +1142,15 @@
 
           radial-gradient(
             ellipse at center,
-            rgba(180, 0, 0, 0.20),
+            rgba(180,0,0,0.20),
             transparent 70%
           ),
 
           linear-gradient(
             180deg,
-            rgba(0, 0, 0, 0.88) 0%,
-            rgba(0, 0, 0, 0.48) 45%,
-            rgba(0, 0, 0, 0.94) 100%
+            rgba(0,0,0,0.88) 0%,
+            rgba(0,0,0,0.48) 45%,
+            rgba(0,0,0,0.94) 100%
           );
       }
 
@@ -1345,19 +1242,11 @@
         3px;
     }
 
-    /* =========================
-       RIDUZIONE ANIMAZIONI
-    ========================= */
-
+    /* Riduce il movimento se richiesto dal dispositivo */
     @media (prefers-reduced-motion: reduce) {
 
       html {
         scroll-behavior: auto;
-      }
-
-      .particle {
-        animation: none;
-        display: none;
       }
 
       .reveal {
@@ -1372,8 +1261,13 @@
 
 </head>
 
-
 <body>
+
+  <!-- =========================
+       PARTICELLE
+  ========================= -->
+
+  <canvas id="particles"></canvas>
 
 
   <!-- =========================
@@ -1401,53 +1295,14 @@
 
     <ul class="nav-links">
 
-      <li>
-        <a href="index.html">
-          Home
-        </a>
-      </li>
-
-      <li>
-        <a href="calendario.html">
-          Calendario
-        </a>
-      </li>
-
-      <li>
-        <a href="risultati.html">
-          Risultati
-        </a>
-      </li>
-
-      <li>
-        <a href="classifica.html">
-          Classifica
-        </a>
-      </li>
-
-      <li>
-        <a href="marcatori.html">
-          Marcatori
-        </a>
-      </li>
-
-      <li>
-        <a href="squadre.html">
-          Squadre
-        </a>
-      </li>
-
-      <li>
-        <a href="regolamento.html">
-          Regolamento
-        </a>
-      </li>
-
-      <li>
-        <a href="contatti.html">
-          Contatti
-        </a>
-      </li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="calendario.html">Calendario</a></li>
+      <li><a href="risultati.html">Risultati</a></li>
+      <li><a href="classifica.html">Classifica</a></li>
+      <li><a href="marcatori.html">Marcatori</a></li>
+      <li><a href="squadre.html">Squadre</a></li>
+      <li><a href="regolamento.html">Regolamento</a></li>
+      <li><a href="contatti.html">Contatti</a></li>
 
     </ul>
 
@@ -1457,7 +1312,6 @@
       id="hamburger"
       aria-label="Apri menu"
       aria-expanded="false"
-      type="button"
     >
 
       <span></span>
@@ -1478,37 +1332,14 @@
     id="mobileMenu"
   >
 
-    <a href="index.html">
-      🏠 Home
-    </a>
-
-    <a href="calendario.html">
-      📅 Calendario
-    </a>
-
-    <a href="risultati.html">
-      📊 Risultati
-    </a>
-
-    <a href="classifica.html">
-      🏆 Classifica
-    </a>
-
-    <a href="marcatori.html">
-      ⚽ Marcatori
-    </a>
-
-    <a href="squadre.html">
-      👥 Squadre
-    </a>
-
-    <a href="regolamento.html">
-      📋 Regolamento
-    </a>
-
-    <a href="contatti.html">
-      📩 Contatti
-    </a>
+    <a href="index.html">🏠 Home</a>
+    <a href="calendario.html">📅 Calendario</a>
+    <a href="risultati.html">📊 Risultati</a>
+    <a href="classifica.html">🏆 Classifica</a>
+    <a href="marcatori.html">⚽ Marcatori</a>
+    <a href="squadre.html">👥 Squadre</a>
+    <a href="regolamento.html">📋 Regolamento</a>
+    <a href="contatti.html">📩 Contatti</a>
 
   </div>
 
@@ -1524,102 +1355,6 @@
 
     <div class="hero-bg"></div>
 
-
-    <!-- =========================
-         PARTICELLE
-    ========================= -->
-
-    <div
-      class="particles"
-      aria-hidden="true"
-    >
-
-      <span
-        class="particle small"
-        style="left:4%; animation-duration:11s; animation-delay:0s;"
-      ></span>
-
-      <span
-        class="particle"
-        style="left:9%; animation-duration:14s; animation-delay:2s;"
-      ></span>
-
-      <span
-        class="particle small"
-        style="left:15%; animation-duration:9s; animation-delay:4s;"
-      ></span>
-
-      <span
-        class="particle big"
-        style="left:21%; animation-duration:16s; animation-delay:1s;"
-      ></span>
-
-      <span
-        class="particle"
-        style="left:28%; animation-duration:12s; animation-delay:5s;"
-      ></span>
-
-      <span
-        class="particle small"
-        style="left:34%; animation-duration:10s; animation-delay:3s;"
-      ></span>
-
-      <span
-        class="particle"
-        style="left:40%; animation-duration:15s; animation-delay:6s;"
-      ></span>
-
-      <span
-        class="particle big"
-        style="left:47%; animation-duration:13s; animation-delay:2s;"
-      ></span>
-
-      <span
-        class="particle small"
-        style="left:53%; animation-duration:11s; animation-delay:7s;"
-      ></span>
-
-      <span
-        class="particle"
-        style="left:59%; animation-duration:17s; animation-delay:1s;"
-      ></span>
-
-      <span
-        class="particle"
-        style="left:65%; animation-duration:12s; animation-delay:4s;"
-      ></span>
-
-      <span
-        class="particle big"
-        style="left:71%; animation-duration:15s; animation-delay:6s;"
-      ></span>
-
-      <span
-        class="particle small"
-        style="left:77%; animation-duration:10s; animation-delay:3s;"
-      ></span>
-
-      <span
-        class="particle"
-        style="left:83%; animation-duration:14s; animation-delay:8s;"
-      ></span>
-
-      <span
-        class="particle big"
-        style="left:89%; animation-duration:16s; animation-delay:5s;"
-      ></span>
-
-      <span
-        class="particle small"
-        style="left:95%; animation-duration:11s; animation-delay:2s;"
-      ></span>
-
-    </div>
-
-
-    <!-- =========================
-         LOGO / SFONDO
-    ========================= -->
 
     <div class="hero-photo">
 
@@ -1638,16 +1373,10 @@
     <div class="field-pattern"></div>
 
 
-    <!-- =========================
-         HERO CONTENT
-    ========================= -->
-
     <div class="hero-content">
 
       <div class="hero-badge">
-
         🔥 Torneo Giovanile · Edizione 2026
-
       </div>
 
 
@@ -1669,9 +1398,7 @@
 
 
       <p class="hero-sub">
-
         ⚽ Calcio Giovanile · Passione &amp; Determinazione
-
       </p>
 
 
@@ -1707,293 +1434,275 @@
   </section>
 
 
-  <!-- =========================
-       BENVENUTO
-  ========================= -->
+  <main>
 
-  <section class="section">
+    <!-- =========================
+         BENVENUTO
+    ========================= -->
 
-    <div class="reveal">
+    <section class="section">
 
-      <div class="section-eyebrow">
-        Il Torneo
-      </div>
+      <div class="reveal">
 
-      <h2 class="section-title">
-        BENVENUTI ALLA<br>
-        SANTA CRUZ CUP!
-      </h2>
-
-      <p class="section-lead">
-
-        La Santa Cruz Cup è il torneo giovanile dove passione
-        e competizione si incontrano. Ogni partita è una storia
-        fatta di energia, talento e determinazione.
-        Che tu sia un giocatore, un tifoso o un curioso —
-        qui troverai emozioni vere.
-
-      </p>
-
-    </div>
-
-
-    <div class="cards-grid">
-
-
-      <div class="card reveal">
-
-        <div class="card-icon">
-          🏟️
+        <div class="section-eyebrow">
+          Il Torneo
         </div>
 
-        <div class="card-title">
-          Fase a Gironi
-        </div>
+        <h2 class="section-title">
+          BENVENUTI ALLA<br>
+          SANTA CRUZ CUP!
+        </h2>
 
-        <p class="card-text">
+        <p class="section-lead">
 
-          Due gironi all'italiana.
-          Vittoria = 3 pt, Pareggio = 1 pt,
-          Sconfitta = 0 pt.
-          Le prime 4 di ogni girone accedono
-          alla fase successiva.
+          La Santa Cruz Cup è il torneo giovanile dove passione
+          e competizione si incontrano. Ogni partita è una storia
+          fatta di energia, talento e determinazione.
+          Che tu sia un giocatore, un tifoso o un curioso —
+          qui troverai emozioni vere.
 
         </p>
 
       </div>
 
 
-      <div class="card reveal">
+      <div class="cards-grid">
 
-        <div class="card-icon">
-          ⚔️
+
+        <div class="card reveal">
+
+          <div class="card-icon">🏟️</div>
+
+          <div class="card-title">
+            Fase a Gironi
+          </div>
+
+          <p class="card-text">
+
+            Due gironi all'italiana.
+            Vittoria = 3 pt, Pareggio = 1 pt,
+            Sconfitta = 0 pt.
+            Le prime 4 di ogni girone accedono
+            alla fase successiva.
+
+          </p>
+
         </div>
 
-        <div class="card-title">
-          Quarti &amp; Semifinali
+
+        <div class="card reveal">
+
+          <div class="card-icon">⚔️</div>
+
+          <div class="card-title">
+            Quarti &amp; Semifinali
+          </div>
+
+          <p class="card-text">
+
+            Scontri incrociati tra i gironi:
+            1°A vs 4°B, 2°B vs 3°A,
+            1°B vs 4°A, 2°A vs 3°B.
+            I vincitori si sfidano in semifinale.
+
+          </p>
+
         </div>
 
-        <p class="card-text">
 
-          Scontri incrociati tra i gironi:
-          1°A vs 4°B, 2°B vs 3°A,
-          1°B vs 4°A, 2°A vs 3°B.
-          I vincitori si sfidano in semifinale.
+        <div class="card reveal">
 
-        </p>
+          <div class="card-icon">🏆</div>
+
+          <div class="card-title">
+            Finale
+          </div>
+
+          <p class="card-text">
+
+            Grande finale tra le due semifinaliste.
+            In caso di parità:
+            supplementari 2×5 min, poi rigori.
+            Si gioca anche la finale per il 3° posto.
+
+          </p>
+
+        </div>
+
+
+        <div class="card reveal">
+
+          <div class="card-icon">🥇</div>
+
+          <div class="card-title">
+            Premi
+          </div>
+
+          <p class="card-text">
+
+            Premio e medaglie al 1° posto.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         QUICK LINKS
+    ========================= -->
+
+    <section class="section section-alt">
+
+      <div class="reveal">
+
+        <div class="section-eyebrow">
+          Navigazione Rapida
+        </div>
+
+        <h2 class="section-title">
+          TUTTO IL TORNEO
+        </h2>
 
       </div>
 
 
-      <div class="card reveal">
+      <div class="quicklinks-grid">
 
-        <div class="card-icon">
-          🏆
-        </div>
 
-        <div class="card-title">
-          Finale
-        </div>
+        <a
+          href="calendario.html"
+          class="ql-item reveal"
+        >
 
-        <p class="card-text">
+          <span class="ql-icon">📅</span>
 
-          Grande finale tra le due semifinaliste.
-          In caso di parità:
-          supplementari 2×5 min, poi rigori.
-          Si gioca anche la finale per il 3° posto.
+          <span class="ql-label">
+            Calendario
+          </span>
 
-        </p>
+          <span class="ql-desc">
+            Date e orari di tutte le partite
+          </span>
+
+        </a>
+
+
+        <a
+          href="risultati.html"
+          class="ql-item reveal"
+        >
+
+          <span class="ql-icon">📊</span>
+
+          <span class="ql-label">
+            Risultati
+          </span>
+
+          <span class="ql-desc">
+            Punteggi e recap partite
+          </span>
+
+        </a>
+
+
+        <a
+          href="classifica.html"
+          class="ql-item reveal"
+        >
+
+          <span class="ql-icon">🏆</span>
+
+          <span class="ql-label">
+            Classifica
+          </span>
+
+          <span class="ql-desc">
+            Classifica del torneo
+          </span>
+
+        </a>
+
+
+        <a
+          href="marcatori.html"
+          class="ql-item reveal"
+        >
+
+          <span class="ql-icon">⚽</span>
+
+          <span class="ql-label">
+            Marcatori
+          </span>
+
+          <span class="ql-desc">
+            I cannonieri della stagione
+          </span>
+
+        </a>
+
+
+        <a
+          href="squadre.html"
+          class="ql-item reveal"
+        >
+
+          <span class="ql-icon">👥</span>
+
+          <span class="ql-label">
+            Squadre
+          </span>
+
+          <span class="ql-desc">
+            Rose e informazioni sui team
+          </span>
+
+        </a>
+
+
+        <a
+          href="regolamento.html"
+          class="ql-item reveal"
+        >
+
+          <span class="ql-icon">📋</span>
+
+          <span class="ql-label">
+            Regolamento
+          </span>
+
+          <span class="ql-desc">
+            Regole del torneo
+          </span>
+
+        </a>
+
+
+        <a
+          href="contatti.html"
+          class="ql-item reveal"
+        >
+
+          <span class="ql-icon">📩</span>
+
+          <span class="ql-label">
+            Contatti
+          </span>
+
+          <span class="ql-desc">
+            Contatta l'organizzazione
+          </span>
+
+        </a>
 
       </div>
 
+    </section>
 
-      <div class="card reveal">
-
-        <div class="card-icon">
-          🥇
-        </div>
-
-        <div class="card-title">
-          Premi
-        </div>
-
-        <p class="card-text">
-
-          Premio e medaglie al 1° posto.
-
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       QUICK LINKS
-  ========================= -->
-
-  <section class="section section-alt">
-
-    <div class="reveal">
-
-      <div class="section-eyebrow">
-        Navigazione Rapida
-      </div>
-
-      <h2 class="section-title">
-        TUTTO IL TORNEO
-      </h2>
-
-    </div>
-
-
-    <div class="quicklinks-grid">
-
-
-      <a
-        href="calendario.html"
-        class="ql-item reveal"
-      >
-
-        <span class="ql-icon">
-          📅
-        </span>
-
-        <span class="ql-label">
-          Calendario
-        </span>
-
-        <span class="ql-desc">
-          Date e orari di tutte le partite
-        </span>
-
-      </a>
-
-
-      <a
-        href="risultati.html"
-        class="ql-item reveal"
-      >
-
-        <span class="ql-icon">
-          📊
-        </span>
-
-        <span class="ql-label">
-          Risultati
-        </span>
-
-        <span class="ql-desc">
-          Punteggi e recap partite
-        </span>
-
-      </a>
-
-
-      <a
-        href="classifica.html"
-        class="ql-item reveal"
-      >
-
-        <span class="ql-icon">
-          🏆
-        </span>
-
-        <span class="ql-label">
-          Classifica
-        </span>
-
-        <span class="ql-desc">
-          Classifica del torneo
-        </span>
-
-      </a>
-
-
-      <a
-        href="marcatori.html"
-        class="ql-item reveal"
-      >
-
-        <span class="ql-icon">
-          ⚽
-        </span>
-
-        <span class="ql-label">
-          Marcatori
-        </span>
-
-        <span class="ql-desc">
-          I cannonieri della stagione
-        </span>
-
-      </a>
-
-
-      <a
-        href="squadre.html"
-        class="ql-item reveal"
-      >
-
-        <span class="ql-icon">
-          👥
-        </span>
-
-        <span class="ql-label">
-          Squadre
-        </span>
-
-        <span class="ql-desc">
-          Rose e informazioni sui team
-        </span>
-
-      </a>
-
-
-      <a
-        href="regolamento.html"
-        class="ql-item reveal"
-      >
-
-        <span class="ql-icon">
-          📋
-        </span>
-
-        <span class="ql-label">
-          Regolamento
-        </span>
-
-        <span class="ql-desc">
-          Regole del torneo
-        </span>
-
-      </a>
-
-
-      <a
-        href="contatti.html"
-        class="ql-item reveal"
-      >
-
-        <span class="ql-icon">
-          📩
-        </span>
-
-        <span class="ql-label">
-          Contatti
-        </span>
-
-        <span class="ql-desc">
-          Contatta l'organizzazione
-        </span>
-
-      </a>
-
-    </div>
-
-  </section>
+  </main>
 
 
   <!-- =========================
@@ -2012,7 +1721,6 @@
           <img
             src="logo.png"
             alt="Logo Santa Cruz Cup"
-            loading="lazy"
           >
 
         </a>
@@ -2031,37 +1739,14 @@
         aria-label="Footer navigation"
       >
 
-        <a href="index.html">
-          Home
-        </a>
-
-        <a href="calendario.html">
-          Calendario
-        </a>
-
-        <a href="risultati.html">
-          Risultati
-        </a>
-
-        <a href="classifica.html">
-          Classifica
-        </a>
-
-        <a href="marcatori.html">
-          Marcatori
-        </a>
-
-        <a href="squadre.html">
-          Squadre
-        </a>
-
-        <a href="regolamento.html">
-          Regolamento
-        </a>
-
-        <a href="contatti.html">
-          Contatti
-        </a>
+        <a href="index.html">Home</a>
+        <a href="calendario.html">Calendario</a>
+        <a href="risultati.html">Risultati</a>
+        <a href="classifica.html">Classifica</a>
+        <a href="marcatori.html">Marcatori</a>
+        <a href="squadre.html">Squadre</a>
+        <a href="regolamento.html">Regolamento</a>
+        <a href="contatti.html">Contatti</a>
 
       </nav>
 
@@ -2096,7 +1781,8 @@
 
     document.addEventListener(
       'DOMContentLoaded',
-      function () {
+      function() {
+
 
         /* =========================
            MENU MOBILE
@@ -2113,14 +1799,13 @@
 
           hamburger.addEventListener(
             'click',
-            function () {
+            function() {
 
-              var isOpen =
-                mobileMenu.classList.toggle('open');
+              mobileMenu.classList.toggle('open');
 
               hamburger.setAttribute(
                 'aria-expanded',
-                isOpen ? 'true' : 'false'
+                mobileMenu.classList.contains('open')
               );
 
             }
@@ -2129,7 +1814,7 @@
 
           document.addEventListener(
             'click',
-            function (e) {
+            function(e) {
 
               if (
                 !hamburger.contains(e.target) &&
@@ -2152,11 +1837,11 @@
           mobileMenu
             .querySelectorAll('a')
             .forEach(
-              function (a) {
+              function(a) {
 
                 a.addEventListener(
                   'click',
-                  function () {
+                  function() {
 
                     mobileMenu.classList.remove('open');
 
@@ -2184,10 +1869,10 @@
 
           var observer =
             new IntersectionObserver(
-              function (entries) {
+              function(entries) {
 
                 entries.forEach(
-                  function (entry) {
+                  function(entry) {
 
                     if (
                       entry.isIntersecting
@@ -2216,7 +1901,7 @@
           document
             .querySelectorAll('.reveal')
             .forEach(
-              function (el) {
+              function(el) {
 
                 observer.observe(el);
 
@@ -2228,7 +1913,7 @@
           document
             .querySelectorAll('.reveal')
             .forEach(
-              function (el) {
+              function(el) {
 
                 el.classList.add('in');
 
@@ -2252,7 +1937,7 @@
         document
           .querySelectorAll('.nav-links a')
           .forEach(
-            function (a) {
+            function(a) {
 
               a.classList.toggle(
                 'active',
@@ -2262,6 +1947,338 @@
 
             }
           );
+
+
+        /* =========================
+           PARTICELLE
+        ========================= */
+
+        var canvas =
+          document.getElementById('particles');
+
+        if (!canvas) return;
+
+        var ctx =
+          canvas.getContext('2d');
+
+        var particles = [];
+
+        var width;
+        var height;
+
+        var mouse = {
+          x: null,
+          y: null,
+          radius: 130
+        };
+
+
+        function resizeCanvas() {
+
+          width =
+            canvas.width =
+              window.innerWidth;
+
+          height =
+            canvas.height =
+              window.innerHeight;
+
+          createParticles();
+
+        }
+
+
+        function createParticles() {
+
+          particles = [];
+
+          var amount =
+            Math.min(
+              95,
+              Math.max(
+                35,
+                Math.floor(
+                  (width * height) / 14000
+                )
+              )
+            );
+
+
+          for (
+            var i = 0;
+            i < amount;
+            i++
+          ) {
+
+            particles.push({
+
+              x:
+                Math.random() *
+                width,
+
+              y:
+                Math.random() *
+                height,
+
+              size:
+                Math.random() *
+                2.2 +
+                0.5,
+
+              speedX:
+                (Math.random() - 0.5) *
+                0.35,
+
+              speedY:
+                (Math.random() - 0.5) *
+                0.35,
+
+              opacity:
+                Math.random() *
+                0.65 +
+                0.15,
+
+              pulse:
+                Math.random() *
+                Math.PI *
+                2
+
+            });
+
+          }
+
+        }
+
+
+        function drawParticles() {
+
+          ctx.clearRect(
+            0,
+            0,
+            width,
+            height
+          );
+
+
+          for (
+            var i = 0;
+            i < particles.length;
+            i++
+          ) {
+
+            var p =
+              particles[i];
+
+
+            p.x += p.speedX;
+            p.y += p.speedY;
+
+            p.pulse += 0.018;
+
+
+            if (p.x < -10)
+              p.x = width + 10;
+
+            if (p.x > width + 10)
+              p.x = -10;
+
+            if (p.y < -10)
+              p.y = height + 10;
+
+            if (p.y > height + 10)
+              p.y = -10;
+
+
+            var pulseOpacity =
+              p.opacity +
+              Math.sin(p.pulse) *
+              0.15;
+
+
+            /* Interazione con mouse */
+
+            if (
+              mouse.x !== null &&
+              mouse.y !== null
+            ) {
+
+              var dx =
+                mouse.x - p.x;
+
+              var dy =
+                mouse.y - p.y;
+
+              var distance =
+                Math.sqrt(
+                  dx * dx +
+                  dy * dy
+                );
+
+
+              if (
+                distance <
+                mouse.radius
+              ) {
+
+                var force =
+                  (mouse.radius - distance) /
+                  mouse.radius;
+
+                p.x -=
+                  (dx / distance) *
+                  force *
+                  0.35;
+
+                p.y -=
+                  (dy / distance) *
+                  force *
+                  0.35;
+
+              }
+
+            }
+
+
+            ctx.beginPath();
+
+            ctx.arc(
+              p.x,
+              p.y,
+              p.size,
+              0,
+              Math.PI * 2
+            );
+
+
+            ctx.fillStyle =
+              'rgba(255,40,40,' +
+              Math.max(
+                0.05,
+                pulseOpacity
+              ) +
+              ')';
+
+
+            ctx.shadowBlur = 8;
+
+            ctx.shadowColor =
+              'rgba(224,0,0,0.65)';
+
+
+            ctx.fill();
+
+          }
+
+
+          /* Linee tra particelle vicine */
+
+          for (
+            var a = 0;
+            a < particles.length;
+            a++
+          ) {
+
+            for (
+              var b = a + 1;
+              b < particles.length;
+              b++
+            ) {
+
+              var dx =
+                particles[a].x -
+                particles[b].x;
+
+              var dy =
+                particles[a].y -
+                particles[b].y;
+
+              var distance =
+                Math.sqrt(
+                  dx * dx +
+                  dy * dy
+                );
+
+
+              if (
+                distance < 105
+              ) {
+
+                var opacity =
+                  (1 - distance / 105) *
+                  0.12;
+
+
+                ctx.beginPath();
+
+                ctx.moveTo(
+                  particles[a].x,
+                  particles[a].y
+                );
+
+                ctx.lineTo(
+                  particles[b].x,
+                  particles[b].y
+                );
+
+
+                ctx.strokeStyle =
+                  'rgba(224,0,0,' +
+                  opacity +
+                  ')';
+
+                ctx.lineWidth =
+                  0.6;
+
+                ctx.stroke();
+
+              }
+
+            }
+
+          }
+
+
+          requestAnimationFrame(
+            drawParticles
+          );
+
+        }
+
+
+        window.addEventListener(
+          'resize',
+          resizeCanvas
+        );
+
+
+        window.addEventListener(
+          'mousemove',
+          function(e) {
+
+            mouse.x =
+              e.clientX;
+
+            mouse.y =
+              e.clientY;
+
+          }
+        );
+
+
+        window.addEventListener(
+          'mouseout',
+          function() {
+
+            mouse.x = null;
+            mouse.y = null;
+
+          }
+        );
+
+
+        resizeCanvas();
+
+        drawParticles();
 
       }
     );
