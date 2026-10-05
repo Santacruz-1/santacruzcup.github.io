@@ -1,19 +1,5 @@
 [
   {
-    "id": "P001",
-    "casa": "m",
-    "casa_id": "T002",
-    "trasferta": "villa ceccolini",
-    "trasferta_id": "T001",
-    "ospite": "villa ceccolini",
-    "data": "12/10/2026",
-    "ora": "12:11",
-    "stato": "programmata",
-    "risultato": null,
-    "golCasa": null,
-    "golOspite": null
-  },
-  {
     "id": "P002",
     "casa": "muraglia",
     "casa_id": "T003",
