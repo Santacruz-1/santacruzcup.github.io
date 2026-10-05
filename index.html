@@ -1,2962 +1,2752 @@
 <!DOCTYPE html>
 <html lang="it">
-
 <head>
+  
+<meta name="google-site-verification" content="OXqVYPN48gm2dml-nH2fhetKvgFPKIREkpq0H9qwz_o" />
+  
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta charset="UTF-8">
+<title>Santa Cruz Cup – Torneo Giovanile di Calcio</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta
+  name="description"
+  content="Santa Cruz Cup – Il torneo giovanile di calcio più appassionante della stagione. Calendario, risultati, classifica e marcatori."
+>
 
-  <!-- GOOGLE VERIFICATION -->
-  <meta
-    name="google-site-verification"
-    content="OXqVYPN48gm2dml-nH2fhetKvgFPKIREkpq0H9qwz_o"
-  >
+<link
+  href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,700&family=Barlow:wght@400;500;600&display=swap"
+  rel="stylesheet"
+>
 
-  <!-- SEO -->
-  <title>Santa Cruz Cup – Torneo Giovanile di Calcio</title>
+<style>
 
-  <meta
-    name="description"
-    content="Santa Cruz Cup – Torneo giovanile di calcio. Calendario, risultati, classifica, marcatori e squadre."
-  >
+/* ═══════════════════════════════════════
+   VARIABLES
+═══════════════════════════════════════ */
 
-  <meta name="robots" content="index, follow">
+:root {
 
-  <link
-    rel="canonical"
-    href="https://santacruz-1.github.io/"
-  >
+  --red: #E00000;
+  --red-light: #FF3333;
+  --red-dark: #8B0000;
 
-  <!-- =========================
-       GOOGLE / SOCIAL PREVIEW
-  ========================= -->
+  --black: #050505;
+  --black-soft: #0B0B0B;
+  --black-mid: #111111;
+  --black-light: #1A1A1A;
 
-  <meta
-    property="og:title"
-    content="Santa Cruz Cup – Torneo Giovanile di Calcio"
-  >
+  --white: #F5F5F5;
 
-  <meta
-    property="og:description"
-    content="Calendario, risultati, classifica, marcatori e squadre della Santa Cruz Cup."
-  >
+  --radius: 10px;
+}
 
-  <meta
-    property="og:type"
-    content="website"
-  >
 
-  <meta
-    property="og:url"
-    content="https://santacruz-1.github.io/"
-  >
+/* ═══════════════════════════════════════
+   RESET
+═══════════════════════════════════════ */
 
-  <meta
-    property="og:site_name"
-    content="Santa Cruz Cup"
-  >
+*,
+*::before,
+*::after {
 
-  <meta
-    property="og:image"
-    content="https://santacruz-1.github.io/logo.png"
-  >
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 
-  <meta
-    property="og:image:secure_url"
-    content="https://santacruz-1.github.io/logo.png"
-  >
+}
 
-  <meta
-    property="og:image:type"
-    content="image/png"
-  >
+html {
 
-  <meta
-    property="og:image:alt"
-    content="Logo Santa Cruz Cup"
-  >
+  scroll-behavior: smooth;
 
-  <meta
-    property="og:image:width"
-    content="1200"
-  >
+}
 
-  <meta
-    property="og:image:height"
-    content="630"
-  >
+body {
 
-  <!-- TWITTER / X -->
-  <meta
-    name="twitter:card"
-    content="summary_large_image"
-  >
+  background: var(--black);
+  color: var(--white);
 
-  <meta
-    name="twitter:title"
-    content="Santa Cruz Cup – Torneo Giovanile di Calcio"
-  >
+  font-family: 'Barlow', sans-serif;
 
-  <meta
-    name="twitter:description"
-    content="Il torneo giovanile di calcio. Calendario, risultati, classifica e marcatori."
-  >
+  overflow-x: hidden;
 
-  <meta
-    name="twitter:image"
-    content="https://santacruz-1.github.io/logo.png"
-  >
+  line-height: 1.5;
 
-  <meta
-    name="twitter:image:alt"
-    content="Logo Santa Cruz Cup"
-  >
+}
 
-  <!-- FAVICON -->
-  <link
-    rel="icon"
-    type="image/png"
-    href="logo.png"
-  >
+img {
 
-  <link
-    rel="apple-touch-icon"
-    href="logo.png"
-  >
+  max-width: 100%;
+  display: block;
 
-  <!-- FONT -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,700&family=Barlow:wght@400;500;600&display=swap"
-    rel="stylesheet"
-  >
+}
 
-  <!-- =========================
-       DATI STRUTTURATI GOOGLE
-  ========================= -->
+a {
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Santa Cruz Cup",
-    "alternateName": "Santa Cruz Cup – Torneo Giovanile di Calcio",
-    "url": "https://santacruz-1.github.io/",
-    "description": "Torneo giovanile di calcio Santa Cruz Cup. Calendario, risultati, classifica, marcatori e squadre.",
-    "image": "https://santacruz-1.github.io/logo.png"
+  text-decoration: none;
+  color: inherit;
+
+}
+
+
+/* ═══════════════════════════════════════
+   NAVBAR
+═══════════════════════════════════════ */
+
+.navbar {
+
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 200;
+
+  height: 66px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 3rem;
+
+  background: rgba(5,5,5,0.94);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border-bottom: 2px solid var(--red);
+
+  box-shadow:
+    0 4px 25px rgba(0,0,0,0.55);
+
+}
+
+
+.nav-brand {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.7rem;
+
+  flex-shrink: 0;
+
+}
+
+
+.nav-brand img {
+
+  height: 50px !important;
+
+  width: auto !important;
+
+  max-width: 160px !important;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(0 0 8px rgba(224,0,0,0.55));
+
+  flex-shrink: 0;
+
+}
+
+
+.nav-brand-text {
+
+  font-family: 'Bebas Neue', sans-serif;
+
+  font-size: 1.6rem;
+
+  letter-spacing: 2px;
+
+  color: var(--red-light);
+
+  text-shadow:
+    0 0 22px rgba(224,0,0,0.55);
+
+  white-space: nowrap;
+
+}
+
+
+.nav-links {
+
+  display: flex;
+
+  list-style: none;
+
+  gap: 0.1rem;
+
+}
+
+
+.nav-links a {
+
+  font-family: 'Barlow Condensed', sans-serif;
+
+  font-weight: 700;
+
+  font-size: 0.82rem;
+
+  letter-spacing: 1.4px;
+
+  text-transform: uppercase;
+
+  color: rgba(245,245,245,0.8);
+
+  padding: 0.45rem 0.75rem;
+
+  border-radius: 5px;
+
+  transition:
+    color 0.18s,
+    background 0.18s;
+
+}
+
+
+.nav-links a:hover,
+.nav-links a.active {
+
+  color: var(--red-light);
+
+  background: rgba(224,0,0,0.12);
+
+}
+
+
+/* ═══════════════════════════════════════
+   HAMBURGER
+═══════════════════════════════════════ */
+
+.hamburger {
+
+  display: none;
+
+  flex-direction: column;
+
+  gap: 5px;
+
+  cursor: pointer;
+
+  padding: 4px;
+
+  background: none;
+
+  border: none;
+
+}
+
+
+.hamburger span {
+
+  width: 26px;
+
+  height: 2px;
+
+  background: var(--red-light);
+
+  border-radius: 2px;
+
+  display: block;
+
+  transition: all 0.3s;
+
+}
+
+
+/* ═══════════════════════════════════════
+   MOBILE MENU
+═══════════════════════════════════════ */
+
+.mobile-menu {
+
+  display: none;
+
+  position: fixed;
+
+  top: 66px;
+
+  left: 0;
+  right: 0;
+
+  background: rgba(5,5,5,0.98);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border-bottom: 2px solid var(--red);
+
+  z-index: 199;
+
+  padding: 1rem 2rem 1.5rem;
+
+  flex-direction: column;
+
+  gap: 0.2rem;
+
+}
+
+
+.mobile-menu.open {
+
+  display: flex;
+
+}
+
+
+.mobile-menu a {
+
+  font-family: 'Barlow Condensed', sans-serif;
+
+  font-weight: 700;
+
+  font-size: 1.1rem;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+
+  color: rgba(245,245,245,0.85);
+
+  padding: 0.75rem 0;
+
+  border-bottom:
+    1px solid rgba(224,0,0,0.15);
+
+  transition: color 0.18s;
+
+}
+
+
+.mobile-menu a:last-child {
+
+  border-bottom: none;
+
+}
+
+
+.mobile-menu a:hover {
+
+  color: var(--red-light);
+
+}
+
+
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+
+.hero {
+
+  position: relative;
+
+  min-height: 100vh;
+
+  display: flex;
+
+  align-items: center;
+
+  overflow: hidden;
+
+  padding-top: 66px;
+
+  isolation: isolate;
+
+}
+
+
+/* ═══════════════════════════════════════
+   HERO BACKGROUND
+═══════════════════════════════════════ */
+
+.hero-bg {
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -5;
+
+  background:
+
+    radial-gradient(
+      ellipse 70% 65% at 75% 50%,
+      rgba(224,0,0,0.20) 0%,
+      rgba(120,0,0,0.08) 35%,
+      transparent 70%
+    ),
+
+    radial-gradient(
+      ellipse 50% 70% at 10% 85%,
+      rgba(224,0,0,0.16) 0%,
+      transparent 65%
+    ),
+
+    linear-gradient(
+      145deg,
+      #000000 0%,
+      #070707 45%,
+      #120000 100%
+    );
+
+}
+
+
+/* ═══════════════════════════════════════
+   HERO PHOTO — FILIGRANA
+═══════════════════════════════════════ */
+
+.hero-photo {
+
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: -4;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+}
+
+
+.hero-photo img {
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center 25%;
+
+  filter:
+
+    grayscale(15%)
+
+    saturate(0.8)
+
+    contrast(1.08)
+
+    brightness(0.42);
+
+  opacity: 0.30;
+
+  transform: scale(1.03);
+
+}
+
+
+/* ═══════════════════════════════════════
+   PHOTO OVERLAY
+═══════════════════════════════════════ */
+
+.hero-photo-mask {
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  background:
+
+    /* Glow rosso principale */
+
+    radial-gradient(
+      ellipse 55% 70% at 75% 50%,
+      rgba(190,0,0,0.32) 0%,
+      rgba(120,0,0,0.13) 35%,
+      transparent 72%
+    ),
+
+    /* Oscuramento laterale */
+
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,0.96) 0%,
+      rgba(0,0,0,0.84) 28%,
+      rgba(0,0,0,0.60) 60%,
+      rgba(0,0,0,0.82) 100%
+    ),
+
+    /* Oscuramento verticale */
+
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,0.80) 0%,
+      rgba(0,0,0,0.25) 42%,
+      rgba(0,0,0,0.88) 100%
+    );
+
+}
+
+
+/* ═══════════════════════════════════════
+   FIELD PATTERN
+═══════════════════════════════════════ */
+
+.field-pattern {
+
+  position: absolute;
+
+  right: -2%;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 54%;
+
+  height: 88%;
+
+  border:
+    2px solid rgba(255,255,255,0.045);
+
+  border-radius: 14px;
+
+  z-index: -1;
+
+}
+
+
+.field-pattern::before {
+
+  content: '';
+
+  position: absolute;
+
+  left: 50%;
+
+  top: 0;
+  bottom: 0;
+
+  width: 2px;
+
+  background:
+    rgba(255,255,255,0.045);
+
+  transform:
+    translateX(-50%);
+
+}
+
+
+.field-pattern::after {
+
+  content: '';
+
+  position: absolute;
+
+  left: 50%;
+
+  top: 50%;
+
+  width: 130px;
+  height: 130px;
+
+  border:
+    2px solid rgba(255,255,255,0.045);
+
+  border-radius: 50%;
+
+  transform:
+    translate(-50%, -50%);
+
+}
+
+
+/* ═══════════════════════════════════════
+   SPARKS
+═══════════════════════════════════════ */
+
+.sparks {
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: 4;
+
+}
+
+
+.spark {
+
+  position: absolute;
+
+  border-radius: 50%;
+
+  animation:
+    sparkFloat linear infinite;
+
+  opacity: 0;
+
+}
+
+
+@keyframes sparkFloat {
+
+  0% {
+
+    opacity: 0;
+
+    transform:
+      translateY(0)
+      scale(1);
+
   }
-  </script>
-
-  <style>
-
-    :root {
-      --red: #E00000;
-      --red-light: #FF3333;
-      --red-dark: #8B0000;
-
-      --black: #050505;
-      --black-soft: #0B0B0B;
-      --black-mid: #111111;
-      --black-light: #1A1A1A;
-
-      --white: #F5F5F5;
-
-      --radius: 10px;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background: var(--black);
-      color: var(--white);
-      font-family: 'Barlow', sans-serif;
-      overflow-x: hidden;
-      line-height: 1.5;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* =========================
-       PARTICELLE
-    ========================= */
-
-    #particles {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-      opacity: 0.75;
-    }
-
-    .navbar,
-    .mobile-menu,
-    main,
-    footer {
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero {
-      position: relative;
-      z-index: 1;
-    }
-
-    /* =========================
-       NAVBAR
-    ========================= */
-
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 200;
-
-      height: 66px;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      padding: 0 3rem;
-
-      background: rgba(5,5,5,0.94);
-
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-
-      border-bottom: 2px solid var(--red);
-
-      box-shadow: 0 4px 25px rgba(0,0,0,0.55);
-    }
-
-    .nav-brand {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      flex-shrink: 0;
-    }
-
-    .nav-brand img {
-      height: 50px;
-      width: auto;
-      max-width: 160px;
-      object-fit: contain;
-
-      filter:
-        drop-shadow(0 0 8px rgba(224,0,0,0.55));
-    }
-
-    .nav-brand-text {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.6rem;
-      letter-spacing: 2px;
-      color: var(--red-light);
-
-      text-shadow:
-        0 0 22px rgba(224,0,0,0.55);
-
-      white-space: nowrap;
-    }
-
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 0.1rem;
-    }
-
-    .nav-links a {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 0.82rem;
-      letter-spacing: 1.4px;
-      text-transform: uppercase;
 
-      color: rgba(245,245,245,0.8);
+  20% {
 
-      padding: 0.45rem 0.75rem;
-      border-radius: 5px;
+    opacity: 0.9;
 
-      transition: 0.18s;
-    }
+  }
 
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--red-light);
-      background: rgba(224,0,0,0.12);
-    }
+  100% {
 
-    /* =========================
-       HAMBURGER
-    ========================= */
+    opacity: 0;
 
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 4px;
-      background: none;
-      border: none;
-    }
+    transform:
+      translateY(-220px)
+      scale(0.2);
 
-    .hamburger span {
-      width: 26px;
-      height: 2px;
-      background: var(--red-light);
-      border-radius: 2px;
-      display: block;
-    }
+  }
 
-    /* =========================
-       MOBILE MENU
-    ========================= */
+}
 
-    .mobile-menu {
-      display: none;
 
-      position: fixed;
+/* ═══════════════════════════════════════
+   HERO CONTENT
+═══════════════════════════════════════ */
 
-      top: 66px;
-      left: 0;
-      right: 0;
+.hero-content {
 
-      background: rgba(5,5,5,0.98);
+  position: relative;
 
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+  z-index: 10;
 
-      border-bottom: 2px solid var(--red);
+  padding:
+    0 5% 0 7%;
 
-      z-index: 199;
+  max-width: 660px;
 
-      padding: 1rem 2rem 1.5rem;
+}
 
-      flex-direction: column;
-      gap: 0.2rem;
-    }
 
-    .mobile-menu.open {
-      display: flex;
-    }
+.hero-badge {
 
-    .mobile-menu a {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 1.1rem;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
+  display: inline-flex;
 
-      color: rgba(245,245,245,0.85);
+  align-items: center;
 
-      padding: 0.75rem 0;
+  gap: 0.5rem;
 
-      border-bottom:
-        1px solid rgba(224,0,0,0.15);
-    }
+  background:
+    rgba(224,0,0,0.86);
 
-    /* =========================
-       HERO
-    ========================= */
+  color: var(--white);
 
-    .hero {
-      position: relative;
+  font-family:
+    'Barlow Condensed',
+    sans-serif;
 
-      min-height: 100vh;
+  font-weight: 700;
 
-      display: flex;
-      align-items: center;
+  font-size: 0.78rem;
 
-      overflow: hidden;
-
-      padding-top: 66px;
+  letter-spacing: 2px;
 
-      isolation: isolate;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
+  text-transform: uppercase;
 
-      z-index: -5;
+  padding:
+    0.35rem 1rem;
 
-      background:
+  border-radius: 4px;
 
-        radial-gradient(
-          ellipse 70% 65% at 75% 50%,
-          rgba(224,0,0,0.20) 0%,
-          rgba(120,0,0,0.08) 35%,
-          transparent 70%
-        ),
+  margin-bottom: 1.4rem;
 
-        radial-gradient(
-          ellipse 50% 70% at 10% 85%,
-          rgba(224,0,0,0.16) 0%,
-          transparent 65%
-        ),
+  box-shadow:
+    0 0 25px rgba(224,0,0,0.22);
 
-        linear-gradient(
-          145deg,
-          #000000 0%,
-          #070707 45%,
-          #120000 100%
-        );
-    }
+  animation:
+    fadeUp 0.6s 0.1s both;
 
-    /* =========================
-       HERO LOGO / FOTO
-    ========================= */
+}
 
-    .hero-photo {
-      position: absolute;
-      inset: 0;
 
-      width: 100%;
-      height: 100%;
+.hero-badge em {
 
-      z-index: -4;
+  color: #ffffff;
 
-      overflow: hidden;
+  font-style: normal;
 
-      pointer-events: none;
-    }
+}
 
-    .hero-photo img {
-      width: 100%;
-      height: 100%;
 
-      object-fit: cover;
-      object-position: center;
+.hero-title {
 
-      filter:
-        grayscale(15%)
-        saturate(0.8)
-        contrast(1.08)
-        brightness(0.42);
+  font-family:
+    'Bebas Neue',
+    sans-serif;
 
-      opacity: 0.30;
+  font-size:
+    clamp(4.2rem, 10vw, 8.5rem);
 
-      transform: scale(1.03);
-    }
+  line-height: 0.9;
 
-    .hero-photo-mask {
-      position: absolute;
-      inset: 0;
+  letter-spacing: 2px;
 
-      z-index: 1;
+  animation:
+    fadeUp 0.6s 0.22s both;
 
-      background:
+}
 
-        radial-gradient(
-          ellipse 55% 70% at 75% 50%,
-          rgba(190,0,0,0.32) 0%,
-          rgba(120,0,0,0.13) 35%,
-          transparent 72%
-        ),
 
-        linear-gradient(
-          90deg,
-          rgba(0,0,0,0.96) 0%,
-          rgba(0,0,0,0.84) 28%,
-          rgba(0,0,0,0.60) 60%,
-          rgba(0,0,0,0.82) 100%
-        ),
+.hero-title .t-white {
 
-        linear-gradient(
-          180deg,
-          rgba(0,0,0,0.80) 0%,
-          rgba(0,0,0,0.25) 42%,
-          rgba(0,0,0,0.88) 100%
-        );
-    }
+  color: var(--white);
 
-    /* =========================
-       FIELD
-    ========================= */
+  display: block;
 
-    .field-pattern {
-      position: absolute;
+}
 
-      right: -2%;
-      top: 50%;
 
-      transform: translateY(-50%);
+.hero-title .t-gold {
 
-      width: 54%;
-      height: 88%;
+  color: var(--red-light);
 
-      border:
-        2px solid rgba(255,255,255,0.045);
+  display: block;
 
-      border-radius: 14px;
+  text-shadow:
 
-      z-index: -1;
-    }
+    0 0 25px rgba(224,0,0,0.75),
 
-    .field-pattern::before {
-      content: '';
+    0 0 60px rgba(224,0,0,0.42),
 
-      position: absolute;
+    0 0 100px rgba(120,0,0,0.25);
 
-      left: 50%;
-      top: 0;
-      bottom: 0;
+  animation:
+    flicker 3s ease-in-out infinite;
 
-      width: 2px;
+}
 
-      background:
-        rgba(255,255,255,0.045);
 
-      transform: translateX(-50%);
-    }
+.hero-title .t-outline {
 
-    .field-pattern::after {
-      content: '';
+  display: block;
 
-      position: absolute;
+  -webkit-text-stroke:
+    2px var(--red);
 
-      left: 50%;
-      top: 50%;
+  color: transparent;
 
-      width: 130px;
-      height: 130px;
+}
 
-      border:
-        2px solid rgba(255,255,255,0.045);
 
-      border-radius: 50%;
+@keyframes flicker {
 
-      transform: translate(-50%, -50%);
-    }
+  0%, 100% {
 
-    /* =========================
-       HERO CONTENT
-    ========================= */
+    text-shadow:
 
-    .hero-content {
-      position: relative;
-      z-index: 10;
+      0 0 25px rgba(224,0,0,0.70),
 
-      padding: 0 5% 0 7%;
+      0 0 60px rgba(224,0,0,0.38);
 
-      max-width: 660px;
-    }
+  }
 
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
+  50% {
 
-      background: rgba(224,0,0,0.86);
+    text-shadow:
 
-      color: var(--white);
+      0 0 45px rgba(255,40,40,0.95),
 
-      font-family: 'Barlow Condensed', sans-serif;
+      0 0 85px rgba(224,0,0,0.60),
 
-      font-weight: 700;
-      font-size: 0.78rem;
+      0 0 120px rgba(160,0,0,0.35);
 
-      letter-spacing: 2px;
-      text-transform: uppercase;
+  }
 
-      padding: 0.35rem 1rem;
+}
 
-      border-radius: 4px;
 
-      margin-bottom: 1.4rem;
+.hero-sub {
 
-      box-shadow:
-        0 0 25px rgba(224,0,0,0.22);
-    }
+  font-family:
+    'Barlow Condensed',
+    sans-serif;
 
-    .hero-title {
-      font-family: 'Bebas Neue', sans-serif;
+  font-weight: 700;
 
-      font-size:
-        clamp(4.2rem, 10vw, 8.5rem);
+  font-size: 1.1rem;
 
-      line-height: 0.9;
+  letter-spacing: 3px;
 
-      letter-spacing: 2px;
-    }
+  text-transform: uppercase;
 
-    .hero-title .t-white {
-      color: var(--white);
-      display: block;
-    }
+  color: var(--red-light);
 
-    .hero-title .t-gold {
-      color: var(--red-light);
-      display: block;
+  margin:
+    1rem 0 1.6rem;
 
-      text-shadow:
-        0 0 25px rgba(224,0,0,0.75),
-        0 0 60px rgba(224,0,0,0.42);
-    }
+  animation:
+    fadeUp 0.6s 0.34s both;
 
-    .hero-title .t-outline {
-      display: block;
+}
 
-      -webkit-text-stroke:
-        2px var(--red);
 
-      color: transparent;
-    }
+.hero-desc {
 
-    .hero-sub {
-      font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.05rem;
 
-      font-weight: 700;
+  line-height: 1.75;
 
-      font-size: 1.1rem;
+  color:
+    rgba(245,245,245,0.72);
 
-      letter-spacing: 3px;
+  max-width: 460px;
 
-      text-transform: uppercase;
+  animation:
+    fadeUp 0.6s 0.46s both;
 
-      color: var(--red-light);
+}
 
-      margin: 1rem 0 1.6rem;
-    }
 
-    .hero-desc {
-      font-size: 1.05rem;
+.hero-cta {
 
-      line-height: 1.75;
+  display: flex;
 
-      color:
-        rgba(245,245,245,0.72);
+  flex-wrap: wrap;
 
-      max-width: 460px;
-    }
+  gap: 1rem;
 
-    .hero-cta {
-      display: flex;
-      flex-wrap: wrap;
+  margin-top: 2.4rem;
 
-      gap: 1rem;
+  animation:
+    fadeUp 0.6s 0.58s both;
 
-      margin-top: 2.4rem;
-    }
+}
 
-    /* =========================
-       BUTTONS
-    ========================= */
 
-    .btn-gold {
-      font-family: 'Barlow Condensed', sans-serif;
+/* ═══════════════════════════════════════
+   BUTTONS
+═══════════════════════════════════════ */
 
-      font-weight: 700;
+.btn-gold {
 
-      font-size: 0.95rem;
+  font-family:
+    'Barlow Condensed',
+    sans-serif;
 
-      letter-spacing: 2px;
+  font-weight: 700;
 
-      text-transform: uppercase;
+  font-size: 0.95rem;
 
-      color: #fff;
+  letter-spacing: 2px;
 
-      background:
-        linear-gradient(
-          135deg,
-          #FF3333 0%,
-          #E00000 55%,
-          #8B0000 100%
-        );
+  text-transform: uppercase;
 
-      padding:
-        0.9rem 2.2rem;
+  color: #ffffff;
 
-      border-radius:
-        var(--radius);
+  background:
 
-      display: inline-block;
+    linear-gradient(
+      135deg,
+      #FF3333 0%,
+      #E00000 55%,
+      #8B0000 100%
+    );
 
-      box-shadow:
-        0 4px 22px
-        rgba(224,0,0,0.40);
+  border: none;
 
-      transition: 0.2s;
-    }
+  padding:
+    0.9rem 2.2rem;
 
-    .btn-gold:hover {
-      transform: translateY(-3px);
+  border-radius:
+    var(--radius);
 
-      box-shadow:
-        0 10px 34px
-        rgba(224,0,0,0.62);
-    }
+  cursor: pointer;
 
-    .btn-outline {
-      font-family: 'Barlow Condensed', sans-serif;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 
-      font-weight: 700;
+  box-shadow:
+    0 4px 22px
+    rgba(224,0,0,0.40);
 
-      font-size: 0.95rem;
+  display: inline-block;
 
-      letter-spacing: 2px;
+}
 
-      text-transform: uppercase;
 
-      color: var(--red-light);
+.btn-gold:hover {
 
-      background: transparent;
+  transform:
+    translateY(-3px);
 
-      border:
-        2px solid var(--red);
+  box-shadow:
+    0 10px 34px
+    rgba(224,0,0,0.62);
 
-      padding:
-        0.9rem 2.2rem;
+}
 
-      border-radius:
-        var(--radius);
 
-      display: inline-block;
+.btn-outline {
 
-      transition: 0.2s;
-    }
+  font-family:
+    'Barlow Condensed',
+    sans-serif;
 
-    .btn-outline:hover {
-      background:
-        rgba(224,0,0,0.12);
+  font-weight: 700;
 
-      transform:
-        translateY(-3px);
-    }
+  font-size: 0.95rem;
 
-    /* =========================
-       SECTIONS
-    ========================= */
+  letter-spacing: 2px;
 
-    .section {
-      padding:
-        5.5rem 7%;
+  text-transform: uppercase;
 
-      background:
-        var(--black);
-    }
+  color: var(--red-light);
 
-    .section-alt {
-      background:
-        linear-gradient(
-          180deg,
-          #0A0A0A 0%,
-          #101010 100%
-        );
-    }
+  background: transparent;
 
-    .section-eyebrow {
-      font-family:
-        'Barlow Condensed',
-        sans-serif;
+  border:
+    2px solid var(--red);
 
-      font-weight: 700;
+  padding:
+    0.9rem 2.2rem;
 
-      font-size: 0.78rem;
+  border-radius:
+    var(--radius);
 
-      letter-spacing: 3px;
+  cursor: pointer;
 
-      text-transform: uppercase;
+  transition: all 0.2s;
 
-      color: var(--red-light);
+  display: inline-block;
 
-      margin-bottom: 0.4rem;
-    }
+}
 
-    .section-title {
-      font-family:
-        'Bebas Neue',
-        sans-serif;
 
-      font-size:
-        clamp(2.4rem, 5vw, 4rem);
+.btn-outline:hover {
 
-      line-height: 1;
+  background:
+    rgba(224,0,0,0.12);
 
-      margin-bottom: 0.6rem;
-    }
+  transform:
+    translateY(-3px);
 
-    .section-lead {
-      font-size: 1rem;
+  box-shadow:
+    0 8px 25px
+    rgba(224,0,0,0.22);
 
-      line-height: 1.7;
+}
 
-      color:
-        rgba(245,245,245,0.60);
 
-      max-width: 560px;
+/* ═══════════════════════════════════════
+   SECTIONS
+═══════════════════════════════════════ */
 
-      margin-bottom: 2.5rem;
-    }
+.section {
 
-    /* =========================
-       CARDS
-    ========================= */
+  padding:
+    5.5rem 7%;
 
-    .cards-grid {
-      display: grid;
+  background:
+    var(--black);
 
-      grid-template-columns:
-        repeat(auto-fit, minmax(240px, 1fr));
+}
 
-      gap: 1.4rem;
-    }
 
-    .card {
-      background:
-        var(--black-mid);
+.section-alt {
 
-      border:
-        1px solid rgba(224,0,0,0.14);
+  background:
+    linear-gradient(
+      180deg,
+      #0A0A0A 0%,
+      #101010 100%
+    );
 
-      border-radius:
-        14px;
+}
 
-      padding:
-        1.8rem 1.6rem;
 
-      transition:
-        transform 0.28s,
-        box-shadow 0.28s;
+.section-eyebrow {
 
-      position: relative;
+  font-family:
+    'Barlow Condensed',
+    sans-serif;
 
-      overflow: hidden;
-    }
+  font-weight: 700;
 
-    .card:hover {
-      transform:
-        translateY(-5px);
+  font-size: 0.78rem;
 
-      box-shadow:
-        0 14px 44px
-        rgba(0,0,0,0.60);
-    }
+  letter-spacing: 3px;
 
-    .card-icon {
-      font-size: 2.4rem;
-      margin-bottom: 0.9rem;
-    }
+  text-transform: uppercase;
 
-    .card-title {
-      font-family:
-        'Barlow Condensed',
-        sans-serif;
+  color: var(--red-light);
 
-      font-weight: 900;
+  margin-bottom: 0.4rem;
 
-      font-size: 1.2rem;
+}
 
-      letter-spacing: 1px;
 
-      text-transform: uppercase;
+.section-title {
 
-      color: var(--red-light);
+  font-family:
+    'Bebas Neue',
+    sans-serif;
 
-      margin-bottom: 0.6rem;
-    }
+  font-size:
+    clamp(2.4rem, 5vw, 4rem);
 
-    .card-text {
-      font-size: 0.93rem;
+  line-height: 1;
 
-      line-height: 1.65;
+  margin-bottom: 0.6rem;
 
-      color:
-        rgba(245,245,245,0.60);
-    }
+}
 
-    /* =========================
-       QUICK LINKS
-    ========================= */
 
-    .quicklinks-grid {
-      display: grid;
+.section-lead {
 
-      grid-template-columns:
-        repeat(auto-fit, minmax(160px, 1fr));
+  font-size: 1rem;
 
-      gap: 1rem;
+  line-height: 1.7;
 
-      margin-top: 2.5rem;
-    }
+  color:
+    rgba(245,245,245,0.60);
 
-    .ql-item {
-      background:
-        var(--black-mid);
+  max-width: 560px;
 
-      border:
-        1px solid rgba(224,0,0,0.16);
+  margin-bottom: 2.5rem;
 
-      border-radius:
-        12px;
+}
 
-      padding:
-        1.6rem 1rem;
 
-      text-align: center;
+/* ═══════════════════════════════════════
+   FEATURE CARDS
+═══════════════════════════════════════ */
 
-      transition: 0.25s;
+.cards-grid {
 
-      display: flex;
+  display: grid;
 
-      flex-direction: column;
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(240px, 1fr)
+    );
 
-      align-items: center;
+  gap: 1.4rem;
 
-      gap: 0.6rem;
-    }
+}
 
-    .ql-item:hover {
-      border-color:
-        var(--red);
 
-      background:
-        rgba(224,0,0,0.07);
+.card {
 
-      transform:
-        translateY(-4px);
-    }
+  background:
+    var(--black-mid);
 
-    .ql-icon {
-      font-size: 2rem;
-    }
+  border:
+    1px solid
+    rgba(224,0,0,0.14);
 
-    .ql-label {
-      font-family:
-        'Barlow Condensed',
-        sans-serif;
+  border-radius:
+    14px;
 
-      font-weight: 700;
+  padding:
+    1.8rem 1.6rem;
 
-      font-size: 0.85rem;
+  transition:
+    transform 0.28s,
+    box-shadow 0.28s,
+    border-color 0.28s;
 
-      letter-spacing: 1.5px;
+  position: relative;
 
-      text-transform: uppercase;
+  overflow: hidden;
 
-      color:
-        var(--red-light);
-    }
+}
 
-    .ql-desc {
-      font-size: 0.8rem;
 
-      color:
-        rgba(245,245,245,0.45);
+.card::after {
 
-      line-height: 1.4;
-    }
+  content: '';
 
-    /* =========================
-       FOOTER
-    ========================= */
+  position: absolute;
 
-    footer {
-      background:
-        #030303;
+  top: 0;
+  left: 0;
+  right: 0;
 
-      border-top:
-        2px solid
-        rgba(224,0,0,0.30);
+  height: 3px;
 
-      padding:
-        3rem 7% 2rem;
-    }
+  background:
+    linear-gradient(
+      90deg,
+      #8B0000,
+      #FF3333
+    );
 
-    .footer-top {
-      display: flex;
+  transform:
+    scaleX(0);
 
-      justify-content:
-        space-between;
+  transform-origin: left;
 
-      align-items:
-        flex-start;
+  transition:
+    transform 0.3s;
 
-      flex-wrap: wrap;
+}
 
-      gap: 2rem;
 
-      margin-bottom: 2.5rem;
+.card:hover {
 
-      padding-bottom: 2rem;
+  transform:
+    translateY(-5px);
 
-      border-bottom:
-        1px solid
-        rgba(255,255,255,0.06);
-    }
+  box-shadow:
+    0 14px 44px
+    rgba(0,0,0,0.60);
 
-    .footer-brand-block img {
-      height: 50px;
+  border-color:
+    rgba(224,0,0,0.42);
 
-      margin-bottom: 0.4rem;
+}
 
-      filter:
-        drop-shadow(0 0 8px rgba(224,0,0,0.55));
-    }
 
-    .footer-tagline {
-      font-family:
-        'Barlow Condensed',
-        sans-serif;
+.card:hover::after {
 
-      font-weight: 600;
+  transform:
+    scaleX(1);
 
-      font-size: 0.8rem;
+}
 
-      letter-spacing: 2px;
 
-      text-transform: uppercase;
+.card-icon {
 
-      color:
-        rgba(245,245,245,0.35);
-    }
+  font-size: 2.4rem;
 
-    .footer-nav {
-      display: flex;
+  margin-bottom: 0.9rem;
 
-      flex-wrap: wrap;
+}
 
-      gap:
-        0.4rem 1.4rem;
-    }
 
-    .footer-nav a {
-      font-family:
-        'Barlow Condensed',
-        sans-serif;
+.card-title {
 
-      font-weight: 600;
+  font-family:
+    'Barlow Condensed',
+    sans-serif;
 
-      font-size: 0.85rem;
+  font-weight: 900;
 
-      letter-spacing: 1px;
+  font-size: 1.2rem;
 
-      text-transform: uppercase;
+  letter-spacing: 1px;
 
-      color:
-        rgba(245,245,245,0.45);
-    }
+  text-transform: uppercase;
 
-    .footer-bottom {
-      display: flex;
+  color: var(--red-light);
 
-      justify-content:
-        space-between;
+  margin-bottom: 0.6rem;
 
-      flex-wrap: wrap;
+}
 
-      gap: 0.5rem;
-    }
 
-    .footer-copy {
-      font-size: 0.82rem;
+.card-text {
 
-      color:
-        rgba(245,245,245,0.25);
-    }
+  font-size: 0.93rem;
 
-    /* =========================
-       REVEAL
-    ========================= */
+  line-height: 1.65;
 
-    .reveal {
-      opacity: 0;
+  color:
+    rgba(245,245,245,0.60);
 
-      transform:
-        translateY(32px);
+}
 
-      transition:
-        opacity 0.55s ease,
-        transform 0.55s ease;
-    }
 
-    .reveal.in {
-      opacity: 1;
+/* ═══════════════════════════════════════
+   QUICK LINKS
+═══════════════════════════════════════ */
 
-      transform: none;
-    }
+.quicklinks-grid {
 
-    /* =========================
-       RESPONSIVE
-    ========================= */
+  display: grid;
 
-    @media (max-width: 1100px) {
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(160px, 1fr)
+    );
 
-      .nav-links a {
-        font-size: 0.75rem;
+  gap: 1rem;
 
-        padding:
-          0.45rem 0.55rem;
-      }
+  margin-top: 2.5rem;
 
-    }
+}
 
-    @media (max-width: 860px) {
 
-      .navbar {
-        padding:
-          0 1.5rem;
-      }
+.ql-item {
 
-      .nav-links {
-        display: none;
-      }
+  background:
+    var(--black-mid);
 
-      .hamburger {
-        display: flex;
-      }
+  border:
+    1px solid
+    rgba(224,0,0,0.16);
 
-      .hero-photo img {
-        opacity: 0.24;
+  border-radius:
+    12px;
 
-        filter:
-          grayscale(20%)
-          saturate(0.75)
-          contrast(1.05)
-          brightness(0.38);
+  padding:
+    1.6rem 1rem;
 
-        object-position:
-          center center;
-      }
+  text-align: center;
 
-      .hero-photo-mask {
-        background:
+  transition: all 0.25s;
 
-          radial-gradient(
-            ellipse at center,
-            rgba(180,0,0,0.20),
-            transparent 70%
-          ),
+  display: flex;
 
-          linear-gradient(
-            180deg,
-            rgba(0,0,0,0.88) 0%,
-            rgba(0,0,0,0.48) 45%,
-            rgba(0,0,0,0.94) 100%
-          );
-      }
+  flex-direction: column;
 
-      .field-pattern {
-        width: 90%;
+  align-items: center;
 
-        right: -25%;
+  gap: 0.6rem;
 
-        opacity: 0.45;
-      }
+  cursor: pointer;
 
-      .hero-content {
-        padding:
-          2rem 1.5rem;
+}
 
-        max-width: 100%;
-      }
 
-      .hero-title {
-        font-size:
-          clamp(3.5rem, 16vw, 6rem);
-      }
+.ql-item:hover {
 
-      .section {
-        padding:
-          3.5rem 5%;
-      }
+  border-color:
+    var(--red);
 
-      .footer-top {
-        flex-direction:
-          column;
-      }
+  background:
+    rgba(224,0,0,0.07);
 
-    }
+  transform:
+    translateY(-4px);
 
-    @media (max-width: 480px) {
+  box-shadow:
+    0 8px 28px
+    rgba(0,0,0,0.45);
 
-      .nav-brand-text {
-        font-size:
-          1.25rem;
-      }
+}
 
-      .nav-brand img {
-        height:
-          44px;
-      }
 
-      .hero-badge {
-        font-size:
-          0.68rem;
-      }
+.ql-icon {
 
-      .hero-sub {
-        font-size:
-          0.9rem;
+  font-size: 2rem;
 
-        letter-spacing:
-          2px;
-      }
+}
 
-      .hero-desc {
-        font-size:
-          0.95rem;
-      }
 
-      .hero-cta {
-        flex-direction:
-          column;
+.ql-label {
 
-        align-items:
-          stretch;
-      }
+  font-family:
+    'Barlow Condensed',
+    sans-serif;
 
-      .btn-gold,
-     max-width: 660px;
-    }
+  font-weight: 700;
 
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
+  font-size: 0.85rem;
 
-      background: rgba(224,0,0,0.86);
+  letter-spacing: 1.5px;
 
-      color: var(--white);
+  text-transform: uppercase;
 
-      font-family: 'Barlow Condensed', sans-serif;
+  color:
+    var(--red-light);
 
-      font-weight: 700;
-      font-size: 0.78rem;
+}
 
-      letter-spacing: 2px;
-      text-transform: uppercase;
 
-      padding: 0.35rem 1rem;
+.ql-desc {
 
-      border-radius: 4px;
+  font-size: 0.8rem;
 
-      margin-bottom: 1.4rem;
+  color:
+    rgba(245,245,245,0.45);
 
-      box-shadow:
-        0 0 25px rgba(224,0,0,0.22);
-    }
+  line-height: 1.4;
 
-    .hero-title {
-      font-family: 'Bebas Neue', sans-serif;
+}
 
-      font-size:
-        clamp(4.2rem, 10vw, 8.5rem);
 
-      line-height: 0.9;
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
 
-      letter-spacing: 2px;
-    }
+footer {
 
-    .hero-title .t-white {
-      color: var(--white);
-      display: block;
-    }
+  background:
+    #030303;
 
-    .hero-title .t-gold {
-      color: var(--red-light);
-      display: block;
+  border-top:
+    2px solid
+    rgba(224,0,0,0.30);
 
-      text-shadow:
-        0 0 25px rgba(224,0,0,0.75),
-        0 0 60px rgba(224,0,0,0.42);
-    }
+  padding:
+    3rem 7% 2rem;
 
-    .hero-title .t-outline {
-      display: block;
+}
 
-      -webkit-text-stroke:
-        2px var(--red);
 
-      color: transparent;
-    }
+.footer-top {
 
-    .hero-sub {
-      font-family: 'Barlow Condensed', sans-serif;
+  display: flex;
 
-      font-weight: 700;
+  justify-content:
+    space-between;
 
-      font-size: 1.1rem;
+  align-items:
+    flex-start;
 
-      letter-spacing: 3px;
+  flex-wrap: wrap;
 
-      text-transform: uppercase;
+  gap: 2rem;
 
-      color: var(--red-light);
+  margin-bottom: 2.5rem;
 
-      margin: 1rem 0 1.6rem;
-    }
+  padding-bottom: 2rem;
 
-    .hero-desc {
-      font-size: 1.05rem;
+  border-bottom:
+    1px solid
+    rgba(255,255,255,0.06);
 
-      line-height: 1.75;
+}
 
-      color:
-        rgba(245,245,245,0.72);
 
-      max-width: 460px;
-    }
+.footer-tagline {
 
-    .hero-cta {
-      display: flex;
-      flex-wrap: wrap;
+  font-family:
+    'Barlow Condensed',
+    sans-serif;
 
-      gap: 1rem;
+  font-weight: 600;
 
-      margin-top: 2.4rem;
-    }
+  font-size: 0.8rem;
 
-    /* =========================
-       BUTTONS
-    ========================= */
+  letter-spacing: 2px;
 
-    .btn-gold {
-      font-family: 'Barlow Condensed', sans-serif;
+  text-transform: uppercase;
 
-      font-weight: 700;
+  color:
+    rgba(245,245,245,0.35);
 
-      font-size: 0.95rem;
+}
 
-      letter-spacing: 2px;
 
-      text-transform: uppercase;
+.footer-nav {
 
-      color: #fff;
+  display: flex;
 
-      background:
-        linear-gradient(
-          135deg,
-          #FF3333 0%,
-          #E00000 55%,
-          #8B0000 100%
-        );
+  flex-wrap: wrap;
 
-      padding:
-        0.9rem 2.2rem;
+  gap:
+    0.4rem 1.4rem;
 
-      border-radius:
-        var(--radius);
+}
 
-      display: inline-block;
 
-      box-shadow:
-        0 4px 22px
-        rgba(224,0,0,0.40);
+.footer-nav a {
 
-      transition: 0.2s;
-    }
+  font-family:
+    'Barlow Condensed',
+    sans-serif;
 
-    .btn-gold:hover {
-      transform: translateY(-3px);
+  font-weight: 600;
 
-      box-shadow:
-        0 10px 34px
-        rgba(224,0,0,0.62);
-    }
+  font-size: 0.85rem;
 
-    .btn-outline {
-      font-family: 'Barlow Condensed', sans-serif;
+  letter-spacing: 1px;
 
-      font-weight: 700;
+  text-transform: uppercase;
 
-      font-size: 0.95rem;
+  color:
+    rgba(245,245,245,0.45);
 
-      letter-spacing: 2px;
+  transition:
+    color 0.2s;
 
-      text-transform: uppercase;
+}
 
-      color: var(--red-light);
 
-      background: transparent;
+.footer-nav a:hover {
 
-      border:
-        2px solid var(--red);
+  color:
+    var(--red-light);
 
-      padding:
-        0.9rem 2.2rem;
+}
 
-      border-radius:
-        var(--radius);
 
-      display: inline-block;
+.footer-bottom {
 
-      transition: 0.2s;
-    }
+  display: flex;
 
-    .btn-outline:hover {
-      background:
-        rgba(224,0,0,0.12);
+  justify-content:
+    space-between;
 
-      transform:
-        translateY(-3px);
-    }
+  flex-wrap: wrap;
 
-    /* =========================
-       SECTIONS
-    ========================= */
+  gap: 0.5rem;
 
-    .section {
-      padding:
-        5.5rem 7%;
+}
 
-      background:
-        var(--black);
-    }
 
-    .section-alt {
-      background:
-        linear-gradient(
-          180deg,
-          #0A0A0A 0%,
-          #101010 100%
-        );
-    }
+.footer-copy {
 
-    .section-eyebrow {
-      font-family:
-        'Barlow Condensed',
-        sans-serif;
+  font-size: 0.82rem;
 
-      font-weight: 700;
+  color:
+    rgba(245,245,245,0.25);
 
-      font-size: 0.78rem;
+}
 
-      letter-spacing: 3px;
 
-      text-transform: uppercase;
+/* ═══════════════════════════════════════
+   ANIMATIONS
+═══════════════════════════════════════ */
 
-      color: var(--red-light);
+@keyframes fadeUp {
 
-      margin-bottom: 0.4rem;
-    }
+  from {
 
-    .section-title {
-      font-family:
-        'Bebas Neue',
-        sans-serif;
+    opacity: 0;
 
-      font-size:
-        clamp(2.4rem, 5vw, 4rem);
+    transform:
+      translateY(28px);
 
-      line-height: 1;
+  }
 
-      margin-bottom: 0.6rem;
-    }
+  to {
 
-    .section-lead {
-      font-size: 1rem;
+    opacity: 1;
 
-      line-height: 1.7;
+    transform:
+      translateY(0);
 
-      color:
-        rgba(245,245,245,0.60);
+  }
 
-      max-width: 560px;
+}
 
-      margin-bottom: 2.5rem;
-    }
 
-    /* =========================
-       CARDS
-    ========================= */
+.reveal {
 
-    .cards-grid {
-      display: grid;
+  opacity: 0;
 
-      grid-template-columns:
-        repeat(auto-fit, minmax(240px, 1fr));
+  transform:
+    translateY(32px);
 
-      gap: 1.4rem;
-    }
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s ease;
 
-    .card {
-      background:
-        var(--black-mid);
+}
 
-      border:
-        1px solid rgba(224,0,0,0.14);
 
-      border-radius:
-        14px;
+.reveal.in {
 
-      padding:
-        1.8rem 1.6rem;
+  opacity: 1;
 
-      transition:
-        transform 0.28s,
-        box-shadow 0.28s;
+  transform: none;
 
-      position: relative;
+}
 
-      overflow: hidden;
-    }
 
-    .card:hover {
-      transform:
-        translateY(-5px);
+/* ═══════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════ */
 
-      box-shadow:
-        0 14px 44px
-        rgba(0,0,0,0.60);
-    }
+@media (max-width: 1100px) {
 
-    .card-icon {
-      font-size: 2.4rem;
-      margin-bottom: 0.9rem;
-    }
+  .nav-links a {
 
-    .card-title {
-      font-family:
-        'Barlow Condensed',
-        sans-serif;
+    font-size: 0.75rem;
 
-      font-weight: 900;
+    padding:
+      0.45rem 0.55rem;
 
-      font-size: 1.2rem;
+  }
 
-      letter-spacing: 1px;
+}
 
-      text-transform: uppercase;
 
-      color: var(--red-light);
+@media (max-width: 860px) {
 
-      margin-bottom: 0.6rem;
-    }
+  .navbar {
 
-    .card-text {
-      font-size: 0.93rem;
+    padding:
+      0 1.5rem;
 
-      line-height: 1.65;
+  }
 
-      color:
-        rgba(245,245,245,0.60);
-    }
 
-    /* =========================
-       QUICK LINKS
-    ========================= */
+  .nav-links {
 
-    .quicklinks-grid {
-      display: grid;
+    display: none !important;
 
-      grid-template-columns:
-        repeat(auto-fit, minmax(160px, 1fr));
+  }
 
-      gap: 1rem;
 
-      margin-top: 2.5rem;
-    }
+  .hamburger {
 
-    .ql-item {
-      background:
-        var(--black-mid);
+    display: flex !important;
 
-      border:
-        1px solid rgba(224,0,0,0.16);
+  }
 
-      border-radius:
-        12px;
 
-      padding:
-        1.6rem 1rem;
+  /* FOTO SEMPRE A TUTTO SCHERMO,
+     COME FILIGRANA */
 
-      text-align: center;
+  .hero-photo {
 
-      transition: 0.25s;
+    width: 100%;
 
-      display: flex;
+    opacity: 1;
 
-      flex-direction: column;
+  }
 
-      align-items: center;
 
-      gap: 0.6rem;
-    }
+  .hero-photo img {
 
-    .ql-item:hover {
-      border-color:
-        var(--red);
+    opacity: 0.24;
 
-      background:
-        rgba(224,0,0,0.07);
+    filter:
 
-      transform:
-        translateY(-4px);
-    }
+      grayscale(20%)
 
-    .ql-icon {
-      font-size: 2rem;
-    }
+      saturate(0.75)
 
-    .ql-label {
-      font-family:
-        'Barlow Condensed',
-        sans-serif;
+      contrast(1.05)
 
-      font-weight: 700;
+      brightness(0.38);
 
-      font-size: 0.85rem;
+    object-position:
+      center center;
 
-      letter-spacing: 1.5px;
+  }
 
-      text-transform: uppercase;
 
-      color:
-        var(--red-light);
-    }
+  .hero-photo-mask {
 
-    .ql-desc {
-      font-size: 0.8rem;
+    background:
 
-      color:
-        rgba(245,245,245,0.45);
+      radial-gradient(
+        ellipse at center,
+        rgba(180,0,0,0.20),
+        transparent 70%
+      ),
 
-      line-height: 1.4;
-    }
+      linear-gradient(
+        180deg,
+        rgba(0,0,0,0.88) 0%,
+        rgba(0,0,0,0.48) 45%,
+        rgba(0,0,0,0.94) 100%
+      );
 
-    /* =========================
-       FOOTER
-    ========================= */
+  }
 
-    footer {
-      background:
-        #030303;
 
-      border-top:
-        2px solid
-        rgba(224,0,0,0.30);
+  .field-pattern {
 
-      padding:
-        3rem 7% 2rem;
-    }
+    width: 90%;
 
-    .footer-top {
-      display: flex;
+    right: -25%;
 
-      justify-content:
-        space-between;
+    opacity: 0.45;
 
-      align-items:
-        flex-start;
+  }
 
-      flex-wrap: wrap;
 
-      gap: 2rem;
+  .hero-content {
 
-      margin-bottom: 2.5rem;
+    padding:
+      2rem 1.5rem;
 
-      padding-bottom: 2rem;
+    max-width: 100%;
 
-      border-bottom:
-        1px solid
-        rgba(255,255,255,0.06);
-    }
+  }
 
-    .footer-brand-block img {
-      height: 50px;
 
-      margin-bottom: 0.4rem;
+  .hero-title {
 
-      filter:
-        drop-shadow(0 0 8px rgba(224,0,0,0.55));
-    }
+    font-size:
+      clamp(3.5rem, 16vw, 6rem);
 
-    .footer-tagline {
-      font-family:
-        'Barlow Condensed',
-        sans-serif;
+  }
 
-      font-weight: 600;
 
-      font-size: 0.8rem;
+  .section {
 
-      letter-spacing: 2px;
+    padding:
+      3.5rem 5%;
 
-      text-transform: uppercase;
+  }
 
-      color:
-        rgba(245,245,245,0.35);
-    }
 
-    .footer-nav {
-      display: flex;
+  .footer-top {
 
-      flex-wrap: wrap;
+    flex-direction:
+      column;
 
-      gap:
-        0.4rem 1.4rem;
-    }
+  }
 
-    .footer-nav a {
-      font-family:
-        'Barlow Condensed',
-        sans-serif;
+}
 
-      font-weight: 600;
 
-      font-size: 0.85rem;
+@media (max-width: 480px) {
 
-      letter-spacing: 1px;
+  .nav-brand-text {
 
-      text-transform: uppercase;
+    font-size: 1.25rem;
 
-      color:
-        rgba(245,245,245,0.45);
-    }
+  }
 
-    .footer-bottom {
-      display: flex;
 
-      justify-content:
-        space-between;
+  .nav-brand img {
 
-      flex-wrap: wrap;
+    height: 44px !important;
 
-      gap: 0.5rem;
-    }
+  }
 
-    .footer-copy {
-      font-size: 0.82rem;
 
-      color:
-        rgba(245,245,245,0.25);
-    }
+  .hero-badge {
 
-    /* =========================
-       REVEAL
-    ========================= */
+    font-size: 0.68rem;
 
-    .reveal {
-      opacity: 0;
+  }
 
-      transform:
-        translateY(32px);
 
-      transition:
-        opacity 0.55s ease,
-        transform 0.55s ease;
-    }
+  .hero-sub {
 
-    .reveal.in {
-      opacity: 1;
+    font-size: 0.9rem;
 
-      transform: none;
-    }
+    letter-spacing: 2px;
 
-    /* =========================
-       RESPONSIVE
-    ========================= */
+  }
 
-    @media (max-width: 1100px) {
 
-      .nav-links a {
-        font-size: 0.75rem;
+  .hero-desc {
 
-        padding:
-          0.45rem 0.55rem;
-      }
+    font-size: 0.95rem;
 
-    }
+  }
 
-    @media (max-width: 860px) {
 
-      .navbar {
-        padding:
-          0 1.5rem;
-      }
+  .hero-cta {
 
-      .nav-links {
-        display: none;
-      }
+    flex-direction:
+      column;
 
-      .hamburger {
-        display: flex;
-      }
+    align-items:
+      stretch;
 
-      .hero-photo img {
-        opacity: 0.24;
+  }
 
-        filter:
-          grayscale(20%)
-          saturate(0.75)
-          contrast(1.05)
-          brightness(0.38);
 
-        object-position:
-          center center;
-      }
+  .btn-gold,
+  .btn-outline {
 
-      .hero-photo-mask {
-        background:
+    text-align:
+      center;
 
-          radial-gradient(
-            ellipse at center,
-            rgba(180,0,0,0.20),
-            transparent 70%
-          ),
+  }
 
-          linear-gradient(
-            180deg,
-            rgba(0,0,0,0.88) 0%,
-            rgba(0,0,0,0.48) 45%,
-            rgba(0,0,0,0.94) 100%
-          );
-      }
+}
 
-      .field-pattern {
-        width: 90%;
 
-        right: -25%;
+/* ═══════════════════════════════════════
+   ACCESSIBILITY
+═══════════════════════════════════════ */
 
-        opacity: 0.45;
-      }
+a:focus-visible,
+button:focus-visible {
 
-      .hero-content {
-        padding:
-          2rem 1.5rem;
+  outline:
+    2px solid
+    var(--red-light);
 
-        max-width: 100%;
-      }
+  outline-offset:
+    3px;
 
-      .hero-title {
-        font-size:
-          clamp(3.5rem, 16vw, 6rem);
-      }
+}
 
-      .section {
-        padding:
-          3.5rem 5%;
-      }
 
-      .footer-top {
-        flex-direction:
-          column;
-      }
+/* =====================================================
+   PARTICELLE ROSSE DI SFONDO
+===================================================== */
 
-    }
+.bg-particles {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
 
-    @media (max-width: 480px) {
+.bg-particle {
+  position: absolute;
+  bottom: -20px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #E00000;
+  box-shadow: 0 0 8px rgba(224,0,0,0.8);
+  opacity: 0;
+  animation: bgParticleFloat linear infinite;
+}
 
-      .nav-brand-text {
-        font-size:
-          1.25rem;
-      }
+@keyframes bgParticleFloat {
+  0% {
+    transform: translate3d(0, 20px, 0) scale(0.5);
+    opacity: 0;
+  }
 
-      .nav-brand img {
-        height:
-          44px;
-      }
+  10% {
+    opacity: 0.75;
+  }
 
-      .hero-badge {
-        font-size:
-          0.68rem;
-      }
+  50% {
+    opacity: 0.35;
+  }
 
-      .hero-sub {
-        font-size:
-          0.9rem;
+  90% {
+    opacity: 0.7;
+  }
 
-        letter-spacing:
-          2px;
-      }
+  100% {
+    transform: translate3d(70px, -110vh, 0) scale(1);
+    opacity: 0;
+  }
+}
 
-      .hero-desc {
-        font-size:
-          0.95rem;
-      }
+/* Il contenuto resta sempre sopra le particelle */
+.navbar,
+.mobile-menu,
+.hero,
+.section,
+footer {
+  position: relative;
+  z-index: 1;
+}
 
-      .hero-cta {
-        flex-direction:
-          column;
+/* La hero mantiene correttamente i suoi livelli interni */
+.hero {
+  z-index: 2;
+}
 
-        align-items:
-          stretch;
-      }
-
-      .btn-gold,
-      .btn-outline {
-        text-align:
-          center;
-      }
-
-    }
-
-    a:focus-visible,
-    button:focus-visible {
-      outline:
-        2px solid
-        var(--red-light);
-
-      outline-offset:
-        3px;
-    }
-
-    /* Riduce il movimento se richiesto dal dispositivo */
-    @media (prefers-reduced-motion: reduce) {
-
-      html {
-        scroll-behavior: auto;
-      }
-
-      .reveal {
-        opacity: 1;
-        transform: none;
-        transition: none;
-      }
-
-    }
-
-  </style>
+</style>
 
 </head>
 
+
 <body>
 
-  <!-- =========================
-       PARTICELLE
-  ========================= -->
-
-  <canvas id="particles"></canvas>
+<!-- PARTICELLE ROSSE DI SFONDO -->
+<div class="bg-particles" id="bgParticles" aria-hidden="true"></div>
 
 
-  <!-- =========================
-       NAVBAR
-  ========================= -->
 
-  <nav class="navbar">
+<!-- ═══════════════════════════════════════
+     NAVBAR
+═══════════════════════════════════════ -->
 
-    <a
-      href="index.html"
-      class="nav-brand"
+<nav class="navbar">
+
+  <a
+    href="index.html"
+    class="nav-brand"
+  >
+
+    <img
+      src="logo.png"
+      alt="Santa Cruz Cup"
     >
 
-      <img
-        src="logo.png"
-        alt="Logo Santa Cruz Cup"
-      >
+    <span class="nav-brand-text">
+      SANTA CRUZ CUP
+    </span>
 
-      <span class="nav-brand-text">
-        SANTA CRUZ CUP
+  </a>
+
+
+  <ul class="nav-links">
+
+    <li>
+      <a href="index.html">
+        Home
+      </a>
+    </li>
+
+    <li>
+      <a href="calendario.html">
+        Calendario
+      </a>
+    </li>
+
+    <li>
+      <a href="risultati.html">
+        Risultati
+      </a>
+    </li>
+
+    <li>
+      <a href="classifica.html">
+        Classifica
+      </a>
+    </li>
+
+    <li>
+      <a href="marcatori.html">
+        Marcatori
+      </a>
+    </li>
+
+    <li>
+      <a href="squadre.html">
+        Squadre
+      </a>
+    </li>
+
+    <li>
+      <a href="regolamento.html">
+        Regolamento
+      </a>
+    </li>
+
+    <!-- CONTATTI SEMPRE ULTIMO -->
+
+    <li>
+      <a href="contatti.html">
+        Contatti
+      </a>
+    </li>
+
+  </ul>
+
+
+  <div
+    class="hamburger"
+    id="hamburger"
+    aria-label="Apri menu"
+    role="button"
+    tabindex="0"
+  >
+
+    <span></span>
+    <span></span>
+    <span></span>
+
+  </div>
+
+</nav>
+
+
+<!-- ═══════════════════════════════════════
+     MOBILE MENU
+═══════════════════════════════════════ -->
+
+<div
+  class="mobile-menu"
+  id="mobileMenu"
+>
+
+  <a href="index.html">
+    🏠 Home
+  </a>
+
+  <a href="calendario.html">
+    📅 Calendario
+  </a>
+
+  <a href="risultati.html">
+    📊 Risultati
+  </a>
+
+  <a href="classifica.html">
+    🏆 Classifica
+  </a>
+
+  <a href="marcatori.html">
+    ⚽ Marcatori
+  </a>
+
+  <a href="squadre.html">
+    👥 Squadre
+  </a>
+
+  <a href="regolamento.html">
+    📋 Regolamento
+  </a>
+
+  <!-- CONTATTI SEMPRE ULTIMO -->
+
+  <a href="contatti.html">
+    📩 Contatti
+  </a>
+
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     HERO
+═══════════════════════════════════════ -->
+
+<section
+  class="hero"
+  aria-label="Hero"
+>
+
+  <!-- SFONDO NERO/ROSSO -->
+
+  <div class="hero-bg"></div>
+
+
+  <!-- FOTO FILIGRANA -->
+
+  <div class="hero-photo">
+
+    <img
+      src="https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=1600&q=85"
+      alt=""
+      loading="eager"
+    >
+
+    <div class="hero-photo-mask"></div>
+
+  </div>
+
+
+  <!-- CAMPO -->
+
+  <div class="field-pattern"></div>
+
+
+  <!-- PARTICELLE -->
+
+  <div
+    class="sparks"
+    id="sparks"
+  ></div>
+
+
+  <!-- CONTENUTO -->
+
+  <div class="hero-content">
+
+    <div class="hero-badge">
+
+      🔥
+
+      <em>
+        Torneo Giovanile
+      </em>
+
+      &nbsp;·&nbsp;
+
+      Edizione 2026
+
+    </div>
+
+
+    <h1 class="hero-title">
+
+      <span class="t-white">
+        SANTA
+      </span>
+
+      <span class="t-gold">
+        CRUZ
+      </span>
+
+      <span class="t-outline">
+        CUP
+      </span>
+
+    </h1>
+
+
+    <p class="hero-sub">
+
+      ⚽ Calcio Giovanile · Passione &amp; Determinazione
+
+    </p>
+
+
+    <p class="hero-desc">
+
+      Dove i giovani campioni scrivono le loro prime leggende.
+      Ogni partita è una storia di energia, talento e cuore.
+      Il titolo ti aspetta — sei pronto?
+
+    </p>
+
+
+    <div class="hero-cta">
+
+      <a
+        href="calendario.html"
+        class="btn-gold"
+      >
+        📅 Calendario Partite
+      </a>
+
+
+      <a
+        href="classifica.html"
+        class="btn-outline"
+      >
+        🏆 Classifica
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     BENVENUTO
+═══════════════════════════════════════ -->
+
+<section class="section">
+
+  <div class="reveal">
+
+    <div class="section-eyebrow">
+      Il Torneo
+    </div>
+
+    <h2 class="section-title">
+
+      BENVENUTI ALLA<br>
+      SANTA CRUZ CUP!
+
+    </h2>
+
+    <p class="section-lead">
+
+      La Santa Cruz Cup è il torneo giovanile dove passione
+      e competizione si incontrano. Ogni partita è una storia
+      fatta di energia, talento e determinazione.
+      Che tu sia un giocatore, un tifoso o un curioso —
+      qui troverai emozioni vere.
+
+    </p>
+
+  </div>
+
+
+  <div class="cards-grid">
+
+
+    <div class="card reveal">
+
+      <div class="card-icon">
+        🏟️
+      </div>
+
+      <div class="card-title">
+        Fase a Gironi
+      </div>
+
+      <p class="card-text">
+
+        Due gironi all'italiana.
+        Vittoria = 3 pt, Pareggio = 1 pt,
+        Sconfitta = 0 pt.
+        Le prime 4 di ogni girone accedono
+        alla fase successiva.
+
+      </p>
+
+    </div>
+
+
+    <div class="card reveal">
+
+      <div class="card-icon">
+        ⚔️
+      </div>
+
+      <div class="card-title">
+        Quarti &amp; Semifinali
+      </div>
+
+      <p class="card-text">
+
+        Scontri incrociati tra i gironi:
+        1°A vs 4°B, 2°B vs 3°A,
+        1°B vs 4°A, 2°A vs 3°B.
+        I vincitori si sfidano in semifinale.
+
+      </p>
+
+    </div>
+
+
+    <div class="card reveal">
+
+      <div class="card-icon">
+        🏆
+      </div>
+
+      <div class="card-title">
+        Finale
+      </div>
+
+      <p class="card-text">
+
+        Grande finale tra le due semifinaliste.
+        In caso di parità:
+        supplementari 2×5 min, poi rigori.
+        Si gioca anche la finale per il 3° posto.
+
+      </p>
+
+    </div>
+
+
+    <div class="card reveal">
+
+      <div class="card-icon">
+        🥇
+      </div>
+
+      <div class="card-title">
+        Premi
+      </div>
+
+      <p class="card-text">
+
+        Premio +
+        medaglie al 1° posto.
+      
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     QUICK LINKS
+═══════════════════════════════════════ -->
+
+<section class="section section-alt">
+
+  <div class="reveal">
+
+    <div class="section-eyebrow">
+      Navigazione Rapida
+    </div>
+
+    <h2 class="section-title">
+      TUTTO IL TORNEO
+    </h2>
+
+  </div>
+
+
+  <div class="quicklinks-grid">
+
+
+    <a
+      href="calendario.html"
+      class="ql-item reveal"
+    >
+
+      <span class="ql-icon">
+        📅
+      </span>
+
+      <span class="ql-label">
+        Calendario
+      </span>
+
+      <span class="ql-desc">
+        Date e orari di tutte le partite
       </span>
 
     </a>
 
 
-    <ul class="nav-links">
-
-      <li><a href="index.html">Home</a></li>
-      <li><a href="calendario.html">Calendario</a></li>
-      <li><a href="risultati.html">Risultati</a></li>
-      <li><a href="classifica.html">Classifica</a></li>
-      <li><a href="marcatori.html">Marcatori</a></li>
-      <li><a href="squadre.html">Squadre</a></li>
-      <li><a href="regolamento.html">Regolamento</a></li>
-      <li><a href="contatti.html">Contatti</a></li>
-
-    </ul>
-
-
-    <button
-      class="hamburger"
-      id="hamburger"
-      aria-label="Apri menu"
-      aria-expanded="false"
+    <a
+      href="risultati.html"
+      class="ql-item reveal"
     >
 
-      <span></span>
-      <span></span>
-      <span></span>
+      <span class="ql-icon">
+        📊
+      </span>
 
-    </button>
+      <span class="ql-label">
+        Risultati
+      </span>
 
-  </nav>
+      <span class="ql-desc">
+        Punteggi e recap partite
+      </span>
+
+    </a>
 
 
-  <!-- =========================
-       MOBILE MENU
-  ========================= -->
+    <a
+      href="classifica.html"
+      class="ql-item reveal"
+    >
 
-  <div
-    class="mobile-menu"
-    id="mobileMenu"
-  >
+      <span class="ql-icon">
+        🏆
+      </span>
 
-    <a href="index.html">🏠 Home</a>
-    <a href="calendario.html">📅 Calendario</a>
-    <a href="risultati.html">📊 Risultati</a>
-    <a href="classifica.html">🏆 Classifica</a>
-    <a href="marcatori.html">⚽ Marcatori</a>
-    <a href="squadre.html">👥 Squadre</a>
-    <a href="regolamento.html">📋 Regolamento</a>
-    <a href="contatti.html">📩 Contatti</a>
+      <span class="ql-label">
+        Classifica
+      </span>
+
+      <span class="ql-desc">
+        Classifica del torneo
+      </span>
+
+    </a>
+
+
+    <a
+      href="marcatori.html"
+      class="ql-item reveal"
+    >
+
+      <span class="ql-icon">
+        ⚽
+      </span>
+
+      <span class="ql-label">
+        Marcatori
+      </span>
+
+      <span class="ql-desc">
+        I cannonieri della stagione
+      </span>
+
+    </a>
+
+
+    <a
+      href="squadre.html"
+      class="ql-item reveal"
+    >
+
+      <span class="ql-icon">
+        👥
+      </span>
+
+      <span class="ql-label">
+        Squadre
+      </span>
+
+      <span class="ql-desc">
+        Rose e informazioni sui team
+      </span>
+
+    </a>
+
+
+    <a
+      href="regolamento.html"
+      class="ql-item reveal"
+    >
+
+      <span class="ql-icon">
+        📋
+      </span>
+
+      <span class="ql-label">
+        Regolamento
+      </span>
+
+      <span class="ql-desc">
+        Regole del torneo
+      </span>
+
+    </a>
+
+
+    <!-- CONTATTI SEMPRE ULTIMO -->
+
+    <a
+      href="contatti.html"
+      class="ql-item reveal"
+    >
+
+      <span class="ql-icon">
+        📩
+      </span>
+
+      <span class="ql-label">
+        Contatti
+      </span>
+
+      <span class="ql-desc">
+        Contatta l'organizzazione
+      </span>
+
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════ -->
+
+<footer>
+
+  <div class="footer-top">
+
+
+    <div class="footer-brand-block">
+
+      <a href="index.html">
+
+        <img
+          src="logo.png"
+          alt="Santa Cruz Cup"
+          style="
+            height:50px;
+            margin-bottom:0.4rem;
+            filter:drop-shadow(0 0 8px rgba(224,0,0,0.55));
+          "
+        >
+
+      </a>
+
+
+      <div class="footer-tagline">
+
+        Torneo Giovanile di Calcio · Edizione 2026
+
+      </div>
+
+    </div>
+
+
+    <nav
+      class="footer-nav"
+      aria-label="Footer navigation"
+    >
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a href="calendario.html">
+        Calendario
+      </a>
+
+      <a href="risultati.html">
+        Risultati
+      </a>
+
+      <a href="classifica.html">
+        Classifica
+      </a>
+
+      <a href="marcatori.html">
+        Marcatori
+      </a>
+
+      <a href="squadre.html">
+        Squadre
+      </a>
+
+      <a href="regolamento.html">
+        Regolamento
+      </a>
+
+      <!-- CONTATTI SEMPRE ULTIMO -->
+
+      <a href="contatti.html">
+        Contatti
+      </a>
+
+    </nav>
 
   </div>
 
 
-  <!-- =========================
-       HERO
-  ========================= -->
+  <div class="footer-bottom">
 
-  <section
-    class="hero"
-    aria-label="Santa Cruz Cup"
-  >
+    <span class="footer-copy">
 
-    <div class="hero-bg"></div>
+      © 2026 Santa Cruz Cup.
+      Tutti i diritti riservati.
 
+    </span>
 
-    <div class="hero-photo">
 
-      <img
-        src="logo.png"
-        alt=""
-        aria-hidden="true"
-        loading="eager"
-      >
+    <span class="footer-copy">
 
-      <div class="hero-photo-mask"></div>
+      Fatto con ❤️ per i giovani campioni
 
-    </div>
+    </span>
 
+  </div>
 
-    <div class="field-pattern"></div>
+</footer>
 
 
-    <div class="hero-content">
+<!-- ═══════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════ -->
 
-      <div class="hero-badge">
-        🔥 Torneo Giovanile · Edizione 2026
-      </div>
+<script>
 
+document.addEventListener(
+  'DOMContentLoaded',
+  function() {
 
-      <h1 class="hero-title">
 
-        <span class="t-white">
-          SANTA
-        </span>
+    /* ═══════════════════════════════
+       HAMBURGER MENU
+    ═══════════════════════════════ */
 
-        <span class="t-gold">
-          CRUZ
-        </span>
+    var hamburger =
+      document.getElementById('hamburger');
 
-        <span class="t-outline">
-          CUP
-        </span>
+    var mobileMenu =
+      document.getElementById('mobileMenu');
 
-      </h1>
 
+    if (hamburger && mobileMenu) {
 
-      <p class="hero-sub">
-        ⚽ Calcio Giovanile · Passione &amp; Determinazione
-      </p>
+      hamburger.addEventListener(
+        'click',
+        function(e) {
 
+          e.stopPropagation();
 
-      <p class="hero-desc">
+          mobileMenu.classList.toggle('open');
 
-        Dove i giovani campioni scrivono le loro prime leggende.
-        Ogni partita è una storia di energia, talento e cuore.
-        Il titolo ti aspetta — sei pronto?
+        }
+      );
 
-      </p>
 
+      document.addEventListener(
+        'click',
+        function(e) {
 
-      <div class="hero-cta">
+          if (
+            !hamburger.contains(e.target) &&
+            !mobileMenu.contains(e.target)
+          ) {
 
-        <a
-          href="calendario.html"
-          class="btn-gold"
-        >
-          📅 Calendario Partite
-        </a>
+            mobileMenu.classList.remove('open');
 
-        <a
-          href="classifica.html"
-          class="btn-outline"
-        >
-          🏆 Classifica
-        </a>
+          }
 
-      </div>
+        }
+      );
 
-    </div>
 
-  </section>
+      mobileMenu
+        .querySelectorAll('a')
+        .forEach(
+          function(a) {
 
-
-  <main>
-
-    <!-- =========================
-         BENVENUTO
-    ========================= -->
-
-    <section class="section">
-
-      <div class="reveal">
-
-        <div class="section-eyebrow">
-          Il Torneo
-        </div>
-
-        <h2 class="section-title">
-          BENVENUTI ALLA<br>
-          SANTA CRUZ CUP!
-        </h2>
-
-        <p class="section-lead">
-
-          La Santa Cruz Cup è il torneo giovanile dove passione
-          e competizione si incontrano. Ogni partita è una storia
-          fatta di energia, talento e determinazione.
-          Che tu sia un giocatore, un tifoso o un curioso —
-          qui troverai emozioni vere.
-
-        </p>
-
-      </div>
-
-
-      <div class="cards-grid">
-
-
-        <div class="card reveal">
-
-          <div class="card-icon">🏟️</div>
-
-          <div class="card-title">
-            Fase a Gironi
-          </div>
-
-          <p class="card-text">
-
-            Due gironi all'italiana.
-            Vittoria = 3 pt, Pareggio = 1 pt,
-            Sconfitta = 0 pt.
-            Le prime 4 di ogni girone accedono
-            alla fase successiva.
-
-          </p>
-
-        </div>
-
-
-        <div class="card reveal">
-
-          <div class="card-icon">⚔️</div>
-
-          <div class="card-title">
-            Quarti &amp; Semifinali
-          </div>
-
-          <p class="card-text">
-
-            Scontri incrociati tra i gironi:
-            1°A vs 4°B, 2°B vs 3°A,
-            1°B vs 4°A, 2°A vs 3°B.
-            I vincitori si sfidano in semifinale.
-
-          </p>
-
-        </div>
-
-
-        <div class="card reveal">
-
-          <div class="card-icon">🏆</div>
-
-          <div class="card-title">
-            Finale
-          </div>
-
-          <p class="card-text">
-
-            Grande finale tra le due semifinaliste.
-            In caso di parità:
-            supplementari 2×5 min, poi rigori.
-            Si gioca anche la finale per il 3° posto.
-
-          </p>
-
-        </div>
-
-
-        <div class="card reveal">
-
-          <div class="card-icon">🥇</div>
-
-          <div class="card-title">
-            Premi
-          </div>
-
-          <p class="card-text">
-
-            Premio e medaglie al 1° posto.
-
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         QUICK LINKS
-    ========================= -->
-
-    <section class="section section-alt">
-
-      <div class="reveal">
-
-        <div class="section-eyebrow">
-          Navigazione Rapida
-        </div>
-
-        <h2 class="section-title">
-          TUTTO IL TORNEO
-        </h2>
-
-      </div>
-
-
-      <div class="quicklinks-grid">
-
-
-        <a
-          href="calendario.html"
-          class="ql-item reveal"
-        >
-
-          <span class="ql-icon">📅</span>
-
-          <span class="ql-label">
-            Calendario
-          </span>
-
-          <span class="ql-desc">
-            Date e orari di tutte le partite
-          </span>
-
-        </a>
-
-
-        <a
-          href="risultati.html"
-          class="ql-item reveal"
-        >
-
-          <span class="ql-icon">📊</span>
-
-          <span class="ql-label">
-            Risultati
-          </span>
-
-          <span class="ql-desc">
-            Punteggi e recap partite
-          </span>
-
-        </a>
-
-
-        <a
-          href="classifica.html"
-          class="ql-item reveal"
-        >
-
-          <span class="ql-icon">🏆</span>
-
-          <span class="ql-label">
-            Classifica
-          </span>
-
-          <span class="ql-desc">
-            Classifica del torneo
-          </span>
-
-        </a>
-
-
-        <a
-          href="marcatori.html"
-          class="ql-item reveal"
-        >
-
-          <span class="ql-icon">⚽</span>
-
-          <span class="ql-label">
-            Marcatori
-          </span>
-
-          <span class="ql-desc">
-            I cannonieri della stagione
-          </span>
-
-        </a>
-
-
-        <a
-          href="squadre.html"
-          class="ql-item reveal"
-        >
-
-          <span class="ql-icon">👥</span>
-
-          <span class="ql-label">
-            Squadre
-          </span>
-
-          <span class="ql-desc">
-            Rose e informazioni sui team
-          </span>
-
-        </a>
-
-
-        <a
-          href="regolamento.html"
-          class="ql-item reveal"
-        >
-
-          <span class="ql-icon">📋</span>
-
-          <span class="ql-label">
-            Regolamento
-          </span>
-
-          <span class="ql-desc">
-            Regole del torneo
-          </span>
-
-        </a>
-
-
-        <a
-          href="contatti.html"
-          class="ql-item reveal"
-        >
-
-          <span class="ql-icon">📩</span>
-
-          <span class="ql-label">
-            Contatti
-          </span>
-
-          <span class="ql-desc">
-            Contatta l'organizzazione
-          </span>
-
-        </a>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- =========================
-       FOOTER
-  ========================= -->
-
-  <footer>
-
-    <div class="footer-top">
-
-
-      <div class="footer-brand-block">
-
-        <a href="index.html">
-
-          <img
-            src="logo.png"
-            alt="Logo Santa Cruz Cup"
-          >
-
-        </a>
-
-        <div class="footer-tagline">
-
-          Torneo Giovanile di Calcio · Edizione 2026
-
-        </div>
-
-      </div>
-
-
-      <nav
-        class="footer-nav"
-        aria-label="Footer navigation"
-      >
-
-        <a href="index.html">Home</a>
-        <a href="calendario.html">Calendario</a>
-        <a href="risultati.html">Risultati</a>
-        <a href="classifica.html">Classifica</a>
-        <a href="marcatori.html">Marcatori</a>
-        <a href="squadre.html">Squadre</a>
-        <a href="regolamento.html">Regolamento</a>
-        <a href="contatti.html">Contatti</a>
-
-      </nav>
-
-    </div>
-
-
-    <div class="footer-bottom">
-
-      <span class="footer-copy">
-
-        © 2026 Santa Cruz Cup.
-        Tutti i diritti riservati.
-
-      </span>
-
-      <span class="footer-copy">
-
-        Fatto con ❤️ per i giovani campioni
-
-      </span>
-
-    </div>
-
-  </footer>
-
-
-  <!-- =========================
-       JAVASCRIPT
-  ========================= -->
-
-  <script>
-
-    document.addEventListener(
-      'DOMContentLoaded',
-      function() {
-
-
-        /* =========================
-           MENU MOBILE
-        ========================= */
-
-        var hamburger =
-          document.getElementById('hamburger');
-
-        var mobileMenu =
-          document.getElementById('mobileMenu');
-
-
-        if (hamburger && mobileMenu) {
-
-          hamburger.addEventListener(
-            'click',
-            function() {
-
-              mobileMenu.classList.toggle('open');
-
-              hamburger.setAttribute(
-                'aria-expanded',
-                mobileMenu.classList.contains('open')
-              );
-
-            }
-          );
-
-
-          document.addEventListener(
-            'click',
-            function(e) {
-
-              if (
-                !hamburger.contains(e.target) &&
-                !mobileMenu.contains(e.target)
-              ) {
+            a.addEventListener(
+              'click',
+              function() {
 
                 mobileMenu.classList.remove('open');
-
-                hamburger.setAttribute(
-                  'aria-expanded',
-                  'false'
-                );
-
-              }
-
-            }
-          );
-
-
-          mobileMenu
-            .querySelectorAll('a')
-            .forEach(
-              function(a) {
-
-                a.addEventListener(
-                  'click',
-                  function() {
-
-                    mobileMenu.classList.remove('open');
-
-                    hamburger.setAttribute(
-                      'aria-expanded',
-                      'false'
-                    );
-
-                  }
-                );
 
               }
             );
 
+          }
+        );
+
+    }
+
+
+    /* ═══════════════════════════════
+       HAMBURGER KEYBOARD
+    ═══════════════════════════════ */
+
+    if (hamburger && mobileMenu) {
+
+      hamburger.addEventListener(
+        'keydown',
+        function(e) {
+
+          if (
+            e.key === 'Enter' ||
+            e.key === ' '
+          ) {
+
+            e.preventDefault();
+
+            mobileMenu.classList.toggle('open');
+
+          }
+
         }
+      );
+
+    }
 
 
-        /* =========================
-           SCROLL REVEAL
-        ========================= */
+    /* ═══════════════════════════════
+       RED SPARKS
+    ═══════════════════════════════ */
 
-        if (
-          'IntersectionObserver' in window
-        ) {
+    var sparksContainer =
+      document.getElementById('sparks');
 
-          var observer =
-            new IntersectionObserver(
-              function(entries) {
 
-                entries.forEach(
-                  function(entry) {
+    if (sparksContainer) {
 
-                    if (
-                      entry.isIntersecting
-                    ) {
+      for (
+        var i = 0;
+        i < 35;
+        i++
+      ) {
+
+        var s =
+          document.createElement('div');
+
+        s.className = 'spark';
+
+
+        s.style.cssText =
+
+          'left:' +
+          (28 + Math.random() * 45) +
+          '%;' +
+
+          'top:' +
+          (38 + Math.random() * 50) +
+          '%;' +
+
+          'width:' +
+          (2 + Math.random() * 4) +
+          'px;' +
+
+          'height:' +
+          (2 + Math.random() * 4) +
+          'px;' +
+
+          'background:' +
+          (
+            Math.random() > 0.35
+              ? '#FF3333'
+              : '#E00000'
+          ) +
+          ';' +
+
+          'box-shadow:0 0 8px rgba(224,0,0,0.8);' +
+
+          'animation-duration:' +
+          (2 + Math.random() * 3.5) +
+          's;' +
+
+          'animation-delay:' +
+          (Math.random() * 4) +
+          's;';
+
+
+        sparksContainer.appendChild(s);
+
+      }
+
+    }
+
+
+    /* ═══════════════════════════════
+       BACKGROUND RED PARTICLES
+    ═══════════════════════════════ */
+
+    var bgParticles =
+      document.getElementById('bgParticles');
+
+    if (bgParticles) {
+
+      var particleCount =
+        window.innerWidth <= 600 ? 28 : 50;
+
+      for (
+        var p = 0;
+        p < particleCount;
+        p++
+      ) {
+
+        var particle =
+          document.createElement('span');
+
+        particle.className =
+          'bg-particle';
+
+        particle.style.left =
+          (Math.random() * 100) + '%';
+
+        var size =
+          2 + Math.random() * 3;
+
+        particle.style.width =
+          size + 'px';
+
+        particle.style.height =
+          size + 'px';
+
+        particle.style.animationDuration =
+          (8 + Math.random() * 12) + 's';
+
+        particle.style.animationDelay =
+          (-Math.random() * 18) + 's';
+
+        particle.style.opacity =
+          0.25 + Math.random() * 0.45;
+
+        bgParticles.appendChild(particle);
+      }
+    }
+
+
+    /* ═══════════════════════════════
+       SCROLL REVEAL
+    ═══════════════════════════════ */
+
+    if (
+      'IntersectionObserver' in window
+    ) {
+
+      var revealObserver =
+        new IntersectionObserver(
+          function(entries) {
+
+            entries.forEach(
+              function(entry, idx) {
+
+                if (
+                  entry.isIntersecting
+                ) {
+
+                  setTimeout(
+                    function() {
 
                       entry.target
                         .classList
                         .add('in');
 
-                      observer.unobserve(
-                        entry.target
-                      );
-
-                    }
-
-                  }
-                );
-
-              },
-              {
-                threshold: 0.12
-              }
-            );
+                    },
+                    idx * 70
+                  );
 
 
-          document
-            .querySelectorAll('.reveal')
-            .forEach(
-              function(el) {
+                  revealObserver.unobserve(
+                    entry.target
+                  );
 
-                observer.observe(el);
+                }
 
               }
             );
 
-        } else {
-
-          document
-            .querySelectorAll('.reveal')
-            .forEach(
-              function(el) {
-
-                el.classList.add('in');
-
-              }
-            );
-
-        }
-
-
-        /* =========================
-           LINK ATTIVO
-        ========================= */
-
-        var currentPage =
-          location.pathname
-            .split('/')
-            .pop() ||
-          'index.html';
-
-
-        document
-          .querySelectorAll('.nav-links a')
-          .forEach(
-            function(a) {
-
-              a.classList.toggle(
-                'active',
-                a.getAttribute('href') ===
-                currentPage
-              );
-
-            }
-          );
-
-
-        /* =========================
-           PARTICELLE
-        ========================= */
-
-        var canvas =
-          document.getElementById('particles');
-
-        if (!canvas) return;
-
-        var ctx =
-          canvas.getContext('2d');
-
-        var particles = [];
-
-        var width;
-        var height;
-
-        var mouse = {
-          x: null,
-          y: null,
-          radius: 130
-        };
-
-
-        function resizeCanvas() {
-
-          width =
-            canvas.width =
-              window.innerWidth;
-
-          height =
-            canvas.height =
-              window.innerHeight;
-
-          createParticles();
-
-        }
-
-
-        function createParticles() {
-
-          particles = [];
-
-          var amount =
-            Math.min(
-              95,
-              Math.max(
-                35,
-                Math.floor(
-                  (width * height) / 14000
-                )
-              )
-            );
-
-
-          for (
-            var i = 0;
-            i < amount;
-            i++
-          ) {
-
-            particles.push({
-
-              x:
-                Math.random() *
-                width,
-
-              y:
-                Math.random() *
-                height,
-
-              size:
-                Math.random() *
-                2.2 +
-                0.5,
-
-              speedX:
-                (Math.random() - 0.5) *
-                0.35,
-
-              speedY:
-                (Math.random() - 0.5) *
-                0.35,
-
-              opacity:
-                Math.random() *
-                0.65 +
-                0.15,
-
-              pulse:
-                Math.random() *
-                Math.PI *
-                2
-
-            });
-
-          }
-
-        }
-
-
-        function drawParticles() {
-
-          ctx.clearRect(
-            0,
-            0,
-            width,
-            height
-          );
-
-
-          for (
-            var i = 0;
-            i < particles.length;
-            i++
-          ) {
-
-            var p =
-              particles[i];
-
-
-            p.x += p.speedX;
-            p.y += p.speedY;
-
-            p.pulse += 0.018;
-
-
-            if (p.x < -10)
-              p.x = width + 10;
-
-            if (p.x > width + 10)
-              p.x = -10;
-
-            if (p.y < -10)
-              p.y = height + 10;
-
-            if (p.y > height + 10)
-              p.y = -10;
-
-
-            var pulseOpacity =
-              p.opacity +
-              Math.sin(p.pulse) *
-              0.15;
-
-
-            /* Interazione con mouse */
-
-            if (
-              mouse.x !== null &&
-              mouse.y !== null
-            ) {
-
-              var dx =
-                mouse.x - p.x;
-
-              var dy =
-                mouse.y - p.y;
-
-              var distance =
-                Math.sqrt(
-                  dx * dx +
-                  dy * dy
-                );
-
-
-              if (
-                distance <
-                mouse.radius
-              ) {
-
-                var force =
-                  (mouse.radius - distance) /
-                  mouse.radius;
-
-                p.x -=
-                  (dx / distance) *
-                  force *
-                  0.35;
-
-                p.y -=
-                  (dy / distance) *
-                  force *
-                  0.35;
-
-              }
-
-            }
-
-
-            ctx.beginPath();
-
-            ctx.arc(
-              p.x,
-              p.y,
-              p.size,
-              0,
-              Math.PI * 2
-            );
-
-
-            ctx.fillStyle =
-              'rgba(255,40,40,' +
-              Math.max(
-                0.05,
-                pulseOpacity
-              ) +
-              ')';
-
-
-            ctx.shadowBlur = 8;
-
-            ctx.shadowColor =
-              'rgba(224,0,0,0.65)';
-
-
-            ctx.fill();
-
-          }
-
-
-          /* Linee tra particelle vicine */
-
-          for (
-            var a = 0;
-            a < particles.length;
-            a++
-          ) {
-
-            for (
-              var b = a + 1;
-              b < particles.length;
-              b++
-            ) {
-
-              var dx =
-                particles[a].x -
-                particles[b].x;
-
-              var dy =
-                particles[a].y -
-                particles[b].y;
-
-              var distance =
-                Math.sqrt(
-                  dx * dx +
-                  dy * dy
-                );
-
-
-              if (
-                distance < 105
-              ) {
-
-                var opacity =
-                  (1 - distance / 105) *
-                  0.12;
-
-
-                ctx.beginPath();
-
-                ctx.moveTo(
-                  particles[a].x,
-                  particles[a].y
-                );
-
-                ctx.lineTo(
-                  particles[b].x,
-                  particles[b].y
-                );
-
-
-                ctx.strokeStyle =
-                  'rgba(224,0,0,' +
-                  opacity +
-                  ')';
-
-                ctx.lineWidth =
-                  0.6;
-
-                ctx.stroke();
-
-              }
-
-            }
-
-          }
-
-
-          requestAnimationFrame(
-            drawParticles
-          );
-
-        }
-
-
-        window.addEventListener(
-          'resize',
-          resizeCanvas
-        );
-
-
-        window.addEventListener(
-          'mousemove',
-          function(e) {
-
-            mouse.x =
-              e.clientX;
-
-            mouse.y =
-              e.clientY;
-
+          },
+          {
+            threshold: 0.12
           }
         );
 
 
-        window.addEventListener(
-          'mouseout',
-          function() {
+      document
+        .querySelectorAll('.reveal')
+        .forEach(
+          function(el) {
 
-            mouse.x = null;
-            mouse.y = null;
+            revealObserver.observe(el);
 
           }
         );
 
+    } else {
 
-        resizeCanvas();
+      document
+        .querySelectorAll('.reveal')
+        .forEach(
+          function(el) {
 
-        drawParticles();
+            el.classList.add('in');
 
-      }
-    );
+          }
+        );
 
-  </script>
+    }
 
 
-  <!-- MUSICA -->
+    /* ═══════════════════════════════
+       ACTIVE NAV LINK
+    ═══════════════════════════════ */
+
+    var currentPage =
+      location.pathname
+        .split('/')
+        .pop() ||
+      'index.html';
+
+
+    if (
+      currentPage === ''
+    ) {
+
+      currentPage =
+        'index.html';
+
+    }
+
+
+    document
+      .querySelectorAll('.nav-links a')
+      .forEach(
+        function(a) {
+
+          a.classList.toggle(
+            'active',
+            a.getAttribute('href') ===
+              currentPage
+          );
+
+        }
+      );
+
+  }
+);
+
+</script>
+
+ <!-- MUSICA SANTA CRUZ CUP -->
   <script src="music.js"></script>
-
+  
 </body>
-
 </html>
