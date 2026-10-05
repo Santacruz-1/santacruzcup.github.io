@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -10,7 +11,7 @@
 
   <style>
     /* =========================================================
-       RESPONSIVE & HAMBURGER MENU (SISTEMATO)
+       RESPONSIVE & HAMBURGER MENU
     ========================================================= */
     @media (max-width: 768px) {
       .nav-links {
@@ -30,9 +31,11 @@
     .hamburger.active span:nth-child(1) {
       transform: translateY(7px) rotate(45deg);
     }
+
     .hamburger.active span:nth-child(2) {
       opacity: 0;
     }
+
     .hamburger.active span:nth-child(3) {
       transform: translateY(-7px) rotate(-45deg);
     }
@@ -134,7 +137,9 @@
       font-weight: 800;
     }
 
-    /* Posizioni */
+    /* =========================================================
+       POSIZIONI
+    ========================================================= */
     .rank-medal {
       display: inline-block;
       font-family: 'Bebas Neue', sans-serif;
@@ -143,9 +148,17 @@
       text-align: center;
     }
 
-    .rank-medal.gold { color: #FFD700; }
-    .rank-medal.silver { color: #C0C0C0; }
-    .rank-medal.bronze { color: #CD7F32; }
+    .rank-medal.gold {
+      color: #FFD700;
+    }
+
+    .rank-medal.silver {
+      color: #C0C0C0;
+    }
+
+    .rank-medal.bronze {
+      color: #CD7F32;
+    }
 
     .rank-normal {
       display: inline-block;
@@ -156,12 +169,24 @@
       text-align: center;
     }
 
-    /* Differenza reti */
-    .goal-positive { color: #65d98b !important; }
-    .goal-negative { color: #ff6862 !important; }
-    .goal-neutral { color: rgba(255,255,255,0.55) !important; }
+    /* =========================================================
+       DIFFERENZA RETI
+    ========================================================= */
+    .goal-positive {
+      color: #65d98b !important;
+    }
 
-    /* Legenda */
+    .goal-negative {
+      color: #ff6862 !important;
+    }
+
+    .goal-neutral {
+      color: rgba(255,255,255,0.55) !important;
+    }
+
+    /* =========================================================
+       LEGENDA
+    ========================================================= */
     .standings-legend {
       display: flex;
       align-items: center;
@@ -183,25 +208,55 @@
       letter-spacing: 0.05em;
     }
 
+    /* =========================================================
+       RESPONSIVE TABELLA
+    ========================================================= */
     @media (max-width: 860px) {
-      .standings-table min-width: 950px;
-      .standings-table thead th { font-size: 0.74rem; padding: 13px 10px; }
-      .standings-table tbody td { padding: 12px 10px; font-size: 0.88rem; }
-      .standings-table .team-name { font-size: 0.95rem; }
-      .rank-medal { font-size: 1.25rem; }
-      .rank-normal { font-size: 1.08rem; }
+      .standings-table {
+        min-width: 950px;
+      }
+
+      .standings-table thead th {
+        font-size: 0.74rem;
+        padding: 13px 10px;
+      }
+
+      .standings-table tbody td {
+        padding: 12px 10px;
+        font-size: 0.88rem;
+      }
+
+      .standings-table .team-name {
+        font-size: 0.95rem;
+      }
+
+      .rank-medal {
+        font-size: 1.25rem;
+      }
+
+      .rank-normal {
+        font-size: 1.08rem;
+      }
     }
 
     @media (max-width: 500px) {
-      .standings-legend { gap: 10px 16px; padding: 12px; }
-      .legend-item { font-size: 0.70rem; }
+      .standings-legend {
+        gap: 10px 16px;
+        padding: 12px;
+      }
+
+      .legend-item {
+        font-size: 0.70rem;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
+  <!-- =========================================================
+       NAVBAR
+  ========================================================= -->
   <nav class="navbar">
     <a href="index.html" class="nav-brand">
       <img src="logo.png" alt="Santa Cruz Cup">
@@ -226,7 +281,10 @@
     </div>
   </nav>
 
-  <!-- MOBILE MENU -->
+
+  <!-- =========================================================
+       MOBILE MENU
+  ========================================================= -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="index.html">🏠 Home</a>
     <a href="calendario.html">📅 Calendario</a>
@@ -238,19 +296,35 @@
     <a href="contatti.html">📩 Contatti</a>
   </div>
 
-  <!-- HEADER -->
+
+  <!-- =========================================================
+       HEADER
+  ========================================================= -->
   <header class="page-header">
     <div class="page-eyebrow">Santa Cruz Cup · 2026</div>
-    <h1 class="page-title">CLASSI<span>FICA</span></h1>
-    <p class="page-subtitle">La situazione aggiornata del torneo.</p>
+
+    <h1 class="page-title">
+      CLASSI<span>FICA</span>
+    </h1>
+
+    <p class="page-subtitle">
+      La situazione aggiornata del torneo.
+    </p>
   </header>
 
-  <!-- CONTENUTO PRINCIPALE -->
+
+  <!-- =========================================================
+       CONTENUTO PRINCIPALE
+  ========================================================= -->
   <main>
     <section class="section">
+
       <div class="table-wrap standings-wrap">
+
         <div class="table-scroll">
+
           <table class="standings-table">
+
             <thead>
               <tr>
                 <th class="center">#</th>
@@ -265,18 +339,26 @@
                 <th class="center">Pt</th>
               </tr>
             </thead>
+
             <tbody id="classificaBody">
+
               <tr>
                 <td colspan="10" class="center" style="padding:40px;">
                   Caricamento classifica...
                 </td>
               </tr>
+
             </tbody>
+
           </table>
+
         </div>
       </div>
 
-      <!-- LEGENDA -->
+
+      <!-- =====================================================
+           LEGENDA
+      ====================================================== -->
       <div class="standings-legend">
         <div class="legend-item">PG = Partite giocate</div>
         <div class="legend-item">V = Vittorie</div>
@@ -287,19 +369,38 @@
         <div class="legend-item">DR = Differenza reti</div>
         <div class="legend-item">Pt = Punti</div>
       </div>
+
     </section>
   </main>
 
-  <!-- FOOTER -->
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================= -->
   <footer>
+
     <div class="footer-inner">
+
       <div class="footer-brand">
-        <img src="logo.png" alt="Santa Cruz Cup" style="width:70px; height:70px; object-fit:contain; filter:drop-shadow(0 0 8px rgba(225,6,0,0.5));">
+
+        <img
+          src="logo.png"
+          alt="Santa Cruz Cup"
+          style="
+            width:70px;
+            height:70px;
+            object-fit:contain;
+            filter:drop-shadow(0 0 8px rgba(225,6,0,0.5));
+          "
+        >
+
         <div>
           <strong>SANTA CRUZ CUP</strong>
           <span>Il torneo. La passione. La sfida.</span>
         </div>
+
       </div>
+
 
       <nav class="footer-nav">
         <a href="index.html">Home</a>
@@ -311,608 +412,662 @@
         <a href="regolamento.html">Regolamento</a>
         <a href="contatti.html">Contatti</a>
       </nav>
+
     </div>
+
 
     <div class="footer-bottom">
       <span>© 2026 Santa Cruz Cup</span>
       <span>Tutti i diritti riservati</span>
     </div>
+
   </footer>
 
-  <!-- JAVASCRIPT -->
+
+  <!-- =========================================================
+       JAVASCRIPT
+  ========================================================= -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
 
       /* =====================================================
-         MENU MOBILE (CORRETTO)
+         MENU MOBILE
       ====================================================== */
+
       const hamburger = document.getElementById("hamburger");
       const mobileMenu = document.getElementById("mobileMenu");
 
       if (hamburger && mobileMenu) {
+
         hamburger.addEventListener("click", (e) => {
           e.stopPropagation();
+
           hamburger.classList.toggle("active");
           mobileMenu.classList.toggle("open");
         });
 
+
         document.addEventListener("click", (e) => {
-          if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+
+          if (
+            !hamburger.contains(e.target) &&
+            !mobileMenu.contains(e.target)
+          ) {
             hamburger.classList.remove("active");
             mobileMenu.classList.remove("open");
           }
+
         });
 
+
         mobileMenu.querySelectorAll("a").forEach(link => {
+
           link.addEventListener("click", () => {
             hamburger.classList.remove("active");
             mobileMenu.classList.remove("open");
           });
+
         });
+
       }
 
+
       /* =====================================================
-         CARICAMENTO ED ELABORAZIONE CLASSIFICA
+         RIFERIMENTO TABELLA
       ====================================================== */
-      const classificaBody = document.getElementById("classificaBody");
+
+      const classificaBody =
+        document.getElementById("classificaBody");
+
       if (!classificaBody) return;
 
+
+      /* =====================================================
+         SICUREZZA HTML
+      ====================================================== */
+
       function escapeHtml(value) {
+
         return String(value ?? "")
           .replace(/&/g, "&amp;")
           .replace(/</g, "&lt;")
           .replace(/>/g, "&gt;")
           .replace(/"/g, "&quot;")
           .replace(/'/g, "&#039;");
+
       }
 
-      function normalizza(value) {
-        return String(value ?? "").trim().toLowerCase();
-      }
-
-      function leggiRisultato(partita) {
-        let golCasa = null;
-        let golOspite = null;
-
-        if (partita.golCasa !== undefined && partita.golOspite !== undefined) {
-          golCasa = Number(partita.golCasa);
-          golOspite = Number(partita.golOspite);
-        }
-
-        if (!Number.isFinite(golCasa) || !Number.isFinite(golOspite)) {
-          const risultato = partita.risultato ?? partita.result ?? partita.score ?? "";
-          const match = String(risultato).trim().match(/^(\d+)\s*[-:]\s*(\d+)$/);
-          if (match) {
-            golCasa = Number(match[1]);
-            golOspite = Number(match[2]);
-          }
-        }
-
-        if (!Number.isFinite(golCasa) || !Number.isFinite(golOspite)) {
-          return null;
-        }
-
-        return { casa: golCasa, ospite: golOspite };
-      }
-
-      async function caricaClassifica() {
-        try {
-          const timestamp = Date.now();
-          const [squadreResponse, partiteResponse] = await Promise.all([
-            fetch(`data/squadre.json?nocache=${timestamp}`, { cache: "no-store" }),
-            fetch(`data/partite.json?nocache=${timestamp}`, { cache: "no-store" })
-          ]);
-
-          if (!squadreResponse.ok || !partiteResponse.ok) {
-            throw new Error("Errore nel recupero dei file JSON dati.");
-          }
-
-          const squadre = await squadreResponse.json();
-          const partite = await partiteResponse.json();
-
-          if (!Array.isArray(squadre) || !Array.isArray(partite)) {
-            throw new Error("Formato JSON non valido.");
-          }
-
-          const classifica = squadre.map((squadra, index) => ({
-            id: String(squadra.id ?? squadra.ID ?? squadra.squadraId ?? index + 1),
-            nome: String(squadra.nome ?? squadra.squadra ?? squadra.name ?? `Squadra ${index + 1}`),
-            partite: 0,
-            vittorie: 0,
-            pareggi: 0,
-            sconfitte: 0,
-            golFatti: 0,
-            golSubiti: 0,
-            differenzaReti: 0,
-            punti: 0
-          }));
-
-          const squadraById = new Map();
-          const squadraByNome = new Map();
-
-          classifica.forEach(squadra => {
-            squadraById.set(normalizza(squadra.id), squadra);
-            squadraByNome.set(normalizza(squadra.nome), squadra);
-          });
-
-          function trovaSquadra(value) {
-            if (!value) return null;
-            const val = normalizza(value);
-            return squadraById.get(val) || squadraByNome.get(val) || null;
-          }
-
-          partite.forEach(partita => {
-            const sqCasa = partita.squadraCasa ?? partita.casa ?? partita.homeTeam ?? partita.home;
-            const sqOspite = partita.squadraOspite ?? partita.ospite ?? partita.awayTeam ?? partita.away;
-
-            const casa = trovaSquadra(sqCasa);
-            const ospite = trovaSquadra(sqOspite);
-
-            if (!casa || !ospite) return;
-
-            const risultato = leggiRisultato(partita);
-            if (!risultato) return;
-
-            casa.partite++;
-            ospite.partite++;
-
-            casa.golFatti += risultato.casa;
-            casa.golSubiti += risultato.ospite;
-            ospite.golFatti += risultato.ospite;
-            ospite.golSubiti += risultato.casa;
-
-            if (risultato.casa > risultato.ospite) {
-              casa.vittorie++;
-              casa.punti += 3;
-              ospite.sconfitte++;
-            } else if (risultato.casa < risultato.ospite) {
-              ospite.vittorie++;
-              ospite.punti += 3;
-              casa.sconfitte++;
-            } else {
-              casa.pareggi++;
-              casa.punti += 1;
-              ospite.pareggi++;
-              ospite.punti += 1;
-            }
-          });
-
-          classifica.forEach(s => {
-            s.differenzaReti = s.golFatti - s.golSubiti;
-          });
-
-          // Ordina per Punti -> Differenza Reti -> Gol Fatti
-          classifica.sort((a, b) => {
-            if (b.punti !== a.punti) return b.punti - a.punti;
-            if (b.differenzaReti !== a.differenzaReti) return b.differenzaReti - a.differenzaReti;
-            return b.golFatti - a.golFatti;
-          });
-
-          // Rendering HTML Tabella
-          classificaBody.innerHTML = "";
-
-          if (classifica.length === 0) {
-            classificaBody.innerHTML = `<tr><td colspan="10" class="center" style="padding:30px;">Nessuna squadra trovata.</td></tr>`;
-            return;
-          }
-
-          classifica.forEach((team, idx) => {
-            const pos = idx + 1;
-            let rankHtml = `<span class="rank-normal">${pos}</span>`;
-
-            if (pos === 1) rankHtml = `<span class="rank-medal gold">1</span>`;
-            else if (pos === 2) rankHtml = `<span class="rank-medal silver">2</span>`;
-            else if (pos === 3) rankHtml = `<span class="rank-medal bronze">3</span>`;
-
-            let drClass = "goal-neutral";
-            if (team.differenzaReti > 0) drClass = "goal-positive";
-            else if (team.differenzaReti < 0) drClass = "goal-negative";
-
-            const tr = document.createElement("tr");
-            tr.innerHTML = `
-              <td class="center">${rankHtml}</td>
-              <td class="team-name">${escapeHtml(team.nome)}</td>
-              <td class="number">${team.partite}</td>
-              <td class="number">${team.vittorie}</td>
-              <td class="number">${team.pareggi}</td>
-              <td class="number">${team.sconfitte}</td>
-              <td class="number">${team.golFatti}</td>
-              <td class="number">${team.golSubiti}</td>
-              <td class="number goal-difference ${drClass}">${team.differenzaReti > 0 ? '+' : ''}${team.differenzaReti}</td>
-              <td class="points">${team.punti}</td>
-            `;
-            classificaBody.appendChild(tr);
-          });
-
-        } catch (err) {
-          console.error(err);
-          classificaBody.innerHTML = `<tr><td colspan="10" class="center" style="padding:30px; color:var(--red);">Errore durante il caricamento dei dati della classifica.</td></tr>`;
-        }
-      }
-
-      caricaClassifica();
-    });
-  </script>
-  
-</body>
-        </html>{
-            mobileMenu.classList.remove("open");
-          });
-        });
-      }
 
       /* =====================================================
-         CARICAMENTO ED ELABORAZIONE CLASSIFICA
+         NORMALIZZAZIONE
       ====================================================== */
-      const classificaBody = document.getElementById("classificaBody");
-      if (!classificaBody) return;
-
-      function escapeHtml(value) {
-        return String(value ?? "")
-          .replace(/&/g, "&amp;")
-          .replace(/</g, "&lt;")
-          .replace(/>/g, "&gt;")
-          .replace(/"/g, "&quot;")
-          .replace(/'/g, "&#039;");
-      }
 
       function normalizza(value) {
-        return String(value ?? "").trim().toLowerCase();
+
+        return String(value ?? "")
+          .trim()
+          .toLowerCase();
+
       }
 
-      function leggiRisultato(partita) {
-        let golCasa = null;
-        let golOspite = null;
-
-        if (partita.golCasa !== undefined && partita.golOspite !== undefined) {
-          golCasa = Number(partita.golCasa);
-          golOspite = Number(partita.golOspite);
-        }
-
-        if (!Number.isFinite(golCasa) || !Number.isFinite(golOspite)) {
-          const risultato = partita.risultato ?? partita.result ?? partita.score ?? "";
-          const match = String(risultato).trim().match(/^(\d+)\s*[-:]\s*(\d+)$/);
-          if (match) {
-            golCasa = Number(match[1]);
-            golOspite = Number(match[2]);
-          }
-        }
-
-        if (!Number.isFinite(golCasa) || !Number.isFinite(golOspite)) {
-          return null;
-        }
-
-        return { casa: golCasa, ospite: golOspite };
-      }
-
-      async function caricaClassifica() {
-        try {
-          const timestamp = Date.now();
-          const [squadreResponse, partiteResponse] = await Promise.all([
-            fetch(`data/squadre.json?nocache=${timestamp}`, { cache: "no-store" }),
-            fetch(`data/partite.json?nocache=${timestamp}`, { cache: "no-store" })
-          ]);
-
-          if (!squadreResponse.ok || !partiteResponse.ok) {
-            throw new Error("Errore nel recupero dei file JSON dati.");
-          }
-
-          const squadre = await squadreResponse.json();
-          const partite = await partiteResponse.json();
-
-          if (!Array.isArray(squadre) || !Array.isArray(partite)) {
-            throw new Error("Formato JSON non valido.");
-          }
-
-          const classifica = squadre.map((squadra, index) => ({
-            id: String(squadra.id ?? squadra.ID ?? squadra.squadraId ?? index + 1),
-            nome: String(squadra.nome ?? squadra.squadra ?? squadra.name ?? `Squadra ${index + 1}`),
-            partite: 0,
-            vittorie: 0,
-            pareggi: 0,
-            sconfitte: 0,
-            golFatti: 0,
-            golSubiti: 0,
-            differenzaReti: 0,
-            punti: 0
-          }));
-
-          const squadraById = new Map();
-          const squadraByNome = new Map();
-
-          classifica.forEach(squadra => {
-            squadraById.set(normalizza(squadra.id), squadra);
-            squadraByNome.set(normalizza(squadra.nome), squadra);
-          });
-
-          function trovaSquadra(value) {
-            if (!value) return null;
-            const val = normalizza(value);
-            return squadraById.get(val) || squadraByNome.get(val) || null;
-          }
-
-          partite.forEach(partita => {
-            const sqCasa = partita.squadraCasa ?? partita.casa ?? partita.homeTeam ?? partita.home;
-            const sqOspite = partita.squadraOspite ?? partita.ospite ?? partita.awayTeam ?? partita.away;
-
-            const casa = trovaSquadra(sqCasa);
-            const ospite = trovaSquadra(sqOspite);
-
-            if (!casa || !ospite) return;
-
-            const risultato = leggiRisultato(partita);
-            if (!risultato) return;
-
-            casa.partite++;
-            ospite.partite++;
-
-            casa.golFatti += risultato.casa;
-            casa.golSubiti += risultato.ospite;
-            ospite.golFatti += risultato.ospite;
-            ospite.golSubiti += risultato.casa;
-
-            if (risultato.casa > risultato.ospite) {
-              casa.vittorie++;
-              casa.punti += 3;
-              ospite.sconfitte++;
-            } else if (risultato.casa < risultato.ospite) {
-              ospite.vittorie++;
-              ospite.punti += 3;
-              casa.sconfitte++;
-            } else {
-              casa.pareggi++;
-              casa.punti += 1;
-              ospite.pareggi++;
-              ospite.punti += 1;
-            }
-          });
-
-          classifica.forEach(s => {
-            s.differenzaReti = s.golFatti - s.golSubiti;
-          });
-
-          // Ordina per Punti -> Differenza Reti -> Gol Fatti
-          classifica.sort((a, b) => {
-            if (b.punti !== a.punti) return b.punti - a.punti;
-            if (b.differenzaReti !== a.differenzaReti) return b.differenzaReti - a.differenzaReti;
-            return b.golFatti - a.golFatti;
-          });
-
-          // Rendering HTML Tabella
-          classificaBody.innerHTML = "";
-
-          if (classifica.length === 0) {
-            classificaBody.innerHTML = `<tr><td colspan="10" class="center" style="padding:30px;">Nessuna squadra trovata.</td></tr>`;
-            return;
-          }
-
-          classifica.forEach((team, idx) => {
-            const pos = idx + 1;
-            let rankHtml = `<span class="rank-normal">${pos}</span>`;
-
-            if (pos === 1) rankHtml = `<span class="rank-medal gold">1</span>`;
-            else if (pos === 2) rankHtml = `<span class="rank-medal silver">2</span>`;
-            else if (pos === 3) rankHtml = `<span class="rank-medal bronze">3</span>`;
-
-            let drClass = "goal-neutral";
-            if (team.differenzaReti > 0) drClass = "goal-positive";
-            else if (team.differenzaReti < 0) drClass = "goal-negative";
-
-            const tr = document.createElement("tr");
-            tr.innerHTML = `
-              <td class="center">${rankHtml}</td>
-              <td class="team-name">${escapeHtml(team.nome)}</td>
-              <td class="number">${team.partite}</td>
-              <td class="number">${team.vittorie}</td>
-              <td class="number">${team.pareggi}</td>
-              <td class="number">${team.sconfitte}</td>
-              <td class="number">${team.golFatti}</td>
-              <td class="number">${team.golSubiti}</td>
-              <td class="number goal-difference ${drClass}">${team.differenzaReti > 0 ? '+' : ''}${team.differenzaReti}</td>
-              <td class="points">${team.punti}</td>
-            `;
-            classificaBody.appendChild(tr);
-          });
-
-        } catch (err) {
-          console.error(err);
-          classificaBody.innerHTML = `<tr><td colspan="10" class="center" style="padding:30px; color:var(--red);">Errore durante il caricamento dei dati della classifica.</td></tr>`;
-        }
-      }
-
-      caricaClassifica();
-    });
-  </script>
-  
-</body>
-  </html>            hamburger.classList.remove("active");
-            mobileMenu.classList.remove("open");
-          });
-        });
-      }
 
       /* =====================================================
-         CARICAMENTO ED ELABORAZIONE CLASSIFICA
+         LETTURA RISULTATO PARTITA
       ====================================================== */
-      const classificaBody = document.getElementById("classificaBody");
-      if (!classificaBody) return;
-
-      function escapeHtml(value) {
-        return String(value ?? "")
-          .replace(/&/g, "&amp;")
-          .replace(/</g, "&lt;")
-          .replace(/>/g, "&gt;")
-          .replace(/"/g, "&quot;")
-          .replace(/'/g, "&#039;");
-      }
-
-      function normalizza(value) {
-        return String(value ?? "").trim().toLowerCase();
-      }
 
       function leggiRisultato(partita) {
+
         let golCasa = null;
         let golOspite = null;
 
-        if (partita.golCasa !== undefined && partita.golOspite !== undefined) {
+
+        /* Formato:
+           golCasa / golOspite
+        */
+
+        if (
+          partita.golCasa !== undefined &&
+          partita.golOspite !== undefined
+        ) {
+
           golCasa = Number(partita.golCasa);
           golOspite = Number(partita.golOspite);
+
         }
 
-        if (!Number.isFinite(golCasa) || !Number.isFinite(golOspite)) {
-          const risultato = partita.risultato ?? partita.result ?? partita.score ?? "";
-          const match = String(risultato).trim().match(/^(\d+)\s*[-:]\s*(\d+)$/);
+
+        /* Formato:
+           risultato / result / score
+           esempio: "3-1"
+        */
+
+        if (
+          !Number.isFinite(golCasa) ||
+          !Number.isFinite(golOspite)
+        ) {
+
+          const risultato =
+            partita.risultato ??
+            partita.result ??
+            partita.score ??
+            "";
+
+          const match =
+            String(risultato)
+              .trim()
+              .match(/^(\d+)\s*[-:]\s*(\d+)$/);
+
+
           if (match) {
+
             golCasa = Number(match[1]);
             golOspite = Number(match[2]);
+
           }
+
         }
 
-        if (!Number.isFinite(golCasa) || !Number.isFinite(golOspite)) {
+
+        if (
+          !Number.isFinite(golCasa) ||
+          !Number.isFinite(golOspite)
+        ) {
+
           return null;
+
         }
 
-        return { casa: golCasa, ospite: golOspite };
+
+        return {
+          casa: golCasa,
+          ospite: golOspite
+        };
+
       }
 
+
+      /* =====================================================
+         CARICAMENTO CLASSIFICA
+      ====================================================== */
+
       async function caricaClassifica() {
+
         try {
+
           const timestamp = Date.now();
-          const [squadreResponse, partiteResponse] = await Promise.all([
-            fetch(`data/squadre.json?nocache=${timestamp}`, { cache: "no-store" }),
-            fetch(`data/partite.json?nocache=${timestamp}`, { cache: "no-store" })
+
+
+          const [
+            squadreResponse,
+            partiteResponse
+          ] = await Promise.all([
+
+            fetch(
+              `data/squadre.json?nocache=${timestamp}`,
+              {
+                cache: "no-store"
+              }
+            ),
+
+            fetch(
+              `data/partite.json?nocache=${timestamp}`,
+              {
+                cache: "no-store"
+              }
+            )
+
           ]);
 
-          if (!squadreResponse.ok || !partiteResponse.ok) {
-            throw new Error("Errore nel recupero dei file JSON dati.");
+
+          /* Controllo risposta */
+
+          if (
+            !squadreResponse.ok ||
+            !partiteResponse.ok
+          ) {
+
+            throw new Error(
+              "Errore nel recupero dei file JSON dati."
+            );
+
           }
 
-          const squadre = await squadreResponse.json();
-          const partite = await partiteResponse.json();
 
-          if (!Array.isArray(squadre) || !Array.isArray(partite)) {
-            throw new Error("Formato JSON non valido.");
+          const squadre =
+            await squadreResponse.json();
+
+          const partite =
+            await partiteResponse.json();
+
+
+          /* Controllo formato */
+
+          if (
+            !Array.isArray(squadre) ||
+            !Array.isArray(partite)
+          ) {
+
+            throw new Error(
+              "Formato JSON non valido."
+            );
+
           }
 
-          const classifica = squadre.map((squadra, index) => ({
-            id: String(squadra.id ?? squadra.ID ?? squadra.squadraId ?? index + 1),
-            nome: String(squadra.nome ?? squadra.squadra ?? squadra.name ?? `Squadra ${index + 1}`),
-            partite: 0,
-            vittorie: 0,
-            pareggi: 0,
-            sconfitte: 0,
-            golFatti: 0,
-            golSubiti: 0,
-            differenzaReti: 0,
-            punti: 0
-          }));
+
+          /* =================================================
+             CREAZIONE CLASSIFICA
+          ================================================== */
+
+          const classifica =
+            squadre.map((squadra, index) => ({
+
+              id: String(
+                squadra.id ??
+                squadra.ID ??
+                squadra.squadraId ??
+                index + 1
+              ),
+
+              nome: String(
+                squadra.nome ??
+                squadra.squadra ??
+                squadra.name ??
+                `Squadra ${index + 1}`
+              ),
+
+              partite: 0,
+              vittorie: 0,
+              pareggi: 0,
+              sconfitte: 0,
+
+              golFatti: 0,
+              golSubiti: 0,
+
+              differenzaReti: 0,
+              punti: 0
+
+            }));
+
+
+          /* =================================================
+             MAPPE SQUADRE
+          ================================================== */
 
           const squadraById = new Map();
           const squadraByNome = new Map();
 
+
           classifica.forEach(squadra => {
-            squadraById.set(normalizza(squadra.id), squadra);
-            squadraByNome.set(normalizza(squadra.nome), squadra);
+
+            squadraById.set(
+              normalizza(squadra.id),
+              squadra
+            );
+
+            squadraByNome.set(
+              normalizza(squadra.nome),
+              squadra
+            );
+
           });
 
+
+          /* =================================================
+             TROVA SQUADRA
+          ================================================== */
+
           function trovaSquadra(value) {
+
             if (!value) return null;
-            const val = normalizza(value);
-            return squadraById.get(val) || squadraByNome.get(val) || null;
+
+            const val =
+              normalizza(value);
+
+            return (
+              squadraById.get(val) ||
+              squadraByNome.get(val) ||
+              null
+            );
+
           }
 
+
+          /* =================================================
+             ELABORAZIONE PARTITE
+          ================================================= */
+
           partite.forEach(partita => {
-            const sqCasa = partita.squadraCasa ?? partita.casa ?? partita.homeTeam ?? partita.home;
-            const sqOspite = partita.squadraOspite ?? partita.ospite ?? partita.awayTeam ?? partita.away;
 
-            const casa = trovaSquadra(sqCasa);
-            const ospite = trovaSquadra(sqOspite);
+            const sqCasa =
+              partita.squadraCasa ??
+              partita.casa ??
+              partita.homeTeam ??
+              partita.home;
 
-            if (!casa || !ospite) return;
 
-            const risultato = leggiRisultato(partita);
-            if (!risultato) return;
+            const sqOspite =
+              partita.squadraOspite ??
+              partita.ospite ??
+              partita.awayTeam ??
+              partita.away;
+
+
+            const casa =
+              trovaSquadra(sqCasa);
+
+
+            const ospite =
+              trovaSquadra(sqOspite);
+
+
+            /* Partita non valida */
+
+            if (!casa || !ospite) {
+              return;
+            }
+
+
+            const risultato =
+              leggiRisultato(partita);
+
+
+            /* Partita senza risultato */
+
+            if (!risultato) {
+              return;
+            }
+
+
+            /* Partite giocate */
 
             casa.partite++;
             ospite.partite++;
 
+
+            /* Gol */
+
             casa.golFatti += risultato.casa;
             casa.golSubiti += risultato.ospite;
+
             ospite.golFatti += risultato.ospite;
             ospite.golSubiti += risultato.casa;
 
+
+            /* Vittoria casa */
+
             if (risultato.casa > risultato.ospite) {
+
               casa.vittorie++;
               casa.punti += 3;
+
               ospite.sconfitte++;
-            } else if (risultato.casa < risultato.ospite) {
+
+            }
+
+
+            /* Vittoria ospite */
+
+            else if (
+              risultato.casa < risultato.ospite
+            ) {
+
               ospite.vittorie++;
               ospite.punti += 3;
+
               casa.sconfitte++;
-            } else {
+
+            }
+
+
+            /* Pareggio */
+
+            else {
+
               casa.pareggi++;
               casa.punti += 1;
+
               ospite.pareggi++;
               ospite.punti += 1;
+
             }
+
           });
 
-          classifica.forEach(s => {
-            s.differenzaReti = s.golFatti - s.golSubiti;
+
+          /* =================================================
+             DIFFERENZA RETI
+          ================================================== */
+
+          classifica.forEach(squadra => {
+
+            squadra.differenzaReti =
+              squadra.golFatti -
+              squadra.golSubiti;
+
           });
 
-          // Ordina per Punti -> Differenza Reti -> Gol Fatti
+
+          /* =================================================
+             ORDINAMENTO
+             
+             1. Punti
+             2. Differenza reti
+             3. Gol fatti
+          ================================================== */
+
           classifica.sort((a, b) => {
-            if (b.punti !== a.punti) return b.punti - a.punti;
-            if (b.differenzaReti !== a.differenzaReti) return b.differenzaReti - a.differenzaReti;
+
+            if (b.punti !== a.punti) {
+              return b.punti - a.punti;
+            }
+
+
+            if (
+              b.differenzaReti !==
+              a.differenzaReti
+            ) {
+
+              return (
+                b.differenzaReti -
+                a.differenzaReti
+              );
+
+            }
+
+
             return b.golFatti - a.golFatti;
+
           });
 
-          // Rendering HTML Tabella
+
+          /* =================================================
+             RENDER TABELLA
+          ================================================== */
+
           classificaBody.innerHTML = "";
 
+
           if (classifica.length === 0) {
-            classificaBody.innerHTML = `<tr><td colspan="10" class="center" style="padding:30px;">Nessuna squadra trovata.</td></tr>`;
+
+            classificaBody.innerHTML = `
+              <tr>
+                <td
+                  colspan="10"
+                  class="center"
+                  style="padding:30px;"
+                >
+                  Nessuna squadra trovata.
+                </td>
+              </tr>
+            `;
+
             return;
+
           }
 
+
           classifica.forEach((team, idx) => {
+
             const pos = idx + 1;
-            let rankHtml = `<span class="rank-normal">${pos}</span>`;
 
-            if (pos === 1) rankHtml = `<span class="rank-medal gold">1</span>`;
-            else if (pos === 2) rankHtml = `<span class="rank-medal silver">2</span>`;
-            else if (pos === 3) rankHtml = `<span class="rank-medal bronze">3</span>`;
 
-            let drClass = "goal-neutral";
-            if (team.differenzaReti > 0) drClass = "goal-positive";
-            else if (team.differenzaReti < 0) drClass = "goal-negative";
+            /* Posizione */
 
-            const tr = document.createElement("tr");
+            let rankHtml =
+              `<span class="rank-normal">${pos}</span>`;
+
+
+            if (pos === 1) {
+
+              rankHtml =
+                `<span class="rank-medal gold">1</span>`;
+
+            }
+
+            else if (pos === 2) {
+
+              rankHtml =
+                `<span class="rank-medal silver">2</span>`;
+
+            }
+
+            else if (pos === 3) {
+
+              rankHtml =
+                `<span class="rank-medal bronze">3</span>`;
+
+            }
+
+
+            /* Differenza reti */
+
+            let drClass =
+              "goal-neutral";
+
+
+            if (team.differenzaReti > 0) {
+
+              drClass =
+                "goal-positive";
+
+            }
+
+            else if (team.differenzaReti < 0) {
+
+              drClass =
+                "goal-negative";
+
+            }
+
+
+            /* Riga */
+
+            const tr =
+              document.createElement("tr");
+
+
             tr.innerHTML = `
-              <td class="center">${rankHtml}</td>
-              <td class="team-name">${escapeHtml(team.nome)}</td>
-              <td class="number">${team.partite}</td>
-              <td class="number">${team.vittorie}</td>
-              <td class="number">${team.pareggi}</td>
-              <td class="number">${team.sconfitte}</td>
-              <td class="number">${team.golFatti}</td>
-              <td class="number">${team.golSubiti}</td>
-              <td class="number goal-difference ${drClass}">${team.differenzaReti > 0 ? '+' : ''}${team.differenzaReti}</td>
-              <td class="points">${team.punti}</td>
+
+              <td class="center">
+                ${rankHtml}
+              </td>
+
+              <td class="team-name">
+                ${escapeHtml(team.nome)}
+              </td>
+
+              <td class="number">
+                ${team.partite}
+              </td>
+
+              <td class="number">
+                ${team.vittorie}
+              </td>
+
+              <td class="number">
+                ${team.pareggi}
+              </td>
+
+              <td class="number">
+                ${team.sconfitte}
+              </td>
+
+              <td class="number">
+                ${team.golFatti}
+              </td>
+
+              <td class="number">
+                ${team.golSubiti}
+              </td>
+
+              <td
+                class="number goal-difference ${drClass}"
+              >
+                ${
+                  team.differenzaReti > 0
+                    ? "+"
+                    : ""
+                }${team.differenzaReti}
+              </td>
+
+              <td class="points">
+                ${team.punti}
+              </td>
+
             `;
+
+
             classificaBody.appendChild(tr);
+
           });
 
-        } catch (err) {
-          console.error(err);
-          classificaBody.innerHTML = `<tr><td colspan="10" class="center" style="padding:30px; color:var(--red);">Errore durante il caricamento dei dati della classifica.</td></tr>`;
+
         }
+
+        catch (err) {
+
+          console.error(
+            "Errore classifica:",
+            err
+          );
+
+
+          classificaBody.innerHTML = `
+
+            <tr>
+
+              <td
+                colspan="10"
+                class="center"
+                style="
+                  padding:30px;
+                  color:var(--red);
+                "
+              >
+
+                Errore durante il caricamento
+                dei dati della classifica.
+
+              </td>
+
+            </tr>
+
+          `;
+
+        }
+
       }
 
+
+      /* =====================================================
+         AVVIO
+      ====================================================== */
+
       caricaClassifica();
+
     });
   </script>
-  
+
 </body>
 </html>
+
