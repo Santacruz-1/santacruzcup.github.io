@@ -1,15 +1,5 @@
 [
   {
-    "id": "M003",
-    "giocatore": "R005",
-    "cognome": "Salvatori",
-    "squadra": "m",
-    "squadra_id": "T002",
-    "squadraId": "T002",
-    "gol": 1,
-    "posizione": 1
-  },
-  {
     "id": "M004",
     "giocatore": "R011",
     "cognome": "cica",
@@ -17,7 +7,7 @@
     "squadra_id": "T003",
     "squadraId": "T003",
     "gol": 0,
-    "posizione": 2
+    "posizione": 1
   },
   {
     "id": "M002",
@@ -27,6 +17,16 @@
     "squadraId": "T002",
     "gol": 0,
     "squadra_id": "T002",
+    "posizione": 2
+  },
+  {
+    "id": "M003",
+    "giocatore": "R005",
+    "cognome": "Salvatori",
+    "squadra": "m",
+    "squadra_id": "T002",
+    "squadraId": "T002",
+    "gol": 0,
     "posizione": 3
   }
 ]
