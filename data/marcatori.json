@@ -1,15 +1,5 @@
 [
   {
-    "id": "M002",
-    "giocatore": "R008",
-    "cognome": "Ferri",
-    "squadra": "m",
-    "squadraId": "T002",
-    "gol": 0,
-    "squadra_id": "T002",
-    "posizione": 1
-  },
-  {
     "id": "M003",
     "giocatore": "R005",
     "cognome": "Salvatori",
@@ -17,6 +7,6 @@
     "squadra_id": "T002",
     "squadraId": "T002",
     "gol": 0,
-    "posizione": 2
+    "posizione": 1
   }
 ]
