@@ -1,15 +1,5 @@
 [
   {
-    "id": "M004",
-    "giocatore": "R011",
-    "cognome": "cica",
-    "squadra": "muraglia",
-    "squadra_id": "T003",
-    "squadraId": "T003",
-    "gol": 3,
-    "posizione": 1
-  },
-  {
     "id": "M003",
     "giocatore": "R005",
     "cognome": "Salvatori",
@@ -17,6 +7,16 @@
     "squadra_id": "T002",
     "squadraId": "T002",
     "gol": 1,
+    "posizione": 1
+  },
+  {
+    "id": "M004",
+    "giocatore": "R011",
+    "cognome": "cica",
+    "squadra": "muraglia",
+    "squadra_id": "T003",
+    "squadraId": "T003",
+    "gol": 0,
     "posizione": 2
   },
   {
