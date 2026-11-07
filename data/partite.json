@@ -1,16 +1,1 @@
-[
-  {
-    "id": "P002",
-    "casa": "muraglia",
-    "casa_id": "T003",
-    "trasferta": "villa ceccolini",
-    "trasferta_id": "T001",
-    "ospite": "villa ceccolini",
-    "data": "27/09/2026",
-    "ora": "22",
-    "stato": "programmata",
-    "risultato": null,
-    "golCasa": null,
-    "golOspite": null
-  }
-]
+[]
